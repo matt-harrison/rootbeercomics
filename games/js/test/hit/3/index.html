@@ -1,0 +1,100 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>triangle hit test</title>
+        <script>
+			window.onload = function(){
+				if(document.getElementById("canvas").getContext){
+					context = document.getElementById("canvas").getContext("2d");
+					
+					controls = {
+						x:25,
+						y:25,
+						width:200,
+						height:200
+					}
+					
+					triangle = {
+						x:controls.x,
+						y:controls.y,
+						width:controls.width/2,
+						height:controls.height,
+						draw:function(){
+							context.beginPath();
+							context.fillStyle = "#ddd";
+							context.moveTo(this.x,this.y);
+							context.lineTo(this.x+this.width,this.y+this.height/2);
+							context.lineTo(this.x,this.y+this.height);
+							context.fill();
+							
+							context.beginPath();
+							context.fillStyle = "#eee";
+							context.moveTo(this.x,this.y+this.height/2);
+							context.lineTo(this.x+this.width,this.y+this.height/2);
+							context.lineTo(this.x,this.y+this.height);
+							context.fill();
+						}
+					}
+					triangle.draw();
+					
+					dot = {
+						x:0,
+						y:0,
+						radius:2,
+						color:"#000",
+						draw:function(){
+							context.beginPath();
+							context.fillStyle = this.color;
+							context.arc(this.x, this.y, this.radius, 0, (Math.PI/180)*360, false); 
+							context.fill();
+						}
+					}
+					
+					diagram = {
+						x:0,
+						y:0,
+						width:0,
+						height:0,
+						draw:function(){
+							context.beginPath();
+							context.strokeStyle = "#0f0";
+							context.moveTo(this.x,this.y);
+							context.lineTo(this.x,this.y+this.height);
+							context.lineTo(this.x+this.width,this.y+this.height);
+							context.closePath();
+							context.stroke();
+						}
+					}
+					
+					canvas.addEventListener("mousedown", function(e){
+						dot.x = e.clientX;
+						dot.y = e.clientY;
+						if(dot.y<=controls.y+controls.height/2){
+							diagram.x = controls.x;
+							diagram.y = controls.y;
+							diagram.height = dot.y-controls.y;
+							diagram.width = diagram.height;
+						}else{
+							diagram.x = controls.x;
+							diagram.y = controls.y+controls.height;
+							diagram.height = dot.y-controls.y-controls.height;
+							diagram.width = Math.abs(diagram.height);
+						}
+						if(dot.x<controls.x || dot.x-controls.x>diagram.width || dot.y>controls.y+controls.height){
+							dot.color = "#f00";
+						}else{
+							dot.color = "#00f";
+						}
+						context.clearRect(0,0,400,400);
+						triangle.draw();
+						diagram.draw();
+						dot.draw();
+					});
+				}
+			}
+		</script>
+    </head>
+    <body style="margin:0;">
+    	<canvas id="canvas" width="400" height="400"></canvas>
+    </body>
+</html>

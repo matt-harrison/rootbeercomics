@@ -1,0 +1,179 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>D-pad mouseclick</title>
+        <script>
+			window.onload = function(){
+				if(document.getElementById("canvas").getContext){
+					context = document.getElementById("canvas").getContext("2d");
+					mousedown = false;
+					
+					controls = {
+						x:25,
+						y:25,
+						width:200,
+						height:200,
+						draw:function(){
+							btnLeft.draw();
+							btnRight.draw();
+							btnUp.draw();
+							btnDown.draw();
+						}
+					}
+					
+					btnLeft = {
+						x:controls.x,
+						y:controls.y,
+						width:controls.width/2,
+						height:controls.height,
+						fill:"#ccc",
+						clicked:false,
+						draw:function(){
+							context.beginPath();
+							if(this.clicked){
+								context.fillStyle = "#aaa";
+							}else{
+								context.fillStyle = this.fill;
+							}
+							context.moveTo(this.x,this.y);
+							context.lineTo(this.x+this.width,this.y+this.height/2);
+							context.lineTo(this.x,this.y+this.height);
+							context.fill();
+						}
+					}
+					
+					btnRight = {
+						x:controls.x+controls.width/2,
+						y:controls.y,
+						width:controls.width/2,
+						height:controls.height,
+						fill:"#ddd",
+						clicked:false,
+						draw:function(){
+							context.beginPath();
+							if(this.clicked){
+								context.fillStyle = "#aaa";
+							}else{
+								context.fillStyle = this.fill;
+							}
+							context.moveTo(this.x+this.width,this.y);
+							context.lineTo(this.x,this.y+this.height/2);
+							context.lineTo(this.x+this.width,this.y+this.height);
+							context.fill();
+						}
+					}
+					
+					btnUp = {
+						x:controls.x,
+						y:controls.y,
+						width:controls.width,
+						height:controls.height/2,
+						fill:"#eee",
+						clicked:false,
+						draw:function(){
+							context.beginPath();
+							if(this.clicked){
+								context.fillStyle = "#aaa";
+							}else{
+								context.fillStyle = this.fill;
+							}
+							context.moveTo(this.x,this.y);
+							context.lineTo(this.x+this.width,this.y);
+							context.lineTo(this.x+this.width/2,this.y+this.height);
+							context.fill();
+						}
+					}
+					
+					btnDown = {
+						x:controls.x,
+						y:controls.y+controls.height/2,
+						width:controls.width,
+						height:controls.height/2,
+						fill:"#bbb",
+						clicked:false,
+						draw:function(){
+							context.beginPath();
+							if(this.clicked){
+								context.fillStyle = "#aaa";
+							}else{
+								context.fillStyle = this.fill;
+							}
+							context.moveTo(this.x,this.y+this.height);
+							context.lineTo(this.x+this.width/2,this.y);
+							context.lineTo(this.x+this.width,this.y+this.height);
+							context.fill();
+						}
+					}
+					
+					canvas.addEventListener("mousedown", function(e){
+						mousedown = true;
+						checkHit(e);
+					});
+					canvas.addEventListener("mousemove", function(e){
+						if(mousedown){
+							checkHit(e);
+						}
+					});
+					canvas.addEventListener("mouseup", function(e){
+						mousedown = false;
+					});
+					
+					//init
+					btnArr = new Array(btnLeft,btnRight,btnUp,btnDown);
+					controls.draw();
+					
+					function checkHit(e){
+						context.clearRect(0,0,400,400);
+						controls.draw();
+						for(var i=0;i<btnArr.length;i++){
+							var triangle = btnArr[i];
+							click_x = e.clientX;
+							click_y = e.clientY;
+							tan_x = triangle.x;
+							if(triangle.width > triangle.height){
+								//up or down button
+								if(click_x<=controls.x+controls.width/2){//top half of controls height
+									tan_width = click_x-triangle.x;
+								}else{
+									tan_width = Math.abs(click_x-triangle.x-triangle.width);
+								}
+								if(triangle.y == controls.y+controls.height/2){//right half of controls width
+									tan_y = triangle.y+triangle.height;
+									click_depth = controls.x+controls.height-click_y;
+									tan_depth = triangle.y+triangle.height-tan_width;
+								}else{
+									click_depth = click_y-controls.y;
+									tan_depth = tan_width;
+								}
+							}else{
+								//left or right button
+								if(click_y<=controls.y+controls.height/2){//top half of controls height
+									tan_width = click_y-triangle.y;
+								}else{
+									tan_width = Math.abs(click_y-triangle.y-triangle.height);
+								}
+								if(triangle.x == controls.x+controls.width/2){//right half of controls width
+									tan_x = triangle.x+triangle.width;
+									click_depth = controls.y+controls.width-click_x;
+									tan_depth = triangle.x+triangle.width-tan_width;
+								}else{
+									click_depth = click_x-controls.x;
+									tan_depth = tan_width;
+								}
+							}
+							if(click_x<triangle.x || click_x>triangle.x+triangle.width || click_y<triangle.y || click_y>triangle.y+triangle.height || click_depth>tan_width){
+								triangle.clicked = false;
+							}else{
+								triangle.clicked = true;
+							}
+							triangle.draw();
+						}
+					}
+				}
+			}
+		</script>
+    </head>
+    <body style="margin:0;">
+    	<canvas id="canvas" width="400" height="400"></canvas>
+    </body>
+</html>

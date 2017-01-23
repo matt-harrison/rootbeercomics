@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+.line:after {content:" x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x"; visibility:hidden; clear:both; height:0 !important; display:block; line-height:0; font-size:xx-large; overflow:hidden;}
+.line {*zoom:1;}
+.unit {float:left;}
+.unitRt {float:right;}
+
+body, div, h3, p, input, button, select {
+	margin:0;
+	border:0;
+	padding:0;
+	font:10pt courier new;
+}
+
+input, button, select {
+	height:30px;
+	line-height:1;
+}
+
+.m10 {margin:10px;}
+.mr10 {margin-right:10px;}
+.mb10 {margin-bottom:10px;}
+.mAuto {margin-right:auto;margin-left:auto;}
+
+.bdrGray {border:1px solid #666;}
+
+.bdrBox {
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+
+.p5 {padding:5px;}
+.pr5 {padding-right:5px;}
+
+.p10 {padding:10px;}
+
+.size1of2 {width:50%;}
+.wFull {width:100%;}
+.w50 {width:50px;}
+.w100 {width:100px;}
+.w300 {width:300px;}
+
+.bold {font-weight:bold;}
+
+.csrPointer {cursor:pointer;}
+
+#fname, #lname {width:115px;}

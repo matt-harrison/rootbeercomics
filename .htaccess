@@ -1,0 +1,47 @@
+# Use PHP5.4 as default
+AddHandler application/x-httpd-php54 .php
+DirectoryIndex index.html.var index.htm index.html index.shtml index.xhtml index.wml index.perl index.pl index.plx index.ppl index.cgi index.jsp index.js index.jp index.php4 index.php3 index.php index.phtml default.htm default.html home.htm index.php5 Default.html Default.htm home.html
+
+Redirect /books       /minicomics
+Redirect /burgg       /projects/burgg
+Redirect /dd          /projects/dd
+Redirect /movies      /projects/burgg
+Redirect /nerd        /projects/nerd
+Redirect /pain        /projects/pain
+Redirect /portfolio   /projects/portfolio
+
+Redirect /demon       /minicomics/demons
+Redirect /demons      /minicomics/demons
+Redirect /favor       /minicomics/favor
+Redirect /ford        /minicomics/ford
+Redirect /happy       /minicomics/happy/1
+Redirect /happy1      /minicomics/happy/1
+Redirect /happy2      /minicomics/happy/2
+Redirect /happy3      /minicomics/happy/3
+Redirect /happy4      /minicomics/happy/4
+Redirect /happy5      /minicomics/happy/5
+Redirect /lincoln     /minicomics/lincoln
+Redirect /potential   /minicomics/potential
+Redirect /rangers     /minicomics/rangers
+Redirect /yearbook    /minicomics/yearbook
+Redirect /hc          /minicomics/harrington/1
+
+Redirect /king        /minicomics/king
+Redirect /kittenberg  /minicomics/kittenberg
+
+Redirect /starwars    /games/js/starwars
+Redirect /skate       /games/js/spriteboard
+
+Redirect /bearpursuit /games/flash/bearpursuit
+Redirect /berrics     /games/flash/berrics
+Redirect /fortfisher  /games/flash/fortfisher
+Redirect /kungfu      /games/flash/kungfu
+Redirect /pacman      /games/flash/pacman
+Redirect /tecmo       /games/flash/tecmo
+Redirect /tetris      /games/flash/mattris
+Redirect /mattris     /games/flash/mattris
+
+Redirect /mybooks     /projects/list/books
+Redirect /mycomics    /projects/list/comics
+Redirect /mymovies    /projects/list/movies
+Redirect /list        /projects/list/calendar

@@ -1,0 +1,104 @@
+.line:after {
+    content    : 'X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X';
+    visibility : hidden;
+    clear      : both;
+    height     : 0 !important;
+    display    : block;
+    line-height: 0;
+    font-size  : xx-large;
+    overflow   : hidden;
+}
+
+body {
+    background-color: gray;
+    font: 14px courier new;
+    line-height: 1.5;
+}
+body, div, h1, h2, h3, img, ul, li {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+h1 {font-size: 24px;}
+h2 {font-size: 18px;}
+hr {
+    margin: 50px 0;
+    border: 0;
+    height: 1px;
+    background-color: #000000;
+}
+img {
+    display: block;
+}
+li {list-style-type: none;}
+p {margin: 0 0 10px 0;}
+a:link, a:visited, a:hover {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.dBlock       {display: block;}
+.dInlineBlock {display: inline-block;}
+
+.auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mt5  {margin-top:     5px;}
+.mt10 {margin-top:    10px;}
+.mb0  {margin-bottom:  0px;}
+.mb5  {margin-bottom:  5px;}
+.mb10 {margin-bottom: 10px;}
+.mb20 {margin-bottom: 20px;}
+.mb50 {margin-bottom: 50px;}
+.ml10 {margin-left:   10px;}
+.ml20 {margin-left:   20px;}
+
+.ml1of2 {margin-left: 50%;}
+
+.bdrBlack {border: 1px solid black;}
+
+.p5   {padding:        5px;}
+.p10  {padding:       10px;}
+.pr50 {padding-right: 50px;}
+.pl50 {padding-left:  50px;}
+
+.w160  {width:  160px;}
+.w200  {width:  200px;}
+.w400  {width:  400px;}
+.w480  {width:  480px;}
+.w500  {width:  500px;}
+.w700  {width:  700px;}
+.w1000 {width: 1000px;}
+
+.size1of2 {width: 50%;}
+.size1of3 {width: 33%;}
+.size2of3 {width: 66%;}
+
+.left {float:   left;}
+.right {float: right;}
+.clear {clear:  both;}
+
+.bgWhite {background-color: white;}
+
+.bold {font-weight:  bold;}
+.ital {font-style: italic;}
+.underline {text-decoration: underline;}
+
+.txtC {text-align: center;}
+.txtR {text-align:  right;}
+
+#page {
+    /* Mimics the 8.5 x 11 typewriter page */
+    padding: 50px 100px 25px;
+    width: 800px;
+}
+
+#header {line-height: 50px;}
+
+#content {min-height: 500px;}
+
+#story, #about {
+    padding: 0 50px;
+}

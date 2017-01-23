@@ -1,0 +1,92 @@
+body{
+	-webkit-user-select:none;
+	margin:0;
+}
+
+.abs {position:absolute;}
+.rel {position:relative;}
+.auto {margin-left:auto;margin-right:auto;}
+.mt40{margin-top:40px;}
+.mr5 {margin-right:5px;}
+.mb5 {margin-bottom:5px;}
+.mb25 {margin-bottom:25px;}
+.ml5 {margin-left:5px;}
+.wFull {width:100%;}
+.w300 {width:300px;}
+.h300 {height:300px;}
+.line:after {content:" x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x"; visibility:hidden; clear:both; height:0 !important; display:block; line-height:0; font-size:xx-large; overflow:hidden; *zoom:1;}
+.unit {float:left;}
+.unitR {float:right;}
+.hide {display:none;}
+.bdrRadius5 {
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.bdrRadius20 {
+	border-radius:20px;
+	-moz-border-radius:20px;
+}
+.bdrRadius50 {
+	border-radius:50px;
+	-moz-border-radius:50px;
+}
+.bgRed {background-color:#f00;}
+.bgRedDown {background-color:#d00;}
+.bgGray {background-color:#666;}
+.bgGrayDown {background-color:#333;}
+
+#container {
+	margin-top:5px;
+	padding:25px;
+	width:300px;
+	border:1px solid #666;
+	background-color:#ccc;
+}
+#stage {
+	border:1px solid #333;
+    background-color:#ffc;
+    overflow:hidden;
+}
+#player {
+    background-image:url('/games/js/test/shoot/gameboy/img/matt.png');
+    background-repeat:no-repeat;
+    background-size:360px 240px;
+    background-position:0 0;
+	left:130px;
+	top:127px;
+    width:40px;
+    height:48px;
+    overflow:hidden;
+}
+#output {
+	border:0;
+	color:#333;
+	background-color:transparent;
+	font-weight:bold;
+}
+
+.bullet{
+    background-color:#f00;
+    width:4px;
+    height:4px;
+}
+.bomb{
+    background-image:url('/games/js/test/shoot/gameboy/img/bomb.png');
+    background-repeat:no-repeat;
+    background-size:360px 56px;
+    background-position:0 0;
+    width:72px;
+    height:56px;
+    overflow:hidden;
+}
+.btnArrow {
+	border:1px solid #333;
+    width:40px;
+    height:40px;
+}
+.btnShoot {
+    margin-top:10px;
+	border:1px solid #900;
+    width:100px;
+	height:100px;
+}

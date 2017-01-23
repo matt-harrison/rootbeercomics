@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+.line:after {content:" x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x"; visibility:hidden; clear:both; height:0 !important; display:block; line-height:0; font-size:xx-large; overflow:hidden;}
+.line {*zoom:1;}
+.unit {float:left;}
+.unitRt {float:right;}
+
+body, div, h3, p, input, select {
+	margin:0;
+	border:0;
+	padding:0;
+	font-family:courier new;
+}
+
+.dBlock {display:block;}
+.hide {display:none;}
+
+.m5 {margin:5px;}
+.mr5 {margin-right:5px;}
+.m10 {margin:10px;}
+.mb5 {margin-bottom:5px;}
+.mb10 {margin-bottom:10px;}
+.mAuto {margin-right:auto;margin-left:auto;}
+
+.bdrBox {
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+.bdrBlack {border:1px solid #000;}
+.bdrLtBrown bdrRound {border:1px solid #999;}
+.bdrBlue {border:1px solid #66f;}
+
+.p5 {padding:5px;}
+.pr5 {padding-right:5px;}
+.pl5 {padding-left:5px;}
+.pr10 {padding-right:10px;}
+.p10 {padding:10px;}
+
+.size1of2 {width:50%;}
+.wFull {width:100%;}
+.w100 {width:100px;}
+.w300 {width:300px;}
+.w360 {width:360px;}
+
+.bold {font-weight:bold;}
+
+.csrPointer {cursor:pointer;}
+
+.rndBox5 {
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+#match {
+	width:600px;
+}
