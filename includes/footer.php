@@ -1,6 +1,9 @@
 		</div>
 		<div id="footer">
-			<div class="line mAuto p10 w1000 bdrBox bgWhite">
+			<div class="line mAuto p10 bdrBox bgWhite">
+				<div id="copyright" class="unit size1of3 bdrBox mobile">
+					<span>Copyright © <?= date('Y'); ?> Matt Harrison</span>
+				</div>
 				<?php if (isset($_COOKIE['username'])) { ?>
 					<div id="login" class="unit size1of3 bdrBox mobile">
 						<a href="/login/"><?= $_COOKIE['username']; ?></a><br/>
@@ -16,16 +19,11 @@
 						<?php } ?>
 					</div>
 				<?php } else { ?>
-					<div id="login" class="unit size1of3 bdrBox mobile">
-						<a href="/login/" target="_blank">sign in</a>
-					</div>
+					<div class="unit size1of3 bdrBox mobile">&nbsp;</div>
 				<?php } ?>
-				<div id="copyright" class="unit size1of3 bdrBox txtC mobile">
-					<span>Copyright © <?= date('Y'); ?> Matt Harrison</span>
-				</div>
 				<div id="social" class="unit size1of3 bdrBox txtR mobile">
-					<a href="http://www.facebook.com/rootbeercomics" target="_blank">facebook</a>
-					<a href="http://www.twitter.com/rootbeercomics" target="_blank">twitter</a>
+					<a href="http://www.facebook.com/rootbeercomics" target="_blank" class="mr20">facebook</a>
+					<a href="http://www.twitter.com/rootbeercomics" target="_blank" class="mr20">twitter</a>
 					<a href="http://www.rootbeercomics.tumblr.com" target="_blank">tumblr</a>
 				</div>
 			</div>

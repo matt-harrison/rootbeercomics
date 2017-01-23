@@ -3,8 +3,8 @@ function checkUser(){
 	$con = mysql_connect('localhost', 'kittenb1_matt', 'uncannyx0545');
 	mysql_select_db('kittenb1_users', $con);
 	$result = mysql_query("SELECT * FROM login WHERE username='$_POST[username]'", $con);
-	$num = mysql_num_rows($result); 
-	if($num == 0) { 
+	$num = mysql_num_rows($result);
+	if($num == 0) {
 		echo ('that username does not exist.');
 	} else {
 		while($row = mysql_fetch_array($result)){
@@ -44,17 +44,17 @@ function storeUser(){
 					showRegister();
 				} else {
 					$result = mysql_query("SELECT * FROM login WHERE username='$_POST[username]'", $con);
-					$num = mysql_num_rows($result); 
-					if ($num != 0) { 
+					$num = mysql_num_rows($result);
+					if ($num != 0) {
 						echo ('that username already exists.');
 						showRegister();
 					} else {
 						$result = mysql_query("SELECT * FROM login WHERE email='$_POST[email]'", $con);
-						$num = mysql_num_rows($result); 
-						if ($num != 0) { 
+						$num = mysql_num_rows($result);
+						if ($num != 0) {
 							echo ('that email address is already registered.');
 							showRegister();
-						} else { 
+						} else {
 							$sql="INSERT INTO login (username, fname, lname, password, email)
 							VALUES
 							('$_POST[username]', '$_POST[fname]', '$_POST[lname]', '$_POST[password1]', '$_POST[email]')";
@@ -96,7 +96,7 @@ function submitCookie(){
 	setcookie('username', $_POST['username'], $expire, '/');
 	header('Location: index.php');
 }
-?> 
+?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <?php if(isset($_COOKIE['username'])){ ?>
 	<?php if($_GET['f'] == 'out'){ ?>
