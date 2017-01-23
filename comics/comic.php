@@ -51,33 +51,17 @@ if ($comic['tags'] != NULL) {
 			<?php } ?>
 		<?php } ?>
 		<?php if ($comic['body'] != '') { ?>
-			<p><?= $comic['body']; ?></p>
+			<p class="mb0"><?= $comic['body']; ?></p>
 		<?php } ?>
-		<p class="line mt10">
-			<?php if ($comic['colorLink'] != '' || ($comic['bw'] != '' && $comic['color'] != '')) { ?>
-				<span class="unit size1of2 hideOnMobile">
-					<?php if ($comic['colorLink'] != '') { ?>
-						<a href="<?= $comic['colorLink']; ?>" target="_blank" class="mt10">view full size</a>
-					<?php } ?>
-					<?php if ($comic['bw'] != '' && $comic['colorLink'] != '') { ?>
-						<span> | </span>
-					<?php } ?>
-					<?php if ($comic['bw'] != '' && $comic['color'] != '') { ?>
-						<a id="bwLink<?= $comic['uniqueID']; ?>" href="javascript:toggle(<?= $comic['uniqueID']; ?>, 'bw');">view original</a>
-						<a id="colorLink<?= $comic['uniqueID']; ?>" href="javascript:toggle(<?= $comic['uniqueID']; ?>, 'color');" class="hide">view final</a>
-					<?php } ?>
-				</span>
-			<?php } ?>
-			<?php if (sizeof($tagArr) > 0) { ?>
-				<span class="unitR size1of2 txtR tags">
-					<span>tags: </span>
-					<?php for ($i=0; $i<sizeof($tagArr); $i++) { ?>
-						<?php $tagLink = str_replace(' ', '%20', $tagArr[$i]); ?>
-						<a href="/search?tag=<?= $tagLink; ?>"><?= $tagArr[$i]; ?></a><?= ($i != sizeof($tagArr)-1) ? ', ' : ''; ?>
-					<?php } ?>
-				</span>
-			<?php } ?>
-		</p>
+		<?php if (sizeof($tagArr) > 0) { ?>
+			<p class="line mt10 mb0">
+				<span>tags: </span>
+				<?php for ($i=0; $i<sizeof($tagArr); $i++) { ?>
+					<?php $tagLink = str_replace(' ', '%20', $tagArr[$i]); ?>
+					<a href="/search?tag=<?= $tagLink; ?>"><?= $tagArr[$i]; ?></a><?= ($i != sizeof($tagArr)-1) ? ', ' : ''; ?>
+				<?php } ?>
+			</p>
+		<?php } ?>
 	</div>
 <?php } ?>
 <?php if ($_COOKIE['username'] == 'matt!' & $records == 1) { ?>

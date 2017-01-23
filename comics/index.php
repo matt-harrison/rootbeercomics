@@ -37,7 +37,7 @@ if ($records == 1) {
     $comics = mysql_query("SELECT *, DATEDIFF('$today', date) AS diff, UNIX_TIMESTAMP(date) AS utime FROM comics WHERE uniqueID BETWEEN $lastPage AND $page ORDER BY uniqueID DESC", $con);
     while ($comic = mysql_fetch_array($comics)){
         if($comic['diff'] >= 0){
-            include($_SERVER['DOCUMENT_ROOT'] . '/includes/comic.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/comics/comic.php');
         }
     }
     include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');

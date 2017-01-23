@@ -33,7 +33,7 @@ if(!isset($img)){
 					</a>
 				</div>
 				<a href="/comics" class="dBlock mr20 pt30 pb25 navLink">
-					<img src="/images/nav/caps/webcomics.png" alt="webcomics" class="mAuto"/>
+					<img src="/images/nav/caps/comics.png" alt="comics" class="mAuto"/>
 				</a>
 				<a href="/blog/" class="dBlock mr20 pt30 pb25 navLink">
 					<img src="/images/nav/caps/drawings.png" alt="drawings" class="mAuto"/>

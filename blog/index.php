@@ -18,7 +18,7 @@ if ($records == 1) {
 	include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
 
 	foreach ($data as $post) {
-		include($_SERVER['DOCUMENT_ROOT'] . '/includes/post.php');
+		include($_SERVER['DOCUMENT_ROOT'] . '/blog/post.php');
 	}
 
 	include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');

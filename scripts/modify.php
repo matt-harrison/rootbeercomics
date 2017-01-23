@@ -1,35 +1,33 @@
 <?php
 $title = 'modify database records';
+$table = 'blog';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<div id="updates" class="mAuto mb20 bdrLtBrown bdrRound p10 bdrBox w900 bgWhite">
+<div id="updates" class="mAuto mb20 bdrBlack p10 bdrBox w900 bgWhite">
     <?php
     $updateCount = 0;
     $con = mysql_connect('localhost', 'kittenb1_matt', 'uncannyx0545');
     mysql_select_db('kittenb1_main', $con);
-    $updates = mysql_query("SELECT * FROM comics ORDER BY uniqueID ASC", $con);
+    $updates = mysql_query("SELECT * FROM $table ORDER BY uniqueID ASC", $con);
     while ($update = mysql_fetch_array($updates)) {
-        $id        = $update['uniqueID'];
-        $title     = $update['title'];
-        $body      = $update['body'];
-        $caption   = $update['caption'];
+        $id   = $update['uniqueID'];
+        $body = $update['body'];
+        $images = array();
 
-        $color     = $update['color'];
-        $colorLink = $update['colorLink'];
-        $bw        = $update['bw'];
-        $bwLink    = $update['bwLink'];
-        $thumb     = $update['thumb'];
+        preg_match_all("/<img src=\"([^\"]+)\"/", $body, $results);
 
-        //Update the content.
-        $color     = str_replace('http://www.rootbeercomics.com/', '/', $color);
+        foreach ($results[1] as $result) {
+            $images[] = $result;
+        }
 
-        if (empty($body)) {
-            $body = $caption;
+        $images = implode(',', $images);
+
+        if (empty($update['images']) && !empty($images)) {
             //Perform the query.
-            //$result = mysql_query("UPDATE comics SET body=$body WHERE uniqueID=$id");
+            //$result = mysql_query("UPDATE blog SET images = '$images' WHERE uniqueID = $id");
 
             //Display results.
-            echo $id . ': ' . $body . '<br/><br/>';
+            echo $id . ': ' . $images . '<br/><br/>';
 
             $updateCount++;
         }

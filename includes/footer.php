@@ -22,6 +22,7 @@
 					<div class="unit size1of3 bdrBox mobile">&nbsp;</div>
 				<?php } ?>
 				<div id="social" class="unit size1of3 bdrBox txtR mobile">
+					<a href="http://www.instagram.com/rootbeercomics" target="_blank" class="mr20">instagram</a>
 					<a href="http://www.facebook.com/rootbeercomics" target="_blank" class="mr20">facebook</a>
 					<a href="http://www.twitter.com/rootbeercomics" target="_blank" class="mr20">twitter</a>
 					<a href="http://www.rootbeercomics.tumblr.com" target="_blank">tumblr</a>

@@ -1,3 +1,16 @@
+<?php
+$page = $_GET['page'];
+
+if ($page == '') {
+	$start = $first;
+	$end   = $last;
+} else {
+	$start = $page;
+	$end   = $page;
+}
+$prev = $start - 1;
+$next = $start + 1;
+?>
 <!doctype html>
 <html>
 	<head>
@@ -25,7 +38,7 @@
 			<?php if ($start != $end) { ?>
 				<a href="index.php?page=<?= $first; ?>" class="p10">page by page</a>
 			<?php } else { ?>
-				<a href="index.php?page=full" class="p10">view all</a>
+				<a href="index.php" class="p10">view all</a>
 			<?php } ?>
 			<?php if ($start == $end && $next <= $last) { ?>
 				<a href="index.php?page=<?= $next; ?>" class="p10">&gt;</a>
@@ -33,7 +46,7 @@
 			</div>
 		</div>
 		<div id="comic">
-			<?php for($i = $start; $i <= $end; $i++){ ?>
+			<?php for ($i = $start; $i <= $end; $i++) { ?>
 				<img src="img/<?= $book; ?><?= $i ?>.jpg" class="mAuto mb5"/>
 			<?php } ?>
 		</div>
@@ -48,7 +61,7 @@
 			<?php if ($start != $end) { ?>
 				<a href="index.php?page=<?= $first; ?>" class="p10">page by page</a>
 			<?php } else { ?>
-				<a href="index.php?page=full" class="p10">view all</a>
+				<a href="index.php" class="p10">view all</a>
 			<?php } ?>
 			<?php if ($start == $end && $next <= $last) { ?>
 				<a href="index.php?page=<?= $next; ?>" class="p10">&gt;</a>
