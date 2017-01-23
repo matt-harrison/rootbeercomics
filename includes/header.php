@@ -26,23 +26,26 @@ if(!isset($img)){
 	</head>
 	<body class="m5">
 		<div id="header" class="mb10 wFull">
-			<div class="line mAuto w1000">
-				<div id="logo" class="unit size1of5">
+			<div id="nav" class="m10 flex spaceBetween wrap">
+				<div id="logo" class="mr20">
 					<a href="/">
 						<img src="/images/nav/scribble/rootbeercomics.png" alt="home"/>
 					</a>
 				</div>
-				<a href="/comics" class="dBlock unit size1of5 pt25 pb25 navLink">
-					<img src="/images/nav/scribble/comics.png" alt="comics" class="mAuto"/>
+				<a href="/comics" class="dBlock mr20 pt30 pb25 navLink">
+					<img src="/images/nav/caps/webcomics.png" alt="webcomics" class="mAuto"/>
 				</a>
-				<a href="/blog/" class="dBlock unit size1of5 pt25 pb25 navLink">
-					<img src="/images/nav/scribble/blog.png" alt="blog" class="mAuto"/>
+				<a href="/blog/" class="dBlock mr20 pt30 pb25 navLink">
+					<img src="/images/nav/caps/drawings.png" alt="drawings" class="mAuto"/>
 				</a>
-				<a href="/minicomics/" class="dBlock unit size1of5 pt25 pb25 navLink">
-					<img src="/images/nav/scribble/books.png" alt="books" class="mAuto"/>
+				<a href="/minicomics/" class="dBlock mr20 pt30 pb25 navLink">
+					<img src="/images/nav/caps/books.png" alt="books" class="mAuto"/>
 				</a>
-				<div class="dBlock unit size1of5 pt25 pb25 navLink csrPointer">
-					<img id="btnShowSearch" src="/images/nav/scribble/search.png" alt="search" class="mAuto"/>
+				<a href="http://rootbeercomics.storenvy.com" class="dBlock mr20 pt30 pb25 navLink">
+					<img src="/images/nav/caps/store.png" alt="store" class="mAuto"/>
+				</a>
+				<div class="dBlock pt30 pb25 navLink csrPointer">
+					<img id="btnShowSearch" src="/images/nav/caps/search.png" alt="search" class="mAuto"/>
 				</div>
 			</div>
 			<form id="searchNav" enctype="multipart/form-data" method="GET" action="/search" class="line mAuto mb1 w1000<?= ($showSearch) ? '' : ' hide'; ?>">

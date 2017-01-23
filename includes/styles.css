@@ -1,13 +1,12 @@
 @charset "utf-8";
 /* GRID */
-.line:after,.unitF:after {content:" X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X "; visibility: hidden; clear: both; height: 0!important; display: block; line-height: 0; font-size: xx-large; overflow: hidden;}
+.line:after, .unitF:after {content:" X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X "; visibility: hidden; clear: both; height: 0!important; display: block; line-height: 0; font-size: xx-large; overflow: hidden;}
 .line {*zoom: 1;}
-.unit {float: left; _display: inline;}
+.unit  {float: left; _display: inline;}
 .unitR {float: right;}
 .unitF {display: table-cell; *display: block; *zoom: 1; float: none; _position: relative; _left: -3px; _margin-right: -3px; width: auto; _overflow: hidden;}
 
 .flex {
-    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
 }
@@ -15,6 +14,11 @@
 .spaceBetween {
     -webkit-justify-content: space-between;
     justify-content        : space-between;
+}
+
+.wrap {
+    flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .bsBorder, .bdrBox {
@@ -143,6 +147,7 @@ input {display: block;}
     .pt15 {padding-top: 15px;}
     .pt15 {padding-top: 15px;}
     .pt25 {padding-top: 25px;}
+    .pt30 {padding-top: 30px;}
     .p20 {padding: 20px;}
     .pt20 {padding-top: 20px;}
     .pb20 {padding-bottom: 20px;}
@@ -226,7 +231,6 @@ input {display: block;}
 }
 .post img {margin-bottom: 10px;}
 @media (max-width: 1030px) {
-
     h1, h2, h3 {
         font-weight: bold;
         font-size: 16px;
@@ -237,24 +241,9 @@ input {display: block;}
     .hideOnMobile {display: none;}
     .showOnMobile {display: initial;}
 
-    #heading {display: none;}
-    #logo {
-        width: 100%;
-    }
-
-    #logo img {
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    #header #nav, #login, #copyright, #social, .tags {
+    #login, #copyright, #social, .tags {
         width: 100%;
         text-align: left;
-    }
-
-    #header .navLink {
-        padding: 0;
-        width: 25%;
     }
 
     #archive > .unit {
