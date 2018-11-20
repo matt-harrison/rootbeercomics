@@ -1,1 +1,7 @@
-/.sftp-config.json
+# Sensitive
+sftp-config.json
+
+# Images
+*.gif
+*.jpg
+*.png
