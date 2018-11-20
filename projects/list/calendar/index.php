@@ -108,7 +108,7 @@
                 }
                 #heading, .empty {display: none;}
                 #calendar {padding: 5px;}
-                
+
                 .emptyBox {display: none;}
             }
         </style>

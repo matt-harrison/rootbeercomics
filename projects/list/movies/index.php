@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<meta property="og:title" content="matt's movies, by matt!"/>
-		<meta property="og:image" content="http://www.kittenberg.com/images/matt.jpg"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<meta property="og:title" content="movies matt has seen"/>
+		<meta property="og:image" content="http://www.rootbeercomics.com/images/matt.jpg"/>
 		<meta property="og:description" content="movie watching log, by matt harrison."/>
-		<meta property="og:url" content="http://www.kittenberg.com/projects/movies/index.php"/>
-		<title>matt's movies</title>
+		<meta property="og:url" content="http://www.rootbeercomics.com/projects/movies/index.php"/>
+		<title>movies matt has seen</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js/movies.js"></script>
 		<style>
@@ -17,7 +17,7 @@
 			.line {*zoom:1;}
 			.unit {float:left;}
 			.unitRt {float:right;}
-			
+
 			body, div, h3, p, input, button, select, fieldset {
 				display:block;
 				margin:0;
@@ -25,7 +25,7 @@
 				padding:0;
 				font:10pt courier new;
 			}
-			
+
 			input[type="text"], button, select {
 				height:30px;
 				line-height:1;
@@ -36,14 +36,14 @@
 			.mb5 {margin-bottom:5px;}
 			.ml5 {margin-left:5px;}
 			.mAuto {margin-right:auto; margin-left:auto;}
-			
+
 			.bdrBox {
 				box-sizing:border-box;
 				-webkit-box-sizing:border-box;
 				-moz-box-sizing:border-box;
 			}
 			.bdrGray {border:1px solid #666;}
-			
+
 			.p5 {padding:5px;}
 
 			.size1of5 {width: 20%;}
@@ -51,11 +51,11 @@
 			.size1of3 {width: calc(33.33% - 5px);}
 			.wFull {width:100%;}
 			.w500 {max-width:500px;}
-			
+
 			.bold {font-weight:bold;}
 			.csrPointer {cursor:pointer;}
 			.txtC {text-align:center;}
-			
+
 			#date {
 				width: calc(100% - 30px);
 			}
@@ -68,8 +68,8 @@
 	</head>
 	<body class="m5">
 		<div class="mAuto w500">
-			<p class="bold">movies i've seen</p>
-			<?php if(isset($_COOKIE['username']) && $_COOKIE['username'] == 'matt!'){ ?>
+			<p class="bold">movies matt has seen</p>
+			<?php if (isset($_COOKIE['username']) && $_COOKIE['username'] == 'matt!') { ?>
 				<form class="line mb5">
 					<fieldset class="unit size4of5 mr5">
 						<input type="text" id="title" name="title" placeholder="title" value="" class="mr5 mb5 bdrGray p5 wFull bdrBox"/>

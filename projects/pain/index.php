@@ -1,18 +1,18 @@
 <?php
-$table = 'pain';
-$page = (isset($_GET['id'])) ? $_GET['id'] : null;
+$table   = 'pain';
+$page    = (isset($_GET['id'])) ? $_GET['id'] : null;
 $records = (isset($_GET['records'])) ? $_GET['records'] : 1;
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php');
 
 $title = 'the website of pain archive';
-$desc = 'an archive of the defunct website of pain, preserved by matt harrison.';
+$desc  = 'an archive of the defunct website of pain, preserved by matt harrison.';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="mAuto w1000">
-	<?php 
+	<?php
 	include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
-	foreach ($data as $pain) {
-		include($_SERVER['DOCUMENT_ROOT'] . '/includes/pain.php');
+	foreach ($rows as $row) {
+		include($_SERVER['DOCUMENT_ROOT'] . '/projects/pain/pain.php');
 	}
 	include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
 	?>

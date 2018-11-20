@@ -3088,13 +3088,6 @@
       "first": false
     },
     {
-      "title": "raw power",
-      "month": "1",
-      "day": "2",
-      "year": "2017",
-      "first": true
-    },
-    {
       "title": "harry potter and the goblet of fire",
       "month": "1",
       "day": "2",
@@ -3113,6 +3106,1721 @@
       "month": "1",
       "day": "4",
       "year": "2017",
+      "first": false
+    },
+    {
+      "title": "the color of money",
+      "month": "1",
+      "day": "6",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "harry potter and the deathly hallows, part 1",
+      "month": "1",
+      "day": "7",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "harry potter and the deathly hallows, part 2",
+      "month": "1",
+      "day": "7",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "innerspace",
+      "month": "1",
+      "day": "8",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "percy jackson and the olympians: the lightning thief",
+      "month": "1",
+      "day": "9",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "whiplash",
+      "month": "1",
+      "day": "9",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "joshy",
+      "month": "1",
+      "day": "10",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "straight outta compton",
+      "month": "1",
+      "day": "13",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "junior",
+      "month": "1",
+      "day": "14",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the hidden",
+      "month": "1",
+      "day": "15",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "repo man",
+      "month": "1",
+      "day": "15",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "obama: the price of hope",
+      "month": "1",
+      "day": "16",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "fanatastic four",
+      "month": "1",
+      "day": "20",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "wonder women",
+      "month": "1",
+      "day": "20",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "empire records",
+      "month": "1",
+      "day": "27",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "the founder",
+      "month": "1",
+      "day": "28",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "can't hardly wait",
+      "month": "1",
+      "day": "31",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "macgruber",
+      "month": "2",
+      "day": "3",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "a scanner darkly",
+      "month": "2",
+      "day": "4",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "condorman",
+      "month": "2",
+      "day": "4",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "super fuzz",
+      "month": "2",
+      "day": "5",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "blade runner",
+      "month": "2",
+      "day": "10",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "the land before time",
+      "month": "2",
+      "day": "11",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "solarbabies",
+      "month": "2",
+      "day": "11",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "hercules",
+      "month": "2",
+      "day": "11",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "one fine day",
+      "month": "2",
+      "day": "13",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "clueless",
+      "month": "2",
+      "day": "18",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "the chase",
+      "month": "2",
+      "day": "18",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "spaceballs",
+      "month": "2",
+      "day": "19",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "whip it",
+      "month": "2",
+      "day": "21",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "risky business",
+      "month": "3",
+      "day": "3",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "captain america: civil war",
+      "month": "3",
+      "day": "3",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "victoria",
+      "month": "3",
+      "day": "4",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "tickled",
+      "month": "3",
+      "day": "8",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "predator 2",
+      "month": "3",
+      "day": "9",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "get out",
+      "month": "3",
+      "day": "10",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "doctor strange",
+      "month": "3",
+      "day": "10",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "don't think twice",
+      "month": "3",
+      "day": "11",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "catfish",
+      "month": "3",
+      "day": "11",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "twister",
+      "month": "3",
+      "day": "18",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "reservoir dogs",
+      "month": "3",
+      "day": "25",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "real genius",
+      "month": "3",
+      "day": "25",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "congo",
+      "month": "3",
+      "day": "30",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "fantastic beasts and where to find them",
+      "month": "4",
+      "day": "3",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "it follows",
+      "month": "4",
+      "day": "5",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "moonlight",
+      "month": "4",
+      "day": "8",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "stay tuned",
+      "month": "4",
+      "day": "8",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "fast five",
+      "month": "4",
+      "day": "14",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "one flew over the cuckoo's nest",
+      "month": "4",
+      "day": "21",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "the perks of being a wallflower",
+      "month": "4",
+      "day": "22",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "tower",
+      "month": "4",
+      "day": "25",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "spaceballs",
+      "month": "5",
+      "day": "5",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "batman and bill",
+      "month": "5",
+      "day": "7",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "do the right thing",
+      "month": "5",
+      "day": "13",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "guardians of the galaxy vol. 2",
+      "month": "5",
+      "day": "13",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "donnie darko",
+      "month": "5",
+      "day": "19",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "spawn",
+      "month": "5",
+      "day": "26",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "anomalisa",
+      "month": "5",
+      "day": "27",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "end of days",
+      "month": "5",
+      "day": "28",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "robocop 2",
+      "month": "6",
+      "day": "1",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "monster",
+      "month": "6",
+      "day": "4",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "tombstone",
+      "month": "6",
+      "day": "4",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "alien: covenant",
+      "month": "6",
+      "day": "9",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "wonder woman",
+      "month": "6",
+      "day": "10",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "red planet",
+      "month": "6",
+      "day": "10",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "101 dalmations",
+      "month": "6",
+      "day": "11",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "baby driver",
+      "month": "6",
+      "day": "28",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "glow",
+      "month": "7",
+      "day": "3",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "trolls",
+      "month": "7",
+      "day": "8",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "spider-man: homecoming",
+      "month": "7",
+      "day": "9",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "popstar",
+      "month": "7",
+      "day": "14",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "mommy dead and dearest",
+      "month": "7",
+      "day": "20",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "flash gordon",
+      "month": "7",
+      "day": "21",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "dunkirk",
+      "month": "7",
+      "day": "22",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "weiner",
+      "month": "7",
+      "day": "23",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "where to invade next",
+      "month": "7",
+      "day": "26",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the lobster",
+      "month": "7",
+      "day": "27",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "storks",
+      "month": "7",
+      "day": "28",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "clue",
+      "month": "7",
+      "day": "28",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "muppet treasure island",
+      "month": "8",
+      "day": "2",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "boogie nights",
+      "month": "8",
+      "day": "5",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "david brent: life on the road",
+      "month": "8",
+      "day": "15",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "brigsby bear",
+      "month": "8",
+      "day": "19",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "power rangers",
+      "month": "8",
+      "day": "20",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "day of the dead",
+      "month": "8",
+      "day": "22",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "dumb: the story of big brother magazine",
+      "month": "8",
+      "day": "25",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "peggy sue got married",
+      "month": "8",
+      "day": "26",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "silverado",
+      "month": "8",
+      "day": "28",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "bonnie and clyde",
+      "month": "8",
+      "day": "29",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the dirty dozen",
+      "month": "8",
+      "day": "30",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the blues brothers",
+      "month": "8",
+      "day": "30",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "blind fury",
+      "month": "8",
+      "day": "30",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the devil and daniel johnston",
+      "month": "9",
+      "day": "1",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "colossal",
+      "month": "9",
+      "day": "1",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "true grit",
+      "month": "9",
+      "day": "2",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "it's a mad mad mad mad world",
+      "month": "9",
+      "day": "2",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "kelly's heroes",
+      "month": "9",
+      "day": "3",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the howling",
+      "month": "9",
+      "day": "5",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the howling ii: your sister is a werewolf",
+      "month": "9",
+      "day": "6",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the maltese falcon",
+      "month": "9",
+      "day": "7",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the room",
+      "month": "9",
+      "day": "7",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "clue",
+      "month": "9",
+      "day": "8",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "hardcore norfolk",
+      "month": "9",
+      "day": "10",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the thing",
+      "month": "9",
+      "day": "10",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "young mr. lincoln",
+      "month": "9",
+      "day": "12",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the wild bunch",
+      "month": "9",
+      "day": "14",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the man who shot liberty valance",
+      "month": "9",
+      "day": "14",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the talented mr. ripley",
+      "month": "9",
+      "day": "23",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "evil dead ii",
+      "month": "9",
+      "day": "23",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "christine",
+      "month": "9",
+      "day": "24",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "a nightmare on elm street 2: freddy's revenge",
+      "month": "9",
+      "day": "26",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "suspiria",
+      "month": "9",
+      "day": "29",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "a nightmare on elm street",
+      "month": "10",
+      "day": "7",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "trancers",
+      "month": "10",
+      "day": "8",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "a nightmare on elm street 3: dream warriors",
+      "month": "10",
+      "day": "8",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "friday the 13th part iv: the final chapter",
+      "month": "10",
+      "day": "13",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "friday the 13th part v: a new beginning",
+      "month": "10",
+      "day": "13",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "phantasm",
+      "month": "10",
+      "day": "14",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "evil dead ii",
+      "month": "10",
+      "day": "20",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "sausage party",
+      "month": "10",
+      "day": "21",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "too funny to fail",
+      "month": "10",
+      "day": "28",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the big sick",
+      "month": "11",
+      "day": "17",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the room",
+      "month": "11",
+      "day": "18",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "jim & andy",
+      "month": "11",
+      "day": "19",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "my friend dahmer",
+      "month": "11",
+      "day": "24",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "landline",
+      "month": "11",
+      "day": "25",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the dark tower",
+      "month": "11",
+      "day": "26",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the 13th warrior",
+      "month": "12",
+      "day": "3",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "beowulf",
+      "month": "12",
+      "day": "3",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "the big sick",
+      "month": "12",
+      "day": "3",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "basic instinct",
+      "month": "12",
+      "day": "6",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "obit.",
+      "month": "12",
+      "day": "6",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "comic book confidential",
+      "month": "12",
+      "day": "6",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "lady bird",
+      "month": "12",
+      "day": "9",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "star wars, episode viii: the last jedi",
+      "month": "12",
+      "day": "15",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the man who wasn’t there",
+      "month": "12",
+      "day": "15",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "homeward bound",
+      "month": "12",
+      "day": "17",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "murder on the orient express",
+      "month": "12",
+      "day": "17",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "showgirls",
+      "month": "12",
+      "day": "18",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the brothers bloom",
+      "month": "12",
+      "day": "19",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "jumanji: welcome to the jungle",
+      "month": "12",
+      "day": "22",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "the mirror crack’d",
+      "month": "12",
+      "day": "23",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "star wars, episode viii: the last jedi",
+      "month": "12",
+      "day": "23",
+      "year": "2017",
+      "first": false
+    },
+    {
+      "title": "handsome",
+      "month": "12",
+      "day": "29",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "sunset boulevard",
+      "month": "12",
+      "day": "29",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "lifeboat",
+      "month": "12",
+      "day": "29",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "before sunrise",
+      "month": "12",
+      "day": "30",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "before sunset",
+      "month": "12",
+      "day": "31",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "before midnight",
+      "month": "12",
+      "day": "31",
+      "year": "2017",
+      "first": true
+    },
+    {
+      "title": "frances ha",
+      "month": "1",
+      "day": "1",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "boyhood",
+      "month": "1",
+      "day": "3",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the meyerowitz stories",
+      "month": "1",
+      "day": "4",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "funny people",
+      "month": "1",
+      "day": "5",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "starship troopers",
+      "month": "1",
+      "day": "6",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "st. vincent",
+      "month": "1",
+      "day": "9",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "art show bingo",
+      "month": "1",
+      "day": "10",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "tombstone",
+      "month": "1",
+      "day": "13",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "the sandlot",
+      "month": "1",
+      "day": "13",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "outlander",
+      "month": "1",
+      "day": "14",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "kung fu panda",
+      "month": "1",
+      "day": "15",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "the thing",
+      "month": "1",
+      "day": "19",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "nerdland",
+      "month": "1",
+      "day": "20",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "logan",
+      "month": "1",
+      "day": "22",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "machete",
+      "month": "1",
+      "day": "26",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "drop dead gorgeous",
+      "month": "1",
+      "day": "28",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "l.a. story",
+      "month": "1",
+      "day": "30",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "blade runner 2049",
+      "month": "2",
+      "day": "12",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the cloverfield paradox",
+      "month": "2",
+      "day": "15",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "a futile and stupid gesture",
+      "month": "2",
+      "day": "16",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "black panther",
+      "month": "2",
+      "day": "17",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "bright",
+      "month": "2",
+      "day": "18",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "suicide squad, extended edition",
+      "month": "2",
+      "day": "18",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "my entire high school sinking into the sea",
+      "month": "2",
+      "day": "19",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "annihilation",
+      "month": "2",
+      "day": "24",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "creed",
+      "month": "2",
+      "day": "25",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "fruitvale station",
+      "month": "2",
+      "day": "25",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "valerian and the city of a thousand planets",
+      "month": "2",
+      "day": "25",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "silence",
+      "month": "2",
+      "day": "25",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the disaster artist",
+      "month": "3",
+      "day": "6",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "thor: ragnarok",
+      "month": "3",
+      "day": "9",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "casino",
+      "month": "3",
+      "day": "12",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "slc punk 2",
+      "month": "3",
+      "day": "12",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "nymphomaniac: volume 1",
+      "month": "3",
+      "day": "12",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "nymphomaniac: volume 2",
+      "month": "3",
+      "day": "14",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "justice league",
+      "month": "3",
+      "day": "17",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "eyes wide shut",
+      "month": "3",
+      "day": "17",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "i don’t feel at home in this world anymore",
+      "month": "3",
+      "day": "18",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "1922",
+      "month": "3",
+      "day": "22",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "tombstone",
+      "month": "3",
+      "day": "23",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "full metal jacket",
+      "month": "3",
+      "day": "25",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "comedian",
+      "month": "3",
+      "day": "25",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "downsizing",
+      "month": "4",
+      "day": "2",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "a quiet place",
+      "month": "4",
+      "day": "5",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "andre the giant",
+      "month": "4",
+      "day": "12",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "isle of dogs",
+      "month": "4",
+      "day": "14",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "heavy metal",
+      "month": "4",
+      "day": "20",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "avengers: infinity war",
+      "month": "4",
+      "day": "29",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "moby dick",
+      "month": "5",
+      "day": "8",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "shrek",
+      "month": "5",
+      "day": "13",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "krull",
+      "month": "5",
+      "day": "14",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the terminator",
+      "month": "5",
+      "day": "18",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "starship troopers 2: hero of the federation",
+      "month": "5",
+      "day": "25",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "starship troopers 3: marauders",
+      "month": "5",
+      "day": "26",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the long kiss goodnight",
+      "month": "5",
+      "day": "26",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "willow",
+      "month": "6",
+      "day": "1",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "cargo",
+      "month": "6",
+      "day": "3",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "roxanne",
+      "month": "6",
+      "day": "6",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "ibiza",
+      "month": "6",
+      "day": "7",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "somewhere in time",
+      "month": "6",
+      "day": "8",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "happiness",
+      "month": "6",
+      "day": "9",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "navy seals",
+      "month": "6",
+      "day": "11",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "bowfinger",
+      "month": "6",
+      "day": "11",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the hunt for the wilderpeople",
+      "month": "6",
+      "day": "12",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "fahrenheit 451",
+      "month": "6",
+      "day": "14",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "deadpool 2",
+      "month": "6",
+      "day": "16",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "american animals",
+      "month": "6",
+      "day": "24",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "kickboxer 2",
+      "month": "6",
+      "day": "27",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "solo",
+      "month": "6",
+      "day": "28",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the guest",
+      "month": "7",
+      "day": "2",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "you’re next",
+      "month": "7",
+      "day": "2",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "true romance",
+      "month": "7",
+      "day": "3",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "i, tonya",
+      "month": "7",
+      "day": "3",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "wilson",
+      "month": "7",
+      "day": "6",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "get out",
+      "month": "7",
+      "day": "14",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "the belko experiment",
+      "month": "7",
+      "day": "14",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the final girls",
+      "month": "7",
+      "day": "14",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the sword and the sorceror",
+      "month": "7",
+      "day": "15",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "the french connection",
+      "month": "7",
+      "day": "15",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "batman",
+      "month": "7",
+      "day": "20",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "sorry to bother you",
+      "month": "7",
+      "day": "21",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "jackass: the movie",
+      "month": "7",
+      "day": "21",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "jackass number two",
+      "month": "7",
+      "day": "21",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "suburbia",
+      "month": "7",
+      "day": "22",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "vampires",
+      "month": "7",
+      "day": "22",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "robin williams: come inside my mind",
+      "month": "7",
+      "day": "27",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "kicking and screaming",
+      "month": "7",
+      "day": "30",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "high fidelity",
+      "month": "8",
+      "day": "2",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "tarzan",
+      "month": "8",
+      "day": "6",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "the hitchhiker’s guide to the galaxy",
+      "month": "8",
+      "day": "12",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "eighth grade",
+      "month": "8",
+      "day": "17",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "away we go",
+      "month": "8",
+      "day": "18",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "ingrid goes west",
+      "month": "8",
+      "day": "18",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "a league of their own",
+      "month": "8",
+      "day": "19",
+      "year": "2018",
+      "first": false
+    },
+    {
+      "title": "blackkklansman",
+      "month": "8",
+      "day": "19",
+      "year": "2018",
+      "first": true
+    },
+    {
+      "title": "don’t tell mom the babysitter’s dead",
+      "month": "8",
+      "day": "20",
+      "year": "2018",
       "first": false
     }
   ]

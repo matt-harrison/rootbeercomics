@@ -1,0 +1,85 @@
+.column {flex-direction: column;}
+.row    {flex-direction:    row;}
+
+.container {max-width: 1000px;}
+
+.flex20  {width:  20%;}
+.flex25  {width:  25%;}
+.flex33  {width:  33.3333%;}
+.flex40  {width:  40%;}
+.flex50  {width:  50%;}
+.flex60  {width:  60%;}
+.flex66  {width:  66.6666%;}
+.flex75  {width:  75%;}
+.flex80  {width:  80%;}
+.flex100 {width: 100%;}
+
+.gutters {margin: 0 -5px -10px;}
+.gutters > * {padding: 0 5px 10px;}
+.gutters.mb10 {margin-bottom: 0;}
+
+@media screen and (min-width: 600px) {
+    .m-row {flex-direction: row;}
+
+    .m-show {display: initial;}
+    .m-hide {display:    none;}
+    
+    .m-mr10 {margin-right: 10px;}
+    .m-mb0  {margin-bottom: 0;}
+
+    .m-flex20  {width:  20%;}
+    .m-flex25  {width:  25%;}
+    .m-flex33  {width:  33.3333%;}
+    .m-flex40  {width:  40%;}
+    .m-flex50  {width:  50%;}
+    .m-flex60  {width:  60%;}
+    .m-flex66  {width:  66.6666%;}
+    .m-flex75  {width:  75%;}
+    .m-flex80  {width:  80%;}
+    .m-flex100 {width: 100%;}
+}
+
+@media screen and (min-width: 900px) {
+    .l-row {flex-direction: row;}
+
+    .l-flex20  {width:  20%;}
+    .l-flex25  {width:  25%;}
+    .l-flex33  {width:  33.3333%;}
+    .l-flex40  {width:  40%;}
+    .l-flex50  {width:  50%;}
+    .l-flex60  {width:  60%;}
+    .l-flex66  {width:  66.6666%;}
+    .l-flex75  {width:  75%;}
+    .l-flex80  {width:  80%;}
+    .l-flex100 {width: 100%;}
+}
+
+@media screen and (min-width: 1200px) {
+    .xl-row {flex-direction: row;}
+
+    .xl-flex20  {width:  20%;}
+    .xl-flex25  {width:  25%;}
+    .xl-flex33  {width:  33.3333%;}
+    .xl-flex40  {width:  40%;}
+    .xl-flex50  {width:  50%;}
+    .xl-flex60  {width:  60%;}
+    .xl-flex66  {width:  66.6666%;}
+    .xl-flex75  {width:  75%;}
+    .xl-flex80  {width:  80%;}
+    .xl-flex100 {width: 100%;}
+}
+
+@media screen and (min-width: 1800px) {
+    .xxl-row {flex-direction: row;}
+
+    .xxl-flex20  {width:  20%;}
+    .xxl-flex25  {width:  25%;}
+    .xxl-flex33  {width:  33.3333%;}
+    .xxl-flex40  {width:  40%;}
+    .xxl-flex50  {width:  50%;}
+    .xxl-flex60  {width:  60%;}
+    .xxl-flex66  {width:  66.6666%;}
+    .xxl-flex75  {width:  75%;}
+    .xxl-flex80  {width:  80%;}
+    .xxl-flex100 {width: 100%;}
+}

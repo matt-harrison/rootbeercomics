@@ -12,14 +12,14 @@ if ($colHeight != floor($colHeight)){
 }
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<div class="flex center wrap">
+<div class="flex wrap">
 	<?php foreach ($archive as $post) { ?>
 		<?php
 		$title = $post['title'];
 		$title = str_replace("'", '\&apos;', $title);
 		$title = str_replace('"', "\&quot;", $title);
 		?>
-		<a href="index.php?id=<?= $post['uniqueID']; ?>&records=1" class="mr1 mb1">
+		<a href="index.php?id=<?= $post['id']; ?>&records=1" class="mr1 mb1">
 			<img src="<?= $post['thumb']; ?>" data-title="<?= $title; ?>" alt="<?= $title; ?>" class="w100 h100 thumb"/>
 		</a>
 	<?php } ?>

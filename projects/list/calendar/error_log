@@ -1,0 +1,5 @@
+[01-May-2018 12:19:21 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home1/kittenb1/public_html/projects/list/calendar/index.php on line 146
+[01-May-2018 12:20:08 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home1/kittenb1/public_html/projects/list/calendar/index.php on line 146
+[01-May-2018 12:20:12 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home1/kittenb1/public_html/projects/list/calendar/index.php on line 146
+[01-May-2018 12:20:34 America/Denver] PHP Notice:  Undefined index: year in /home1/kittenb1/public_html/projects/list/calendar/index.php on line 2
+[01-May-2018 12:20:34 America/Denver] PHP Notice:  Undefined index: month in /home1/kittenb1/public_html/projects/list/calendar/index.php on line 3

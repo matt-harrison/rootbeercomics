@@ -2,8 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>matt's books</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<meta property="og:title" content="books matt has read"/>
+		<meta property="og:image" content="http://www.rootbeercomics.com/images/matt.jpg"/>
+		<meta property="og:description" content="book reading log, by matt harrison."/>
+		<meta property="og:url" content="http://www.rootbeercomics.com/projects/books/index.php"/>
+		<title>books matt has read</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js/books.js"></script>
 		<style>
@@ -13,7 +17,7 @@
 			.line {*zoom:1;}
 			.unit {float:left;}
 			.unitRt {float:right;}
-			
+
 			body, div, h3, p, input, button, select, fieldset {
 				display:block;
 				margin:0;
@@ -21,7 +25,7 @@
 				padding:0;
 				font:10pt courier new;
 			}
-			
+
 			input[type="text"], button, select {
 				height:30px;
 				line-height:1;
@@ -32,14 +36,14 @@
 			.mb5 {margin-bottom:5px;}
 			.ml5 {margin-left:5px;}
 			.mAuto {margin-right:auto; margin-left:auto;}
-			
+
 			.bdrBox {
 				box-sizing:border-box;
 				-webkit-box-sizing:border-box;
 				-moz-box-sizing:border-box;
 			}
 			.bdrGray {border:1px solid #666;}
-			
+
 			.p5 {padding:5px;}
 
 			.size1of5 {width: 20%;}
@@ -47,11 +51,11 @@
 			.size1of3 {width: calc(33.33% - 5px);}
 			.wFull {width:100%;}
 			.w500 {max-width:500px;}
-			
+
 			.bold {font-weight:bold;}
 			.csrPointer {cursor:pointer;}
 			.txtC {text-align:center;}
-			
+
 			#date {
 				width: calc(100% - 30px);
 			}
@@ -64,7 +68,7 @@
 	</head>
 	<body class="m5">
 		<div class="mAuto w500">
-			<p class="bold">books i've read</p>
+			<p class="bold">books matt has read</p>
 			<?php if (isset($_COOKIE['username']) && $_COOKIE['username'] == 'matt!') { ?>
 				<form class="line mb5">
 					<fieldset class="unit size4of5 mr5">

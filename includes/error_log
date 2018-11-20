@@ -1,0 +1,60 @@
+[17-Jul-2014 11:40:30 America/Denver] PHP Notice:  Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST' in /home1/kittenb1/public_html/includes/header.php on line 31
+[17-Jul-2014 11:40:30 America/Denver] PHP Notice:  Use of undefined constant REQUEST_URI - assumed 'REQUEST_URI' in /home1/kittenb1/public_html/includes/header.php on line 31
+[17-Jul-2014 11:40:30 America/Denver] PHP Notice:  Undefined variable: tag in /home1/kittenb1/public_html/includes/search.php on line 4
+[17-Jul-2014 12:24:34 America/Denver] PHP Notice:  Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST' in /home1/kittenb1/public_html/includes/header.php on line 31
+[17-Jul-2014 12:24:34 America/Denver] PHP Notice:  Use of undefined constant REQUEST_URI - assumed 'REQUEST_URI' in /home1/kittenb1/public_html/includes/header.php on line 31
+[17-Jul-2014 12:24:34 America/Denver] PHP Notice:  Undefined variable: tag in /home1/kittenb1/public_html/includes/search.php on line 4
+[17-Jul-2014 12:44:28 America/Denver] PHP Notice:  Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST' in /home1/kittenb1/public_html/includes/header.php on line 31
+[17-Jul-2014 12:44:28 America/Denver] PHP Notice:  Use of undefined constant REQUEST_URI - assumed 'REQUEST_URI' in /home1/kittenb1/public_html/includes/header.php on line 31
+[17-Jul-2014 12:44:28 America/Denver] PHP Notice:  Undefined variable: tag in /home1/kittenb1/public_html/includes/search.php on line 4
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: records in /home1/kittenb1/public_html/includes/nav.php on line 2
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: page in /home1/kittenb1/public_html/includes/nav.php on line 5
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: rowCount in /home1/kittenb1/public_html/includes/nav.php on line 18
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: title in /home1/kittenb1/public_html/includes/mini.php on line 4
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: img in /home1/kittenb1/public_html/includes/mini.php on line 8
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: desc in /home1/kittenb1/public_html/includes/mini.php on line 9
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST' in /home1/kittenb1/public_html/includes/mini.php on line 10
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Use of undefined constant REQUEST_URI - assumed 'REQUEST_URI' in /home1/kittenb1/public_html/includes/mini.php on line 10
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: end in /home1/kittenb1/public_html/includes/mini.php on line 18
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: start in /home1/kittenb1/public_html/includes/mini.php on line 18
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: prev in /home1/kittenb1/public_html/includes/mini.php on line 18
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: first in /home1/kittenb1/public_html/includes/mini.php on line 18
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: prev in /home1/kittenb1/public_html/includes/mini.php on line 19
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: end in /home1/kittenb1/public_html/includes/mini.php on line 26
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: start in /home1/kittenb1/public_html/includes/mini.php on line 26
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: end in /home1/kittenb1/public_html/includes/mini.php on line 32
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: start in /home1/kittenb1/public_html/includes/mini.php on line 32
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: last in /home1/kittenb1/public_html/includes/mini.php on line 32
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: next in /home1/kittenb1/public_html/includes/mini.php on line 32
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: start in /home1/kittenb1/public_html/includes/mini.php on line 39
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: end in /home1/kittenb1/public_html/includes/mini.php on line 39
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: book in /home1/kittenb1/public_html/includes/mini.php on line 40
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: end in /home1/kittenb1/public_html/includes/mini.php on line 39
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: start in /home1/kittenb1/public_html/includes/mini.php on line 44
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: prev in /home1/kittenb1/public_html/includes/mini.php on line 44
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: first in /home1/kittenb1/public_html/includes/mini.php on line 44
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: prev in /home1/kittenb1/public_html/includes/mini.php on line 45
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: end in /home1/kittenb1/public_html/includes/mini.php on line 52
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: start in /home1/kittenb1/public_html/includes/mini.php on line 52
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: end in /home1/kittenb1/public_html/includes/mini.php on line 58
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: start in /home1/kittenb1/public_html/includes/mini.php on line 58
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: last in /home1/kittenb1/public_html/includes/mini.php on line 58
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: next in /home1/kittenb1/public_html/includes/mini.php on line 58
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: post in /home1/kittenb1/public_html/includes/post.php on line 3
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: tagArr in /home1/kittenb1/public_html/includes/post.php on line 43
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined index: username in /home1/kittenb1/public_html/includes/post.php on line 49
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: records in /home1/kittenb1/public_html/includes/post.php on line 49
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: pain in /home1/kittenb1/public_html/includes/pain.php on line 3
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined index: username in /home1/kittenb1/public_html/includes/pain.php on line 46
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: records in /home1/kittenb1/public_html/includes/pain.php on line 46
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: comic in /home1/kittenb1/public_html/includes/comic.php on line 1
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: tagArr in /home1/kittenb1/public_html/includes/comic.php on line 71
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined index: username in /home1/kittenb1/public_html/includes/comic.php on line 83
+[11-Jan-2015 10:55:36 America/Denver] PHP Notice:  Undefined variable: records in /home1/kittenb1/public_html/includes/comic.php on line 83
+[11-Jan-2015 10:55:37 America/Denver] PHP Notice:  Undefined variable: scene in /home1/kittenb1/public_html/includes/scene.php on line 4
+[11-Jan-2015 10:55:37 America/Denver] PHP Notice:  Undefined index: username in /home1/kittenb1/public_html/includes/scene.php on line 54
+[11-Jan-2015 10:55:37 America/Denver] PHP Notice:  Undefined variable: records in /home1/kittenb1/public_html/includes/scene.php on line 54
+[11-Jan-2015 10:55:37 America/Denver] PHP Notice:  Undefined variable: tag in /home1/kittenb1/public_html/includes/search.php on line 4
+[11-Jan-2015 10:55:38 America/Denver] PHP Notice:  Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST' in /home1/kittenb1/public_html/includes/header.php on line 32
+[11-Jan-2015 10:55:38 America/Denver] PHP Notice:  Use of undefined constant REQUEST_URI - assumed 'REQUEST_URI' in /home1/kittenb1/public_html/includes/header.php on line 32
+[11-Jan-2015 10:55:38 America/Denver] PHP Notice:  Undefined variable: tag in /home1/kittenb1/public_html/includes/search.php on line 4
