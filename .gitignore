@@ -1,6 +1,9 @@
 # Sensitive
 sftp-config.json
 
+#Temporary
+error_log
+
 # Images
 *.gif
 *.jpg

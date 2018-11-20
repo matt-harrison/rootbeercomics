@@ -1,4 +1,0 @@
-[23-Jul-2018 14:04:50 America/Denver] PHP Notice:  Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST' in /home1/kittenb1/public_html/projects/layout/new.php on line 70
-[23-Jul-2018 14:04:50 America/Denver] PHP Notice:  Use of undefined constant REQUEST_URI - assumed 'REQUEST_URI' in /home1/kittenb1/public_html/projects/layout/new.php on line 70
-[23-Jul-2018 14:04:51 America/Denver] PHP Notice:  Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST' in /home1/kittenb1/public_html/projects/layout/index.php on line 55
-[23-Jul-2018 14:04:51 America/Denver] PHP Notice:  Use of undefined constant REQUEST_URI - assumed 'REQUEST_URI' in /home1/kittenb1/public_html/projects/layout/index.php on line 55

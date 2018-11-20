@@ -1,0 +1,57 @@
+.flex {display: flex;}
+.hide {display: none;}
+
+.flexWrap {flex-wrap: wrap;}
+.flexEnd {justify-content: flex-end;}
+.spaceBetween {justify-content: space-between;}
+.justifyCenter {justify-content: center;}
+.alignCenter {align-items: center;}
+
+.bsBorder {box-sizing: border-box;}
+
+.posAbsolute {position: absolute;}
+.posRelative {position: relative;}
+
+.top0 {top: 0;}
+
+.overflowHidden {overflow: hidden;}
+
+.mxAuto {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.m10  {margin:        10px;}
+.mr5  {margin-right:   5px;}
+.mb5  {margin-bottom:  5px;}
+
+.mt10 {margin-top:    10px;}
+.mr10 {margin-right:  10px;}
+.mb10 {margin-bottom: 10px;}
+
+.p5  {padding:         5px;}
+.p10 {padding:        10px;}
+.p20 {padding:        20px;}
+
+.fs20  {font-size:  20px;}
+.fs165 {font-size: 165px;}
+
+.bdrBlack {border: 1px solid black;}
+
+.bgBlack {background-color: #000000;}
+.bgGreen {background-color: #406618;}
+.bgRed   {background-color: #aa0807;}
+.bgWhite {background-color: #ffffff;}
+
+.txtWhite {color: #ffffff;}
+.txtGreen {color: #83ac4d;}
+.txtRed   {color: #f44c4e;}
+
+.csrPointer {cursor: pointer;}
+
+.fa-thumbs-down {
+  transform: scaleX(-1);
+}
+
+.opac50 {opacity: 0.5;
+}
