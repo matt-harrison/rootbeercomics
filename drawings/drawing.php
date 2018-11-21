@@ -1,21 +1,19 @@
 <?php
-$images = explode(',', $row['images']);
-
-$caption = $row['body'];
-preg_match_all('/\<[^>]+>/', $caption, $tags);
-
-foreach ($tags as $tag) {
-	$caption = str_replace($tag, '', $caption);
-}
-
-$caption = empty($row['caption']) ? $caption : $row['caption'];
+$images      = explode(',', $row['images']);
+$hasMultiple = (count($images > 1));
 ?>
-<div class="mAuto mb5 p20 bdrBox bgWhite post">
-	<p class="mAuto mb5 w800 txtR fs12">
-		<a href="/drawings/index.php?id=<?= $row['id']; ?>&records=1" class="txtGray">permalink</a>
-	</p>
+<div class="mAuto<?= ($records == 1) ? '' : ' mb100'; ?>">
 	<?php foreach ($images as $key => $image) { ?>
-		<img src="<?= $image; ?>" alt="<?= $key; ?>" class="mAuto dotted<?= ($key < count($images) - 1) ? ' mb10' : ''; ?>"/>
+		<img
+		src="<?= $image; ?>"
+		data-id="<?= $row['id']; ?>"
+		data-version="<?= $key; ?>"
+		class="mAuto mb10<?= ($hasMultiple) ? ' multiple csrPointer' : ''; ?><?= ($key > 0) ? ' hide' : ''; ?>"/>
+	<?php } ?>
+	<?php if ($records != 1) { ?>
+		<a href="/drawings/index.php?id=<?= $row['id']; ?>&records=1">
+			<img src="/images/nav/buttons/permalink.png" alt="permalink" class="opac50"/>
+		</a>
 	<?php } ?>
 </div>
 <?php if ($_COOKIE['username'] == 'matt!' & $records == 1) { ?>
@@ -23,9 +21,9 @@ $caption = empty($row['caption']) ? $caption : $row['caption'];
 		<div class="flex">
 			<div class="mr10">
 				<?php if ($row['thumb'] != '') { ?>
-					<img src="<?= $row['thumb']; ?>" class="unitR mb5 dotted"/>
+					<img src="<?= $row['thumb']; ?>" class="unitR mb5"/>
 				<?php } else { ?>
-					<div class="unitR dotted w100">no thumbnail</div>
+					<div class="unitR w100">no thumbnail</div>
 				<?php } ?>
 			</div>
 			<form enctype="multipart/form-data" action="/scripts/update.php" method="post" target="get.html" class="wFull">

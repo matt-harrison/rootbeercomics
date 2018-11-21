@@ -5,7 +5,7 @@ $desc  = 'streak and phantom phobia hide out on a secluded forest planet after a
 //$purchaseUrl = 'http://rootbeercomics.storenvy.com/products/18887458-amazing-fantasy-15-straight-to-ink-cover-song';
 
 $book  = 'ripple';
-$first =  1;
+$first = 0;
 $last  = 4;
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/mini.php'); ?>

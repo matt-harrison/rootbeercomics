@@ -5,6 +5,6 @@ $desc = 'an anonymous hero finally makes a difference.';
 
 $book = 'medic';
 $first = 0;
-$last = 4;
+$last = 6;
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/mini.php'); ?>

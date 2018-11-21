@@ -13,7 +13,7 @@ if ($records == 1) {
 }
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<div id="drawings" class="line mAuto w1000">
+<div id="drawings" class="line mAuto w800">
 	<?php
 	include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
 

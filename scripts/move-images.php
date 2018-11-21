@@ -1,13 +1,13 @@
 <?php
 $con = mysql_connect('localhost', 'kittenb1_matt', 'uncannyx0545');
 mysql_select_db('kittenb1_main', $con);
-$rows = mysql_query("SELECT * FROM comics ORDER BY id ASC", $con);
+$rows = mysql_query("SELECT * FROM drawings ORDER BY id ASC", $con);
 while($row = mysql_fetch_array($rows)) {
-	$newPath = $row['final'];
-	$newPath = str_replace('display/color/', 'final/', $newPath);
+	$newPath = $row['thumb'];
+	$newPath = str_replace('drawings/thumbs/', 'drawings/real-thumbs/', $newPath);
 
-	if ($row['final'] != $newPath) {
-		echo $row['id'] . ': ' . $row['final'] . ' >>> ' . $newPath . '</br>';
-		//rename('..' . $row['final'], '..' . $newPath);
+	if ($row['thumb'] != $newPath) {
+		echo $row['id'] . ': ' . $row['thumb'] . ' >>> ' . $newPath . '</br>';
+		//rename('..' . $row['thumb'], '..' . $newPath);
 	}
 }

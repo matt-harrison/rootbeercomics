@@ -7,10 +7,6 @@
 <a href="/illustration/img/dieting.jpg" target="_blank" class="bsBorder mr5 mb5">
     <img src="/illustration/thumbs/dieting.jpg" alt="something to think about: dieting"/>
 </a>
-<?php
-/*
 <a href="/illustration/img/no-such-roses.jpg" target="_blank" class="bsBorder mr5 mb5">
     <img src="/illustration/thumbs/no-such-roses.jpg" alt="no such roses"/>
 </a>
-*/
-?>

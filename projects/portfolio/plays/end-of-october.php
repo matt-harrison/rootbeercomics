@@ -18,37 +18,37 @@ TODO:
     <div class="auto mb20 w500">
         <p class="ml1of2 underline">Cast of Characters</p>
         <ul>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Skeleton:</p>
-                <p class="left mb0 size2of3">23-year old man; wears a black t-shirt with the word SKELETON written across the front in plain white letters.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Skeleton:</p>
+                <p class="mb0 size2of3">23-year old man; wears a black t-shirt with the word SKELETON written across the front in plain white letters.</p>
             </li>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Captain Picard:</p>
-                <p class="left mb0 size2of3">21-year old man; wears a dark red long-sleeve shirt with a Star Trek emblem sloppily drawn on the breast pocket.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Captain Picard:</p>
+                <p class="mb0 size2of3">21-year old man; wears a dark red long-sleeve shirt with a Star Trek emblem sloppily drawn on the breast pocket.</p>
             </li>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Gandalf:</p>
-                <p class="left mb0 size2of3">22-year old woman; Picard's wife; wears a gray t-shirt with the outline of a long beard tracing down from the neckline.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Gandalf:</p>
+                <p class="mb0 size2of3">22-year old woman; Picard's wife; wears a gray t-shirt with the outline of a long beard tracing down from the neckline.</p>
             </li>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Bruce Willis:</p>
-                <p class="left mb0 size2of3">23-year old man; wears a white tank top undershirt with a few grease spots and a few fake blood spots.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Bruce Willis:</p>
+                <p class="mb0 size2of3">23-year old man; wears a white tank top undershirt with a few grease spots and a few fake blood spots.</p>
             </li>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Mr. Pink:</p>
-                <p class="left mb0 size2of3">20-year old man; wears a black blazer over a white t-shirt with a fake collar and a skinny tie drawn down the center. He carries a heavy black BB gun.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Mr. Pink:</p>
+                <p class="mb0 size2of3">20-year old man; wears a black blazer over a white t-shirt with a fake collar and a skinny tie drawn down the center. He carries a heavy black BB gun.</p>
             </li>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Robocop:</p>
-                <p class="left mb0 size2of3">25-year old man; wears a gray short-sleeve shirt, gray jeans, a black cumberbund, and a gray beanie pulled down over his eyes.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Robocop:</p>
+                <p class="mb0 size2of3">25-year old man; wears a gray short-sleeve shirt, gray jeans, a black cumberbund, and a gray beanie pulled down over his eyes.</p>
             </li>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Supergirl:</p>
-                <p class="left mb0 size2of3">21-year old woman; wears a blue tube top, adorned with a Superman "S" patch, over a white t-shirt with fake cleavage drawn on the front.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Supergirl:</p>
+                <p class="mb0 size2of3">21-year old woman; wears a blue tube top, adorned with a Superman "S" patch, over a white t-shirt with fake cleavage drawn on the front.</p>
             </li>
-            <li class="line mb10">
-                <p class="left size1of3 underline">Xena:</p>
-                <p class="left mb0 size2of3">22-year old woman; wears a brown bikini top over a tan t-shirt and a brown skirt with fringe; carries a large round ring cut out of gray cardboard.</p>
+            <li class="flex mb10">
+                <p class="size1of3 underline">Xena:</p>
+                <p class="mb0 size2of3">22-year old woman; wears a brown bikini top over a tan t-shirt and a brown skirt with fringe; carries a large round ring cut out of gray cardboard.</p>
             </li>
         </ul>
     </div>
@@ -62,9 +62,8 @@ TODO:
         <p class="underline">ACT I</p>
         <p class="underline">Scene 1</p>
     </section>
-    <section class="line auto w700">
-        <p class="left size1of2">SETTING:</p>
-        <p class="left size1of2">A corner of Picard and Gandalf's apartment during a Halloween party.</p>
+    <section class="auto w700">
+        <p>SETTING: A corner of Picard and Gandalf's apartment during a Halloween party.</p>
     </section>
     <section>
         <p class="auto w400">(MR. PINK shoots at PICARD with the unloaded BB gun.)</p>

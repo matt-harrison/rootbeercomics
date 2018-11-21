@@ -10,8 +10,9 @@
 
 .flexCenter   {justify-content: center;}
 .flexEnd      {justify-content: flex-end;}
-.spaceBetween {justify-content: space-between;}
 .spaceAround  {justify-content: space-around;}
+.spaceBetween {justify-content: space-between;}
+.spaceEvenly  {justify-content: space-evenly;}
 
 .alignCenter {align-items: center;}
 
@@ -183,7 +184,7 @@ label, input {display: block;}
     .size2of3 {width: 66.6666%;}
     .size1of3 {width: 33.3333%;}
     .size1of2 {width: 50%;}
-    .full, .wFull {width: 100%;}
+    .flex100, .full, .wFull {width: 100%;}
     .w50 {max-width: 50px;}
     .w75 {max-width: 75px;}
     .w100 {max-width: 100px;}
@@ -195,7 +196,7 @@ label, input {display: block;}
     .w400 {max-width: 400px;}
     .w490 {max-width: 490px;}
     .w500 {max-width: 500px;}
-    .w600 {width: 600px;}
+    .w600 {max-width: 600px;}
     .w700 {max-width: 700px;}
     .w800 {max-width: 800px;}
     .w860 {max-width: 860px;}

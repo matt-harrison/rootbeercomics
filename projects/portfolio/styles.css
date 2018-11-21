@@ -1,13 +1,6 @@
-.line:after {
-    content    : 'X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X';
-    visibility : hidden;
-    clear      : both;
-    height     : 0 !important;
-    display    : block;
-    line-height: 0;
-    font-size  : xx-large;
-    overflow   : hidden;
-}
+.flex {display: flex;}
+
+.spaceBetween {justify-content: space-between;}
 
 body {
     background-color: gray;
@@ -37,8 +30,7 @@ a:link, a:visited, a:hover {
     text-decoration: none;
 }
 
-.dBlock       {display: block;}
-.dInlineBlock {display: inline-block;}
+.dBlock {display: block;}
 
 .auto {
     margin-left: auto;

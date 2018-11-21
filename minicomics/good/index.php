@@ -1,8 +1,8 @@
 <?php
 $title = 'good man';
 $img   = '/minicomics/good/img/good0.jpg';
-$desc  = '';
-//$purchaseUrl = 'http://rootbeercomics.storenvy.com/products/18887458-amazing-fantasy-15-straight-to-ink-cover-song';
+$desc  = 'harmless throwback superhero action. or maybe not.';
+$purchaseUrl = 'http://rootbeercomics.storenvy.com/products/24312156-good-man-with-good-boy';
 
 $book  = 'good';
 $first = 0;

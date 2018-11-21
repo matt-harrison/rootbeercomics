@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>speed reading exercise #2</title>
-        <link href="/images/icons/kittenberg.ico" rel="icon" type="image/x-icon">
+        <link href="/images/icons/r.ico" rel="icon" type="image/x-icon">
 		<style type="text/css">
 			div{
 				margin:0;
@@ -27,13 +27,13 @@
 				padding:0;
 				width:400px;
 				height:400px;
-				
+
 			}
 			#corner1.vert{margin-left:0;margin-top:0;}
 			#corner2.vert{margin-left:800px;margin-top:0;}
 			#corner3.vert{margin-left:800px;margin-top:800px;}
 			#corner4.vert{margin-left:0;margin-top:800px;}
-			
+
 			#corner1.hor{margin-left:0;margin-top:0;}
 			#corner2.hor{margin-left:300px;margin-top:0;}
 			#corner3.hor{margin-left:300px;margin-top:300px;}
@@ -68,13 +68,13 @@
 		<script>
 			$(function(){
 				var numbers = new Array();
-				
+
 				distribute();
-				
+
 				$("#frame").click(function(){
 					distribute();
 				});
-				
+
 				function distribute(){
 					numbers.splice(0);
 					numbers.push(1, 2, 3, 4);

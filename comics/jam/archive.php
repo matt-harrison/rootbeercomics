@@ -15,7 +15,7 @@ $desc    = 'view all jam comics.';
         $title = str_replace('"', "\&quot;", $title);
         ?>
         <a href="index.php?id=<?= $record['id']; ?>&records=1" class="mr1 mb1">
-            <img src="<?= $record['thumb']; ?>" alt="<?= $title; ?>" class="w100 h100 thumb"/>
+            <img src="<?= $record['thumb']; ?>" alt="<?= $title; ?>"/>
         </a>
     <?php } ?>
 </div>

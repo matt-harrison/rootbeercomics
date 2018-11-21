@@ -1,7 +1,7 @@
 <?php
 $title = 'people';
 $img   = '/zines/people/img/people0.jpg';
-$desc  = 'I drew a celebrity straight-to-ink from the front page of People Magazine\s website every day for a month. 2.125" x 2.72"';
+$desc  = 'I drew a celebrity straight-to-ink from the front page of People Magazine\s website every day for a month.';
 //$purchaseUrl = '';
 
 $book  = 'people';

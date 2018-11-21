@@ -7,10 +7,6 @@
             <div class="unit size1of3">
                 <table class="wFull">
                     <tr>
-                        <td class="txtR">author: </td>
-                        <td><input type="text" name="author" value="matt!" class="w400"/></td>
-                    </tr>
-                    <tr>
                         <td class="w75 txtR">date: </td>
                         <?php
                         date_default_timezone_set('America/New_York');
@@ -35,6 +31,12 @@
                         <td class="txtR">title: </td>
                         <td><input type="text" name="title" class="wFull"/></td>
                     </tr>
+                    <tr>
+                        <td class="txtR" valign="top">caption: </td>
+                        <td>
+                            <input type="text" name="caption" class="wFull"/>
+                        </td>
+                    </tr>
                     <tbody id="drawings" class="hide">
                         <tr>
                             <td valign="top" class="txtR">images: </td>
@@ -44,35 +46,17 @@
                         </tr>
                     </tbody>
                     <tr>
-                        <td class="txtR">tags: </td>
-                        <td><input type="text" name="tags" class="wFull"/></td>
-                    </tr>
-                    <tr>
                         <td class="txtR">thumb: </td>
                         <td><input type="text" name="thumb" class="wFull" value="/comics/thumbs/"/></td>
                     </tr>
-                    <tr>
-                        <td class="txtR" valign="top">caption: </td>
-                        <td>
-                            <input type="text" name="caption" class="wFull"/>
-                        </td>
-                    </tr>
                     <tbody id="comics">
                         <tr>
-                            <td class="txtR">color: </td>
-                            <td><input type="text" name="color" class="wFull" value="/comics/display/color/"/></td>
+                            <td class="txtR">final: </td>
+                            <td><input type="text" name="final" class="wFull" value="/comics/final/"/></td>
                         </tr>
                         <tr>
-                            <td class="txtR">bw: </td>
-                            <td><input type="text" name="bw" class="wFull" value="/comics/display/bw/"/></td>
-                        </tr>
-                        <tr>
-                            <td class="txtR">colorLink: </td>
-                            <td><input type="text" name="colorLink" class="wFull" value="/comics/full/color/"/></td>
-                        </tr>
-                        <tr>
-                            <td class="txtR">bwLink: </td>
-                            <td><input type="text" name="bwLink" class="wFull" value="/comics/full/bw/"/></td>
+                            <td class="txtR">original: </td>
+                            <td><input type="text" name="original" class="wFull" value="/comics/original/"/></td>
                         </tr>
                     </tbody>
                     <tr>

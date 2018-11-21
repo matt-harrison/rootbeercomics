@@ -2,7 +2,6 @@
 AddHandler application/x-httpd-php54 .php
 DirectoryIndex index.html.var index.htm index.html index.shtml index.xhtml index.wml index.perl index.pl index.plx index.ppl index.cgi index.jsp index.js index.jp index.php4 index.php3 index.php index.phtml default.htm default.html home.htm index.php5 Default.html Default.htm home.html
 
-Redirect /books       /minicomics
 Redirect /burgg       /projects/burgg
 Redirect /dd          /projects/dd
 Redirect /movies      /projects/burgg
@@ -24,7 +23,6 @@ Redirect /lincoln     /minicomics/lincoln
 Redirect /potential   /minicomics/potential
 Redirect /rangers     /minicomics/rangers
 Redirect /yearbook    /minicomics/yearbook
-Redirect /hc          /minicomics/harrington/1
 
 Redirect /king        /minicomics/king
 Redirect /kittenberg  /minicomics/kittenberg

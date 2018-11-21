@@ -24,24 +24,33 @@ if(!isset($img)){
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	</head>
 	<body class="m5">
-		<div id="header" class="mb5 wFull">
-			<div id="nav" class="m10 flex spaceBetween wrap">
+		<div id="header" class="mb50 wFull">
+			<div id="nav" class="flex spaceBetween alignCenter wrap">
 				<div id="logo" class="mr20">
 					<a href="/">
-						<img src="/images/nav/scribble/rootbeercomics.png" alt="home"/>
+						<img src="/images/nav/buttons/root-beer-comics.png" alt="home"/>
 					</a>
 				</div>
-				<a href="/comics/archive.php" class="dBlock mr20 pt30 pb25 navLink">
-					<img src="/images/nav/caps/comics.png" alt="comics" class="mAuto"/>
+				<a href="/minicomics/" class="navLink">
+					<img src="/images/nav/buttons/comic-books.png" alt="comic books" class="mr5 mb5"/>
 				</a>
-				<a href="/drawings/archive.php" class="dBlock mr20 pt30 pb25 navLink">
-					<img src="/images/nav/caps/drawings.png" alt="drawings" class="mAuto"/>
+				<a href="/zines/" class="navLink">
+					<img src="/images/nav/buttons/zines.png" alt="zines" class="mr5 mb5"/>
 				</a>
-				<a href="/minicomics/" class="dBlock mr20 pt30 pb25 navLink">
-					<img src="/images/nav/caps/books.png" alt="books" class="mAuto"/>
+				<a href="/comics/archive.php" class="navLink">
+					<img src="/images/nav/buttons/comic-strips.png" alt="comic strips" class="mr5 mb5"/>
 				</a>
-				<a href="http://rootbeercomics.storenvy.com" target="_blank" class="dBlock mr20 pt30 pb25 navLink">
-					<img src="/images/nav/caps/store.png" alt="store" class="mAuto"/>
+				<a href="http://www.instagram.com/rootbeercomics" target="_blank" class="navLink">
+					<img src="/images/nav/buttons/instagram.png" alt="instagram" class="mr5 mb5"/>
+				</a>
+				<a href="mailto:rootbeercomics@gmail.com" target="_blank" class="navLink">
+					<img src="/images/nav/buttons/email.png" alt="email" class="mr5 mb5"/>
+				</a>
+				<a href="http://rootbeercomics.storenvy.com" target="_blank" class="navLink">
+					<img src="/images/nav/buttons/store.png" alt="store" class="mr5 mb5"/>
+				</a>
+				<a href="/projects" class="navLink">
+					<img src="/images/nav/buttons/more.png" alt="more" class="mr5 mb5"/>
 				</a>
 			</div>
 		</div>

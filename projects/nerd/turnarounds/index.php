@@ -7,13 +7,13 @@ mysql_select_db('kittenb1_nerd', $con);
 $animations = mysql_query("SELECT * FROM turnarounds", $con);
 $lastRow = mysql_num_rows($animations);
 
-if($_GET['id'] != NULL){
+if ($_GET['id'] != NULL) {
 	$page = $_GET['id'];
-}else{
+} else {
 	$page = 1;
 }
 
-if (isset($_GET['zoom'])){
+if (isset($_GET['zoom'])) {
 	$zoom = number_format($_GET['zoom']);
 } else {
 	$zoom = 8;
@@ -22,16 +22,16 @@ if (isset($_GET['zoom'])){
 $records = 1;
 $lastPage = $page - $records + 1;
 
-if($animation['tags'] != NULL){
+if ($animation['tags'] != NULL) {
 	$tags = $animation['tags'];
 	$tagArr = array();
 	$lastComma = strrpos($tags, ',');
-	if($lastComma+2 >= strlen($tags)){
+	if ($lastComma+2 >= strlen($tags)) {
 		$tags = substr_replace($tags, '', $lastComma);
 	}
-	if(strpos($tags, ',') != false){
+	if (strpos($tags, ',') != false) {
 		$nextComma = strpos($tags, ', ');
-		for($i=0; $nextComma != false; $i++){
+		for ($i=0; $nextComma != false; $i++) {
 			$nextTag = substr($tags, 0, $nextComma);
 			$tags = substr($tags, $nextComma);
 			$tags = substr($tags, 2);
@@ -49,8 +49,8 @@ if($animation['tags'] != NULL){
 <div class="mAuto w1000">
 	<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'); ?>
 	<?php $animations = mysql_query("SELECT * FROM turnarounds WHERE uniqueID='$page' ORDER BY uniqueID ASC", $con); ?>
-	<?php while($animation = mysql_fetch_array($animations)){ ?>
-		<div class="mb1 p20 bgWhite">
+	<?php while($animation = mysql_fetch_array($animations)) { ?>
+		<div class="mb10 p20 bgWhite">
 			<div class="mAuto w800 noSelect">
 				<div class="line mb10">
 					<h2 class="unit mr5 mb0 bold">
@@ -72,10 +72,9 @@ if($animation['tags'] != NULL){
 				<div id="anim" data-zoom="<?= $zoom; ?>" class="mAuto mb5 dotted bgWhite resize anim invisible">
 					<img src="<?= $animation['url']; ?>" id="sprite" alt=""<?= ($animation['frameCount'] != 0) ? ' data-frameCount="' . $animation['frameCount'] . '"' : ''; ?>/>
 				</div>
-				<div class="mAuto pt5 w500"><?= $animation['caption']; ?></div>
 			</div>
 		</div>
-		<?php if($_COOKIE['username'] == 'matt!' & $records == 1){ ?>
+		<?php if ($_COOKIE['username'] == 'matt!' & $records == 1) { ?>
 			<?php $title = $animation['title']; ?>
 			<div class="mb5 p20 bgGray private">
 				<div class="line">

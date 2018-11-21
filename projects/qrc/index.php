@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>QRC zen garden</title>
-        <link href="/images/icons/kittenberg.ico" rel="icon" type="image/x-icon">
+        <link href="/images/icons/r.ico" rel="icon" type="image/x-icon">
 		<style type="text/css">
 			.flash{
 				margin:0 auto;
@@ -32,7 +32,7 @@
             3. hold SPACE and press an arrow key to switch to an adjacent pixel.<br/>
             4. pixel flashes blue when selected.<br/>
             5. barriers turn red when nudged.<br/><br/>
-            objective: make patterns. mesmerize yourself.                
+            objective: make patterns. mesmerize yourself.
         </div>
     </body>
 </html>

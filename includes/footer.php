@@ -1,31 +1,17 @@
 		</div>
-		<div id="footer">
-			<div class="flex spaceBetween p10 bgWhite">
-				<div id="copyright" class="mobile">
-					<span>Copyright © <?= date('Y'); ?> Matt Harrison</span>
-				</div>
-				<?php if (isset($_COOKIE['username'])) { ?>
-					<div id="login" class="mobile">
-						<?php if ($_COOKIE['username'] == 'matt!') {?>
-							<p class="mb0"><a href="/post/">post</a>
-								<span> | </span>
-								<a href="/mybooks/">books</a>
-								<span> | </span>
-								<a href="/mycomics/">comics</a>
-								<span> | </span>
-								<a href="/mymovies/">movies</a>
-							</p>
-						<?php } ?>
-					</div>
+		<div id="footer" class="wFull">
+			<div class="flex spaceBetween alignCenter wrap">
+				<img src="/images/nav/buttons/copyright.png" alt="Copyright © <?= date('Y'); ?> Matt Harrison"/>
+				<?php if ($_COOKIE['username'] == 'matt!') {?>
+					<p class="flex spaceBetween">
+						<a href="/post/" class="p20">post</a>
+						<a href="/mybooks/" class="p20">books</a>
+						<a href="/mycomics/" class="p20">comics</a>
+						<a href="/mymovies/" class="p20">movies</a>
+					</p>
 				<?php } ?>
-				<div id="social" class="txtR mobile">
-					<a href="http://www.instagram.com/rootbeercomics" target="_blank" class="mr20">instagram</a>
-					<a href="http://www.facebook.com/rootbeercomics" target="_blank" class="mr20">facebook</a>
-					<a href="http://www.twitter.com/rootbeercomics" target="_blank" class="mr20">twitter</a>
-					<a href="http://www.rootbeercomics.tumblr.com" target="_blank">tumblr</a>
-				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="/includes/js/toggle.js"></script>
+		<script type="text/javascript" src="/includes/js/multiple.js"></script>
 	</body>
 </html>

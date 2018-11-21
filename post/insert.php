@@ -13,18 +13,16 @@
 
         $caption = $_POST['caption'];
         $date    = $_POST['date'];
-        $tags    = $_POST['tags'];
         $title   = $_POST['title'];
         $thumb   = $_POST['thumb'];
-        $type    = $_POST['type'];
 
         $title   = str_replace("'", "\'", $title);
         $caption = str_replace("'", "\'", $caption);
         ?>
         <?php if ($_COOKIE['username'] == 'matt!') { ?>
             <?php if ($table == 'drawings') { ?>
-                <?php $sql = "INSERT INTO drawings (id, title, tags, date, thumb, caption, images)
-                                VALUES ('$id', '$title', '$tags', '$date', '$thumb', '$caption', '$images')"; ?>
+                <?php $sql = "INSERT INTO drawings (id, title, date, thumb, caption, images)
+                                VALUES ('$id', '$title', '$date', '$thumb', '$caption', '$images')"; ?>
                 <textarea style="width:500px;height:300px;"><?= $sql; ?></textarea><br/><br/>
                 <?php if (!mysql_query($sql, $con)) { ?>
                     <p class="txtC">Error: <?= mysql_error(); ?></p>
@@ -32,7 +30,6 @@
                     <?php $url = 'http://www.rootbeercomics.com/index.php?id=' . $id . '&records=1'; ?>
                     <a href="http://www.rootbeercomics.com/drawings/index.php?id=<?= $id ?>&records=1" target="_blank">view drawings #<?= $id ?></a><br/>
                     <span>title:   <?= $title; ?></span><br/>
-                    <span>tags:    <?= $tags; ?></span><br/>
                     <span>date:    <?= $date; ?></span><br/>
                     <span>thumb:   <?= $thumb; ?></span><br/><br/>
                     <span>caption: <?= $caption; ?></span><br/>
@@ -40,22 +37,19 @@
                 <?php } ?>
             <?php } else { ?>
                 <?php
-                $author = $_POST['author'];
 
                 $final    = $_POST['final'];
                 $original = $_POST['original'];
                 ?>
-                <?php $sql = "INSERT INTO comics (id, date, final, original, thumb, title, author, tags, type, caption)
-                                VALUES ('$id', '$date', '$final', '$original', '$thumb', '$title', '$author', '$tags', '$type', '$caption')"; ?>
+                <?php $sql = "INSERT INTO comics (id, date, final, original, thumb, title, caption)
+                                VALUES ('$id', '$date', '$final', '$original', '$thumb', '$title', '$caption')"; ?>
                 <?php if (!mysql_query($sql, $con)) { ?>
                     <p class="txtC">Error: <?= mysql_error(); ?></p>
                 <?php } else { ?>
                     <?php $url = 'http://www.rootbeercomics.com/comics/index.php?id=' . $id . '&records=1'; ?>
                     <a href="http://www.rootbeercomics.com/comics/index.php?id=<?= $id ?>&records=1" target="_blank">view comic #<?= $id; ?></a><br/>
                     <span>title:  <?= $title; ?></span><br/>
-                    <span>tags:   <?= $tags; ?></span><br/>
                     <span>date:   <?= $date; ?></span><br/><br/>
-                    <span>author: <?= $author; ?></span><br/>
 
                     <span>thumb:     <?= $thumb; ?></span><br/>
                     <span>final:     <?= $final; ?></span><br/>

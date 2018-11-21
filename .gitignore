@@ -1,8 +1,9 @@
-# Sensitive
-sftp-config.json
-
-#Temporary
+# Temporary
 error_log
+books.*.json
+comics.*.json
+comics*.json
+movies.*.json
 
 # Images
 *.gif

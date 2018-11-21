@@ -9,7 +9,7 @@
         <meta property="og:description" content="<?= $desc; ?>"/>
         <meta property="og:url" content="<?= 'http://' . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
         <link type="text/css" href="/includes/styles.css" rel="stylesheet"/>
-        <link type="image/x-icon" href="/images/icons/matt.ico" rel="icon"/>
+        <link type="image/x-icon" href="/images/icons/r.ico" rel="icon"/>
         <link type="application/rss+xml" href="/scripts/feed.php" rel="alternate"/>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <style>
@@ -19,7 +19,7 @@
     <body class="m5">
         <div class="mAuto customWidth">
             <?php foreach ($images as $key => $image) { ?>
-                <img data-id="<?= $key; ?>" src="<?= $image; ?>" alt="<?= $title; ?>" class="btnToggle csrPointer<?= ($key > 0) ? ' hide' : ''; ?>"/>
+                <img data-id="<?= $key; ?>" src="<?= $image; ?>" alt="<?= $title; ?>" class="flex100 btnToggle csrPointer<?= ($key > 0) ? ' hide' : ''; ?>"/>
             <?php } ?>
         </div>
         <script type="text/javascript">
@@ -29,7 +29,7 @@
                 var nextImage    = $('[data-id="' + nextId + '"]');
                 var firstImage   = $('[data-id="0"]');
                 var displayImage = (nextImage.length > 0) ? nextImage : firstImage;
-                
+
                 $('.btnToggle').addClass('hide');
                 displayImage.removeClass('hide');
             });

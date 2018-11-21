@@ -1,9 +1,9 @@
 <?php
 $table = 'deadhays';
-$sort  = 'ASC';
+$sort  = 'DESC';
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php');
 
-$title   = 'comics archive';
+$title   = 'dead hays comics archive';
 $desc    = 'view all comic posts.';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>

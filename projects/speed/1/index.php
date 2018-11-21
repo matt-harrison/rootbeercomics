@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>speed reading exercise #1</title>
-        <link href="/images/icons/kittenberg.ico" rel="icon" type="image/x-icon">
+        <link href="/images/icons/r.ico" rel="icon" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
 		<style type="text/css">
 			#frame.vert{
@@ -42,7 +42,7 @@
 				font:bold 32px/32px arial;
 				text-align:center;
 			}
-				
+
         </style>
 		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" src="gyro.js"></script>
@@ -57,15 +57,15 @@
 				$("#frame").click(distribute);
 				getGyro();
 			});
-				
+
 			function distribute(){
 				coords.splice(0);
 				floats = "";
 				list = "";
-				
+
 				numW = Math.floor($("#frame").width()/50);
 				numH = Math.floor($("#frame").height()/34);
-					
+
 				for (x=0; x<numW; x++) {
 					for (y=0; y<numH; y++) {
 						coords.push(new Array(x, y));
