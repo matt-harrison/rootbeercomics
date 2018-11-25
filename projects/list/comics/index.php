@@ -4,9 +4,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 		<meta property="og:title" content="graphic novels matt has read"/>
-		<meta property="og:image" content="http://www.rootbeercomics.com/images/matt.jpg"/>
+		<meta property="og:image" content="http://<?= $_SERVER[HTTP_HOST]; ?>/images/matt.jpg"/>
 		<meta property="og:description" content="graphic novel reading log, by matt harrison."/>
-		<meta property="og:url" content="http://www.rootbeercomics.com/projects/comics/index.php"/>
+		<meta property="og:url" content="http://<?= $_SERVER[HTTP_HOST]; ?>/projects/comics/index.php"/>
 		<title>graphic novels matt has read</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js/comics.js"></script>

@@ -27,8 +27,7 @@
                 <?php if (!mysql_query($sql, $con)) { ?>
                     <p class="txtC">Error: <?= mysql_error(); ?></p>
                 <?php } else { ?>
-                    <?php $url = 'http://www.rootbeercomics.com/index.php?id=' . $id . '&records=1'; ?>
-                    <a href="http://www.rootbeercomics.com/drawings/index.php?id=<?= $id ?>&records=1" target="_blank">view drawings #<?= $id ?></a><br/>
+                    <a href="/drawings/index.php?id=<?= $id ?>&records=1" target="_blank">view drawings #<?= $id ?></a><br/>
                     <span>title:   <?= $title; ?></span><br/>
                     <span>date:    <?= $date; ?></span><br/>
                     <span>thumb:   <?= $thumb; ?></span><br/><br/>
@@ -46,8 +45,7 @@
                 <?php if (!mysql_query($sql, $con)) { ?>
                     <p class="txtC">Error: <?= mysql_error(); ?></p>
                 <?php } else { ?>
-                    <?php $url = 'http://www.rootbeercomics.com/comics/index.php?id=' . $id . '&records=1'; ?>
-                    <a href="http://www.rootbeercomics.com/comics/index.php?id=<?= $id ?>&records=1" target="_blank">view comic #<?= $id; ?></a><br/>
+                    <a href="/comics/index.php?id=<?= $id ?>&records=1" target="_blank">view comic #<?= $id; ?></a><br/>
                     <span>title:  <?= $title; ?></span><br/>
                     <span>date:   <?= $date; ?></span><br/><br/>
 
