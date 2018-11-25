@@ -156,9 +156,9 @@ label, input {display: block;}
     .fixed {position: fixed;}
 
 /* text color */
-    .txtLtBlue {color: #8393CA;}
     .txtDkBlue {color: #003471;}
     .txtGray {color: gray;}
+    .txtRed {color: red;}
     .txtWhite {color: white;}
 
 /* vertical alignment */
