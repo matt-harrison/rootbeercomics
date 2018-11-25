@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>HTML5 canvas</title>
-        <link href="/includes/styles.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/library.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script type="text/javascript" src="kinetic.js"></script>  
+        <script type="text/javascript" src="kinetic.js"></script>
 		<script type="text/javascript">
 			var colorArr = new Array("red","blue","yellow","green","purple","orange");
             window.onload = function() {
 				var frameArr = new Array;
 				var currentFrame = 0;
 				var animVar = false;
-				
+
 				var stage = new Kinetic.Stage({
 					container:"container",
 					width:100,
@@ -20,28 +20,28 @@
 				});
 				var circles = new Kinetic.Layer();
 				var buttons = new Kinetic.Layer();
-				
+
 				stage.add(circles);
 				stage.add(buttons);
-				
+
 				document.getElementById("add").addEventListener("click", function() {
 					add();
 				}, false);
-				
+
 				document.getElementById("save").addEventListener("click", function() {
 					save();
 				}, false);
-				
+
 				document.getElementById("play").addEventListener("click", function() {
 					animVar = true;
 				}, false);
-				
+
 				document.getElementById("stop").addEventListener("click", function() {
 					animVar = false;
 				}, false);
-				
+
 				var int=self.setInterval(animate,250);
-				
+
 				function add(){
 					console.log('add');
 					var myX = Math.floor(Math.random()*100);
@@ -66,14 +66,14 @@
 						this.moveToTop();
 					});
 					circles.add(circle);
-					circles.draw();					
+					circles.draw();
 				}
-				
+
 				function save(){
 					console.log('save');
 					stage.toDataURL(function(dataUrl) {
 						$('#saved').append('<img src="'+dataUrl+'" class="unit mr10 mb10 bBlack w100 bgWhite"/>').removeClass('hide');
-						
+
 						$('#anim').append('<img src="'+dataUrl+'" id="frame'+frameArr.length+'" class="unit w100"/>');
 						if(frameArr.length == 0){
 							$('#saveBox').removeClass('hide');
@@ -89,7 +89,7 @@
 						frameArr.push(frame);
 					});
 				}
-			
+
 				function animate(){
 					console.log('animate');
 					if(animVar == true){
@@ -117,12 +117,12 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div id="saveBox" class="mb20 hide">
 			<div class="mb5 fs24">images:</div>
 			<div id="saved" class="line hide"></div>
 		</div>
-		
+
 		<div id="animBox" class="hide">
 			<div class="mb5 fs24">frame: <span id="frameNum">0</span></div>
 			<div class="line">

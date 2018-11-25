@@ -19,7 +19,7 @@ if(!isset($img)){
 		<meta property="og:image" content="http://<?= $_SERVER[HTTP_HOST] . $img; ?>"/>
 		<meta property="og:description" content="<?= $caption; ?>"/>
 		<meta property="og:url" content="http://<?= $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
-		<link type="text/css" href="/includes/styles.css" rel="stylesheet"/>
+		<link type="text/css" href="/assets/css/library.css" rel="stylesheet"/>
 		<link type="image/x-icon" href="/images/icons/r.ico" rel="icon"/>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	</head>

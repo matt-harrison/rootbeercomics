@@ -12,6 +12,6 @@
 				<?php } ?>
 			</div>
 		</div>
-		<script type="text/javascript" src="/includes/js/multiple.js"></script>
+		<script type="text/javascript" src="/assets/js/multiple.js"></script>
 	</body>
 </html>

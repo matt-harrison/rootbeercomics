@@ -20,7 +20,7 @@ $caption = str_replace("&quot;", '"', $caption);
 		<meta property="og:image" content="http://www.kittenberg.com/images/matt.jpg"/>
 		<meta property="og:description" content="webcomics, minicomics, and sketch blog by matt harrison."/>
 		<meta property="og:url" content="http://www.kittenberg.com/index.php"/>
-        <link type="text/css" href="http://www.kittenberg.com/includes/styles.css" rel="stylesheet"/>
+        <link type="text/css" href="http://www.kittenberg.com/assets/css/library.css" rel="stylesheet"/>
         <link type="image/x-icon" href="http://www.kittenberg.com/images/icons/r.ico" rel="icon"/>
         <link type="application/rss+xml" href="http://www.kittenberg.com/feed.php" rel="alternate"/>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>

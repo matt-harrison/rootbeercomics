@@ -40,7 +40,7 @@ if (count($readOrder) % 4 != 0) {
 for ($i = 0; $i < count($readOrder) / 2; $i++) {
     $fromBeginning = $readOrder[count($readOrder) - 1 - $i];
     $fromEnd       = $readOrder[$i];
-    
+
     if ($i % 2 === 0) {
         $printOrder[] = $fromBeginning;
         $printOrder[] = $fromEnd;
@@ -59,8 +59,8 @@ for ($i = 0; $i < count($readOrder) / 2; $i++) {
         <meta property="og:image" content=""/>
         <meta property="og:description" content="customizable guide to formatting minicomics for print"/>
         <meta property="og:url" content="<?= 'http://' . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
-        <link type="text/css" href="/includes/styles.css" rel="stylesheet"/>
-        <link type="text/css" href="/includes/grid.css" rel="stylesheet"/>
+        <link type="text/css" href="/assets/css/styles.css" rel="stylesheet"/>
+        <link type="text/css" href="/assets/css/grid.css" rel="stylesheet"/>
         <link type="image/x-icon" href="/images/icons/r.ico" rel="icon"/>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <style>

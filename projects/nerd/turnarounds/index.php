@@ -102,5 +102,5 @@ if ($animation['tags'] != NULL) {
 	<?php } ?>
 	<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'); ?>
 </div>
-<script type="text/javascript" src="/includes/js/spin.js"></script>
+<script type="text/javascript" src="/assets/js/spin.js"></script>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>
