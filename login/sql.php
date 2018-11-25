@@ -62,7 +62,6 @@ function createUser() {
 
   if (!$emailHasAt || !$emailHasDot) {
     $errors[] = 'Please supply a valid email address.';
-    showRegister();
   }
 
   if ($password1 !== $password2) {
@@ -83,10 +82,7 @@ function createUser() {
     $errors[] = 'That email address is already registered.';
   }
 
-  if ($errors) {
-    var_dump($errors);
-    showRegister();
-  } else {
+  if (!$errors) {
     $query = "INSERT INTO login (username, firstName, lastName, email, md5) VALUES ('$username', '$firstName', '$lastName', '$email', '$md5')";
     $rows  = executeQuery($query);
 
@@ -120,9 +116,7 @@ function updateUser() {
     $errors[] = 'Passwords did not match. Please try again.';
   }
 
-  if ($errors) {
-    var_dump($errors);
-  } else {
+  if (!$errors) {
     $query    = ("UPDATE login SET md5 = '$md5' WHERE username = '$username' AND md5 = '$oldMd5'");
     $response = executeQuery($query);
   }

@@ -28,58 +28,6 @@
     </div>
   </div>
 <?php } ?>
-<script type="text/javascript">
-  $(function() {
-    $('#loginForm').submit(function(event) {
-      event.preventDefault();
-      $('#errors').html('');
-
-      let username = $('[name="username"]').val();
-      let password = $('[name="password"]').val();
-      let errors   = [];
-
-      if (username === '') {
-        errors.push('Please specify a valid username.');
-      }
-
-      if (password === '') {
-        errors.push('Password required.');
-      }
-
-      if (errors.length > 0) {
-        showErrors(errors);
-      } else {
-        $.ajax({
-          type: 'POST',
-          url: '/login/sql.php',
-          dataType: 'json',
-          data: {
-            action  : 'log-in',
-            username: $('[name="username"]').val(),
-            password: $('[name="password"]').val()
-          },
-          success: function(response) {
-            if (response.success) {
-              location.reload();
-            } else {
-              showErrors(response.errors);
-            }
-          },
-          error: function(response) {
-            showErrors(['An error occurred. Please try again.']);
-          }
-        });
-      }
-    });
-  });
-
-  function showErrors(errors) {
-    if (errors.length > 0) {
-      $('#errors').html('').removeClass('hide');
-      errors.forEach(error => {
-        $('#errors').append('<p>' + error + '</p>');
-      });
-    }
-  }
-</script>
+<script type="text/javascript" src="/assets/js/error-handling.js"></script>
+<script type="text/javascript" src="/assets/js/login/index.js"></script>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>
