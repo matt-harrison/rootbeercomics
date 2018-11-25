@@ -12,11 +12,11 @@ $desc = 'an archive of the defunct website anarchynerd, by matt harrison.';
 		$rowCount = mysql_num_rows($result);
 		$num = (int)$rowCount;
 		$next = ($num+1);
-		$url = 'http://www.kittenberg.com/projects/nerd/turnarounds/' . $_POST['type'] . '/' . $_POST['filename'] . '.png';
-		$gif = 'http://www.kittenberg.com/projects/nerd/gif/turnarounds/' . $_POST['type'] . '/' . $_POST['filename'] . '.gif';
-			
+		$url = '/projects/nerd/turnarounds/' . $_POST['type'] . '/' . $_POST['filename'] . '.png';
+		$gif = '/projects/nerd/gif/turnarounds/' . $_POST['type'] . '/' . $_POST['filename'] . '.gif';
+
 		if($_COOKIE['username'] == 'matt!'){
-			$sql="INSERT INTO turnarounds 
+			$sql="INSERT INTO turnarounds
 			(uniqueID, title, url, gif, type, caption, tags) VALUES
 			('$next', '$_POST[title]', '$url', '$gif', '$_POST[type]', '$_POST[caption]', '$_POST[tags]')";
 			if (!mysql_query($sql,$con)){
