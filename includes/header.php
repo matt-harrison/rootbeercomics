@@ -4,7 +4,7 @@ $showSearch = isset($_GET['tag']);
 $title   = (isset($title)) ? $title . ' / root beer comics, by matt!' : 'root beer comics, by matt!';
 $caption = (isset($caption)) ? $caption : 'comics and drawings by matt harrison.';
 
-if(!isset($img)){
+if (!isset($img)) {
 	$img = '/images/avatar.jpg';
 }
 ?>

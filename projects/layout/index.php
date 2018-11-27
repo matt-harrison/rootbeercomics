@@ -90,7 +90,7 @@ for ($side = 0; $side < $sideCount; $side++) {
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta property="og:title" content="minicomic layout generator, by matt!"/>
-		<meta property="og:image" content=""/>
+		<meta property="og:image" content="/images/matt.jpg"/>
 		<meta property="og:description" content="customizable guide to formatting minicomics for print"/>
 		<meta property="og:url" content="<?= 'http://' . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
 		<link type="text/css" href="/assets/css/library.css" rel="stylesheet"/>
