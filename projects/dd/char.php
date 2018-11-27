@@ -3,443 +3,215 @@ $title = 'custom D&amp;D characters';
 $desc = 'the the collection of custom dungeons &amp; dragons characters, created by matt harrison and friends.';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<div class="mAuto w1000">
-	<div class="mb5 bdrLtBrown bdrRound p20 bgWhite">
+<div class="mAuto mb50 w1000">
+	<section class="mb50">
 		<p class="bold">heroes</p>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<span>name: andre 3000</span>
-				<img src="/projects/dd/images/heroes/andre3000A.jpg" class="mr5 dotted"/>
+		<div class="flex wrap">
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/andre3000A.jpg" alt="andre 3000" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/andre3000B.jpg" alt="none" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<span>symbol: none</span>
-				<img src="/projects/dd/images/heroes/andre3000B.jpg" class="dotted"/>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/banner1A.jpg" alt="david banner" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/banner1B.jpg" alt="hurting people" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<span>name: david banner</span>
-				<img src="/projects/dd/images/heroes/banner1A.jpg" class="dotted"/>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/banner2A.jpg" alt="david banner 2" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/banner2B.jpg" alt="rim" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<span>symbol: hurting people</span>
-				<img src="/projects/dd/images/heroes/banner1B.jpg" class="dotted"/>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/batmanA.jpg" alt="batman" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/batmanB.jpg" alt="batman logo" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<span>name: david banner 2</span>
-				<img src="/projects/dd/images/heroes/banner2A.jpg" class="dotted"/>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/brucecampbellA.jpg" alt="bruce campbell" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/brucecampbellB.jpg" alt="chainsaw" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<span>symbol: rim</span>
-				<img src="/projects/dd/images/heroes/banner2B.jpg" class="dotted"/>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/brucewillisA.jpg" alt="bruce willis" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/brucewillisB.jpg" alt="bare foot" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/batmanA.jpg" class="dotted"/>
-				<span>name: batman</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/bunnyA.jpg" alt="bunny rabbit in a robot suit"/>
+				</div>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/danzigA.jpg" alt="glenn danzig" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/danzigB.jpg" alt="misfits logo (bad)" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/batmanB.jpg" class="dotted"/>
-				<span>symbol: batman logo</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/daredevilA.jpg" alt="daredevil" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/daredevilB.jpg" alt="daredevil logo" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/brucecampbellA.jpg" class="dotted"/>
-				<span>name: bruce campbell</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/dennisfranzA.jpg" alt="dennis franz" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/dennisfranzB.jpg" alt="badge" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/brucecampbellB.jpg" class="dotted"/>
-				<span>symbol: chainsaw</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/dioA.jpg" alt="ronnie james dio" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/dioB.jpg" alt="the bull" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/brucewillisA.jpg" class="dotted"/>
-				<span>name: bruce willis</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/dolphinA.jpg" alt="dolphin with nunchuks" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/dolphinB.jpg" alt="nunchuks" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/brucewillisB.jpg" class="dotted"/>
-				<span>symbol: bare foot</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/hansiA.jpg" alt="hansi kursch" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/hansiB.jpg" alt="none" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/bunnyA.jpg" class="dotted"/>
-				<span>name: bunny rabbit in a robot suit</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/hitlerA.jpg" alt="hitler" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/hitlerB.jpg" alt="swastika" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/danzigA.jpg" class="dotted"/>
-				<span>name: glenn danzig</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/hulkhoganA.jpg" alt="hulk hogan" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/hulkhoganB.jpg" alt="championship belt" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/danzigB.jpg" class="dotted"/>
-				<span>symbol: misfits logo (bad)</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/jasonA.jpg" alt="jason voorhies" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/jasonB.jpg" alt="none" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/daredevilA.jpg" class="dotted"/>
-				<span>name: daredevil</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/jeffgoldblumA.jpg" alt="jeff goldblum" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/jeffgoldblumB.jpg" alt="t-rex" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/daredevilB.jpg" class="dotted"/>
-				<span>symbol: daredevil logo</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/johncusackA.jpg" alt="john cusack" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/johncusackB.jpg" alt="stereo" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/dennisfranzA.jpg" class="dotted"/>
-				<span>name: dennis franz</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/kermitA.jpg" alt="kermit the frog" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/kermitB.jpg" alt="puppeteer's hand" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/dennisfranzB.jpg" class="dotted"/>
-				<span>symbol: badge</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/merlinA.jpg" alt="merlin" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/merlinB.jpg" alt="none" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/dioA.jpg" class="dotted"/>
-				<span>name: ronnie james dio</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/rubertA.jpg" alt="rubert" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/rubertB.jpg" alt="the act of licking a lollipop" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/dioB.jpg" class="dotted"/>
-				<span>symbol: the bull</span>
+			<div class="mb10 dotted">
+				<img src="/projects/dd/images/heroes/snake1A.jpg" alt="snake pliskin" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/snake1B.jpg" alt="an academy award" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/dolphinA.jpg" class="dotted"/>
-				<span>name: dolphin with nunchuks</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/snake2A.jpg" alt="another snake pliskin" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/snake2B.jpg" alt="an academy award" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/dolphinB.jpg" class="dotted"/>
-				<span>symbol: nunchuks</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/terminatorA.jpg" alt="terminator robot" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/terminatorB.jpg" alt="shotgun" class="back csrPointer hide"/>
+			</div>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/thingA.jpg" alt="michael chiklis" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/thingB.jpg" alt="fantastic four logo" class="back csrPointer hide"/>
+			</div>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/heroes/willsmithA.jpg" alt="will smith" class="front csrPointer"/>
+				<img src="/projects/dd/images/heroes/willsmithB.jpg" alt="totally fresh ray-bans" class="back csrPointer hide"/>
 			</div>
 		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/hansiA.jpg" class="dotted"/>
-				<span>name: hansi kursch</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/hansiB.jpg" class="dotted"/>
-				<span>symbol: none</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/hitlerA.jpg" class="dotted"/>
-				<span>name: hitler</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/hitlerB.jpg" class="dotted"/>
-				<span>symbol: swastika</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/hulkhoganA.jpg" class="dotted"/>
-				<span>name: hulk hogan</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/hulkhoganB.jpg" class="dotted"/>
-				<span>symbol: championship belt</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/jasonA.jpg" class="dotted"/>
-				<span>name: jason voorhies</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/jasonB.jpg" class="dotted"/>
-				<span>symbol: none</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/jeffgoldblumA.jpg" class="dotted"/>
-				<span>name: jeff goldblum</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/jeffgoldblumB.jpg" class="dotted"/>
-				<span>symbol: t-rex</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/johncusackA.jpg" class="dotted"/>
-				<span>name: john cusack</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/johncusackB.jpg" class="dotted"/>
-				<span>symbol: stereo</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/kermitA.jpg" class="dotted"/>
-				<span>name: kermit the frog</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/kermitB.jpg" class="dotted"/>
-				<span>symbol: puppeteer's hand</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/merlinA.jpg" class="dotted"/>
-				<span>name: merlin</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/merlinB.jpg" class="dotted"/>
-				<span>symbol: none</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/rubertA.jpg" class="dotted"/>
-				<span>name: rubert</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/rubertB.jpg" class="dotted"/>
-				<span>symbol: the act of licking a lollipop</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/snake1A.jpg" class="dotted"/>
-				<span>name: snake pliskin</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/snake1B.jpg" class="dotted"/>
-				<span>symbol: an academy award</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/snake2A.jpg" class="dotted"/>
-				<span>name: another snake pliskin</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/snake2B.jpg" class="dotted"/>
-				<span>symbol: an academy award</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/terminatorA.jpg" class="dotted"/>
-				<span>name: terminator robot</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/terminatorB.jpg" class="dotted"/>
-				<span>symbol: shotgun</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/thingA.jpg" class="dotted"/>
-				<span>name: michael chiklis</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/thingB.jpg" class="dotted"/>
-				<span>symbol: fantastic four logo</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/heroes/willsmithA.jpg" class="dotted"/>
-				<span>name: will smith</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/heroes/willsmithB.jpg" class="dotted"/>
-				<span>symbol: totally fresh ray-bans</span>
-			</div>
-		</div>
-			
+	</section>
+	<section class="mb50">
 		<p class="bold">enemies</p>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/fagoo1A.jpg" class="dotted"/>
-				<span>name: fagoo</span>
+		<div class="flex wrap">
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/fagoo1A.jpg" alt="fagoo" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/fagoo1B.jpg" alt="rainbow and buttercup" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/fagoo1B.jpg" class="dotted"/>
-				<span>symbol: rainbow and buttercup</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/fagoo2A.jpg" alt="fagoo" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/fagoo2B.jpg" alt="rainbow and buttercup" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/fagoo2A.jpg" class="dotted"/>
-				<span>name: fagoo</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/knight1A.jpg" alt="knight" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/knight1B.jpg" alt="knightly crest" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/fagoo2B.jpg" class="dotted"/>
-				<span>symbol: rainbow and buttercup</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/knight2A.jpg" alt="knight" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/knight2B.jpg" alt="knightly crest" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/knight1A.jpg" class="dotted"/>
-				<span>name: knight</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/knight3A.jpg" alt="knight" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/knight3B.jpg" alt="knightly crest" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/knight1B.jpg" class="dotted"/>
-				<span>symbol: knightly crest</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/nerd1A.jpg" alt="nerdletron" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/nerd1B.jpg" alt="online mb10 RPGs" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/knight2A.jpg" class="dotted"/>
-				<span>name: knight</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/nerd2A.jpg" alt="nerdletron" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/nerd2B.jpg" alt="glasses (with loop)" class="back csrPointer hide"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/knight2B.jpg" class="dotted"/>
-				<span>symbol: knightly crest</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/nerd3A.jpg" alt="nerdletron" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/nerd3B.jpg" alt="pocket protector" class="back csrPointer hide"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/knight3A.jpg" class="dotted"/>
-				<span>name: knight</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/ninja1.jpg" alt="ninja"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/knight3B.jpg" class="dotted"/>
-				<span>symbol: knightly crest</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/ninja2.jpg" alt="ninja"/>
 			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/nerd1A.jpg" class="dotted"/>
-				<span>name: nerdletron</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/robot1.jpg" alt="robot"/>
 			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/nerd1B.jpg" class="dotted"/>
-				<span>symbol: online mb20 RPGs</span>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/robot2.jpg" alt="robot"/>
+			</div>
+			<div class="mr10 mb10 bgWhite">
+				<img src="/projects/dd/images/enemies/stormtrooperA.jpg" alt="stormtrooper" class="front csrPointer"/>
+				<img src="/projects/dd/images/enemies/stormtrooperB.jpg" alt="star wars logo" class="back csrPointer hide"/>
 			</div>
 		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/nerd2A.jpg" class="dotted"/>
-				<span>name: nerdletron</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/nerd2B.jpg" class="dotted"/>
-				<span>symbol: glasses (with loop)</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/nerd3A.jpg" class="dotted"/>
-				<span>name: nerdletron</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/enemies/nerd3B.jpg" class="dotted"/>
-				<span>symbol: pocket protector</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/ninja1.jpg" class="dotted"/>
-				<span>name: ninja</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/ninja2.jpg" class="dotted"/>
-				<span>name: ninja</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/robot1.jpg" class="dotted"/>
-				<span>name: robot</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/robot2.jpg" class="dotted"/>
-				<span>name: robot</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/stormtrooperA.jpg" class="dotted"/>
-				<span>name: stormtrooper</span>
-			</div>
-			<div class="unit mr5">
-				<img src="/projects/dd/images/enemies/stormtrooperB.jpg" class="dotted"/>
-				<span>symbol: star wars logo</span>
-			</div>
-		</div>
-		
+	</section>
+	<section>
 		<p class="bold">bosses</p>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/bbeastA.jpg" class="dotted"/>
-				<span>name: boner beast</span>
+		<div>
+			<div class="flex wrap">
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/davecoulierA.jpg" alt="dave coulier"/>
+					<img src="/projects/dd/images/bosses/davecoulierB.jpg" alt="bullwinkle impression" class="back csrPointer hide"/>
+				</div>
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/haysA.jpg" alt="hays"/>
+					<img src="/projects/dd/images/bosses/haysB.jpg" alt="the screenname &quot;five up front&quot;" class="back csrPointer hide"/>
+				</div>
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/papabearA.jpg" alt="papa bear"/>
+				</div>
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/sum41A.jpg" alt="sum 41"/>
+					<img src="/projects/dd/images/bosses/sum41B.jpg" alt="pierced tongue" class="back csrPointer hide"/>
+				</div>
+			</div>
+			<div class="flex wrap">
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/bbeastA.jpg" alt="boner beast"/>
+				</div>
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/dragonA.jpg" alt="hansi's dragon"/>
+				</div>
+			</div>
+			<div class="flex wrap">
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/godzillaA.jpg" alt="godzilla"/>
+				</div>
+				<div class="mr10 mb10 bgWhite">
+					<img src="/projects/dd/images/bosses/rabbitA.jpg" alt="peen ass rabbit"/>
+				</div>
 			</div>
 		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/davecoulierA.jpg" class="dotted"/>
-				<span>name: dave coulier</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/bosses/davecoulierB.jpg" class="dotted"/>
-				<span>symbol: bullwinkle impression</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/dragonA.jpg" class="dotted"/>
-				<span>name: hansi's dragon</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/godzillaA.jpg" class="dotted"/>
-				<span>name: godzilla</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/haysA.jpg" class="dotted"/>
-				<span>name: hays</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/bosses/haysB.jpg" class="dotted"/>
-				<span>symbol: the screenname "five up front"</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/papabearA.jpg" class="dotted"/>
-				<span>name: papa bear</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/rabbitA.jpg" class="dotted"/>
-				<span>name: peen ass rabbit</span>
-			</div>
-		</div>
-		<div class="line mb20">
-			<div class="unit mr5">
-				<img src="/projects/dd/images/bosses/sum41A.jpg" class="dotted"/>
-				<span>name: sum 41</span>
-			</div>
-			<div class="unit">
-				<img src="/projects/dd/images/bosses/sum41B.jpg" class="dotted"/>
-				<span>symbol: pierced tongue</span>
-			</div>
-		</div>
-	</div>
+	</section>
 </div>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
+<script type="text/javascript">
+	$(function() {
+		$('.front, .back').click(function() {
+			let target = $(this).parent().find('.hide');
+
+			$(this).addClass('hide');
+			target.removeClass('hide');
+		});
+	});
+</script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>
