@@ -60,3 +60,6 @@ $hasMultiple = (count($images > 1));
 		</div>
 	</div>
 <?php } ?>
+<?php if ($hasMultiple) { ?>
+	<script type="text/javascript" src="/assets/js/multiple.js"></script>
+<?php } ?>
