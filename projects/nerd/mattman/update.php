@@ -13,7 +13,7 @@ $caption = str_replace("'", "&apos;", $caption);
 $caption = str_replace("&quot;", '"', $caption);
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<section class="mAuto mb20 bdrLtBrown bdrRound p10 w600 bgWhite">
+<section class="mAuto mb20 bdrGray p10 w600 bgWhite">
 	<?php if($table != NULL && $table != ''){ ?>
 		<?php
 		$con = mysql_connect('localhost','kittenb1_matt','uncannyx0545');
@@ -22,8 +22,8 @@ $caption = str_replace("&quot;", '"', $caption);
 		?>
 			<p>ID: <?= $uniqueID; ?></p>
 		<?php while($row = mysql_fetch_array($result)){ ?>
-			<?php 
-			if (!$result){ 
+			<?php
+			if (!$result){
 				die('<p class="txtC">Error: ' . mysql_error() . '</p>');
 			}else{
 				echo 'table: ' . strtoupper($table) . ', record #' . $uniqueID . '<br/><br/>';

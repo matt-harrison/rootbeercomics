@@ -1,6 +1,6 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="mAuto mb20 w1000">
-    <div class="line bdrLtBrown bdrRound p10 bgWhite">
+    <div class="line bdrGray p10 bgWhite">
         <form enctype="multipart/form-data" action="insert.php" method="post">
             <input type="hidden" name="username" value="<?= $_COOKIE['username']; ?>"/>
             <input type="hidden" id="table" name="table" value="comics"/>

@@ -1,5 +1,5 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<div class="mb5 mAuto bdrBox w1000 bdrLtBrown bdrRound bgWhite">
+<div class="mb5 mAuto bdrBox w1000 bdrGray bgWhite">
     <div class="p10">
         <?php
         $table   = $_POST['table'];

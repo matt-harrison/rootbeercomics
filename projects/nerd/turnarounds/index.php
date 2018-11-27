@@ -62,7 +62,7 @@ if ($animation['tags'] != NULL) {
 						<a href="index.php?id=<?= $page; ?>&zoom=8">large</a>
 					</p>
 				</div>
-				<div id="buttons" class="line mAuto mb5 bdrLtBrown bgWhite txtC resize invisible">
+				<div id="buttons" class="line mAuto mb5 bdrGray bgWhite txtC resize invisible">
 					<p id="playBackward" class="unit mb0 pt10 pb10 size1of5 bdrBox csrPointer">&lt;&lt;</p>
 					<p id="stepBackward" class="unit mb0 pt10 pb10 size1of5 bdrBox csrPointer">&lt;</p>
 					<p id="stop" class="unit mb0 pt10 pb10 size1of5 bdrBox csrPointer">x</p>

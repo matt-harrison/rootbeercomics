@@ -1,6 +1,6 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div id="content">
-	<table class="mb5 mAuto bdrLtBrown bdrRound p10 bgWhite">
+	<table class="mb5 mAuto bdrGray p10 bgWhite">
 		<form enctype="multipart/form-data" action="insert.php" method="post">
 			<input type="hidden" name="MAX_FILE_SIZE" value="50000000"/>
 			<tr>

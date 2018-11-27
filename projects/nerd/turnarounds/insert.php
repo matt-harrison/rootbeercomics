@@ -4,7 +4,7 @@ $desc = 'an archive of the defunct website anarchynerd, by matt harrison.';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="p10">
-	<div class="bdrLtBrown bdrRound auto p10 w800">
+	<div class="bdrGray auto p10 w800">
 		<?php
 		$con = mysql_connect('localhost','kittenb1_matt','uncannyx0545');
 		mysql_select_db('kittenb1_nerd', $con);
