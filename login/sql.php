@@ -1,5 +1,4 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/login/secure.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
 
@@ -20,7 +19,7 @@ function logIn() {
   $password = $_REQUEST['password'];
   $md5      = md5($username . $password);
   $query    = "SELECT * FROM login WHERE username = '{$username}' AND md5 = '{$md5}'";
-  $rows     = executeQuery($query);
+  $rows     = select('kittenb1_main', $query);
   $errors   = array();
 
   if (count($rows) === 1) {
@@ -69,14 +68,14 @@ function createUser() {
   }
 
   $query = "SELECT * FROM login WHERE username = '{$username}'";
-  $rows  = executeQuery($query);
+  $rows  = select('kittenb1_main', $query);
 
   if (count($rows) > 0) {
     $errors[] = 'That username already exists.';
   }
 
   $query = "SELECT * FROM login WHERE email = '$email'";
-  $rows  = executeQuery($query);
+  $rows  = select('kittenb1_main', $query);
 
   if (count($rows) > 0) {
     $errors[] = 'That email address is already registered.';
@@ -84,7 +83,7 @@ function createUser() {
 
   if (!$errors) {
     $query = "INSERT INTO login (username, firstName, lastName, email, md5) VALUES ('$username', '$firstName', '$lastName', '$email', '$md5')";
-    $rows  = executeQuery($query);
+    $rows  = select('kittenb1_main', $query);
 
     saveCookie('username', $username, 86400);
   }
@@ -105,7 +104,7 @@ function updateUser() {
   $oldMd5      = md5($username . $oldPassword);
   $md5         = md5($username . $password1);
   $query       = "SELECT * FROM login WHERE username = '{$username}'";
-  $rows        = executeQuery($query);
+  $rows        = select('kittenb1_main', $query);
   $errors      = array();
 
   if ($rows[0]['md5'] !== $oldMd5) {
@@ -118,7 +117,7 @@ function updateUser() {
 
   if (!$errors) {
     $query    = ("UPDATE login SET md5 = '$md5' WHERE username = '$username' AND md5 = '$oldMd5'");
-    $response = executeQuery($query);
+    $response = select('kittenb1_main', $query);
   }
 
   $response = array(

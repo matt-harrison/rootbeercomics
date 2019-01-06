@@ -1,22 +1,23 @@
 <?php
-function executeQuery($query) {
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/secure.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/debug.php');
+
+function executeQuery($database, $query) {
   global $sqlUsername, $sqlPassword;
 
-  $rows = array();
-  $con = mysql_connect('localhost', $sqlUsername, $sqlPassword);
+  $rows     = array();
+  $con      = new mysqli('localhost', $sqlUsername, $sqlPassword, $database);
+  $response = $con->query($query);
 
-  mysql_select_db('kittenb1_users', $con);
+  return $response;
+}
 
-  $response = mysql_query($query, $con);
-  $rowCount = mysql_num_rows($response);
+function select($database, $query) {
+  $response = executeQuery($database, $query);
 
-  if ($rowCount > 0) {
-    while ($row = mysql_fetch_array($response)) {
-      $rows[] = $row;
-    }
+  while ($row = $response->fetch_assoc()) {
+    $rows[] = $row;
   }
-
-  mysql_close($con);
 
   return $rows;
 }

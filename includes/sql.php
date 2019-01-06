@@ -1,23 +1,10 @@
 <?php
-$sort    = (isset($sort)) ? $sort : 'ASC';
-$records = (isset($records)) ? $records : 1;
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
 
 //Archive pages
-$conn = new mysqli('localhost', 'kittenb1_matt', 'uncannyx0545', 'kittenb1_main');
-if ($conn->connect_error) {
-    die('connection failed: ' . $conn->connect_error);
-}
-
-$query = "SELECT *
-    FROM $table
-    ORDER BY id $sort";
-$results = $conn->query($query);
-
-//Stash archive data for the view.
-$archive = array();
-while ($result = $results->fetch_assoc()) {
-    $archive[] = $result;
-}
+$sort    = (isset($sort)) ? $sort : 'ASC';
+$query   = "SELECT * FROM $table ORDER BY id $sort";
+$archive = select('kittenb1_main', $query);
 
 //Index pages
 if (!isset($page)) {
@@ -28,15 +15,6 @@ if (!isset($page)) {
     }
 }
 
-$query = "SELECT *
-    FROM $table
-    WHERE id <= $page
-    ORDER BY id DESC
-    LIMIT $records";
-$results = $conn->query($query);
-
-//Stash requested row data in the view.
-$rows = array();
-while ($result = $results->fetch_assoc()) {
-    $rows[] = $result;
-}
+$records = (isset($records)) ? $records : 1;
+$query   = "SELECT * FROM $table WHERE id <= $page ORDER BY id DESC LIMIT $records";
+$rows    = select('kittenb1_main', $query);
