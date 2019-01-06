@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
 
 $messages = array();
@@ -36,7 +36,7 @@ function sqlEscape($raw) {
 	}
 	?>
 	<?php foreach ($queries as $query) { ?>
-		<?php $response = executeQuery($query); ?>
+		<?php $response = execute($query); ?>
 		<textarea class="bsBorder mb10 wFull"><?= $query; ?></textarea>
 	<?php } ?>
 	<?php foreach ($messages as $message) { ?>

@@ -1,6 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];

@@ -1,6 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $username          = $_REQUEST['username'];
 $firstName         = $_REQUEST['firstName'];
@@ -48,7 +48,7 @@ if (count($rows) > 0) {
 
 if (!$errors) {
   $query = "INSERT INTO login (username, firstName, lastName, email, md5) VALUES ('$username', '$firstName', '$lastName', '$email', '$md5')";
-  $rows  = executeQuery($query, 'kittenb1_users');
+  $rows  = execute($query, 'kittenb1_users');
 
   saveCookie('username', $username, 86400);
 }

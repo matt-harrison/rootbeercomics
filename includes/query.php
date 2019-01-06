@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/debug.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/secure.php');
 
-function executeQuery($query, $database = 'kittenb1_main') {
+function execute($query, $database = 'kittenb1_main') {
   global $sqlUsername, $sqlPassword;
 
   $rows     = array();
@@ -13,7 +13,7 @@ function executeQuery($query, $database = 'kittenb1_main') {
 }
 
 function select($query, $database = 'kittenb1_main') {
-  $response = executeQuery($query, $database);
+  $response = execute($query, $database);
 
   while ($row = $response->fetch_assoc()) {
     $rows[] = $row;

@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
 
 $table = 'comics';
@@ -12,7 +12,7 @@ foreach ($rows as $row) {
 
 	if ($id > 65) {
 		$query    = "UPDATE $table SET id = '$index' WHERE id = '$id'";
-		// $response = executeQuery($query);
+		// $response = execute($query);
 
 		echo $id . ': ' . $query . '<br/>';
 		$index++;

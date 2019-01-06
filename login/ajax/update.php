@@ -1,6 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $username    = $_COOKIE['username'];
 $oldPassword = $_REQUEST['oldPassword'];
@@ -22,7 +22,7 @@ if ($password1 !== $password2) {
 
 if (!$errors) {
   $query    = ("UPDATE login SET md5 = '$md5' WHERE username = '$username' AND md5 = '$oldMd5'");
-  $response = executeQuery($query, 'kittenb1_users');
+  $response = execute($query, 'kittenb1_users');
 }
 
 $response = array(

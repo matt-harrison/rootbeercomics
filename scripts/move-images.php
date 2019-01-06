@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
 
 $table = 'drawings';
@@ -15,6 +15,6 @@ foreach ($rows as $row) {
 		// rename('..' . $row['thumb'], '..' . $newPath);
 
 		$query    = "UPDATE $table SET thumb = '$newPath' WHERE id = $id";
-		// $response = executeQuery($query);
+		// $response = execute($query);
 	}
 }

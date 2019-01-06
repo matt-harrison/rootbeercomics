@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
 
 $table   = $_POST['table'];
@@ -53,7 +53,7 @@ if ($isDrawings) {
         '$caption'
     )";
 }
-$result = executeQuery($query);
+$result = execute($query);
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="mb5 mAuto bdrBox w1000 bdrGray bgWhite">
