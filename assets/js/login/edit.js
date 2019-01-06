@@ -29,10 +29,9 @@ $(function() {
     } else {
       $.ajax({
         type: 'POST',
-        url: '/login/sql.php',
+        url: '/login/ajax/update.php',
         dataType: 'json',
         data: {
-          action     : 'update',
           oldPassword: $('[name="oldPassword"]').val(),
           password1  : $('[name="password1"]').val(),
           password2  : $('[name="password2"]').val()

@@ -44,10 +44,9 @@ $(function() {
     } else {
       $.ajax({
         type: 'POST',
-        url: '/login/sql.php',
+        url: '/login/ajax/register.php',
         dataType: 'json',
         data: {
-          action   : 'create',
           firstName: $('[name="firstName"]').val(),
           lastName : $('[name="lastName"]').val(),
           email    : $('[name="email"]').val(),

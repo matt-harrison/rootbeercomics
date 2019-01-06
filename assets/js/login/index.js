@@ -20,10 +20,9 @@ $(function() {
     } else {
       $.ajax({
         type: 'POST',
-        url: '/login/sql.php',
+        url: '/login/ajax/log-in.php',
         dataType: 'json',
         data: {
-          action  : 'log-in',
           username: $('[name="username"]').val(),
           password: $('[name="password"]').val()
         },
