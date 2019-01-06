@@ -1,20 +1,20 @@
 <?php
-$con   = mysql_connect('localhost', 'kittenb1_matt', 'uncannyx0545');
-$title = 'modify database records';
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
+
 $table = 'comics';
-$index = 1000;
+$index = 66;
+$query = "SELECT * FROM $table ORDER BY date ASC";
+$rows  = select($query);
 
-mysql_select_db('kittenb1_main', $con);
-
-$rows = mysql_query("SELECT * FROM $table ORDER BY date ASC", $con);
-
-while ($row = mysql_fetch_array($rows)) {
+foreach ($rows as $row) {
 	$id = $row['id'];
 
-	$original = str_replace('/full/', '/final/', $row['original']);
-	$query    = "UPDATE $table SET id = '$index' WHERE id = '$id'";
-	// $result = mysql_query($query);
+	if ($id > 65) {
+		$query    = "UPDATE $table SET id = '$index' WHERE id = '$id'";
+		// $response = executeQuery($query);
 
-	echo $id . ': ' . $query . '<br/>';
-	$index++;
+		echo $id . ': ' . $query . '<br/>';
+		$index++;
+	}
 }

@@ -19,7 +19,7 @@ function logIn() {
   $password = $_REQUEST['password'];
   $md5      = md5($username . $password);
   $query    = "SELECT * FROM login WHERE username = '{$username}' AND md5 = '{$md5}'";
-  $rows     = select('kittenb1_main', $query);
+  $rows     = select($query, 'kittenb1_users');
   $errors   = array();
 
   if (count($rows) === 1) {
@@ -68,14 +68,14 @@ function createUser() {
   }
 
   $query = "SELECT * FROM login WHERE username = '{$username}'";
-  $rows  = select('kittenb1_main', $query);
+  $rows  = select($query, 'kittenb1_users');
 
   if (count($rows) > 0) {
     $errors[] = 'That username already exists.';
   }
 
   $query = "SELECT * FROM login WHERE email = '$email'";
-  $rows  = select('kittenb1_main', $query);
+  $rows  = select($query, 'kittenb1_users');
 
   if (count($rows) > 0) {
     $errors[] = 'That email address is already registered.';
@@ -83,7 +83,7 @@ function createUser() {
 
   if (!$errors) {
     $query = "INSERT INTO login (username, firstName, lastName, email, md5) VALUES ('$username', '$firstName', '$lastName', '$email', '$md5')";
-    $rows  = select('kittenb1_main', $query);
+    $rows  = select($query, 'kittenb1_users');
 
     saveCookie('username', $username, 86400);
   }
@@ -104,7 +104,7 @@ function updateUser() {
   $oldMd5      = md5($username . $oldPassword);
   $md5         = md5($username . $password1);
   $query       = "SELECT * FROM login WHERE username = '{$username}'";
-  $rows        = select('kittenb1_main', $query);
+  $rows        = select($query, 'kittenb1_users');
   $errors      = array();
 
   if ($rows[0]['md5'] !== $oldMd5) {
@@ -117,7 +117,7 @@ function updateUser() {
 
   if (!$errors) {
     $query    = ("UPDATE login SET md5 = '$md5' WHERE username = '$username' AND md5 = '$oldMd5'");
-    $response = select('kittenb1_main', $query);
+    $response = select($query, 'kittenb1_users');
   }
 
   $response = array(

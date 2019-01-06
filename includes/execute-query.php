@@ -1,8 +1,8 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/secure.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/debug.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/secure.php');
 
-function executeQuery($database, $query) {
+function executeQuery($query, $database = 'kittenb1_main') {
   global $sqlUsername, $sqlPassword;
 
   $rows     = array();
@@ -12,8 +12,8 @@ function executeQuery($database, $query) {
   return $response;
 }
 
-function select($database, $query) {
-  $response = executeQuery($database, $query);
+function select($query, $database = 'kittenb1_main') {
+  $response = executeQuery($query, $database);
 
   while ($row = $response->fetch_assoc()) {
     $rows[] = $row;

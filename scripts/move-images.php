@@ -1,13 +1,20 @@
 <?php
-$con = mysql_connect('localhost', 'kittenb1_matt', 'uncannyx0545');
-mysql_select_db('kittenb1_main', $con);
-$rows = mysql_query("SELECT * FROM drawings ORDER BY id ASC", $con);
-while($row = mysql_fetch_array($rows)) {
-	$newPath = $row['thumb'];
-	$newPath = str_replace('drawings/thumbs/', 'drawings/real-thumbs/', $newPath);
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
+
+$table = 'drawings';
+$query = "SELECT * FROM $table ORDER BY id ASC";
+$rows  = select($query);
+
+foreach ($rows as $row) {
+	$id = $row['id'];
+	$newPath = str_replace('drawings/thumbs/', 'drawings/new-thumbs/', $row['thumb']);
 
 	if ($row['thumb'] != $newPath) {
-		echo $row['id'] . ': ' . $row['thumb'] . ' >>> ' . $newPath . '</br>';
-		//rename('..' . $row['thumb'], '..' . $newPath);
+		echo $id . ': ' . $row['thumb'] . ' >>> ' . $newPath . '</br>';
+		// rename('..' . $row['thumb'], '..' . $newPath);
+
+		$query    = "UPDATE $table SET thumb = '$newPath' WHERE id = $id";
+		// $response = executeQuery($query);
 	}
 }

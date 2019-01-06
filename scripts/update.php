@@ -1,7 +1,15 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
+
 $messages = array();
 $queries  = array();
+
+$table = $_POST['table'];
+$id    = $_POST['id'];
+
+$query = "SELECT * FROM $table WHERE id = '$id'";
+$rows  = select($query);
 
 function sqlEscape($raw) {
 	$modified = str_replace('"', '\"', $raw);
@@ -10,40 +18,25 @@ function sqlEscape($raw) {
 	return $modified;
 }
 ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <section class="mAuto mb10 p10 w1000 bgWhite">
 	<?php
-	$table = $_POST['table'];
-	$id    = $_POST['id'];
-
-	unset($_POST['table']);
-
-	if (!empty($table) && !empty($id)) {
-		$con = mysql_connect('localhost','kittenb1_matt','uncannyx0545');
-		mysql_select_db('kittenb1_main', $con);
-		$result = mysql_query("SELECT * FROM $table WHERE id = '$id'", $con);
-		while ($row = mysql_fetch_array($result)) {
-			if (!$result) {
-				$messages[] = 'error: ' . mysql_error();
-			} else {
-				foreach ($_POST as $field => $value) {
-					if ($value != $row[$field]) {
-						$value = sqlEscape($value);
-						$query = "UPDATE $table SET $field = '$value' WHERE id = '$id'";
-						$queries[] = $query;
-					}
-				}
+	foreach ($rows as $row) {
+		foreach ($_POST as $field => $value) {
+			if ($field !== 'table' && $value != $row[$field]) {
+				$value = sqlEscape($value);
+				$query = "UPDATE $table SET $field = '$value' WHERE id = '$id'";
+				$queries[] = $query;
 			}
 		}
+	}
 
-		if (empty($queries)) {
-			$messages[] = 'no queries were performed.';
-		}
-	} else {
-		$messages[] = 'invalid POST data.';
+	if (empty($queries)) {
+		$messages[] = 'no queries were performed.';
 	}
 	?>
 	<?php foreach ($queries as $query) { ?>
-		<?php $result = mysql_query($query); ?>
+		<?php $response = executeQuery($query); ?>
 		<textarea class="bsBorder mb10 wFull"><?= $query; ?></textarea>
 	<?php } ?>
 	<?php foreach ($messages as $message) { ?>

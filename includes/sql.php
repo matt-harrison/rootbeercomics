@@ -4,7 +4,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/execute-query.php');
 //Archive pages
 $sort    = (isset($sort)) ? $sort : 'ASC';
 $query   = "SELECT * FROM $table ORDER BY id $sort";
-$archive = select('kittenb1_main', $query);
+$archive = select($query);
 
 //Index pages
 if (!isset($page)) {
@@ -17,4 +17,4 @@ if (!isset($page)) {
 
 $records = (isset($records)) ? $records : 1;
 $query   = "SELECT * FROM $table WHERE id <= $page ORDER BY id DESC LIMIT $records";
-$rows    = select('kittenb1_main', $query);
+$rows    = select($query);
