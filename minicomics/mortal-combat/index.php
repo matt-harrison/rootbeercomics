@@ -5,6 +5,6 @@ $desc  = '.';
 
 $book  = 'mortal-combat';
 $first = 1;
-$last  = 16;
+$last  = 17;
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/mini.php'); ?>
