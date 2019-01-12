@@ -11,7 +11,7 @@ $hasMultiple = (count($images > 1));
 		class="mAuto mb10<?= ($hasMultiple) ? ' multiple csrPointer' : ''; ?><?= ($key > 0) ? ' hide' : ''; ?>"/>
 	<?php } ?>
 	<?php if ($records != 1) { ?>
-		<a href="/drawings/index.php?id=<?= $row['id']; ?>&records=1">
+		<a href="/drawings/index.php?id=<?= $row['id']; ?>">
 			<img src="/images/nav/buttons/permalink.png" alt="permalink" class="opac50"/>
 		</a>
 	<?php } ?>

@@ -1,5 +1,5 @@
 # Use PHP5.4 as default
-AddHandler application/x-httpd-php54 .php
+AddHandler application/x-httpd-php70 .php
 DirectoryIndex index.html.var index.htm index.html index.shtml index.xhtml index.wml index.perl index.pl index.plx index.ppl index.cgi index.jsp index.js index.jp index.php4 index.php3 index.php index.phtml default.htm default.html home.htm index.php5 Default.html Default.htm home.html
 
 Redirect /burgg       /projects/burgg
@@ -20,6 +20,7 @@ Redirect /happy3      /minicomics/happy/3
 Redirect /happy4      /minicomics/happy/4
 Redirect /happy5      /minicomics/happy/5
 Redirect /lincoln     /minicomics/lincoln
+Redirect /mk          /minicomics/mortal-combat
 Redirect /potential   /minicomics/potential
 Redirect /rangers     /minicomics/rangers
 Redirect /yearbook    /minicomics/yearbook
@@ -43,3 +44,11 @@ Redirect /mybooks     /projects/list/books
 Redirect /mycomics    /projects/list/comics
 Redirect /mymovies    /projects/list/movies
 Redirect /list        /projects/list/calendar
+
+RedirectMatch /comics/(\d+)          /comics/index.php?id=$1
+RedirectMatch /comics/old/(\d+)      /comics/old/index.php?id=$1
+RedirectMatch /comics/jam/(\d+)      /comics/jam/index.php?id=$1
+RedirectMatch /comics/deadhays/(\d+) /comics/deadhays/index.php?id=$1
+RedirectMatch /drawings/(\d+)        /drawings/index.php?id=$1
+RedirectMatch /burgg/(\d+)           /projects/burgg/index.php?id=$1
+RedirectMatch /pain/(\d+)            /projects/pain/index.php?id=$1

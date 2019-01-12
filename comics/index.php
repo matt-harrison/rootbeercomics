@@ -2,8 +2,7 @@
 $table     = 'comics';
 $directory = '/comics';
 $sort      = 'DESC';
-$page      = (isset($_GET['id'])) ? $_GET['id'] : null;
-$records   = (isset($_GET['records'])) ? $_GET['records'] : 10;
+
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php');
 
 if ($records == 1) {

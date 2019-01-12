@@ -9,7 +9,7 @@ $desc  = 'an archive of movie scene drawings from the defunct website "the burgg
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="flex wrap">
 	<?php foreach ($archive as $record) { ?>
-		<a href="index.php?id=<?= $record['id']; ?>&records=1" class="mr1 mb1">
+		<a href="index.php?id=<?= $record['id']; ?>" class="mr1 mb1">
 			<img src="<?= $record['thumb']; ?>" alt="<?= $title; ?>" class="thumb"/>
 		</a>
 	<?php } ?>

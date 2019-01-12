@@ -14,7 +14,7 @@ $desc    = 'view all comic posts.';
         $title = str_replace("'", '\&apos;', $title);
         $title = str_replace('"', "\&quot;", $title);
         ?>
-        <a href="index.php?id=<?= $record['id']; ?>&records=1" class="mr1 mb1">
+        <a href="index.php?id=<?= $record['id']; ?>" class="mr1 mb1">
             <img src="<?= $record['thumb']; ?>" alt="<?= $title; ?>" class="thumb"/>
         </a>
     <?php } ?>

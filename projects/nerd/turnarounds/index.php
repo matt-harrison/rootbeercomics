@@ -54,7 +54,7 @@ if ($animation['tags'] != NULL) {
 			<div class="mAuto w800 noSelect">
 				<div class="line mb10">
 					<h2 class="unit mr5 mb0 bold">
-						<a href="index.php?id=<?= $animation['uniqueID']; ?>&records=1"><?= $animation['title']; ?></a>
+						<a href="index.php?id=<?= $animation['uniqueID']; ?>"><?= $animation['title']; ?></a>
 					</h2>
 					<p class="unitR">
 						<a href="index.php?id=<?= $page; ?>&zoom=1" class="mr5">small</a>

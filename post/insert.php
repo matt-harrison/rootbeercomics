@@ -59,7 +59,7 @@ $result = execute($query);
 <div class="mb5 mAuto bdrBox w1000 bdrGray bgWhite">
     <div class="p10">
         <?php if ($isDrawings) { ?>
-            <a href="/drawings/index.php?id=<?= $id ?>&records=1" target="_blank">view drawing #<?= $id; ?></a><br/>
+            <a href="/drawings/index.php?id=<?= $id ?>" target="_blank">view drawing #<?= $id; ?></a><br/>
             <span>title:   <?= $title; ?></span><br/>
             <span>date:    <?= $date; ?></span><br/>
             <span>thumb:   <?= $thumb; ?></span><br/><br/>
@@ -67,7 +67,7 @@ $result = execute($query);
             <span>images:</span><br/>
             <textarea style="width:500px;height:300px;"><?= $images; ?></textarea><br/>
         <?php } else { ?>
-            <a href="/comics/index.php?id=<?= $id ?>&records=1" target="_blank">view comic #<?= $id; ?></a><br/>
+            <a href="/comics/index.php?id=<?= $id ?>" target="_blank">view comic #<?= $id; ?></a><br/>
             <span>title:    <?= $title; ?></span><br/>
             <span>date:     <?= $date; ?></span><br/><br/>
             <span>thumb:    <?= $thumb; ?></span><br/>
