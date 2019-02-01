@@ -25,3 +25,6 @@
 <a href="/illustration/img/village-days.jpg" target="_blank" class="bsBorder mr5 mb5">
     <img src="/illustration/thumbs/village-days.jpg" alt="alt daily: village-days"/>
 </a>
+<a href="/illustration/img/noice.jpg" target="_blank" class="bsBorder mr5 mb5">
+    <img src="/illustration/thumbs/noice.jpg" alt="noice"/>
+</a>
