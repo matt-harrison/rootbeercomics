@@ -1,0 +1,70 @@
+body, div, h3, p, input, button, select, fieldset {
+  display: block;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body, input, button, select, fieldset {
+  font: 10pt courier new;
+}
+
+input[type="text"], button, select {
+  height: 30px;
+  line-height: 1;
+}
+
+.flex {display: flex;}
+
+.spaceBetween {justify-content: space-between;}
+
+.alignCenter {align-items: center;}
+
+.m5 {margin: 5px;}
+
+.mr5  {margin-right:  5px;}
+.mr10 {margin-right: 10px;}
+
+.mb5 {margin-bottom: 5px;}
+
+.ml5 {margin-left: 5px;}
+
+.mAuto {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bdrBox {
+  box-sizing: border-box;
+}
+.bdrGray {border: 1px solid #666;}
+
+.p5 {padding: 5px;}
+
+.size1of5 {width: 20%;}
+.size4of5 {width: calc(80% - 5px);}
+.size1of3 {width: calc(33.33% - 5px);}
+
+.wFull {width: 100%;}
+
+.w500 {max-width: 500px;}
+
+.fs10 {font-size: 10pt;}
+.fs14 {font-size: 14pt;}
+
+.bold {font-weight: bold;}
+
+.csrPointer {cursor: pointer;}
+
+.txtC {text-align: center;}
+
+#date {
+  width: calc(100% - 30px);
+}
+
+#first {
+  width: 30px;
+  height: 30px;
+}
+
+#btnAdd {min-height: 65px;}
