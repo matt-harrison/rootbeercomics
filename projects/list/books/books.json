@@ -1,5 +1,5 @@
 {
-  "books": [
+  "items": [
     {
       "title": "the perks of being a wallflower",
       "month": "",
@@ -933,7 +933,7 @@
     },
     {
       "title": "the hobbit",
-      "month": "4",
+      "month": "04",
       "day": "15",
       "year": "2009",
       "first": "true"
@@ -1780,77 +1780,77 @@
     },
     {
       "title": "a dance with dragons",
-      "month": "3",
+      "month": "03",
       "day": "10",
       "year": "2014",
       "first": "true"
     },
     {
       "title": "city of thieves",
-      "month": "3",
+      "month": "03",
       "day": "24",
       "year": "2014",
       "first": "true"
     },
     {
       "title": "brideshead revisited",
-      "month": "5",
+      "month": "05",
       "day": "14",
       "year": "2014",
       "first": "true"
     },
     {
       "title": "the time machine",
-      "month": "5",
+      "month": "05",
       "day": "20",
       "year": "2014",
       "first": "true"
     },
     {
       "title": "star wars: year by year",
-      "month": "7",
-      "day": "1",
+      "month": "07",
+      "day": "01",
       "year": "2014",
       "first": "true"
     },
     {
       "title": "the iron king",
-      "month": "7",
-      "day": "4",
+      "month": "07",
+      "day": "04",
       "year": "2014",
       "first": "true"
     },
     {
       "title": "dune",
-      "month": "7",
+      "month": "07",
       "day": "29",
       "year": "2014",
       "first": "true"
     },
     {
       "title": "jurassic park",
-      "month": "8",
-      "day": "3",
+      "month": "08",
+      "day": "03",
       "year": "2014",
       "first": true
     },
     {
       "title": "2001: a space odyssey",
-      "month": "8",
+      "month": "08",
       "day": "11",
       "year": "2014",
       "first": true
     },
     {
       "title": "the magician's land",
-      "month": "9",
+      "month": "09",
       "day": "12",
       "year": "2014",
       "first": true
     },
     {
       "title": "the lost world",
-      "month": "9",
+      "month": "09",
       "day": "29",
       "year": "2014",
       "first": true
@@ -1878,133 +1878,133 @@
     },
     {
       "title": "a load of hooey",
-      "month": "1",
-      "day": "3",
+      "month": "01",
+      "day": "03",
       "year": "2015",
       "first": true
     },
     {
       "title": "heir to the empire",
-      "month": "1",
+      "month": "01",
       "day": "10",
       "year": "2015",
       "first": true
     },
     {
       "title": "to the lighthouse",
-      "month": "2",
+      "month": "02",
       "day": "15",
       "year": "2015",
       "first": true
     },
     {
       "title": "frankenstein",
-      "month": "3",
+      "month": "03",
       "day": "12",
       "year": "2015",
       "first": true
     },
     {
       "title": "extra lives: why video games matter",
-      "month": "3",
+      "month": "03",
       "day": "31",
       "year": "2015",
       "first": true
     },
     {
       "title": "console wars",
-      "month": "4",
-      "day": "6",
+      "month": "04",
+      "day": "06",
       "year": "2015",
       "first": true
     },
     {
       "title": "zealot",
-      "month": "4",
+      "month": "04",
       "day": "16",
       "year": "2015",
       "first": true
     },
     {
       "title": "the cosmic puppets",
-      "month": "4",
+      "month": "04",
       "day": "20",
       "year": "2015",
       "first": true
     },
     {
       "title": "ready player one",
-      "month": "4",
+      "month": "04",
       "day": "28",
       "year": "2015",
       "first": true
     },
     {
       "title": "the lost continent",
-      "month": "5",
+      "month": "05",
       "day": "25",
       "year": "2015",
       "first": true
     },
     {
       "title": "fresh off the boat",
-      "month": "5",
+      "month": "05",
       "day": "28",
       "year": "2015",
       "first": true
     },
     {
       "title": "a handful of dust",
-      "month": "6",
+      "month": "06",
       "day": "26",
       "year": "2015",
       "first": true
     },
     {
       "title": "men explain things to me",
-      "month": "7",
-      "day": "5",
+      "month": "07",
+      "day": "05",
       "year": "2015",
       "first": true
     },
     {
       "title": "tenth of december",
-      "month": "7",
-      "day": "9",
+      "month": "07",
+      "day": "09",
       "year": "2015",
       "first": true
     },
     {
       "title": "silver screen fiend",
-      "month": "7",
+      "month": "07",
       "day": "14",
       "year": "2015",
       "first": true
     },
     {
       "title": "the drowned world",
-      "month": "8",
+      "month": "08",
       "day": "26",
       "year": "2015",
       "first": true
     },
     {
       "title": "the martian",
-      "month": "9",
-      "day": "9",
+      "month": "09",
+      "day": "09",
       "year": "2015",
       "first": true
     },
     {
       "title": "you're never weird on the internet(almost)",
-      "month": "9",
+      "month": "09",
       "day": "14",
       "year": "2015",
       "first": true
     },
     {
       "title": "pudd'nhead wilson",
-      "month": "9",
+      "month": "09",
       "day": "23",
       "year": "2015",
       "first": true
@@ -2012,7 +2012,7 @@
     {
       "title": "raise some shell",
       "month": "10",
-      "day": "6",
+      "day": "06",
       "year": "2015",
       "first": true
     },
@@ -2040,7 +2040,7 @@
     {
       "title": "a knight of the seven kingdoms",
       "month": "11",
-      "day": "7",
+      "day": "07",
       "year": "2015",
       "first": true
     },
@@ -2060,119 +2060,119 @@
     },
     {
       "title": "just mercy",
-      "month": "1",
+      "month": "01",
       "day": "14",
       "year": "2016",
       "first": true
     },
     {
       "title": "the sisters brothers",
-      "month": "1",
+      "month": "01",
       "day": "31",
       "year": "2016",
       "first": true
     },
     {
       "title": "station eleven",
-      "month": "2",
+      "month": "02",
       "day": "16",
       "year": "2016",
       "first": true
     },
     {
       "title": "cartooning: philosophy and practice",
-      "month": "2",
+      "month": "02",
       "day": "26",
       "year": "2016",
       "first": true
     },
     {
       "title": "amnesia moon",
-      "month": "3",
-      "day": "7",
+      "month": "03",
+      "day": "07",
       "year": "2016",
       "first": true
     },
     {
       "title": "telescopes and other people",
-      "month": "4",
+      "month": "04",
       "day": "22",
       "year": "2016",
       "first": true
     },
     {
       "title": "let's pretend this never happened",
-      "month": "4",
+      "month": "04",
       "day": "22",
       "year": "2016",
       "first": true
     },
     {
       "title": "the sirens of titan",
-      "month": "5",
+      "month": "05",
       "day": "17",
       "year": "2016",
       "first": true
     },
     {
       "title": "children of the mind",
-      "month": "7",
-      "day": "4",
+      "month": "07",
+      "day": "04",
       "year": "2016",
       "first": true
     },
     {
       "title": "the colour of magic",
-      "month": "7",
+      "month": "07",
       "day": "25",
       "year": "2016",
       "first": true
     },
     {
       "title": "the princess bride",
-      "month": "7",
+      "month": "07",
       "day": "30",
       "year": "2016",
       "first": true
     },
     {
       "title": "diary of an oxygen thief",
-      "month": "8",
-      "day": "2",
+      "month": "08",
+      "day": "02",
       "year": "2016",
       "first": true
     },
     {
       "title": "the catcher in the rye",
-      "month": "8",
-      "day": "6",
+      "month": "08",
+      "day": "06",
       "year": "2016",
       "first": false
     },
     {
       "title": "lord of the flies",
-      "month": "8",
+      "month": "08",
       "day": "16",
       "year": "2016",
       "first": true
     },
     {
       "title": "slade house",
-      "month": "8",
+      "month": "08",
       "day": "21",
       "year": "2016",
       "first": true
     },
     {
       "title": "the phantom tollbooth",
-      "month": "8",
+      "month": "08",
       "day": "23",
       "year": "2016",
       "first": true
     },
     {
       "title": "1984",
-      "month": "9",
+      "month": "09",
       "day": "15",
       "year": "2016",
       "first": true
@@ -2180,14 +2180,14 @@
     {
       "title": "a bad idea i'm about to do",
       "month": "10",
-      "day": "6",
+      "day": "06",
       "year": "2016",
       "first": true
     },
     {
       "title": "esio trot",
       "month": "10",
-      "day": "6",
+      "day": "06",
       "year": "2016",
       "first": true
     },
@@ -2201,14 +2201,14 @@
     {
       "title": "scoop",
       "month": "11",
-      "day": "3",
+      "day": "03",
       "year": "2016",
       "first": true
     },
     {
       "title": "cerebus guide to self publishing",
       "month": "12",
-      "day": "6",
+      "day": "06",
       "year": "2016",
       "first": true
     },
@@ -2221,203 +2221,203 @@
     },
     {
       "title": "secrets behind the comics",
-      "month": "1",
+      "month": "01",
       "day": "16",
       "year": "2017",
       "first": true
     },
     {
       "title": "stan lee and the rise and fall of the american comic book",
-      "month": "1",
+      "month": "01",
       "day": "16",
       "year": "2017",
       "first": true
     },
     {
       "title": "how to draw comics the marvel way",
-      "month": "2",
+      "month": "02",
       "day": "12",
       "year": "2017",
       "first": true
     },
     {
       "title": "the handmaid's tale",
-      "month": "3",
+      "month": "03",
       "day": "16",
       "year": "2017",
       "first": true
     },
     {
       "title": "congo",
-      "month": "3",
+      "month": "03",
       "day": "29",
       "year": "2017",
       "first": true
     },
     {
       "title": "armada",
-      "month": "4",
+      "month": "04",
       "day": "19",
       "year": "2017",
       "first": true
     },
     {
       "title": "american heiress",
-      "month": "6",
+      "month": "06",
       "day": "25",
       "year": "2017",
       "first": true
     },
     {
       "title": "yes please",
-      "month": "6",
+      "month": "06",
       "day": "26",
       "year": "2017",
       "first": true
     },
     {
       "title": "i wear the black hat",
-      "month": "7",
-      "day": "1",
+      "month": "07",
+      "day": "01",
       "year": "2017",
       "first": true
     },
     {
       "title": "hunger makes me a modern girl",
-      "month": "7",
-      "day": "3",
+      "month": "07",
+      "day": "03",
       "year": "2017",
       "first": true
     },
     {
       "title": "between the world and me",
-      "month": "7",
-      "day": "4",
+      "month": "07",
+      "day": "04",
       "year": "2017",
       "first": true
     },
     {
       "title": "girl in a band",
-      "month": "7",
-      "day": "6",
+      "month": "07",
+      "day": "06",
       "year": "2017",
       "first": true
     },
     {
       "title": "not that kind of girl",
-      "month": "7",
-      "day": "8",
+      "month": "07",
+      "day": "08",
       "year": "2017",
       "first": true
     },
     {
       "title": "wishful drinking",
-      "month": "7",
+      "month": "07",
       "day": "11",
       "year": "2017",
       "first": true
     },
     {
       "title": "columbine",
-      "month": "7",
+      "month": "07",
       "day": "17",
       "year": "2017",
       "first": true
     },
     {
       "title": "a field guide to the aliens of star trek: the next generation",
-      "month": "7",
+      "month": "07",
       "day": "22",
       "year": "2017",
       "first": true
     },
     {
       "title": "modern romance",
-      "month": "7",
+      "month": "07",
       "day": "29",
       "year": "2017",
       "first": true
     },
     {
       "title": "jim henson: the biography",
-      "month": "8",
-      "day": "7",
+      "month": "08",
+      "day": "07",
       "year": "2017",
       "first": true
     },
     {
       "title": "amsterdam castle muiderslot",
-      "month": "8",
+      "month": "08",
       "day": "15",
       "year": "2017",
       "first": true
     },
     {
       "title": "face to face with vincent van gogh",
-      "month": "8",
+      "month": "08",
       "day": "15",
       "year": "2017",
       "first": true
     },
     {
       "title": "but what if we're wrong?",
-      "month": "8",
+      "month": "08",
       "day": "19",
       "year": "2017",
       "first": true
     },
     {
       "title": "tranny",
-      "month": "8",
+      "month": "08",
       "day": "21",
       "year": "2017",
       "first": true
     },
     {
       "title": "endurance, abridged",
-      "month": "8",
+      "month": "08",
       "day": "25",
       "year": "2017",
       "first": true
     },
     {
       "title": "what if?",
-      "month": "8",
+      "month": "08",
       "day": "27",
       "year": "2017",
       "first": true
     },
     {
       "title": "boardwalk empire",
-      "month": "9",
-      "day": "8",
+      "month": "09",
+      "day": "08",
       "year": "2017",
       "first": true
     },
     {
       "title": "why not me?",
-      "month": "9",
+      "month": "09",
       "day": "11",
       "year": "2017",
       "first": true
     },
     {
       "title": "the disaster artist",
-      "month": "9",
+      "month": "09",
       "day": "21",
       "year": "2017",
       "first": true
     },
     {
       "title": "packing for mars",
-      "month": "9",
+      "month": "09",
       "day": "24",
       "year": "2017",
       "first": true
     },
     {
       "title": "fight club",
-      "month": "9",
+      "month": "09",
       "day": "27",
       "year": "2017",
       "first": true
@@ -2432,7 +2432,7 @@
     {
       "title": "as you wish",
       "month": "11",
-      "day": "7",
+      "day": "07",
       "year": "2017",
       "first": true
     },
@@ -2446,14 +2446,14 @@
     {
       "title": "it",
       "month": "12",
-      "day": "2",
+      "day": "02",
       "year": "2017",
       "first": true
     },
     {
       "title": "based on a true story",
       "month": "12",
-      "day": "8",
+      "day": "08",
       "year": "2017",
       "first": true
     },
@@ -2473,189 +2473,189 @@
     },
     {
       "title": "the screwtape letters",
-      "month": "1",
-      "day": "1",
+      "month": "01",
+      "day": "01",
       "year": "2018",
       "first": true
     },
     {
       "title": "the case of the velvet claws",
-      "month": "1",
-      "day": "3",
+      "month": "01",
+      "day": "03",
       "year": "2018",
       "first": true
     },
     {
       "title": "how to read nancy",
-      "month": "1",
+      "month": "01",
       "day": "10",
       "year": "2018",
       "first": true
     },
     {
       "title": "zodiac",
-      "month": "1",
+      "month": "01",
       "day": "18",
       "year": "2018",
       "first": true
     },
     {
       "title": "brain on fire",
-      "month": "1",
+      "month": "01",
       "day": "24",
       "year": "2018",
       "first": true
     },
     {
       "title": "the death of wcw",
-      "month": "2",
+      "month": "02",
       "day": "10",
       "year": "2018",
       "first": true
     },
     {
       "title": "the natty professor",
-      "month": "2",
+      "month": "02",
       "day": "15",
       "year": "2018",
       "first": true
     },
     {
       "title": "i’m just sitting on a fence",
-      "month": "3",
+      "month": "03",
       "day": "18",
       "year": "2018",
       "first": true
     },
     {
       "title": "fuck whales",
-      "month": "4",
+      "month": "04",
       "day": "16",
       "year": "2018",
       "first": true
     },
     {
       "title": "the candid photographer",
-      "month": "4",
+      "month": "04",
       "day": "30",
       "year": "2018",
       "first": true
     },
     {
       "title": "moby dick",
-      "month": "5",
-      "day": "8",
+      "month": "05",
+      "day": "08",
       "year": "2018",
       "first": true
     },
     {
       "title": "story",
-      "month": "5",
+      "month": "05",
       "day": "15",
       "year": "2018",
       "first": true
     },
     {
       "title": "hook",
-      "month": "5",
+      "month": "05",
       "day": "30",
       "year": "2018",
       "first": true
     },
     {
       "title": "the secret history of wonder woman",
-      "month": "6",
-      "day": "3",
+      "month": "06",
+      "day": "03",
       "year": "2018",
       "first": true
     },
     {
       "title": "fahrenheit 451",
-      "month": "6",
+      "month": "06",
       "day": "12",
       "year": "2018",
       "first": true
     },
     {
       "title": "the collected fanzines",
-      "month": "7",
+      "month": "07",
       "day": "14",
       "year": "2018",
       "first": true
     },
     {
       "title": "drift",
-      "month": "8",
-      "day": "1",
+      "month": "08",
+      "day": "01",
       "year": "2018",
       "first": true
     },
     {
       "title": "tarzan of the apes",
-      "month": "8",
-      "day": "5",
+      "month": "08",
+      "day": "05",
       "year": "2018",
       "first": true
     },
     {
       "title": "the hitchhiker’s guide to the galaxy",
-      "month": "8",
+      "month": "08",
       "day": "12",
       "year": "2018",
       "first": true
     },
     {
       "title": "my mortal enemy",
-      "month": "8",
+      "month": "08",
       "day": "17",
       "year": "2018",
       "first": true
     },
     {
       "title": "the cuckoo’s calling",
-      "month": "8",
+      "month": "08",
       "day": "19",
       "year": "2018",
       "first": true
     },
     {
       "title": "missoula",
-      "month": "8",
+      "month": "08",
       "day": "25",
       "year": "2018",
       "first": true
     },
     {
       "title": "the andromeda strain",
-      "month": "8",
+      "month": "08",
       "day": "26",
       "year": "2018",
       "first": true
     },
     {
       "title": "les miserables",
-      "month": "9",
+      "month": "09",
       "day": "12",
       "year": "2018",
       "first": true
     },
     {
       "title": "the adventures of tom sawyer",
-      "month": "9",
+      "month": "09",
       "day": "15",
       "year": "2018",
       "first": true
     },
     {
       "title": "charlie and the chocolate factory",
-      "month": "9",
+      "month": "09",
       "day": "16",
       "year": "2018",
       "first": true
     },
     {
       "title": "the circle",
-      "month": "9",
+      "month": "09",
       "day": "23",
       "year": "2018",
       "first": true
@@ -2663,7 +2663,7 @@
     {
       "title": "it’s superman!",
       "month": "11",
-      "day": "5",
+      "day": "05",
       "year": "2018",
       "first": true
     },
@@ -2677,7 +2677,7 @@
     {
       "title": "i’ll be gone in the dark",
       "month": "12",
-      "day": "5",
+      "day": "05",
       "year": "2018",
       "first": true
     },
@@ -2697,22 +2697,22 @@
     },
     {
       "title": "the three musketeers",
-      "month": "1",
+      "month": "01",
       "day": "15",
       "year": "2019",
       "first": true
     },
     {
       "title": "the restaurant at the end of the universe",
-      "month": "1",
+      "month": "01",
       "day": "30",
       "year": "2019",
       "first": true
     },
     {
       "title": "animal farm",
-      "month": "2",
-      "day": "6",
+      "month": "02",
+      "day": "06",
       "year": "2019",
       "first": true
     }

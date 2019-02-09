@@ -20,6 +20,10 @@ input[type="text"], button, select {
 
 .alignCenter {align-items: center;}
 
+.bdrBox {
+  box-sizing: border-box;
+}
+
 .m5 {margin: 5px;}
 
 .mr5  {margin-right:  5px;}
@@ -33,10 +37,6 @@ input[type="text"], button, select {
   margin-right: auto;
   margin-left: auto;
 }
-
-.bdrBox {
-  box-sizing: border-box;
-}
 .bdrGray {border: 1px solid #666;}
 
 .p5 {padding: 5px;}
@@ -47,6 +47,7 @@ input[type="text"], button, select {
 
 .wFull {width: 100%;}
 
+.w100 {max-width: 100px;}
 .w500 {max-width: 500px;}
 
 .fs10 {font-size: 10pt;}
