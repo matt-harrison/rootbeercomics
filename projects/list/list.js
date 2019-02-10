@@ -1,103 +1,76 @@
 var data;
-var itemsType;
+var itemType;
 
 $(function() {
-	itemsType = $('#items').data('type');
+  var today    = new Date;
+      itemType = $('#items').data('type');
 
-	getItems(showItems);
+  showItems();
 
-	today = new Date;
+  $('#month').val(today.getMonth() + 1);
+  $('#day').val(today.getDate());
+  $('#year').val(today.getFullYear());
 
-	$('#month').val(today.getMonth() + 1);
-	$('#day').val(today.getDate());
-	$('#year').val(today.getFullYear());
+  $('#first').click(function() {
+    var first = ($(this).html() == '') ? 'X' : '';
 
-	$('#first').click(function() {
-		if ($(this).html() == '') {
-			$(this).html('X');
-		} else {
-			$(this).html('');
-		}
-	});
+    $(this).html(first);
+  });
 
-	$('#btnAdd').click(function(event) {
-		event.preventDefault();
+  $('#btnAdd').click(function(event) {
+    event.preventDefault();
+    addItem();
+  });
 
-		if ($('#fname').val() != '' || $('#lname').val() != '') {
-			getItems(addItem);
-		}
-	});
-
-	$('#title').focus();
+  $('#title').focus();
 });
 
 var addItem = function() {
-	item = {
-		"title"	: $('#title').val(),
-		"month"	: $('#month').val().padStart(2, '0'),
-		"day"		: $('#day').val().padStart(2, '0'),
-		"year"	: $('#year').val(),
-		"first"	: ($('#first').html() == 'X')
-	};
+  var today = new Date();
+  var month = $('#month').val().padStart(2, '0');
+  var day   = $('#day').val().padStart(2, '0');
+  var year  = $('#year').val();
+  var time  = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 
-	data.items.push(item);
+  var date  = new Date(year + '-' + month + '-' + day + ' ' + time);
 
-	var payload = {
-		item: item,
-		fileName: itemsType
-	};
+  item = {
+    type : itemType,
+    title: $('#title').val(),
+    date : date,
+    first: ($('#first').html() == 'X')
+  };
 
-	$('#title').val('');
-	$('#title').focus();
+  $('#title').val('').focus();
 
-	$.ajax({
-		data		: {json: JSON.stringify(payload)},
-		dataType: 'json',
-		type		: 'POST',
-		url			: '/projects/list/update.php'
-	}).always(function(e) {
-		showItems();
-	});
-}
-
-var getItems = function(callback) {
-	time = new Date().getTime();
-
-	$.getJSON(itemsType + '.json?t=' + time, function(response) {
-		data = response;
-
-		if (callback != '') {
-			(callback)();
-		}
-	});
+  $.ajax({
+    data    : {data: JSON.stringify(item)},
+    dataType: 'json',
+    type    : 'POST',
+    url     : '/projects/list/insert.php'
+  }).always(function() {
+    showItems();
+  });
 }
 
 var showItems = function() {
-	$('#items').html('');
+  $('#items').html('');
+  $.getJSON('/projects/list/get.php?type=' + itemType, function(response) {
+    $.each(response.items, function(key, data) {
+      var num   = key + 1;
+      var item  = data.title;
+      var date  = new Date(data.date);
+      var month = (date.getMonth() + 1).toString().padStart(2, '0');
+      var day   = date.getDate().toString().padStart(2, '0');
+      var year  = date.getFullYear().toString().substr(2, 2);
 
-	$.each(data.items, function(key, data) {
-		var num = key +1;
-		var item = data.title;
-		var month, day;
+      if (!data.first) {
+        item = '[' + item + ']';
+      }
 
-		if (data.first === false) {
-			item = '[' + item + ']';
-		}
+      item += ' (' + month + day + year + ')';
 
-		if (data.month.length == 1) {
-			month = '0' + data.month;
-		} else {
-			month = data.month;
-		}
-
-		if (data.day.length == 1) {
-			day = '0' + data.day;
-		} else {
-			day = data.day;
-		}
-
-		item += ' (' + month + day + data.year.substr(2, 2) + ')';
-
-		$('#items').prepend('<p>' + num + '. ' + item + '</p>');
-	});
+      $('#items').prepend('<p>' + num + '. ' + item + '</p>');
+    });
+  });
 }
