@@ -3,9 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>matt's calendar</title>
+        <title>matt's entertainment calendar</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="js/calendar.js"></script>
+        <script src="/projects/list/calendar/calendar.js"></script>
         <style>
             @charset "utf-8";
 
@@ -115,7 +115,7 @@
     </head>
     <body>
         <header class="p5">
-            <p class="mb10 bold">entertainment i've consumed</p>
+            <p class="mb10 bold">matt's entertainment calendar</p>
             <form class="mb10">
                 <span id="buttonBar">
                     <span data-type="book"  class="dInlineBlock bdrBlue  p5 txtBlue  bgBlue  btnBooks  selected csrPointer">books</span>
