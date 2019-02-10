@@ -1,14 +1,18 @@
 <?php
-$json     = json_decode($_POST['json']);
-$fileName = $json->fileName;
-$data     = json_encode($json->data);
+$payload  = json_decode($_POST['json']);
+$fileName = $payload->fileName;
+$response = [];
 
 if (file_exists($fileName . '/' . $fileName . '.json')) {
-  rename($fileName . '/' . $fileName . '.json', $fileName . '/' . $fileName . '.' . time() . '.json');
+  copy($fileName . '/' . $fileName . '.json', $fileName . '/' . $fileName . '.' . time() . '.json');
+
+  $contents      = file_get_contents($fileName . '/' . $fileName . '.json');
+  $json          = json_decode($contents);
+  $json->items[] = $payload->item;
+
+  $contents = json_encode($json);
 }
 
-if (file_put_contents($fileName . '/' . $fileName . '.json', $data, FILE_USE_INCLUDE_PATH)) {
-  echo 'success';
-} else {
-  echo 'error';
-}
+$response['success'] = (file_put_contents($fileName . '/' . $fileName . '.json', $contents, FILE_USE_INCLUDE_PATH));
+
+echo json_encode($response);

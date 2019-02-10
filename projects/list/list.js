@@ -43,7 +43,7 @@ var addItem = function() {
 	data.items.push(item);
 
 	var payload = {
-		data: data,
+		item: item,
 		fileName: itemsType
 	};
 
@@ -51,9 +51,10 @@ var addItem = function() {
 	$('#title').focus();
 
 	$.ajax({
-		type: 'POST',
-		url: '/projects/list/update.php',
-		data: {json: JSON.stringify(payload)}
+		data		: {json: JSON.stringify(payload)},
+		dataType: 'json',
+		type		: 'POST',
+		url			: '/projects/list/update.php'
 	}).always(function(e) {
 		showItems();
 	});
