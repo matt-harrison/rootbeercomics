@@ -1,5 +1,5 @@
 <?php
 $title = 'movies matt has watched';
-$type  = 'movies';
+$type  = 'movie';
 
-include($_SERVER['DOCUMENT_ROOT'] . '/projects/list/template.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/projects/list/list.php');

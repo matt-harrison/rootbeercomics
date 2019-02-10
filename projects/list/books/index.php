@@ -1,5 +1,5 @@
 <?php
 $title = 'books matt has read';
-$type  = 'books';
+$type  = 'book';
 
-include($_SERVER['DOCUMENT_ROOT'] . '/projects/list/template.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/projects/list/list.php');
