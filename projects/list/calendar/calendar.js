@@ -113,7 +113,7 @@ function getItems() {
     items = response.items;
 
     items.forEach((item, index) => {
-      var date = new Date(item.date);
+      var date = new Date(item.date.substr(0, 10));
 
       item.month = (date.getMonth() + 1).toString().padStart(2, '0');
       item.day   = date.getDate().toString().padStart(2, '0');

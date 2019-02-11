@@ -30,9 +30,7 @@ var addItem = function() {
   var month = $('#month').val().padStart(2, '0');
   var day   = $('#day').val().padStart(2, '0');
   var year  = $('#year').val();
-  var time  = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-
-  var date  = new Date(year + '-' + month + '-' + day + ' ' + time);
+  var date  = year + '-' + month + '-' + day;
 
   item = {
     type : itemType,
@@ -57,20 +55,19 @@ var showItems = function() {
   $('#items').html('');
   $.getJSON('/projects/list/get.php?type=' + itemType, function(response) {
     $.each(response.items, function(key, data) {
-      var num   = key + 1;
-      var item  = data.title;
-      var date  = new Date(data.date);
+      var date  = new Date(data.date.substr(0, 10));
+      var id    = key + 1;
+      var title = data.title;
       var month = (date.getMonth() + 1).toString().padStart(2, '0');
       var day   = date.getDate().toString().padStart(2, '0');
       var year  = date.getFullYear().toString().substr(2, 2);
+      var date6 = '(' + month + day + year + ')';
 
       if (!data.first) {
-        item = '[' + item + ']';
+        title = '[' + title + ']';
       }
 
-      item += ' (' + month + day + year + ')';
-
-      $('#items').prepend('<p>' + num + '. ' + item + '</p>');
+      $('#items').prepend('<p>' + id + '. ' + title + ' ' + date6 + '</p>');
     });
   });
 }
