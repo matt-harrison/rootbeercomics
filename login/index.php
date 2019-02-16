@@ -23,7 +23,7 @@
       <p class="mb0">
         <a href="/login/edit.php">Edit Profile</a>
         <span> | </span>
-        <a href="/login/log-out.php">Log Out</a>
+        <span id="logOutLink" class="fakeLink">Log Out</span>
       </p>
     </div>
   </div>

@@ -1,4 +1,20 @@
 $(function() {
+  $('#logOutLink').click(function() {
+    $.ajax({
+      type: 'GET',
+      url: '/login/ajax/log-out.php',
+      dataType: 'json',
+      success: function(response) {
+        if (response.success) {
+          location.reload();
+        }
+      },
+      error: function(response) {
+        showErrors(['An error occurred. Please try again.']);
+      }
+    });
+  });
+
   $('#loginForm').submit(function(event) {
     event.preventDefault();
     $('#errors').html('');
