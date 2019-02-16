@@ -26,8 +26,6 @@ input[type="text"], button, select {
 
 .mb5 {margin-bottom: 5px;}
 
-.ml5 {margin-left: 5px;}
-
 .mAuto {
   margin-right: auto;
   margin-left: auto;
@@ -44,7 +42,6 @@ input[type="text"], button, select {
 
 .w500 {max-width: 500px;}
 
-.fs10 {font-size: 10pt;}
 .fs14 {font-size: 14pt;}
 
 .bold {font-weight: bold;}
