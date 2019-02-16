@@ -16,10 +16,6 @@ input[type="text"], button, select {
 
 .flex {display: flex;}
 
-.spaceBetween {justify-content: space-between;}
-
-.alignCenter {align-items: center;}
-
 .bdrBox {
   box-sizing: border-box;
 }
@@ -27,7 +23,6 @@ input[type="text"], button, select {
 .m5 {margin: 5px;}
 
 .mr5  {margin-right:  5px;}
-.mr10 {margin-right: 10px;}
 
 .mb5 {margin-bottom: 5px;}
 
@@ -47,7 +42,6 @@ input[type="text"], button, select {
 
 .wFull {width: 100%;}
 
-.w100 {max-width: 100px;}
 .w500 {max-width: 500px;}
 
 .fs10 {font-size: 10pt;}
