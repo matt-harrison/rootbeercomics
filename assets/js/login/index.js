@@ -3,9 +3,9 @@ $(function() {
     event.preventDefault();
     $('#errors').html('');
 
-    let username = $('[name="username"]').val();
-    let password = $('[name="password"]').val();
-    let errors   = [];
+    const username = $('[name="username"]').val();
+    const password = $('[name="password"]').val();
+    const errors   = [];
 
     if (username === '') {
       errors.push('Please specify a valid username.');
@@ -18,13 +18,15 @@ $(function() {
     if (errors.length > 0) {
       showErrors(errors);
     } else {
+      const hash = md5(username + password);
+
       $.ajax({
         type: 'POST',
-        url: '/login/ajax/log-in.php',
+        url: '/login/ajax/index.php',
         dataType: 'json',
         data: {
-          username: $('[name="username"]').val(),
-          password: $('[name="password"]').val()
+          username: username,
+          md5: hash
         },
         success: function(response) {
           if (response.success) {

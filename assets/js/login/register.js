@@ -3,13 +3,13 @@ $(function() {
     event.preventDefault();
     $('#errors').html('');
 
-    let firstName = $('[name="firstName"]').val();
-    let lastName  = $('[name="lastName"]').val();
-    let email     = $('[name="email"]').val();
-    let username  = $('[name="username"]').val();
-    let password1 = $('[name="password1"]').val();
-    let password2 = $('[name="password2"]').val();
-    let errors    = [];
+    const firstName = $('[name="firstName"]').val();
+    const lastName  = $('[name="lastName"]').val();
+    const email     = $('[name="email"]').val();
+    const username  = $('[name="username"]').val();
+    const password1 = $('[name="password1"]').val();
+    const password2 = $('[name="password2"]').val();
+    const errors    = [];
 
     if (firstName === '') {
       errors.push('Please specify a valid First Name.');
@@ -42,17 +42,18 @@ $(function() {
     if (errors.length > 0) {
       showErrors(errors);
     } else {
+      const hash = md5(username + password1);
+
       $.ajax({
         type: 'POST',
         url: '/login/ajax/register.php',
         dataType: 'json',
         data: {
-          firstName: $('[name="firstName"]').val(),
-          lastName : $('[name="lastName"]').val(),
-          email    : $('[name="email"]').val(),
-          username : $('[name="username"]').val(),
-          password1: $('[name="password1"]').val(),
-          password2: $('[name="password2"]').val()
+          firstName: firstName,
+          lastName : lastName,
+          email    : email,
+          username : username,
+          md5      : hash
         },
         success: function(response) {
           if (response.success) {

@@ -4,6 +4,7 @@
   <form id="editLoginForm" class="mAuto mb20 bdrGray p10 w400 bgWhite">
     <div id="errors" class="mb20 txtRed hide"></div>
     <p>Username: <?= $_COOKIE['username']; ?></p>
+    <input type="hidden" name="username" value="<?= $_COOKIE['username']; ?>"/>
     <input type="password" name="oldPassword" placeholder="Old Password" class="bdrBox mb10 p5 wFull"/>
     <input type="password" name="password1" placeholder="New Password" class="bdrBox mb10 p5 wFull"/>
     <input type="password" name="password2" placeholder="Re-enter New Password" class="bdrBox mb10 p5 wFull"/>
@@ -12,6 +13,7 @@
     </fieldset>
   </form>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
 <script type="text/javascript" src="/assets/js/error-handling.js"></script>
 <script type="text/javascript" src="/assets/js/login/edit.js"></script>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

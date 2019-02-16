@@ -3,10 +3,11 @@ $(function() {
     event.preventDefault();
     $('#errors').html('');
 
-    let oldPassword = $('[name="oldPassword"]').val();
-    let password1   = $('[name="password1"]').val();
-    let password2   = $('[name="password2"]').val();
-    let errors      = [];
+    const username    = $('[name="username"]').val();
+    const oldPassword = $('[name="oldPassword"]').val();
+    const password1   = $('[name="password1"]').val();
+    const password2   = $('[name="password2"]').val();
+    const errors      = [];
 
     if (oldPassword === '') {
       errors.push('Old Password required.');
@@ -27,14 +28,17 @@ $(function() {
     if (errors.length > 0) {
       showErrors(errors);
     } else {
+      const oldHash = md5(username + oldPassword);
+      const newHash = md5(username + password1);
+
       $.ajax({
         type: 'POST',
-        url: '/login/ajax/update.php',
+        url: '/login/ajax/edit.php',
         dataType: 'json',
         data: {
-          oldPassword: $('[name="oldPassword"]').val(),
-          password1  : $('[name="password1"]').val(),
-          password2  : $('[name="password2"]').val()
+          username: username,
+          oldMd5: oldHash,
+          newMd5: newHash
         },
         success: function(response) {
           if (response.success) {

@@ -6,9 +6,7 @@ $username          = $_REQUEST['username'];
 $firstName         = $_REQUEST['firstName'];
 $lastName          = $_REQUEST['lastName'];
 $email             = $_REQUEST['email'];
-$password1         = $_REQUEST['password1'];
-$password2         = $_REQUEST['password2'];
-$md5               = md5($username . $password1);
+$md5               = $_REQUEST['md5'];
 $emailHasAt        = (strpos($_REQUEST['email'], '@') > -1);
 $emailHasDot       = (strpos($_REQUEST['email'], '.') > -1);
 $nameHasApostrophe = (strpos($_REQUEST['username'], "'") > -1);
@@ -16,7 +14,7 @@ $nameHasDollar     = (strpos($_REQUEST["username"], "$") > -1);
 $nameHasQuote      = (strpos($_REQUEST["username"], '"') > -1);
 $errors            = array();
 
-if ($username == '' || $firstName == '' || $lastName == '' || $email == '' || $password1 == '') {
+if ($username == '' || $firstName == '' || $lastName == '' || $email == '' || $md5 == '') {
   $errors[] = 'All fields are currently required. please try again.';
 }
 
@@ -26,10 +24,6 @@ if ($nameHasApostrophe || $nameHasDollar || $nameHasQuote) {
 
 if (!$emailHasAt || !$emailHasDot) {
   $errors[] = 'Please supply a valid email address.';
-}
-
-if ($password1 !== $password2) {
-  $errors[] = 'Your passwords did not match. Please try again.';
 }
 
 $query = "SELECT * FROM login WHERE username = '{$username}'";
