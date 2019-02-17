@@ -1,9 +1,10 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
-$data     = json_decode($_POST['data']);
+$data     = json_decode($_REQUEST['data']);
 $username = $data->username;
 $md5      = $data->md5;
 
