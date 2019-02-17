@@ -17,7 +17,7 @@ $(function() {
     $(this).html(first);
   });
 
-  $('#btnAdd').click(function(event) {
+  $('#addItemForm').submit(function(event) {
     event.preventDefault();
     addItem();
   });
@@ -26,23 +26,26 @@ $(function() {
 });
 
 var addItem = function() {
-  var today = new Date();
-  var month = $('#month').val().padStart(2, '0');
-  var day   = $('#day').val().padStart(2, '0');
-  var year  = $('#year').val();
-  var date  = year + '-' + month + '-' + day;
-
-  item = {
-    type : itemType,
-    title: $('#title').val(),
-    date : date,
-    first: ($('#first').html() == 'X')
+  var today   = new Date();
+  var month   = $('#month').val().padStart(2, '0');
+  var day     = $('#day').val().padStart(2, '0');
+  var year    = $('#year').val();
+  var date    = year + '-' + month + '-' + day;
+  var data = {
+    username: $('#username').val(),
+    md5     : $('#md5').val(),
+    item    : {
+      type : itemType,
+      title: $('#title').val(),
+      date : date,
+      first: ($('#first').html() == 'X')
+    }
   };
 
   $('#title').val('').focus();
 
   $.ajax({
-    data    : {data: JSON.stringify(item)},
+    data    : {data: JSON.stringify(data)},
     dataType: 'json',
     type    : 'POST',
     url     : '/projects/list/insert.php'

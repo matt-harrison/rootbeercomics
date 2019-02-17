@@ -16,14 +16,16 @@
 		<div class="mAuto w500">
 			<p class="mb5 bold fs14"><?= $title; ?></p>
 			<?php if (isset($_COOKIE['username']) && $_COOKIE['username'] == 'matt!') { ?>
-				<form class="flex mb5">
+				<form id="addItemForm" class="flex mb5">
+					<input type="hidden" id="username" value="<?= $_COOKIE['username']; ?>"/>
+					<input type="hidden" id="md5" value="<?= $_COOKIE['md5']; ?>"/>
 					<fieldset class="size4of5 mr5">
-						<input type="text" id="title" name="title" placeholder="title" value="" class="mr5 mb5 bdrGray p5 wFull bdrBox"/>
+						<input type="text" id="title" placeholder="title" value="" class="mr5 mb5 bdrGray p5 wFull bdrBox"/>
 						<fieldset class="flex">
 							<fieldset id="date" class="flex">
-								<input type="text" id="month" name="month" placeholder="month" value="" class="mr5 bdrGray p5 size1of3 bdrBox"/>
-								<input type="text" id="day" name="day" placeholder="day" value="" class="mr5 bdrGray p5 size1of3 bdrBox"/>
-								<input type="text" id="year" name="year" placeholder="year" value="" class="mr5 bdrGray p5 size1of3 bdrBox"/>
+								<input type="text" id="month" placeholder="month" value="" class="mr5 bdrGray p5 size1of3 bdrBox"/>
+								<input type="text" id="day" placeholder="day" value="" class="mr5 bdrGray p5 size1of3 bdrBox"/>
+								<input type="text" id="year" placeholder="year" value="" class="mr5 bdrGray p5 size1of3 bdrBox"/>
 							</fieldset>
 							<div id="first" class="bdrGray p5 bdrBox txtC csrPointer">X</div>
 						</fieldset>

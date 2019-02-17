@@ -45,6 +45,7 @@ if (!$errors) {
   $rows  = execute($query, 'kittenb1_users');
 
   saveCookie('username', $username, 86400);
+  saveCookie('md5', $md5, 86400);
 }
 
 $response = array(

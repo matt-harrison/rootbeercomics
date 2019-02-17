@@ -18,6 +18,7 @@ if (count($rows) < 1) {
 
 if (count($errors) < 1) {
   saveCookie('username', $username, 86400);
+  saveCookie('md5', $md5, 86400);
 }
 
 $response = array(

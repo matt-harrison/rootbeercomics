@@ -16,6 +16,8 @@ if ($rows[0]['md5'] !== $oldMd5) {
 if (!$errors) {
   $query    = ("UPDATE login SET md5 = '$newMd5' WHERE username = '$username' AND md5 = '$oldMd5'");
   $response = execute($query, 'kittenb1_users');
+
+  saveCookie('md5', $newMd5, 86400);
 }
 
 $response = array(
