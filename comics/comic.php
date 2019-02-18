@@ -21,7 +21,7 @@ $hasMultiple = (count($images) > 1);
 		class="mAuto<?= ($hasMultiple) ? ' multiple csrPointer' : ''; ?><?= ($key > 0) ? ' hide' : ''; ?>"/>
 	<?php } ?>
 </div>
-<?php if ($_COOKIE['username'] == 'matt!' & $records == 1) { ?>
+<?php if ($user->isAdmin & $records == 1) { ?>
 	<div class="bsBorder mAuto mb5 p20 bgGray private">
 		<div class="flex">
 			<div class="mr10">

@@ -74,7 +74,7 @@ if ($animation['tags'] != NULL) {
 				</div>
 			</div>
 		</div>
-		<?php if ($_COOKIE['username'] == 'matt!' & $records == 1) { ?>
+		<?php if ($user->isAdmin & $records == 1) { ?>
 			<?php $title = $animation['title']; ?>
 			<div class="mb5 p20 bgGray private">
 				<div class="line">

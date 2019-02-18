@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
-$username = $_COOKIE['username'];
+$username = $_REQUEST['username'];
 $oldMd5   = $_REQUEST['oldMd5'];
 $newMd5   = $_REQUEST['newMd5'];
 $query    = "SELECT * FROM login WHERE username = '{$username}'";
@@ -16,8 +16,14 @@ if ($rows[0]['md5'] !== $oldMd5) {
 if (!$errors) {
   $query    = ("UPDATE login SET md5 = '$newMd5' WHERE username = '$username' AND md5 = '$oldMd5'");
   $response = execute($query, 'kittenb1_users');
+  $user     = array(
+    'isAdmin'    => ($_REQUEST['username'] === 'matt!'),
+    'isSignedIn' => true,
+    'md5'        => $md5,
+    'name'       => $_REQUEST['username'],
+  );
 
-  saveCookie('md5', $newMd5, 86400);
+  saveCookie('user', json_encode($user), 86400);
 }
 
 $response = array(

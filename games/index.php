@@ -132,7 +132,7 @@ $desc = 'flash and javascript games, developed by matt harrison.';
 		</div>
 	</div>
 </div>
-<?php if($_COOKIE['username'] == 'matt!'){ ?>
+<?php if($user->isAdmin){ ?>
 	<div class="mAuto w1000 mb10 p10 bdrBox bgFoam private">
 		<p class="sep bold">experiments</p>
 		<p class="mb5"><a href="/games/flash/beach/">beach</a></p>

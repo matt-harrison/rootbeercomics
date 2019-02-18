@@ -15,7 +15,7 @@ $desc = 'an archive of the defunct website anarchynerd, by matt harrison.';
 		$url = '/projects/nerd/turnarounds/' . $_POST['type'] . '/' . $_POST['filename'] . '.png';
 		$gif = '/projects/nerd/gif/turnarounds/' . $_POST['type'] . '/' . $_POST['filename'] . '.gif';
 
-		if($_COOKIE['username'] == 'matt!'){
+		if ($user->isAdmin){
 			$sql="INSERT INTO turnarounds
 			(uniqueID, title, url, gif, type, caption, tags) VALUES
 			('$next', '$_POST[title]', '$url', '$gif', '$_POST[type]', '$_POST[caption]', '$_POST[tags]')";

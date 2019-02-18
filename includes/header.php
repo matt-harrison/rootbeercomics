@@ -7,6 +7,8 @@ $caption = (isset($caption)) ? $caption : 'comics and drawings by matt harrison.
 if (!isset($img)) {
 	$img = '/images/avatar.jpg';
 }
+
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
 ?>
 <!doctype html>
 <html>

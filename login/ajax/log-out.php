@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
-saveCookie('username', '');
+saveCookie('user', '');
 
 $response = array(
   'success' => true

@@ -16,7 +16,7 @@ $hasMultiple = (count($images > 1));
 		</a>
 	<?php } ?>
 </div>
-<?php if ($_COOKIE['username'] == 'matt!' & $records == 1) { ?>
+<?php if ($user->isAdmin & $records == 1) { ?>
 	<div class="mAuto mb5 p20 w1000 bdrBox bgGray private">
 		<div class="flex">
 			<div class="mr10">

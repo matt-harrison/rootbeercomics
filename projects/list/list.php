@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php'); ?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -15,10 +16,10 @@
 	<body class="m5">
 		<div class="mAuto w500">
 			<p class="mb5 bold fs14"><?= $title; ?></p>
-			<?php if (isset($_COOKIE['username']) && $_COOKIE['username'] == 'matt!') { ?>
+			<?php if ($user->isAdmin) { ?>
 				<form id="addItemForm" class="flex mb5">
-					<input type="hidden" id="username" value="<?= $_COOKIE['username']; ?>"/>
-					<input type="hidden" id="md5" value="<?= $_COOKIE['md5']; ?>"/>
+					<input type="hidden" id="username" value="<?= $user->name; ?>"/>
+					<input type="hidden" id="md5" value="<?= $user->md5; ?>"/>
 					<fieldset class="size4of5 mr5">
 						<input type="text" id="title" placeholder="title" value="" class="mr5 mb5 bdrGray p5 wFull bdrBox"/>
 						<fieldset class="flex">

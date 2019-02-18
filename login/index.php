@@ -1,5 +1,5 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<?php if (empty($_COOKIE['username'])) { ?>
+<?php if (!$user->isSignedIn) { ?>
   <div class="mAuto w400">
     <h1 class="mb5 bold">Login</h1>
     <form id="loginForm" class="mb5 bdrGray p10 bgWhite">
@@ -19,7 +19,7 @@
   <div class="mAuto w400">
     <h1 class="mb5 bold">Profile</h1>
     <div class="mb20 bdrGray p10 bgWhite">
-      <p>Welcome, <?= $_COOKIE['username']; ?></p>
+      <p>Welcome, <?= $user->name; ?></p>
       <p class="mb0">
         <a href="/login/edit.php">Edit Profile</a>
         <span> | </span>

@@ -3,8 +3,8 @@
   <h1 class="mb5 bold">Edit Profile</h1>
   <form id="editLoginForm" class="mAuto mb20 bdrGray p10 w400 bgWhite">
     <div id="errors" class="mb20 txtRed hide"></div>
-    <p>Username: <?= $_COOKIE['username']; ?></p>
-    <input type="hidden" name="username" value="<?= $_COOKIE['username']; ?>"/>
+    <p>Username: <?= $user->name; ?></p>
+    <input type="hidden" name="username" value="<?= $user->name; ?>"/>
     <input type="password" name="oldPassword" placeholder="Old Password" class="bdrBox mb10 p5 wFull"/>
     <input type="password" name="password1" placeholder="New Password" class="bdrBox mb10 p5 wFull"/>
     <input type="password" name="password2" placeholder="Re-enter New Password" class="bdrBox mb10 p5 wFull"/>

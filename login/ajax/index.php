@@ -17,15 +17,19 @@ if (count($rows) < 1) {
 }
 
 if (count($errors) < 1) {
-  saveCookie('username', $username, 86400);
-  saveCookie('md5', $md5, 86400);
+  $user = array(
+    'isAdmin'    => ($_REQUEST['username'] === 'matt!'),
+    'isSignedIn' => true,
+    'md5'        => $md5,
+    'name'       => $_REQUEST['username'],
+  );
+
+  saveCookie('user', json_encode($user), 86400);
 }
 
 $response = array(
   'success' => (count($errors) === 0),
-  'errors'  => $errors,
-  'query' => $query,
-  'rows' => $rows
+  'errors'  => $errors
 );
 
 echo json_encode($response);
