@@ -1,4 +1,6 @@
-
+<a href="/minicomics/mortal-combat" class="bsBorder mr5 mb5">
+    <img src="/minicomics/thumbs/mortal-combat.jpg" alt="mortal combat"/>
+</a>
 <a href="/minicomics/beard" class="bsBorder mr5 mb5">
     <img src="/minicomics/thumbs/beard.jpg" alt="brad pitt&apos;s beard"/>
 </a>
