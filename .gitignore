@@ -17,3 +17,4 @@ movies.*.json
 
 # Other
 /projects/react
+*.DS_Store
