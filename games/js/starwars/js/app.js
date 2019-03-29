@@ -1,16 +1,16 @@
 /*
-TO DO: 
+TO DO:
 	- enemies sometimes shoot
 	- players with no attacks?
 	- post-game cutscenes (hallway, medals)
 	- sliding touch?
 	- preload images
 	- password menu
-	- 
+	-
 
 GLITCHES:
 	- blinking enemies disappear on player death
-	- 
+	-
 */
 
 //Initialize global vars
@@ -31,7 +31,7 @@ if(isMobile){
 	directionSize = '14px';
 	lineHeight = '1';
 	clickPrompt = 'Tap to begin.';
-	startPrompt = 'Press Start';
+	startPrompt = 'Press Start'
 } else {
 	gameWidth = 500;
 	gameHeight = 500;
@@ -105,7 +105,7 @@ CutScene = function(img){
 	this.selector.style.zIndex = '101';
 	this.selector.setAttribute('data-key', 'enter');
 	game.selector.insertBefore(this.selector, game.selector.firstChild);
-	
+
 	cutscene = document.createElement('div');
 	cutscene.style.backgroundImage = "url('img/cutscenes/" + img + ".png')";
 	if(game.width <= game.height){
@@ -124,13 +124,13 @@ CutScene = function(img){
 	cutscene.style.zIndex = '100';
 	cutscene.setAttribute('data-key', 'enter');
 	this.selector.appendChild(cutscene);
-	
+
 	this.resize = function(){
 		this.width = game.width;
 		this.height = game.height;
 		this.selector.style.width = this.width + 'px';
 		this.selector.style.height = this.height + 'px';
-		
+
 		cutscene.style.top = (this.height - cutscene.height) / 2 + 'px';
 		cutscene.style.left = (this.width - cutscene.width) / 2 + 'px';
 		cutscene.style.backgroundSize = cutscene.width + 'px ' + cutscene.height + 'px';
@@ -139,7 +139,7 @@ CutScene = function(img){
 
 Stage = function(obj){
 	importJSON(this, obj);
-	
+
 	//Attach to document
 	this.selector = document.createElement('div');
 	this.selector.id = 'stage';
@@ -155,11 +155,11 @@ Stage = function(obj){
 	}
 	this.selector.style.zIndex = '1';
 	game.selector.insertBefore(this.selector, game.selector.firstChild);
-	
+
 	title.style.color = this.textColor;
 	directions.style.color = this.textColor;
 	scoreboard.style.color = this.textColor;
-	
+
 	this.enemiesKilled = 0;
 	this.bossReached = false;
 	this.defeated = false;
@@ -167,9 +167,9 @@ Stage = function(obj){
 
 Player = function(obj){
 	importJSON(this, obj);
-	
+
 	this.speed = this.speed * (magnification / 5);
-	
+
 	this.x = Math.floor((game.width - this.frameWidth) / 2);
 	this.y = Math.floor((game.height - this.frameHeight) / 2);
 	this.dir = 'down';
@@ -180,7 +180,7 @@ Player = function(obj){
 	this.active = true;
 	this.dead = false;
 	this.lightsaber = '';
-	
+
 	if(this.weaponType == 'projectile'){
 		if(this.projectile == 'laser'){
 			this.weaponDelay = fps / 4;
@@ -194,7 +194,7 @@ Player = function(obj){
 	}
 	this.weaponReady = true;
 	this.weaponCount = 0;
-	
+
 	//Attach sprite
 	this.selector = document.createElement('div');
 	this.selector.id = 'player';
@@ -206,17 +206,17 @@ Player = function(obj){
 	this.selector.style.backgroundRepeat = 'no-repeat';
 	this.selector.style.zIndex = '3';
 	stage.selector.appendChild(this.selector);
-	
+
 	//Preload death animation for smooth transition
 	if(typeof(this.death) != 'undefined'){
 		preload('img/animations/' + this.death.name + '.png');
 	}
-	
+
 	this.attack = function(key){
 		if(this.weaponReady){
 			if(this.weaponType == 'projectile'){
 				projectile = new Projectile(this);
-				
+
 				//Sometimes the enemy will try to dodge
 				for(var enemy in enemies){
 					if(enemies[enemy].sprite != 'asteroid'){
@@ -232,7 +232,7 @@ Player = function(obj){
 				isLongRange = (key == 'Z');
 				this.lightsaber = new Lightsaber(this, isLongRange);
 				keys = [key];
-				
+
 				this.running = false;
 				this.attacking = true;
 				this.spriteColumn = this.moveFrameCount + 1;
@@ -241,7 +241,7 @@ Player = function(obj){
 			this.weaponReady = false;
 		}
 	}
-	
+
 	this.kill = function(){
 		this.active = false;
 		if(typeof(this.death) != 'undefined'){
@@ -255,7 +255,7 @@ Player = function(obj){
 			this.spriteRow = 4;
 		}
 	}
-	
+
 	this.update = function(){
 		if(this.dead){
 			if(this.active){
@@ -330,31 +330,31 @@ Player = function(obj){
 			}
 		}
 	}
-	
+
 	this.draw = function(){
 		this.selector.style.backgroundPosition = (0 - this.spriteColumn * this.frameWidth) + 'px ' + (0 - this.spriteRow * this.frameHeight) + 'px';
 		this.selector.style.left = this.x + 'px';
 		this.selector.style.top = this.y + 'px';
 	};
-	
+
 	this.draw();
 };
 
 Enemy = function(obj){
 	enemies.push(this);
 	importJSON(this, obj);
-	
+
 	this.count = enemyCount++;
 	this.active = true;
 	this.dead = false;
 	this.trapped = false;
-	
+
 	this.speed = this.speed * (magnification / 5);
-	
+
 	this.weaponDelay = fps;//Shoot once per second max
 	this.weaponReady = true;
 	this.weaponCount = 0;
-	
+
 	this.selector = document.createElement('div');
 	this.selector.id = 'enemy' + this.count;
 	this.selector.style.position = 'absolute';
@@ -365,11 +365,11 @@ Enemy = function(obj){
 	this.selector.style.backgroundRepeat = 'no-repeat';
 	this.selector.style.zIndex = '2';
 	stage.selector.appendChild(this.selector);
-	
+
 	this.spriteColumn = 1;
 	this.blinking = false;
 	this.blinkCount = 0;
-	
+
 	if(obj == stage.boss){
 		this.isBoss = true;
 		this.hp = stage.bossHP;
@@ -379,14 +379,14 @@ Enemy = function(obj){
 		this.hp = 1;
 		this.value = 100;
 	}
-	
+
 	if(typeof(stage.enemyDir) == 'undefined'){
 		this.spriteRow = getRandom(4);
 		this.dir = cardinals[this.spriteRow];
 	} else {
 		this.dir = stage.enemyDir;
 	}
-	
+
 	if(this.dir === 'left'){
 		this.x = game.width;
 		this.y = getRandom(game.height - this.frameHeight);
@@ -404,12 +404,12 @@ Enemy = function(obj){
 		this.y = 0 - this.frameHeight;
 		this.spriteRow = 2;
 	}
-	
+
 	//Preload death animation for smooth transition
 	if(typeof(this.death) != 'undefined'){
 		preload('img/animations/' + this.death.name + '.png');
 	}
-	
+
 	this.changeDir = function(){
 		if(inBounds(this)){
 			this.spriteRow = getRandom(4);
@@ -421,7 +421,7 @@ Enemy = function(obj){
 			}
 		}
 	}
-	
+
 	this.reverse = function(){
 		if(this.dir == 'left'){
 			this.dir = 'right';
@@ -437,13 +437,13 @@ Enemy = function(obj){
 			this.spriteRow = 3;
 		}
 	}
-	
+
 	this.collide = function(){
 		if(this.ship && !this.isBoss){
 			this.dead = true;
 		}
 	}
-	
+
 	this.hit = function(){
 		if(!this.blinking){
 			if(--this.hp == 0){
@@ -454,21 +454,21 @@ Enemy = function(obj){
 				this.changeDir();
 			}
 		}
-		
+
 		updateVictim(this, stage.textColor);
 	}
-	
+
 	this.respawn = function(){
 		stage.selector.removeChild(this.selector);
 		position = enemies.indexOf(this);
 		enemies.splice(position, 1);
 		enemy = new Enemy(obj);
 	}
-	
+
 	this.kill = function(){
 		this.active = false;
 		stage.enemiesKilled++;
-		
+
 		if(typeof(this.death) != 'undefined'){
 			this.selector.style.display = 'none';
 			death = new Animation(this.death, this);
@@ -477,10 +477,10 @@ Enemy = function(obj){
 			this.spriteColumn = 0;
 			this.spriteRow = 4;
 		}
-		
+
 		updateScore(this.value);
 	}
-	
+
 	this.update = function(){
 		if(this.blinking){
 			if(game.counter%2 == 0 || this.dead){
@@ -509,7 +509,7 @@ Enemy = function(obj){
 			} else {
 				this.spriteColumn = 1;
 			}
-			
+
 			var obs = getObstruction(this);
 			if(obs != '' && !inBounds(this)){
 				this.trapped = true;
@@ -566,18 +566,18 @@ Enemy = function(obj){
 			}
 		}
 	}
-	
+
 	this.draw = function(){
 		if(this.trapped){
 			this.respawn();
 		} else {
 			this.selector.style.backgroundPosition = (0 - this.spriteColumn * this.frameWidth) + 'px ' + (0 - this.spriteRow * this.frameHeight) + 'px';
-			
+
 			this.selector.style.left = this.x + 'px';
 			this.selector.style.top = this.y + 'px';
 		}
 	};
-	
+
 	this.draw();
 };
 
@@ -585,14 +585,14 @@ Friendly = function(obj, details){
 	friendlies.push(this);
 	importJSON(this, obj);
 	importJSON(this, details);
-	
+
 	this.count = propCount++;
 	this.active = true;
 	this.dead = false;
 	this.trapped = false;
-	
+
 	this.speed = this.speed * (magnification / 5);
-	
+
 	this.selector = document.createElement('div');
 	this.selector.id = 'friendly' + this.count;
 	this.selector.style.position = 'absolute';
@@ -603,12 +603,12 @@ Friendly = function(obj, details){
 	this.selector.style.backgroundRepeat = 'no-repeat';
 	this.selector.style.zIndex = '2';
 	stage.selector.appendChild(this.selector);
-	
+
 	if(typeof(this.dir) == 'undefined'){
 		this.spriteRow = getRandom(4)
 		this.dir = cardinals[this.spriteRow];
 	}
-	
+
 	if(this.dir == 'left'){
 		this.x = game.width;
 		this.y = getRandom(game.height - this.frameHeight);
@@ -626,7 +626,7 @@ Friendly = function(obj, details){
 		this.y = 0 - this.frameHeight;
 		this.spriteRow = 2;
 	}
-	
+
 	this.reverse = function(){
 		if(this.dir == 'left'){
 			this.dir = 'right';
@@ -642,22 +642,22 @@ Friendly = function(obj, details){
 			this.spriteRow = 3;
 		}
 	}
-	
+
 	this.remove = function(){
 		position = friendlies.indexOf(this);
 		friendlies.splice(position, 1);
 	}
-	
+
 	this.respawn = function(){
 		stage.selector.removeChild(this.selector);
 		position = friendlies.indexOf(this);
 		friendlies.splice(position, 1);
 		friend = new Friendly(obj, details);
 	}
-	
+
 	this.kill = function(){
 		this.active = false;
-		
+
 		if(typeof(this.death) != 'undefined'){
 			this.selector.style.display = 'none';
 			death = new Animation(this.death, this);
@@ -665,7 +665,7 @@ Friendly = function(obj, details){
 			this.spriteColumn = 0;
 			this.spriteRow = 4;
 		}
-		
+
 		if(this.value > 0){
 			updateVictim(this, darkBlue);
 		} else {
@@ -673,7 +673,7 @@ Friendly = function(obj, details){
 		}
 		updateScore(this.value);
 	}
-	
+
 	this.update = function(){
 		if(this.active){
 			if(this.spriteColumn < this.moveFrameCount){
@@ -681,7 +681,7 @@ Friendly = function(obj, details){
 			} else {
 				this.spriteColumn = 1;
 			}
-			
+
 			var obs = getObstruction(this);
 			if(obs != '' && !inBounds(this)){
 				this.trapped = true;
@@ -730,31 +730,31 @@ Friendly = function(obj, details){
 			}
 		}
 	}
-	
+
 	this.draw = function(){
 		this.selector.style.backgroundPosition = (0 - this.spriteColumn * this.frameWidth) + 'px ' + (0 - this.spriteRow * this.frameHeight) + 'px';
 		this.selector.style.left = this.x + 'px';
 		this.selector.style.top = this.y + 'px';
-		
+
 		if(!this.active){
 			this.remove();
 		} else if(this.trapped){
 			this.respawn();
 		}
 	};
-	
+
 	this.draw();
 };
 
 Obstacle = function(obj, objX, objY){
 	obstacles.push(this);
 	importJSON(this, obj);
-	
+
 	this.speed = this.speed * (magnification / 5);
 	this.count = propCount++;
 	this.leftPercent = objX;
 	this.topPercent = objY;
-	
+
 	if(this.leftPercent == 0){
 		this.x = 0;
 	} else if(this.leftPercent == 100){
@@ -769,7 +769,7 @@ Obstacle = function(obj, objX, objY){
 	} else {
 		this.y = game.height * (this.topPercent / 100) - (this.frameHeight / 2);
 	}
-	
+
 	//Attach to document
 	this.selector = document.createElement('div');
 	this.selector.id = 'obstacle' + this.count;
@@ -781,11 +781,11 @@ Obstacle = function(obj, objX, objY){
 	this.selector.style.backgroundImage = "url('img/obstacles/" + this.img + ".png')";
 	this.selector.style.backgroundSize = this.width + 'px ' + this.height + 'px';
 	stage.selector.appendChild(this.selector);
-	
+
 	title.style.color = this.textColor;
 	directions.style.color = this.textColor;
 	scoreboard.style.color = this.textColor;
-	
+
 	this.update = function(){
 		if(this.frameCount > 1){
 			if(this.spriteColumn + 1 < this.frameCount){
@@ -795,7 +795,7 @@ Obstacle = function(obj, objX, objY){
 			}
 		}
 	}
-	
+
 	this.draw = function(){
 		this.selector.style.left = this.x + 'px';
 		this.selector.style.top = this.y + 'px';
@@ -806,9 +806,9 @@ Obstacle = function(obj, objX, objY){
 Projectile = function(origin){
 	props.push(this);
 	importJSON(this, origin.projectile);
-	
+
 	origin.weaponReady = false;
-	
+
 	this.type = origin.projectile;
 	this.count = propCount++;
 	this.origin = origin;
@@ -817,11 +817,11 @@ Projectile = function(origin){
 	this.dead = false;//Draw after collision
 	this.spent = false;//Ready to remove
 	this.spriteColumn = 0;
-	
+
 	this.selector = document.createElement('div');
 	this.selector.id = 'projectile' + this.count;
 	this.selector.style.position = 'absolute';
-	
+
 	if(origin.projectile == 'laser'){
 		this.selector.style.backgroundColor = origin.weaponColor;
 		if(this.dir == 'left' || this.dir == 'right'){
@@ -838,9 +838,9 @@ Projectile = function(origin){
 		this.selector.style.backgroundImage = "url('img/projectiles/" + this.name + ".png')";
 	}
 	this.selector.style.backgroundSize = this.width + 'px ' + this.height + 'px';
-	
+
 	this.speed = this.speed * (magnification / 5);
-	
+
 	if(this.dir == 'left'){
 		this.x = origin.x + (origin.weaponOffsetLeft[0] * magnification) - this.frameWidth;
 		this.y = origin.y + (origin.weaponOffsetLeft[1] * magnification);
@@ -854,18 +854,18 @@ Projectile = function(origin){
 		this.x = origin.x + (origin.weaponOffsetDown[0] * magnification);
 		this.y = origin.y + (origin.weaponOffsetDown[1] * magnification);
 	}
-	
+
 	this.selector.style.width = this.frameWidth + 'px';
 	this.selector.style.height = this.frameHeight + 'px';
 	this.selector.style.zIndex = '4';
 	stage.selector.appendChild(this.selector);
-	
+
 	this.kill = function(){
 		stage.selector.removeChild(this.selector);
 		position = props.indexOf(this);
 		props.splice(position, 1);
 	}
-	
+
 	this.update = function(){
 		if(this.active){
 			if(this.frameCount > 1){
@@ -902,7 +902,7 @@ Projectile = function(origin){
 			this.active = true;
 		}
 	}
-	
+
 	this.draw = function(){
 		if(this.dead){
 			if(this.spent){
@@ -916,26 +916,26 @@ Projectile = function(origin){
 			this.selector.style.backgroundPosition = (0 - this.spriteColumn * this.frameWidth) + 'px 0';
 		}
 	};
-	
+
 	this.draw();
 };
 
 Bomb = function(origin){
 	props.push(this);
-	
+
 	this.type = 'bomb';
 	this.count = propCount++;
 	this.origin = origin;
 	this.active = false;
 	this.dead = false;
-	
+
 	this.x = origin.x + (origin.weaponOffset[0] * magnification);
 	this.y = origin.y + (origin.weaponOffset[1] * magnification);
 	this.frameWidth = 1 * magnification;
 	this.frameHeight = 1 * magnification;
 	this.spriteColumn = 0;
 	this.frameCount = 5;
-	
+
 	this.bomb = document.createElement('div');
 	this.bomb.id = 'bomb' + this.count;
 	this.bomb.style.position = 'absolute';
@@ -946,17 +946,17 @@ Bomb = function(origin){
 	this.bomb.style.backgroundColor = 'black';
 	this.bomb.style.zIndex = '2';
 	stage.selector.appendChild(this.bomb);
-	
+
 	this.selector = this.bomb;
-	
+
 	this.kill = function(){
 		detonation = new Animation(detonation, this);
-		
+
 		stage.selector.removeChild(this.selector);
 		position = props.indexOf(this);
 		props.splice(position, 1);
 	}
-	
+
 	this.update = function(){
 		if(!this.active){
 			if(!collision(this, this.origin)){
@@ -964,7 +964,7 @@ Bomb = function(origin){
 			}
 		}
 	}
-	
+
 	this.draw = function(){
 		if(this.active){
 			if(game.counter%2 == 0){
@@ -973,7 +973,7 @@ Bomb = function(origin){
 				this.selector.style.backgroundColor = 'black';
 			}
 		}
-		
+
 		if(this.dead){
 			this.kill();
 		}
@@ -982,7 +982,7 @@ Bomb = function(origin){
 
 Lightsaber = function(origin, isLongRange){
 	props.push(this);
-	
+
 	this.type = 'lightsaber';
 	this.count = propCount++;
 	this.origin = origin;
@@ -991,7 +991,7 @@ Lightsaber = function(origin, isLongRange){
 	this.active = !isLongRange;
 	this.speed = isLongRange ? 30 * (magnification / 5) : 0;
 	this.thrown = isLongRange;
-	
+
 	if(this.dir == 'left'){
 		this.frameWidth = 8 * magnification;
 		this.frameHeight = 1 * magnification;
@@ -1029,10 +1029,10 @@ Lightsaber = function(origin, isLongRange){
 		this.hiltX = 0;
 		this.hiltY = 0;
 	}
-	
+
 	this.width = this.frameWidth;
 	this.height = this.frameHeight;
-	
+
 	//Add container div
 	this.selector = document.createElement('div');
 	this.selector.id = 'lightsaber' + this.count;
@@ -1044,7 +1044,7 @@ Lightsaber = function(origin, isLongRange){
 	this.selector.style.backgroundColor = this.color;
 	this.selector.style.zIndex = '4';
 	stage.selector.appendChild(this.selector);
-	
+
 	//Add hilt
 	hilt = document.createElement('div');
 	hilt.id = 'hilt' + this.count;
@@ -1055,7 +1055,7 @@ Lightsaber = function(origin, isLongRange){
 	hilt.style.height = this.hiltHeight + 'px';
 	hilt.style.backgroundColor = gray;
 	this.selector.appendChild(hilt);
-	
+
 	this.reverse = function(){
 		if(this.dir == 'left'){
 			this.dir = 'right';
@@ -1067,7 +1067,7 @@ Lightsaber = function(origin, isLongRange){
 			this.dir = 'up';
 		}
 	}
-	
+
 	this.kill = function(){
 		stage.selector.removeChild(this.selector);
 		position = props.indexOf(this);
@@ -1075,7 +1075,7 @@ Lightsaber = function(origin, isLongRange){
 		origin.lightsaber = '';
 		origin.spriteColumn = 0;
 	}
-	
+
 	this.update = function(){
 		if(!this.active){
 			if(!collision(this, this.origin)){
@@ -1114,7 +1114,7 @@ Lightsaber = function(origin, isLongRange){
 			}
 		}
 	}
-	
+
 	this.draw = function(){
 		if(player.attacking){
 			this.selector.style.left = this.x + 'px';
@@ -1127,20 +1127,20 @@ Lightsaber = function(origin, isLongRange){
 
 Animation = function(obj, origin){
 	importJSON(this, obj);
-	
+
 	this.origin = origin;
 	this.count = propCount++;
 	this.dead = false;
-	
+
 	animations.push(this);
-	
+
 	this.width = this.frameWidth * this.frameCount;
 	this.height = this.frameHeight;
 	this.spriteColumn = 0;
-	
+
 	this.x = Math.floor(origin.x + (origin.frameWidth - this.frameWidth) / 2);
 	this.y = Math.floor(origin.y + (origin.frameHeight - this.frameHeight) / 2);
-	
+
 	this.selector = document.createElement('div');
 	this.selector.id = 'animation' + this.count;
 	this.selector.style.position = 'absolute';
@@ -1152,7 +1152,7 @@ Animation = function(obj, origin){
 	this.selector.style.backgroundSize = this.width + 'px ' + this.height + 'px';
 	this.selector.style.zIndex = '2';
 	stage.selector.appendChild(this.selector);
-	
+
 	this.kill = function(){
 		if(this.remove){
 			stage.selector.removeChild(this.selector);
@@ -1160,7 +1160,7 @@ Animation = function(obj, origin){
 		position = animations.indexOf(this);
 		animations.splice(position, 1);
 	}
-	
+
 	this.update = function(){
 		if(this.spriteColumn + 1 < this.frameCount){
 			this.spriteColumn++;
@@ -1168,7 +1168,7 @@ Animation = function(obj, origin){
 			this.dead = true;
 		}
 	}
-	
+
 	this.draw = function(){
 		if(this.dead){
 			this.kill();
@@ -1335,7 +1335,7 @@ arfivedeath = {
 	'name': 'arfivedeath',
 	'frameWidth': 5 * magnification,
 	'frameHeight': 9 * magnification,
-	'frameCount': 6, 
+	'frameCount': 6,
 	'remove': false
 };
 
@@ -1343,7 +1343,7 @@ auntberudeath = {
 	'name': 'auntberudeath',
 	'frameWidth': 10 * magnification,
 	'frameHeight': 12 * magnification,
-	'frameCount': 10, 
+	'frameCount': 10,
 	'remove': false
 };
 
@@ -1351,7 +1351,7 @@ bendeath = {
 	'name': 'bendeath',
 	'frameWidth': 10 * magnification,
 	'frameHeight': 12 * magnification,
-	'frameCount': 6, 
+	'frameCount': 6,
 	'remove': false
 };
 
@@ -1367,7 +1367,7 @@ uncleowendeath = {
 	'name': 'uncleowendeath',
 	'frameWidth': 10 * magnification,
 	'frameHeight': 12 * magnification,
-	'frameCount': 10, 
+	'frameCount': 10,
 	'remove': false
 };
 
@@ -3008,7 +3008,7 @@ tantive4 = {
 	'name': 'Tantive IV',
 	'password': '',
 	'cutscene': [
-		'preface', 
+		'preface',
 		'episode4-destroyer'
 	],
 	'bg': 'metal',
@@ -3053,7 +3053,7 @@ tatooine = {
 	'name': 'Tatooine',
 	'password': '',
 	'cutscene': [
-		'episode4-pod', 
+		'episode4-pod',
 		'episode4-crash'
 	],
 	'bg': 'sand',
@@ -3100,8 +3100,8 @@ search = {
 	'name': 'Search',
 	'password': '',
 	'cutscene': [
-		'episode4-jawas', 
-		'episode4-hologram', 
+		'episode4-jawas',
+		'episode4-hologram',
 		'episode4-binoculars'
 	],
 	'bg': 'sand',
@@ -3150,7 +3150,7 @@ sandcrawler = {
 	'character': sandtrooper,
 	'enemy': jawa,
 	'boss': threebee,
-	'bossHP': 2, 
+	'bossHP': 2,
 	'friendlies': [
 		{
 			'character': arfive,
@@ -3274,8 +3274,8 @@ alderaan = {
 	'name': 'Alderaan',
 	'password': '',
 	'cutscene': [
-		'episode4-tarkin', 
-		'episode4-deathstar', 
+		'episode4-tarkin',
+		'episode4-deathstar',
 		'episode4-alderaan'
 	],
 	'bg': 'space',
@@ -3517,7 +3517,7 @@ episodes[2] = [endor];
 episodes[3] = [tantive4, ambassador, tatooine, search, sandcrawler, farm, mosEisley, dockingBay, alderaan, detention, tractorBeam, showdown4, escape, battleOfYavin, assaultOnDeathStar];
 episodes[4] = [hoth];
 episodes[5] = [endor];
-	
+
 //Initialize game
 (function(){
 	game = new Game();
@@ -3545,7 +3545,7 @@ function initGame(){
 function initHud(){
 	//Add container for buttons
 	hud = new Hud();
-	
+
 	//Add title text
 	title = document.createElement('h1');
 	title.id = 'title';
@@ -3559,7 +3559,7 @@ function initHud(){
 	title.style.pointerEvents = 'none';
 	title.innerHTML = 'Star Wars';
 	hud.selector.appendChild(title);
-	
+
 	//Add directions text
 	directions = document.createElement('h2');
 	directions.id = 'directions';
@@ -3574,7 +3574,7 @@ function initHud(){
 	directions.style.pointerEvents = 'none';
 	directions.innerHTML = clickPrompt;
 	hud.selector.appendChild(directions);
-	
+
 	//Add score text
 	scoreboard = document.createElement('h2');
 	scoreboard.id = 'scoreboard';
@@ -3586,28 +3586,28 @@ function initHud(){
 	scoreboard.style.zIndex = '10';
 	scoreboard.innerHTML = '';
 	hud.selector.appendChild(scoreboard);
-	
-	//Add score 
+
+	//Add score
 	scoreText = document.createElement('span');
 	scoreText.id = 'score';
 	scoreText.style.cssFloat = 'left';
 	scoreText.innerHTML = '';
 	scoreboard.appendChild(scoreText);
-	
-	//Add score 
+
+	//Add score
 	victimText = document.createElement('span');
 	victimText.id = 'victim';
 	victimText.style.cssFloat = 'right';
 	victimText.innerHTML = '';
 	scoreboard.appendChild(victimText);
-	
+
 	if(isMobile){
 		//Disable swipe to bounce.
 		document.ontouchmove = function(event) {
 			event.preventDefault();
 			window.scrollTo(0, 0);
 		}
-		
+
 		//Add container for all buttons
 		buttons = document.createElement('div');
 		buttons.id = 'buttons';
@@ -3619,7 +3619,7 @@ function initHud(){
 		buttons.style.height = '165px';
 		buttons.style.zIndex = '100';
 		hud.selector.appendChild(buttons);
-		
+
 		//Add middle of D-pad
 		dpad = document.createElement('div');
 		dpad.style.position = 'absolute';
@@ -3629,7 +3629,7 @@ function initHud(){
 		dpad.style.height = '65px';
 		dpad.style.backgroundImage = 'url("img/hud/middle.png")';
 		dpad.style.opacity = hudOpacity;
-		
+
 		//Add buttons to DOM
 		btnLeft = document.createElement('div');
 		btnLeft.id = 'btnLeft';
@@ -3641,7 +3641,7 @@ function initHud(){
 		btnLeft.style.height = '55px';
 		btnLeft.style.backgroundImage = 'url("img/hud/btnLeft.png")';
 		btnLeft.style.opacity = hudOpacity;
-		
+
 		btnUp = document.createElement('div');
 		btnUp.id = 'btnUp';
 		btnUp.setAttribute('data-key', 'up');
@@ -3652,7 +3652,7 @@ function initHud(){
 		btnUp.style.height = '45px';
 		btnUp.style.backgroundImage = 'url("img/hud/btnUp.png")';
 		btnUp.style.opacity = hudOpacity;
-		
+
 		btnRight = document.createElement('div');
 		btnRight.id = 'btnRight';
 		btnRight.setAttribute('data-key', 'right');
@@ -3663,7 +3663,7 @@ function initHud(){
 		btnRight.style.height = '55px';
 		btnRight.style.backgroundImage = 'url("img/hud/btnRight.png")';
 		btnRight.style.opacity = hudOpacity;
-		
+
 		btnDown = document.createElement('div');
 		btnDown.id = 'btnDown';
 		btnDown.setAttribute('data-key', 'down');
@@ -3674,7 +3674,7 @@ function initHud(){
 		btnDown.style.height = '45px';
 		btnDown.style.backgroundImage = 'url("img/hud/btnDown.png")';
 		btnDown.style.opacity = hudOpacity;
-		
+
 		btnAttack = document.createElement('div');
 		btnAttack.id = 'btnAttack';
 		btnAttack.setAttribute('data-key', 'space');
@@ -3685,7 +3685,7 @@ function initHud(){
 		btnAttack.style.height = '65px';
 		btnAttack.style.backgroundImage = 'url("img/hud/btnAttack.png")';
 		btnAttack.style.opacity = hudOpacity;
-		
+
 		btnAttack2 = document.createElement('div');
 		btnAttack2.id = 'btnAttack2';
 		btnAttack2.setAttribute('data-key', 'Z');
@@ -3696,7 +3696,7 @@ function initHud(){
 		btnAttack2.style.height = '65px';
 		btnAttack2.style.backgroundImage = 'url("img/hud/btnAttack.png")';
 		btnAttack2.style.opacity = hudOpacity;
-		
+
 		btnStart = document.createElement('div');
 		btnStart.id = 'btnStart';
 		btnStart.setAttribute('data-key', 'enter');
@@ -3707,7 +3707,7 @@ function initHud(){
 		btnStart.style.height = '40px';
 		btnStart.style.backgroundImage = 'url("img/hud/btnStart.png")';
 		btnStart.style.opacity = hudOpacity;
-		
+
 		hud.selector.appendChild(buttons);
 		buttons.appendChild(dpad);
 		buttons.appendChild(btnLeft);
@@ -3717,22 +3717,22 @@ function initHud(){
 		buttons.appendChild(btnAttack);
 		buttons.appendChild(btnAttack2);
 		buttons.appendChild(btnStart);
-		
+
 		//Init touchscreen controls
 		window.addEventListener('touchstart', function(event){
 			if(typeof(event.target.getAttribute('data-key')) != 'undefined'){
 				buttonPush(event.target.getAttribute('data-key'), event.target.id);
 			}
-		});
+		}, {passive: false});
 		window.addEventListener('touchmove', function(event){
 			event.preventDefault();
 			//buttonUpdate(event);
-		});
+		}, {passive: false});
 		window.addEventListener('touchend', function(event){
 			if(typeof(event.target.getAttribute('data-key')) != 'undefined'){
 				buttonRelease(event.target.getAttribute('data-key'), event.target.id);
 			}
-			
+
 			//Check if touch was released over different d-pad button
 			for(var i=0; i<cardinals.length; i++){
 				var button = document.querySelector('[data-key="' + cardinals[i] + '"]');
@@ -3741,7 +3741,7 @@ function initHud(){
 					//buttonRelease(player.dir, button.id);
 				}
 			}
-		});
+		}, {passive: false});
 		window.addEventListener('resize', function(){
 			if(menuMode == '' && !gameOver && !paused){
 				pause();
@@ -3772,7 +3772,7 @@ function initHud(){
 						break;
 				}
 			}
-	
+
 			switch (event.keyCode){
 				case 13: //enter
 					key = 'enter';
@@ -3820,7 +3820,7 @@ function initHud(){
 						break;
 				}
 			}
-	
+
 			switch (event.keyCode){
 				case 13: //enter
 					key = 'enter';
@@ -3831,7 +3831,7 @@ function initHud(){
 				default:
 					break;
 			}
-			
+
 			if(key != ''){
 				buttonRelease(key, null);
 			}
@@ -3843,13 +3843,13 @@ function initLevel(){
 	stage = new Stage(episodes[episode][level]);
 	player = new Player(stage.character);
 	game.counter = 0;
-	
+
 	if(typeof(episodes[episode][level].obstacles) != 'undefined'){
 		for(var obstacle in stage.obstacles){
 			obstacle = new Obstacle(stage.obstacles[obstacle]['type'], stage.obstacles[obstacle]['x'], stage.obstacles[obstacle]['y']);
 		}
 	}
-	
+
 	hud.selector.setAttribute('data-key', '');
 	title.innerHTML = '';
 	directions.innerHTML = '';
@@ -3867,19 +3867,19 @@ function initMenu(mode){
 	paused = false;
 	enemyCount = 0;
 	propCount = 0;
-	
+
 	invincible = false;
-	
+
 	if(mode == 'title'){
 		episode = 3;
 		level = 0;
 		score = 0;
 		cutsceneCount = 0;
-		
+
 		stage = new Stage(tantive4);
 		artoo = new Enemy(artoo);
 		threepio = new Enemy(threepio);
-		
+
 		for(var i=0; i<5; i++){
 			setTimeout(function(){
 				if(menuMode == 'title'){
@@ -3887,13 +3887,13 @@ function initMenu(mode){
 				}
 			}, i * 1000);
 		}
-		
+
 		hud.selector.setAttribute('data-key', 'enter');
 		title.innerHTML = 'Star Wars';
 		directions.innerHTML = clickPrompt;
 		scoreText.innerHTML = '';
 		victimText.innerHTML = '';
-		
+
 		if(isMobile){
 			hudStatus = buttons.style.display;
 			buttons.style.display = 'none';
@@ -3920,22 +3920,22 @@ function initMenu(mode){
 				btnEpisode.style.marginRight = '40px';
 			}
 			directions.appendChild(btnEpisode);
-			
+
 			if(i == 2){
 				breakTag = document.createElement('br');
 				directions.appendChild(breakTag);
 			}
-			
+
 			if(i == episode){
 				btnEpisode.style.color = 'white';
 			}
-			
+
 			btnEpisode.addEventListener('click', function(event){
 				episode = Number(this.getAttribute('data-episode'));
 				cutsceneCount = 0;
 				initMenu('cutscene');
 			});
-			
+
 			btnEpisode.addEventListener('touchend', function(event){
 				episode = Number(this.getAttribute('data-episode'));
 				cutsceneCount = 0;
@@ -3974,7 +3974,7 @@ function loop(){
 				}
 			}
 		}
-		
+
 		//Iterate over all enemies
 		for(var enemy in enemies){
 			if(enemies[enemy].active){
@@ -3996,7 +3996,7 @@ function loop(){
 				enemies[enemy].draw();
 			}
 		}
-		
+
 		//Iterate over all friendlies
 		for(var friendly in friendlies){
 			if(friendlies[friendly].ship){
@@ -4012,13 +4012,13 @@ function loop(){
 			friendlies[friendly].update();
 			friendlies[friendly].draw();
 		}
-		
+
 		//Iterate over all obstacles
 		for(var obstacle in obstacles){
 			obstacles[obstacle].update();
 			obstacles[obstacle].draw();
 		}
-		
+
 		//Iterate over all props
 		for(var prop in props){
 			if(!player.dead && collision(player, props[prop])){
@@ -4034,7 +4034,7 @@ function loop(){
 					}
 				}
 			}
-			
+
 			//Compare all props to all enemies
 			for(var enemy in enemies){
 				if(!props[prop].dead && !enemies[enemy].dead && props[prop].origin != enemies[enemy] && collision(enemies[enemy], props[prop])){
@@ -4044,7 +4044,7 @@ function loop(){
 					}
 				}
 			}
-			
+
 			//Compare all props to all friendlies
 			for(var friendly in friendlies){
 				if(!props[prop].dead && !friendlies[friendly].dead && collision(friendlies[friendly], props[prop])){
@@ -4054,30 +4054,30 @@ function loop(){
 					}
 				}
 			}
-			
+
 			props[prop].update();
 			props[prop].draw();
 		}
-		
+
 		//Iterate over animations
 		for(var animation in animations){
 			animations[animation].update();
 			animations[animation].draw();
 		}
-		
+
 		player.update();
 		player.draw();
-		
+
 		//Check for level completion
 		if(stage.enemiesKilled == (stage.enemyCount + 1) && animations.length == 0 && !stage.defeated){
 			levelWin();
 		}
-		
+
 		//Check for level failure
 		if(!player.active && animations.length == 0){
 			levelLose();
 		}
-		
+
 		//Check enemy interval
 		if(game.counter % stage.enemyInterval == 0){
 			if(enemies.length < stage.enemyCount){
@@ -4089,21 +4089,21 @@ function loop(){
 				}
 			}
 		}
-		
+
 		//Check friendly delay
 		for(var friendly in stage.friendlies){
 			if(game.counter == stage.friendlies[friendly].details.delay){
 				friend = new Friendly(stage.friendlies[friendly].character, stage.friendlies[friendly].details);
 			}
 		}
-		
+
 		//Check victim identification interval
 		if(victimCount > 0){
 			victimCount--;
 		} else {
 			victimText.innerHTML = '';
 		}
-		
+
 		//Update the game counter
 		game.counter++;
 	} else if(menuMode == 'title'){
@@ -4263,7 +4263,7 @@ function clearStage(){
 	keys.splice(0);
 	enemyCount = 0;
 	propCount = 0;
-	
+
 	scoreText.innerHTML = score;
 	victimText.innerHTML = '';
 }
@@ -4334,12 +4334,12 @@ function inBounds(obj){
 
 function getObstruction(obj){
 	var obstruction = '';
-	
+
 	var charLeft = obj.x;
 	var charTop = obj.y + obj.frameHeight - magnification;
 	var charRight = obj.x + obj.frameWidth;
 	var charBottom = obj.y + obj.frameHeight;
-	
+
 	//Iterate over all obstacles
 	for(var obstacle in obstacles){
 		if(obstacles[obstacle].impassable){
@@ -4347,7 +4347,7 @@ function getObstruction(obj){
 			var obsTop = obstacles[obstacle].y;
 			var obsRight = obstacles[obstacle].x + obstacles[obstacle].frameWidth;
 			var obsBottom = obstacles[obstacle].y + obstacles[obstacle].frameHeight;
-			
+
 			if(obj.dir == 'left' || obj.dir == 'right'){
 				if(charBottom > obsTop && charTop < obsBottom){
 					if(obj.dir == 'left'){
@@ -4404,20 +4404,20 @@ function resizeGame(width, height){
 			adaptCoords(props[prop]);
 		}
 	}
-	
+
 	game.width = width;
 	game.height = height;
 	game.selector.style.width = game.width + 'px';
 	game.selector.style.height = game.height + 'px';
-	
+
 	if(menuMode == 'cutscene'){
 		stage.resize();
 	}
-	
+
 	for(var obstacle in obstacles){
 		adaptCoords(obstacles[obstacle]);
 	}
-	
+
 	if(game.width > game.height){
 		document.getElementById('buttons').style.bottom = ((game.height - document.getElementById('buttons').clientHeight) / 2) + 'px';
 		document.getElementById('buttons').style.opacity = '0.5';
@@ -4481,7 +4481,7 @@ function playLevel(obj){
 		level = skipToLevel;
 		clearStage();
 		initLevel();
-		
+
 		paused = false;
 		pause();
 	}

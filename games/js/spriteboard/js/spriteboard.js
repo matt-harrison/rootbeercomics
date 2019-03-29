@@ -1,5 +1,5 @@
 /*
-TODO: 
+TODO:
 - manuals over platforms?
 - fliptricks with body varials out of grinds? (long swipe to spin + flip without windup? would override 360 flip and laserflip)
 - ramps?
@@ -13,7 +13,7 @@ $(function() {
 			advance = false;
 		}
 	}
-	
+
 	function animate() {
 		if (!gameOver) {
 			if (mode == 'game') {
@@ -61,7 +61,7 @@ $(function() {
 		}
 		setFrame(player);
 	}
-	
+
 	function checkStumblePosition(obj) {
 		var collision = false;
 		//offset hit area since board is narrower than the full sprite
@@ -72,7 +72,7 @@ $(function() {
 		}
 		return collision;
 	}
-	
+
 	function checkObstaclePosition(obj) {
 		var playerLeftEdge = player.x + pixelScale * 2;
 		var playerRightEdge = player.x + player.width;
@@ -81,7 +81,7 @@ $(function() {
 		var collision = (playerRightEdge > boxLeftEdge && playerLeftEdge < boxRightEdge);
 		return collision;
 	}
-	
+
 	function perform(dir, longSwipe) {
 		if (gameOver) {
 			if (dir == '') {//tap to reset
@@ -310,7 +310,7 @@ $(function() {
 			}
 		}
 	}
-	
+
 	function playerOn(obj) {
 		var inPosition = false;
 		if (gravity >= 0 && player.y + player.height <= obj.y && player.y + player.height + gravity + gravityIncrement >= obj.y) {
@@ -318,7 +318,7 @@ $(function() {
 		}
 		return inPosition;
 	}
-	
+
 	function preload(slot) {
 		var image = new Image();
 		image.src = sprites[slot];
@@ -333,9 +333,9 @@ $(function() {
 				$('#title').removeClass('hide');
 				$('#stage').removeClass('hide');
 			}
-		}; 
+		};
 	}
-	
+
 	function quitGame() {
 		gameOver = true;
 		mode = 'menu';
@@ -347,7 +347,7 @@ $(function() {
 		$('#hud').addClass('hide').html('');
 		$('#title').removeClass('hide');
 	}
-	
+
 	function resetPlayer() {
 		player.status = 'ride';
 		player.trick = 'none';
@@ -368,7 +368,7 @@ $(function() {
 		}
 		setFrame(player);
 		setNollie(false);
-		
+
 		//Remove obstacles
 		if (obstacles.length > 0) {
 			for (var i=0; i<obstacles.length; i++) {
@@ -376,7 +376,7 @@ $(function() {
 			}
 			obstacles.splice(0);
 		}
-		
+
 		//Re-distribute obstacles
 		for (var i=0; i<level.obstacles.length; i++) {
 			var obstacle = level.obstacles[i];
@@ -388,11 +388,11 @@ $(function() {
 				var platform = new Platform(obstacle.type.name, 360 + obstacle.xPosition);
 			}
 		}
-		
+
 		bg.init(level.bg);
 		$('#hud').html('');
 	}
-	
+
 	function setFrame(obj) {
 		//TRIGGER ANIMATION
 		if (['ride', 'land', 'crouch', 'catch'].indexOf(player.status) != -1) {
@@ -437,7 +437,7 @@ $(function() {
 		}
 		obj.spriteX = 0 - obj.width * col;
 		obj.spriteY = 0 - obj.height * row;
-		
+
 		//DISPLAY TRICK NAME
 		if (mode == 'game' && obj == player) {
 			if (['crouch', 'powerslide', 'ollie'].indexOf(player.status) != -1) {
@@ -539,21 +539,21 @@ $(function() {
 			board.selector.removeClass('nollie');
 		}
 	}
-	
+
 	function swipeEnd(endX, endY) {
 		var shortSwipe = 30;
 		var longSwipe = 200;
-		
+
 		var isLongSwipe = false;
 		var swipe = '';
 		var swipeHoriz = '';
 		var swipeVert = '';
-		
+
 		var leftLength = startX - endX;
 		var rightLength = endX - startX;
 		var upLength = startY - endY;
 		var downLength = endY - startY;
-		
+
 		if (leftLength >= shortSwipe) {
 			swipeHoriz = 'left';
 		} else if (rightLength >= shortSwipe) {
@@ -587,7 +587,7 @@ $(function() {
 				swipe = 'S';
 			}
 		}
-		
+
 		if (swipe == 'N') {
 			if (upLength > longSwipe) {
 				isLongSwipe = true;
@@ -621,14 +621,14 @@ $(function() {
 				isLongSwipe = true;
 			}
 		}
-		
+
 		if (mode == 'game') {
 			perform(swipe, isLongSwipe);
 		} else if (mode == 'tutorial') {
 			performTutorial(swipe, isLongSwipe);
 		}
 	}
-	
+
 	function performTutorial(dir, length) {
 		//check if input matches next tutorial requirement
 		if (dir == tutorial[tutorialStep][1]) {
@@ -647,8 +647,11 @@ $(function() {
 	//Prevent mobile windows from dragging and scrolling
 	document.body.addEventListener('touchstart', function(e) {
 		e.preventDefault();
-	});
-	
+	}, {passive: false});
+	document.body.addEventListener('touchmove', function(e) {
+		e.preventDefault();
+	}, {passive: false});
+
 	pixelScale = 10;
 	frameRate = 12;
 	timer = 0;
@@ -668,33 +671,33 @@ $(function() {
 	mode = 'menu';
 	level = parkingLot;
 	debugMode = String(location.search).indexOf('debug') !== - 1;
-	
+
 	preload(0);
-	
+
 	//Check for debug mode
 	if (debugMode) {
 		$('#game, #stage').css('height', '465px');
 		$('#debug').removeClass('hide');
 	}
-	
+
 	//Declare obstacle classes
 	var Block = function(type, defaultX) {
 		this.id = obstacles.length;
 		this.class = 'Block';
 		this.type = type;
-		
+
 		$('#obstacles').append('<div id="' + this.type + this.id + '" class="' + this.type + ' abs"/>');
 		this.selector = $('#' + this.type + this.id);
-		
+
 		this.width = this.selector.width();
 		this.height = this.selector.height();
 		this.x = defaultX;
 		this.y = ground - this.height;
 		this.defaultX = defaultX;
-		
+
 		this.selector.css('left', this.x).css('top', this.y).css('width', this.width).css('height', this.height);
 		obstacles.push(this);
-			
+
 		this.update = function() {
 			if (player.status != 'crash' && player.y != (ground - player.height) && checkStumblePosition(this)) {
 				bail();
@@ -705,24 +708,24 @@ $(function() {
 			this.selector.css('left', this.x);
 		};
 	};
-	
+
 	var Ledge = function(type, defaultX) {
 		this.id = obstacles.length;
 		this.class = 'Ledge';
 		this.type = type;
-		
+
 		$('#obstacles').append('<div id="' + this.type + this.id + '" class="' + this.type + ' abs"/>');
 		this.selector = $('#' + this.type + this.id);
-		
+
 		this.width = this.selector.width();
 		this.height = this.selector.height();
 		this.x = defaultX;
 		this.y = ground - this.height;
 		this.defaultX = defaultX;
-		
+
 		this.selector.css('left', this.x).css('top', this.y).css('width', this.width).css('height', this.height);
 		obstacles.push(this);
-		
+
 		this.update = function() {
 			if (currentObstacle == '') {
 				if (checkObstaclePosition(this) && player.status != 'grind') {//Prevent automatic transfers between objects
@@ -739,24 +742,24 @@ $(function() {
 			this.selector.css('left', this.x);
 		};
 	};
-	
+
 	var Platform = function(type, defaultX) {
 		this.id = obstacles.length;
 		this.class = 'Platform';
 		this.type = type;
-		
+
 		$('#obstacles').append('<div id="' + this.type + this.id + '" class="' + this.type + ' abs"/>');
 		this.selector = $('#' + this.type + this.id);
-		
+
 		this.width = this.selector.width();
 		this.height = this.selector.height();
 		this.x = defaultX;
 		this.y = ground - this.height;
 		this.defaultX = defaultX;
-		
+
 		this.selector.css('left', this.x).css('top', this.y).css('width', this.width).css('height', this.height);
 		obstacles.push(this);
-		
+
 		this.update = function() {
 			if (currentObstacle == '') {
 				if (checkObstaclePosition(this) && player.status != 'grind') {//Prevent automatic transfers between objects
@@ -783,31 +786,31 @@ $(function() {
 			this.selector.css('left', this.x);
 		};
 	};
-	
+
 	//Declare game objects
 	player = {
-		id: 'player', 
+		id: 'player',
 		selector: $('#player'),
-		character: 'matt', 
-		width: 120, 
-		height: 140, 
-		x: 130, 
-		y: 260, 
-		spriteW: 1000, 
-		spriteH: 2650, 
-		spriteX: 0, 
-		spriteY: 0, 
-		status: 'ride', 
-		stance: 'regular', 
-		switchStance: false, 
-		nollie: false, 
-		spin: '', 
-		trick: '', 
-		combo: false, 
-		snapOut: false, 
+		character: 'matt',
+		width: 120,
+		height: 140,
+		x: 130,
+		y: 260,
+		spriteW: 1000,
+		spriteH: 2650,
+		spriteX: 0,
+		spriteY: 0,
+		status: 'ride',
+		stance: 'regular',
+		switchStance: false,
+		nollie: false,
+		spin: '',
+		trick: '',
+		combo: false,
+		snapOut: false,
 		init: function() {
 			this.selector.attr('class', this.character + ' abs').css('left', this.x + 'px');
-		}, 
+		},
 		update: function() {
 			if ((player.status == 'ride' || player.status == 'dragging') && holding) {
 				if (timer - holdStart > 4) {
@@ -819,7 +822,7 @@ $(function() {
 						if ((timer - holdStart) % 4 == 0) {
 							speed -= speedIncrement;
 						}
-					} 
+					}
 				}
 			}
 			if (waitFrame) {
@@ -951,27 +954,27 @@ $(function() {
 					setNollie(false);
 				}
 			}
-		}, 
+		},
 		draw: function() {
 			this.selector.css('background-position', (this.spriteX) + 'px ' + (this.spriteY) + 'px').css('top', this.y);
 		}
 	}
-	
+
 	board = {
-		id: 'board', 
-		selector: $('#board'), 
-		width: 100, 
-		height: 140, 
-		x: 130, 
-		y: 260, 
-		spriteW: 1000, 
-		spriteH: 2650, 
-		spriteX: 0, 
-		spriteY: 0, 
-		trick: '', 
+		id: 'board',
+		selector: $('#board'),
+		width: 100,
+		height: 140,
+		x: 130,
+		y: 260,
+		spriteW: 1000,
+		spriteH: 2650,
+		spriteX: 0,
+		spriteY: 0,
+		trick: '',
 		init: function() {
 			this.selector.attr('class', this.model + ' abs').css('left', this.x + 'px');
-		}, 
+		},
 		update: function() {
 			this.x = player.x;
 			this.y = player.y;
@@ -979,16 +982,16 @@ $(function() {
 			if (player.spin == '') {
 				this.spriteY = player.spriteY;
 			}
-		}, 
+		},
 		draw: function() {
 			this.selector.css('background-position', (this.spriteX) + 'px ' + (this.spriteY) + 'px').css('top', this.y);
 		}
 	}
-	
+
 	bg = {
 		selector1: $('#bg1'),
 		selector2: $('#bg2'),
-		level: 'pavement', 
+		level: 'pavement',
 		x: 0,
 		width: 360,
 		init: function(bg) {
@@ -1010,9 +1013,9 @@ $(function() {
 			this.selector2.css('left', (this.x + this.width) + 'px');
 		}
 	}
-	
+
 	//INTERFACE
-	//Main menu	
+	//Main menu
 	$('#btnPlay').bind('mouseup touchend', function() {
 		gameOver = false;
 		mode = 'game';
@@ -1033,7 +1036,7 @@ $(function() {
 		$('#title').addClass('hide');
 		$('#hud').removeClass('txtWhite').removeClass('hide').html(tutorial[tutorialStep][0]);
 	});
-	
+
 	//Options menu
 	$('#btnCharacterSelect').bind('mouseup touchend', function() {
 		$('#options').addClass('hide');
@@ -1057,7 +1060,7 @@ $(function() {
 		$('#options').addClass('hide');
 		$('#title').removeClass('hide');
 	});
-	
+
 	//Character Select menu
 	$('#btnCharacterMatt').bind('mouseup touchend', function() {
 		player.character = 'matt';
@@ -1087,7 +1090,7 @@ $(function() {
 		$('#characterSelect').addClass('hide');
 		$('#options').removeClass('hide');
 	});
-	
+
 	//Level Select menu
 	$('#btnParkingLot').bind('mouseup touchend', function() {
 		level = parkingLot;
@@ -1114,7 +1117,7 @@ $(function() {
 			$(this).addClass('selected');
 		}
 	});
-	
+
 	//Keyboard listeners
 	$('body').keydown(function(event) {
 		//alert('event: ' + event.which);
@@ -1140,7 +1143,7 @@ $(function() {
 			quitGame();
 		}
 	});
-	
+
 	//Mouse/touchscreen listeners
 	$('#stage').bind('mousedown', function(e) {
 		holding = true;

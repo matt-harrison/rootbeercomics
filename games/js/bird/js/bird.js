@@ -1,40 +1,40 @@
 $(function(){
 	$('#overlay').show();
-	
+
 	//prevent mobile windows from dragging and scrolling
 	document.body.addEventListener('touchstart', function(e){
 		e.preventDefault();
-	});
-	
+	}, {passive: false});
+
 	frameRate = 16;
 	timer = 0;
 	timeout = false;
 	resetInterval = frameRate/2;
-	
+
 	pipes = new Array();
-	
+
 	gameOver = true;
 	gravityInc = 5;
 	scrollSpeed = 8;
 	pipeCount = 0;
-	
+
 	setInterval(function(){animate();}, 1000/frameRate);
-	
+
 	stage = {
-		width:360, 
-		height:480, 
+		width:360,
+		height:480,
 		ground:400
 	}
-	
+
 	bird = {
-		selector:$('#bird'), 
-		x:170, 
-		y:230, 
-		width:20, 
-		height:20, 
+		selector:$('#bird'),
+		x:170,
+		y:230,
+		width:20,
+		height:20,
 		init:function(){
 			this.selector.css('top', this.y).css('left', this.x);
-		}, 
+		},
 		update:function(){
 			if(this.y + gravity<stage.ground-this.height){
 				this.y += gravity;
@@ -76,13 +76,13 @@ $(function(){
 					}
 				}
 			}
-		}, 
+		},
 		draw:function(){
 			this.selector.css('top', this.y);
 		}
 	}
 	bird.init();
-	
+
 	$('body').keydown(function(event){
 		//alert('event: '+event.which);
 		if(event.which == 13){//enter
@@ -98,7 +98,7 @@ $(function(){
 			}
 		}
 	});
-	
+
 	$('#game').bind('mousedown touchstart', function(){
 		if(!timeout){
 			if(gameOver){
@@ -117,51 +117,51 @@ function addPipe(){
 	$('#stage').prepend('<div id="pipe' + pipeCount + '" class="abs pipe"/>');
 	$('#stage').prepend('<div id="pipe' + (pipeCount + 1) + '" class="abs pipe"/>');
 	pipeTop = {
-		selector:$('#pipe' + pipeCount), 
-		id:pipeCount, 
-		width:50, 
-		height: pipeTopHeight, 
-		x:360, 
-		y:0, 
-		type:'top', 
-		passed:false, 
+		selector:$('#pipe' + pipeCount),
+		id:pipeCount,
+		width:50,
+		height: pipeTopHeight,
+		x:360,
+		y:0,
+		type:'top',
+		passed:false,
 		init:function(){
 			this.selector.css('height', this.height);
-		}, 
+		},
 		update:function(){
 			if(!gameOver){
 				if(this.x + this.width >= 0){
 					this.x -= scrollSpeed;
-				} else { 
+				} else {
 					this.selector.remove();
 				}
 			}
-		}, 
+		},
 		draw:function(){
 			this.selector.css('left', this.x);
 		}
 	}
 	pipeBottom = {
-		selector:$('#pipe' + extraPipe), 
-		id:extraPipe, 
-		width:50, 
-		height: pipeBottomHeight, 
-		x:360, 
-		y:stage.ground - pipeBottomHeight, 
-		type:'bottom', 
-		passed:false, 
+		selector:$('#pipe' + extraPipe),
+		id:extraPipe,
+		width:50,
+		height: pipeBottomHeight,
+		x:360,
+		y:stage.ground - pipeBottomHeight,
+		type:'bottom',
+		passed:false,
 		init:function(){
 			this.selector.css('height', this.height).css('top', stage.ground-this.height);
-		}, 
+		},
 		update:function(){
 			if(!gameOver){
 				if(this.x + this.width >= 0){
 					this.x -= scrollSpeed;
-				} else { 
+				} else {
 					this.selector.remove();
 				}
 			}
-		}, 
+		},
 		draw:function(){
 			if(!gameOver){
 				this.selector.css('left', this.x);
@@ -177,7 +177,7 @@ function addPipe(){
 function animate(){
 	if(!gameOver){
 		if(timer > frameRate && timer%(20) == 0){
-			addPipe();            
+			addPipe();
 		}
 		for(var i=0; i<pipes.length; i++){
 			pipes[i].update();

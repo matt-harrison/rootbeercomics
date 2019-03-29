@@ -79,7 +79,7 @@ function resizeGame(width, height){
 	if (!gameOver && !paused) {
 		pause();
 	}
-		
+
 	//Vertically center controls in landscape mode.
 	if (width > height) {
 		dpadOffset = (height - 183) / 2;
@@ -88,7 +88,7 @@ function resizeGame(width, height){
 		dpadOffset = 10;
 		btnAttackOffset = 10;
 	}
-	
+
 	if (isMobile) {
 		dpad.style.bottom = dpadOffset + 'px';
 		btnAttack.style.bottom = btnAttackOffset + 'px';
@@ -107,7 +107,7 @@ function resizeGame(width, height){
 	for(var projectile in projectiles){
 		adaptCoords(projectiles[projectile]);
 	}
-	
+
 	game.width = width;
 	game.height = height;
 	game.selector.style.width = game.width + 'px';
@@ -145,7 +145,7 @@ Game = function() {
 
 	this.init = function() {
 		player.assign(character);
-		
+
 		gameOver = false;
 		paused = false;
 		enemyCount = 0;
@@ -174,7 +174,7 @@ Game = function() {
 
 Menu = function() {
 	this.visible = true;
-	
+
 	//Attach Menu
 	menuContainer = document.createElement('div');
 	menuContainer.id = 'menu';
@@ -258,9 +258,13 @@ Menu = function() {
 		//Disable swipe to bounce.
 		document.ontouchmove = function(event) {
 			event.preventDefault();
-			window.scrollTo(0, 0);
 		}
-		
+
+		document.body.addEventListener('touchmove', function(e) {
+			e.preventDefault();
+			window.scrollTo(0, 0);
+		}, {passive: false});
+
 		//Vertically center controls in landscape mode.
 		if (game.width > game.height) {
 			dpadOffset = (game.height - 183) / 2;
@@ -269,7 +273,7 @@ Menu = function() {
 			dpadOffset = 10;
 			btnAttackOffset = 10;
 		}
-		
+
 		//Attach D-pad
 		dpad = document.createElement('div');
 		dpad.id = 'dpad';
@@ -471,7 +475,7 @@ Menu = function() {
 						pause();
 					}
 					input.splice(0);
-					
+
 					break;
 				case 27: //escape
 					gameOver = true;
@@ -482,7 +486,7 @@ Menu = function() {
 					if (paused) {
 						input.push(String.fromCharCode(event.keyCode).toLowerCase());
 						var cheat = input.join('');
-						
+
 						var hiddenCharacter = '';
 						if (cheat.indexOf('cap') != -1) {
 							hiddenCharacter = captainAmerica;
@@ -497,13 +501,13 @@ Menu = function() {
 						} else if (cheat.indexOf('widow') != -1) {
 							hiddenCharacter = blackWidow;
 						}
-						
+
 						if (hiddenCharacter != '') {
 							character = hiddenCharacter;
 							player.assign(character);
 							input.splice(0);
 						}
-						
+
 						var weapon = '';
 						if (cheat.indexOf('arrow') != -1 || cheat.indexOf('bow') != -1) {
 							weapon = arrow;
@@ -524,17 +528,17 @@ Menu = function() {
 							weapon = shield;
 							weaponLimit = captainAmerica.weaponLimit;
 						}
-						
+
 						if (weapon != '') {
 							player.weapon = weapon;
 							player.weaponLimit = weaponLimit;
 							input.splice(0);
 						}
-						
+
 						if (cheat.indexOf('assemble') != -1) {
 							player.invincible = !player.invincible;
 						}
-						
+
 						if (cheat.indexOf('ammo') != -1) {
 							player.weaponLimit = 100;
 						}
@@ -555,7 +559,7 @@ Menu = function() {
 
 Player = function(obj) {
 	importJSON(this, obj);
-	
+
 	this.x = Math.floor((game.width - this.width) / 2);
 	this.y = Math.floor((game.height - this.height) / 2);
 
@@ -580,7 +584,7 @@ Player = function(obj) {
 			this.x = Math.floor((game.width - this.width) / 2);
 			this.y = Math.floor((game.height - this.height) / 2);
 		}
-		
+
 		this.dir = 'right';
 		this.walking = false;
 		this.active = true;
@@ -606,7 +610,7 @@ Player = function(obj) {
 			this.selector.style.webkitTransform = 'scale(1, 1)';
 		}
 	}
-	
+
 	this.attack = function() {
 		if (projectiles.length < this.weaponLimit) {
 			if (this.weapon == fist) {
@@ -614,16 +618,16 @@ Player = function(obj) {
 			} else {
 				projectile = new Projectile(this);
 			}
-			
+
 		}
 	}
-	
+
 	this.kill = function() {
 		gameOver = true;
 		clearInterval(loopInterval);
 		this.selector.style.opacity = '0.25';
 	}
-	
+
 	this.update = function() {
 		if (this.walking) {
 			if (this.dir == 'left') {
@@ -653,14 +657,14 @@ Player = function(obj) {
 			}
 		}
 	}
-	
+
 	this.draw = function() {
 		if (this.active) {
 			this.selector.style.left = this.x + 'px';
 			this.selector.style.top = this.y + 'px';
 		}
 	};
-	
+
 	this.assign(obj);
 };
 
@@ -673,7 +677,7 @@ Enemy = function(obj) {
 	this.width *= magnification;
 	this.height *= magnification;
 	this.speed *= magnification;
-	
+
 	//Create DOM node
 	this.selector = document.createElement('div');
 	this.selector.id = 'enemy' + enemyCount++;
