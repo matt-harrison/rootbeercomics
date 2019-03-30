@@ -148,3 +148,6 @@ $showGreg        = is_null($showGreg)        ? false : $showGreg;
 <a href="/illustration/posters/img/shining.jpg" target="_blank" class="bsBorder mr5 mb5">
     <img src="/illustration/posters/thumbs/shining.jpg" alt="the shining"/>
 </a>
+<a href="/illustration/posters/img/flickit-fridays.jpg" target="_blank" class="bsBorder mr5 mb5">
+    <img src="/illustration/posters/thumbs/flickit-fridays.jpg" alt="flickit! fridays"/>
+</a>
