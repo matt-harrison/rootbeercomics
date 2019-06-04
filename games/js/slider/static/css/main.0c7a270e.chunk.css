@@ -1,0 +1,2 @@
+body{overflow:hidden}#root,body{margin:0;border:0;padding:0}#root{display:-webkit-flex;display:flex;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;align-items:center;width:100vw;height:100vh}.puzzle{position:relative;background-color:#fff}.background{width:100%;height:100%;opacity:.25}.square{position:absolute;overflow:hidden;cursor:pointer}.trans{transition:left .25s ease-in-out,top .25s ease-in-out}
+/*# sourceMappingURL=main.0c7a270e.chunk.css.map */

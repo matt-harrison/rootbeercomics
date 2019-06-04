@@ -16,5 +16,4 @@ movies.*.json
 *.ico
 
 # Other
-/projects/react
 *.DS_Store
