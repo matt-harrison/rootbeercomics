@@ -40,10 +40,8 @@ Redirect /tecmo       /games/flash/tecmo
 Redirect /tetris      /games/flash/mattris
 Redirect /mattris     /games/flash/mattris
 
-Redirect /mybooks     /projects/list/books
-Redirect /mycomics    /projects/list/comics
-Redirect /mymovies    /projects/list/movies
-Redirect /list        /projects/list/calendar
+Redirect /list        /projects/react/list
+Redirect /calendar    /projects/list/calendar
 
 RedirectMatch /comics/(\d+)          /comics/index.php?id=$1
 RedirectMatch /comics/old/(\d+)      /comics/old/index.php?id=$1
