@@ -20,19 +20,19 @@ if (count($errors) < 1) {
   $type     = $data->item->type;
   $title    = str_replace("'", "\'", $data->item->title);
   $date     = $data->item->date;
-  $first    = $data->item->first;
+  $isFirst  = $data->item->isFirst;
   $response = [];
 
   $insert = "INSERT INTO list (
     type,
     title,
     date,
-    first
+    isFirst
   ) VALUES (
     '$type',
     '$title',
     '$date',
-    '$first'
+    '$isFirst'
   )";
 
   $result = execute($insert);
