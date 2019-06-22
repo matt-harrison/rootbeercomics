@@ -1,103 +1,72 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
+function getContributors($filters = []) {
+  $where = getWhereContributors($filters);
+  $query =
+    "SELECT
+      contributors.id,
+      contributors.issue_id,
+      contributors.creator_id,
+      contributors.creator_type_id,
+      creators.id AS creator_id,
+      creators.name AS creator,
+      creator_types.id AS creator_type_id,
+      creator_types.name AS creator_type
+    FROM contributors
+    LEFT JOIN creators ON contributors.creator_id = creators.id
+    LEFT JOIN creator_types ON contributors.creator_type_id = creator_types.id
+    {$where}";
+
+  $contributors = select($query, 'kittenb1_issues');
+
+  return [
+    'count'   => count($contributors),
+    'filters' => $filters,
+    'query'   => $query,
+    'results' => $contributors
+  ];
+}
+
 function getData() {
-  $color     = $_REQUEST['color'];
-  $creator   = $_REQUEST['creator'];
-  $format    = $_REQUEST['format'];
-  $number    = $_REQUEST['number'];
-  $own       = $_REQUEST['own'];
-  $publisher = $_REQUEST['publisher'];
-  $read      = $_REQUEST['read'];
-  $title     = $_REQUEST['title'];
-  $type      = $_REQUEST['type'];
-  $year      = $_REQUEST['year'];
+  $filters              = parseFilters();
+  $contributorsFiltered = getContributors($filters);
+  $contributorsAll      = getContributors();
+  $contributors         = (count($filters['contributors']) > 0) ? $contributorsFiltered : $contributorsAll;
 
-  $contributorsIds           = [];
-  $filtersContributor        = [];
-  $filtersIssue              = [];
-  $issuesWithContributorsIds = [];
-  $whereContributors         = '';
-  $whereIssues               = '';
+  $issues = getIssues($filters, $contributorsFiltered['results']);
 
-  if (!is_null($creator)) {
-    $filtersContributor[] = "creators.name LIKE '%{$creator}%'";
-  }
-
-  if (!is_null($type)) {
-    $filtersContributor[] = "creator_types.name LIKE '%{$type}%'";
-  }
-
-  if (count($filtersContributor) > 0) {
-    $whereContributors = 'WHERE ' . implode(' AND ', $filtersContributor);
-    $contributorsFilteredQuery =
-      "SELECT
-        contributors.id,
-        contributors.issue_id,
-        contributors.creator_id,
-        contributors.creator_type_id,
-        creators.id AS creator_id,
-        creators.name AS creator,
-        creator_types.id AS creator_type_id,
-        creator_types.name AS creator_type
-      FROM contributors
-      LEFT JOIN creators ON contributors.creator_id = creators.id
-      LEFT JOIN creator_types ON contributors.creator_type_id = creator_types.id
-      {$whereContributors}";
-
-    $contributorsFiltered = select($contributorsFilteredQuery, 'kittenb1_issues');
-
-    if (count($filtersContributor) > 0) {
-      foreach ($contributorsFiltered as $contributor) {
-        if (!in_array($contributor['issue_id'], $issuesWithContributorsIds)) {
-          $issuesWithContributorsIds[] = $contributor['issue_id'];
-        }
-      }
-
-      if (count($issuesWithContributorsIds) > 0) {
-        $filteredIssueIds = implode(',', $issuesWithContributorsIds);
-        $filtersIssue[] = "issues.id IN ({$filteredIssueIds})";
+  foreach ($issues['results'] as $index => $issue) {
+    foreach ($contributors['results'] as $contributor) {
+      if ($contributor['issue_id'] === $issue['id']) {
+        $issues['results'][$index]['contributors'][] = $contributor;
       }
     }
   }
 
-  if (!is_null($format)) {
-    $filtersIssue[] = "formats.name = '{$format}'";
+  $response = [
+    'success'      => !($issues['results'] === 'FALSE') && !($contributors['results'] === 'FALSE'),
+    'contributors' => $contributors,
+    'issues'       => $issues
+  ];
+
+  return $response;
+}
+
+function getIssues($filters = [], $contributors) {
+
+  if (count($filters['contributors']) > 0) {
+    $filters['issues']['creatorMatches'] = [];
+
+    foreach ($contributors as $contributor) {
+      if (!in_array($contributor['issue_id'], $filters['issues']['creatorMatches'])) {
+        $filters['issues']['creatorMatches'][] = $contributor['issue_id'];
+      }
+    }
   }
 
-  if (!is_null($publisher)) {
-    $filtersIssue[] = "publishers.name LIKE '%{$publisher}%'";
-  }
-
-  if (!is_null($title)) {
-    $filtersIssue[] = "titles.name LIKE '%{$title}%'";
-  }
-
-  if (!is_null($color)) {
-    $filtersIssue[] = "is_color = '{$color}'";
-  }
-
-  if (!is_null($number)) {
-    $filtersIssue[] = "number = '{$number}'";
-  }
-
-  if (!is_null($own)) {
-    $filtersIssue[] = "is_owned = '{$own}'";
-  }
-
-  if (!is_null($read)) {
-    $filtersIssue[] = "is_read = '{$read}'";
-  }
-
-  if (!is_null($year)) {
-    $filtersIssue[] = "year = '{$year}'";
-  }
-
-  if (count($filtersIssue) > 0) {
-    $whereIssues = 'WHERE ' . implode(' AND ', $filtersIssue);
-  }
-
-  $issuesQuery =
+  $where = getWhereIssues($filters['issues']);
+  $query =
     "SELECT
       issues.id,
       issues.title_id,
@@ -119,53 +88,174 @@ function getData() {
     LEFT JOIN titles ON title_id = titles.id
     LEFT JOIN publishers ON publisher_id = publishers.id
     LEFT JOIN formats ON format_id = formats.id
-    {$whereIssues}";
+    {$where}";
 
-  $issues = select($issuesQuery, 'kittenb1_issues');
+  $issues = select($query, 'kittenb1_issues');
 
-  if (count($filtersContributor) < 1) {
-    $contributorsAllQuery =
-      "SELECT
-        contributors.id,
-        contributors.issue_id,
-        contributors.creator_id,
-        contributors.creator_type_id,
-        creators.id AS creator_id,
-        creators.name AS creator,
-        creator_types.id AS creator_type_id,
-        creator_types.name AS creator_type
-      FROM contributors
-      LEFT JOIN creators ON contributors.creator_id = creators.id
-      LEFT JOIN creator_types ON contributors.creator_type_id = creator_types.id";
+  return [
+    'count'   => count($issues),
+    'filters' => $filters,
+    'query'   => $query,
+    'results' => $issues
+  ];
+}
 
-    $contributorsAll = select($contributorsAllQuery, 'kittenb1_issues');
+function getWhereContributors($filters = []) {
+  $whereContributors  = '';
+  $contributorFilters = [];
+
+  //programmatically set filters by iterating over properties of contributors?
+
+  if (!is_null($filters['contributors']['creator'])) {
+    $contributorFilters[] = "creators.name LIKE '%" . $filters['contributors']['creator'] . "%'";
   }
 
-  $contributors = (count($filtersContributor) > 0) ? $contributorsFiltered : $contributorsAll;
-
-  foreach ($issues as $index => $issue) {
-    foreach ($contributors as $contributor) {
-      if ($contributor['issue_id'] === $issue['id']) {
-        $issues[$index]['contributors'][] = $contributor;
-      }
-    }
+  if (!is_null($filters['contributors']['creator_id'])) {
+    $contributorFilters[] = "creators.id LIKE '%" . $filters['contributors']['creator_id'] . "%'";
   }
 
-  $response = [
-    'success' => !($issues === 'FALSE') && !($contributors === 'FALSE'),
-    'contributors' => [
-      'count'   => count($contributors),
-      'filters' => [],
-      'query'   => (count($filtersContributor) > 0) ? $contributorsFilteredQuery : $contributorsAllQuery,
-      'results' => $contributors
-    ],
-    'issues' => [
-      'count'   => count($issues),
-      'filters' => [],
-      'query'   => $issuesQuery,
-      'results' => $issues
-    ]
+  if (!is_null($filters['contributors']['creator_type'])) {
+    $contributorFilters[] = "creator_types.name LIKE '%" . $filters['contributors']['creator_type'] . "%'";
+  }
+
+  if (!is_null($filters['contributors']['creator_type_id'])) {
+    $contributorFilters[] = "creator_types.id LIKE '%" . $filters['contributors']['creator_type_id'] . "%'";
+  }
+
+  if (count($contributorFilters) > 0) {
+    $whereContributors = 'WHERE ' . implode(' AND ', $contributorFilters);
+  }
+
+  return $whereContributors;
+}
+
+function getWhereIssues($filters = []) {
+  $whereIssues  = '';
+  $issueFilters = [];
+
+  //programmatically set filters by iterating over properties of issues?
+
+  if (!is_null($filters['format'])) {
+    $issueFilters[] = "formats.name = '" . $filters['format'] . "'";
+  }
+
+  if (!is_null($filters['format_id'])) {
+    $issueFilters[] = "formats.id = '" . $filters['format_id'] . "'";
+  }
+
+  if (!is_null($filters['color'])) {
+    $issueFilters[] = "is_color = '" . $filters['is_color'] . "'";
+  }
+
+  if (!is_null($filters['own'])) {
+    $issueFilters[] = "is_owned = '" . $filters['is_owned'] . "'";
+  }
+
+  if (!is_null($filters['read'])) {
+    $issueFilters[] = "is_read = '" . $filters['is_read'] . "'";
+  }
+
+  if (!is_null($filters['number'])) {
+    $issueFilters[] = "number = '" . $filters['number'] . "'";
+  }
+
+  if (!is_null($filters['publisher'])) {
+    $issueFilters[] = "publishers.name LIKE '%" . $filters['publisher'] . "%'";
+  }
+
+  if (!is_null($filters['publisher_id'])) {
+    $issueFilters[] = "publishers.id LIKE '%" . $filters['publisher_id'] . "%'";
+  }
+
+  if (!is_null($filters['title'])) {
+    $issueFilters[] = "titles.name LIKE '%" . $filters['title'] . "%'";
+  }
+
+  if (!is_null($filters['title_id'])) {
+    $issueFilters[] = "titles.id LIKE '%" . $filters['title_id'] . "%'";
+  }
+
+  if (!is_null($filters['year'])) {
+    $issueFilters[] = "year LIKE '%" . $filters['year'] . "'";
+  }
+
+  if (count($filters['creatorMatches']) > 0) {
+    $filteredIssueIds = implode(',', $filters['creatorMatches']);
+    $issueFilters[] = "issues.id IN ({$filteredIssueIds})";
+  }
+
+  if (count($issueFilters) > 0) {
+    $whereIssues = 'WHERE ' . implode(' AND ', $issueFilters);
+  }
+
+  return $whereIssues;
+}
+
+function parseFilters() {
+  $filters = [
+    'contributors' => [],
+    'issues'       => []
   ];
 
-  return $response;
+  if ($_REQUEST['creator']) {
+    $filters['contributors']['creator'] = $_REQUEST['creator'];
+  }
+
+  if ($_REQUEST['creator_id']) {
+    $filters['contributors']['creator_id'] = $_REQUEST['creator_id'];
+  }
+
+  if ($_REQUEST['creator_type']) {
+    $filters['contributors']['creator_type'] = $_REQUEST['creator_type'];
+  }
+
+  if ($_REQUEST['creator_type_id']) {
+    $filters['contributors']['creator_type_id'] = $_REQUEST['creator_type_id'];
+  }
+
+  if ($_REQUEST['format']) {
+    $filters['issues']['format'] = $_REQUEST['format'];
+  }
+
+  if ($_REQUEST['format_id']) {
+    $filters['issues']['format_id'] = $_REQUEST['format_id'];
+  }
+
+  if ($_REQUEST['is_color']) {
+    $filters['issues']['is_color'] = $_REQUEST['is_color'];
+  }
+
+  if ($_REQUEST['is_owned']) {
+    $filters['issues']['is_owned'] = $_REQUEST['is_owned'];
+  }
+
+  if ($_REQUEST['is_read']) {
+    $filters['issues']['is_read'] = $_REQUEST['is_read'];
+  }
+
+  if ($_REQUEST['number']) {
+    $filters['issues']['number'] = $_REQUEST['number'];
+  }
+
+  if ($_REQUEST['publisher']) {
+    $filters['issues']['publisher'] = $_REQUEST['publisher'];
+  }
+
+  if ($_REQUEST['publisher_id']) {
+    $filters['issues']['publisher_id'] = $_REQUEST['publisher_id'];
+  }
+
+  if ($_REQUEST['title']) {
+    $filters['issues']['title'] = $_REQUEST['title'];
+  }
+
+  if ($_REQUEST['title_id']) {
+    $filters['issues']['title_id'] = $_REQUEST['title_id'];
+  }
+
+  if ($_REQUEST['year']) {
+    $filters['issues']['year'] = $_REQUEST['year'];
+  }
+
+  return $filters;
 }
