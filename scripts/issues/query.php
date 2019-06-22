@@ -32,7 +32,7 @@ function getData() {
   $filters              = parseFilters();
   $contributorsFiltered = getContributors($filters);
   $contributorsAll      = getContributors();
-  $contributors         = (count($filters['contributors']) > 0) ? $contributorsFiltered : $contributorsAll;
+  $contributors         = (count($filters['contributors']) > 0 && $filters['delimiter'] !== 'OR') ? $contributorsFiltered : $contributorsAll;
 
   $issues = getIssues($filters, $contributorsFiltered['results']);
 
@@ -46,16 +46,16 @@ function getData() {
 
   $response = [
     'success'      => !($issues['results'] === 'FALSE') && !($contributors['results'] === 'FALSE'),
+    'allContributors' => $contributorsAll,
     'contributors' => $contributors,
-    'issues'       => $issues
+    'issues'       => $issues,
   ];
 
   return $response;
 }
 
 function getIssues($filters = [], $contributors) {
-
-  if (count($filters['contributors']) > 0) {
+  if (count($filters['contributors']) > 0 || !is_null($filters['any'])) {
     $filters['issues']['creatorMatches'] = [];
 
     foreach ($contributors as $contributor) {
@@ -65,8 +65,10 @@ function getIssues($filters = [], $contributors) {
     }
   }
 
-  $where = getWhereIssues($filters['issues']);
-  $query =
+  $where   = getWhereIssues($filters);
+  $isDesc   = is_null($filters['is_desc']) ? 'ASC' : 'DESC';
+  $orderBy = is_null($filters['order_by']) ? '' : 'ORDER BY ' . $filters['order_by'] . ' ' . $isDesc;
+  $query   =
     "SELECT
       issues.id,
       issues.title_id,
@@ -88,7 +90,8 @@ function getIssues($filters = [], $contributors) {
     LEFT JOIN titles ON title_id = titles.id
     LEFT JOIN publishers ON publisher_id = publishers.id
     LEFT JOIN formats ON format_id = formats.id
-    {$where}";
+    {$where}
+    {$orderBy}";
 
   $issues = select($query, 'kittenb1_issues');
 
@@ -106,8 +109,12 @@ function getWhereContributors($filters = []) {
 
   //programmatically set filters by iterating over properties of contributors?
 
-  if (!is_null($filters['contributors']['creator'])) {
+  if (!is_null($filters['contributors']['creator']) && !is_null($filters['any'])) {
+    $contributorFilters[] = "(creators.name LIKE '%" . $filters['contributors']['creator'] . "%' OR creators.name LIKE '%" . $filters['any'] . "%')";
+  } elseif (!is_null($filters['contributors']['creator'])) {
     $contributorFilters[] = "creators.name LIKE '%" . $filters['contributors']['creator'] . "%'";
+  } elseif (!is_null($filters['any'])) {
+    $contributorFilters[] = "creators.name LIKE '%" . $filters['any'] . "%'";
   }
 
   if (!is_null($filters['contributors']['creator_id'])) {
@@ -130,62 +137,71 @@ function getWhereContributors($filters = []) {
 }
 
 function getWhereIssues($filters = []) {
+  $delimiter    = is_null($filters['delimiter']) ? ' AND ' : " {$filters['delimiter']} ";
   $whereIssues  = '';
   $issueFilters = [];
 
   //programmatically set filters by iterating over properties of issues?
 
-  if (!is_null($filters['format'])) {
-    $issueFilters[] = "formats.name = '" . $filters['format'] . "'";
+  if (!is_null($filters['issues']['format'])) {
+    $issueFilters[] = "formats.name = '" . $filters['issues']['format'] . "'";
   }
 
-  if (!is_null($filters['format_id'])) {
-    $issueFilters[] = "formats.id = '" . $filters['format_id'] . "'";
+  if (!is_null($filters['issues']['format_id'])) {
+    $issueFilters[] = "formats.id = '" . $filters['issues']['format_id'] . "'";
   }
 
-  if (!is_null($filters['color'])) {
-    $issueFilters[] = "is_color = '" . $filters['is_color'] . "'";
+  if (!is_null($filters['issues']['color'])) {
+    $issueFilters[] = "is_color = '" . $filters['issues']['is_color'] . "'";
   }
 
-  if (!is_null($filters['own'])) {
-    $issueFilters[] = "is_owned = '" . $filters['is_owned'] . "'";
+  if (!is_null($filters['issues']['own'])) {
+    $issueFilters[] = "is_owned = '" . $filters['issues']['is_owned'] . "'";
   }
 
-  if (!is_null($filters['read'])) {
-    $issueFilters[] = "is_read = '" . $filters['is_read'] . "'";
+  if (!is_null($filters['issues']['read'])) {
+    $issueFilters[] = "is_read = '" . $filters['issues']['is_read'] . "'";
   }
 
-  if (!is_null($filters['number'])) {
-    $issueFilters[] = "number = '" . $filters['number'] . "'";
+  if (!is_null($filters['issues']['number'])) {
+    $issueFilters[] = "number = '" . $filters['issues']['number'] . "'";
   }
 
-  if (!is_null($filters['publisher'])) {
-    $issueFilters[] = "publishers.name LIKE '%" . $filters['publisher'] . "%'";
+  if (!is_null($filters['issues']['publisher']) && !is_null($filters['any'])) {
+    $issueFilters[] = "(publishers.name LIKE '%" . $filters['issues']['publisher'] . "%' OR publishers.name LIKE '%" . $filters['any'] . "%')";
+  } elseif (!is_null($filters['issues']['publisher'])) {
+    $issueFilters[] = "publishers.name LIKE '%" . $filters['issues']['publisher'] . "%'";
+  } elseif (!is_null($filters['any'])) {
+    $issueFilters[] = "publishers.name LIKE '%" . $filters['any'] . "%'";
   }
 
-  if (!is_null($filters['publisher_id'])) {
-    $issueFilters[] = "publishers.id LIKE '%" . $filters['publisher_id'] . "%'";
+  if (!is_null($filters['issues']['publisher_id'])) {
+    $issueFilters[] = "publishers.id LIKE '%" . $filters['issues']['publisher_id'] . "%'";
   }
 
-  if (!is_null($filters['title'])) {
-    $issueFilters[] = "titles.name LIKE '%" . $filters['title'] . "%'";
+  if (!is_null($filters['issues']['title']) && !is_null($filters['any'])) {
+    $issueFilters[] = "(titles.name LIKE '%" . $filters['issues']['title'] . "%' OR titles.name LIKE '%" . $filters['any'] . "%')";
+  } elseif (!is_null($filters['issues']['title'])) {
+    $issueFilters[] = "titles.name LIKE '%" . $filters['issues']['title'] . "%'";
+  } elseif (!is_null($filters['any'])) {
+    $issueFilters[] = "titles.name LIKE '%" . $filters['any'] . "%'";
   }
 
-  if (!is_null($filters['title_id'])) {
-    $issueFilters[] = "titles.id LIKE '%" . $filters['title_id'] . "%'";
+  if (!is_null($filters['issues']['title_id'])) {
+    $issueFilters[] = "titles.id LIKE '%" . $filters['issues']['title_id'] . "%'";
   }
 
-  if (!is_null($filters['year'])) {
-    $issueFilters[] = "year LIKE '%" . $filters['year'] . "'";
+  if (!is_null($filters['issues']['year'])) {
+    $issueFilters[] = "year LIKE '%" . $filters['issues']['year'] . "'";
   }
 
-  if (count($filters['creatorMatches']) > 0) {
-    $filteredIssueIds = implode(',', $filters['creatorMatches']);
+  if (count($filters['issues']['creatorMatches']) > 0) {
+    $filteredIssueIds = implode(',', $filters['issues']['creatorMatches']);
     $issueFilters[] = "issues.id IN ({$filteredIssueIds})";
   }
 
   if (count($issueFilters) > 0) {
-    $whereIssues = 'WHERE ' . implode(' AND ', $issueFilters);
+    $whereIssues = 'WHERE ' . implode($delimiter, $issueFilters);
   }
 
   return $whereIssues;
@@ -196,6 +212,13 @@ function parseFilters() {
     'contributors' => [],
     'issues'       => []
   ];
+
+  if ($_REQUEST['any']) {
+    $filters['any']       = $_REQUEST['any'];
+    $filters['delimiter'] = ' OR ';
+  } elseif ($_REQUEST['delimiter']) {
+    $filters['delimiter'] = $_REQUEST['delimiter'];
+  }
 
   if ($_REQUEST['creator']) {
     $filters['contributors']['creator'] = $_REQUEST['creator'];
@@ -222,19 +245,27 @@ function parseFilters() {
   }
 
   if ($_REQUEST['is_color']) {
-    $filters['issues']['is_color'] = $_REQUEST['is_color'];
+    $filters['issues']['is_color'] = $_REQUEST['is_color'] === 'true';
+  }
+
+  if ($_REQUEST['is_desc']) {
+    $filters['is_desc'] = $_REQUEST['is_desc'] === 'true';
   }
 
   if ($_REQUEST['is_owned']) {
-    $filters['issues']['is_owned'] = $_REQUEST['is_owned'];
+    $filters['issues']['is_owned'] = $_REQUEST['is_owned'] === 'true';
   }
 
   if ($_REQUEST['is_read']) {
-    $filters['issues']['is_read'] = $_REQUEST['is_read'];
+    $filters['issues']['is_read'] = $_REQUEST['is_read'] === 'true';
   }
 
   if ($_REQUEST['number']) {
     $filters['issues']['number'] = $_REQUEST['number'];
+  }
+
+  if ($_REQUEST['order_by']) {
+    $filters['order_by'] = $_REQUEST['order_by'];
   }
 
   if ($_REQUEST['publisher']) {
