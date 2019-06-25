@@ -150,15 +150,15 @@ function getWhereIssues($filters = []) {
     $issueFilters[] = "formats.id = '" . $filters['issues']['format_id'] . "'";
   }
 
-  if (!is_null($filters['issues']['color'])) {
+  if (!is_null($filters['issues']['is_color'])) {
     $issueFilters[] = "is_color = '" . $filters['issues']['is_color'] . "'";
   }
 
-  if (!is_null($filters['issues']['own'])) {
+  if (!is_null($filters['issues']['is_owned'])) {
     $issueFilters[] = "is_owned = '" . $filters['issues']['is_owned'] . "'";
   }
 
-  if (!is_null($filters['issues']['read'])) {
+  if (!is_null($filters['issues']['is_read'])) {
     $issueFilters[] = "is_read = '" . $filters['issues']['is_read'] . "'";
   }
 
@@ -227,63 +227,32 @@ function parseFilters() {
     'creator_type_id'
   ];
 
+  $issueKeys = [
+    'format',
+    'format_id',
+    'is_color',
+    'is_desc',
+    'is_owned',
+    'is_read',
+    'number',
+    'order_by',
+    'publisher',
+    'publisher_id',
+    'title',
+    'title_id',
+    'year'
+  ];
+
   foreach ($_REQUEST as $key => $value) {
     if (in_array($key, $contributorKeys)) {
       $filters['contributors'][$key] = $value;
+    } elseif (in_array($key, $issueKeys)) {
+      if (strpos($key, 'is_') > -1) {
+        $filters['issues'][$key] = ($value === 'true');
+      } else {
+        $filters['issues'][$key] = $value;
+      }
     }
-  }
-
-  // Issue filters
-  if ($_REQUEST['format']) {
-    $filters['issues']['format'] = $_REQUEST['format'];
-  }
-
-  if ($_REQUEST['format_id']) {
-    $filters['issues']['format_id'] = $_REQUEST['format_id'];
-  }
-
-  if ($_REQUEST['is_color']) {
-    $filters['issues']['is_color'] = $_REQUEST['is_color'] === 'true';
-  }
-
-  if ($_REQUEST['is_desc']) {
-    $filters['is_desc'] = $_REQUEST['is_desc'] === 'true';
-  }
-
-  if ($_REQUEST['is_owned']) {
-    $filters['issues']['is_owned'] = $_REQUEST['is_owned'] === 'true';
-  }
-
-  if ($_REQUEST['is_read']) {
-    $filters['issues']['is_read'] = $_REQUEST['is_read'] === 'true';
-  }
-
-  if ($_REQUEST['number']) {
-    $filters['issues']['number'] = $_REQUEST['number'];
-  }
-
-  if ($_REQUEST['order_by']) {
-    $filters['order_by'] = $_REQUEST['order_by'];
-  }
-
-  if ($_REQUEST['publisher']) {
-    $filters['issues']['publisher'] = $_REQUEST['publisher'];
-  }
-
-  if ($_REQUEST['publisher_id']) {
-    $filters['issues']['publisher_id'] = $_REQUEST['publisher_id'];
-  }
-
-  if ($_REQUEST['title']) {
-    $filters['issues']['title'] = $_REQUEST['title'];
-  }
-
-  if ($_REQUEST['title_id']) {
-    $filters['issues']['title_id'] = $_REQUEST['title_id'];
-  }
-
-  if ($_REQUEST['year']) {
-    $filters['issues']['year'] = $_REQUEST['year'];
   }
 
   if (count($filters['contributors']) > 0) {
