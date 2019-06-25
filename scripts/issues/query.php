@@ -29,12 +29,18 @@ function getContributors($filters = []) {
 }
 
 function getData() {
-  $filters              = parseFilters();
-  $contributorsFiltered = getContributors($filters);
-  $contributorsAll      = getContributors();
-  $contributors         = (count($filters['contributors']) > 0 && $filters['delimiter'] !== 'OR') ? $contributorsFiltered : $contributorsAll;
+  $filters      = parseFilters();
+  $contributors = getContributors($filters);
 
-  $issues = getIssues($filters, $contributorsFiltered['results']);
+  if (count($filters['contributors']) > 0 || !is_null($filters['any'])) {
+    foreach ($contributors['results'] as $contributor) {
+      if (!in_array($contributor['issue_id'], $filters['issues']['issueIds'])) {
+        $filters['issues']['issueIds'][] = $contributor['issue_id'];
+      }
+    }
+  }
+
+  $issues = getIssues($filters);
 
   foreach ($issues['results'] as $index => $issue) {
     foreach ($contributors['results'] as $contributor) {
@@ -54,17 +60,7 @@ function getData() {
   return $response;
 }
 
-function getIssues($filters = [], $contributors) {
-  if (count($filters['contributors']) > 0 || !is_null($filters['any'])) {
-    $filters['issues']['creatorMatches'] = [];
-
-    foreach ($contributors as $contributor) {
-      if (!in_array($contributor['issue_id'], $filters['issues']['creatorMatches'])) {
-        $filters['issues']['creatorMatches'][] = $contributor['issue_id'];
-      }
-    }
-  }
-
+function getIssues($filters = []) {
   $where   = getWhereIssues($filters);
   $isDesc   = is_null($filters['is_desc']) ? 'ASC' : 'DESC';
   $orderBy = is_null($filters['order_by']) ? '' : 'ORDER BY ' . $filters['order_by'] . ' ' . $isDesc;
@@ -104,6 +100,7 @@ function getIssues($filters = [], $contributors) {
 }
 
 function getWhereContributors($filters = []) {
+  $delimiter          = is_null($filters['delimiter']) ? 'AND' : " {$filters['delimiter']} ";
   $whereContributors  = '';
   $contributorFilters = [];
 
@@ -130,14 +127,14 @@ function getWhereContributors($filters = []) {
   }
 
   if (count($contributorFilters) > 0) {
-    $whereContributors = 'WHERE ' . implode(' AND ', $contributorFilters);
+    $whereContributors = 'WHERE ' . implode(" {$delimiter} ", $contributorFilters);
   }
 
   return $whereContributors;
 }
 
 function getWhereIssues($filters = []) {
-  $delimiter    = is_null($filters['delimiter']) ? ' AND ' : " {$filters['delimiter']} ";
+  $delimiter    = is_null($filters['delimiter']) ? 'AND' : " {$filters['delimiter']} ";
   $whereIssues  = '';
   $issueFilters = [];
 
@@ -195,13 +192,13 @@ function getWhereIssues($filters = []) {
     $issueFilters[] = "year LIKE '%" . $filters['issues']['year'] . "'";
   }
 
-  if (count($filters['issues']['creatorMatches']) > 0) {
-    $filteredIssueIds = implode(',', $filters['issues']['creatorMatches']);
-    $issueFilters[] = "issues.id IN ({$filteredIssueIds})";
+  if (!is_null($filters['issues']['issueIds'])) {
+    $issueIds       = count($filters['issues']['issueIds']) > 0 ? implode(',', $filters['issues']['issueIds']) : 'NULL';
+    $issueFilters[] = "issues.id IN ({$issueIds})";
   }
 
   if (count($issueFilters) > 0) {
-    $whereIssues = 'WHERE ' . implode($delimiter, $issueFilters);
+    $whereIssues = 'WHERE ' . implode(" {$delimiter} ", $issueFilters);
   }
 
   return $whereIssues;
@@ -213,9 +210,10 @@ function parseFilters() {
     'issues'       => []
   ];
 
+  // Contributor filters
   if ($_REQUEST['any']) {
     $filters['any']       = $_REQUEST['any'];
-    $filters['delimiter'] = ' OR ';
+    $filters['delimiter'] = 'OR';
   } elseif ($_REQUEST['delimiter']) {
     $filters['delimiter'] = $_REQUEST['delimiter'];
   }
@@ -236,6 +234,11 @@ function parseFilters() {
     $filters['contributors']['creator_type_id'] = $_REQUEST['creator_type_id'];
   }
 
+  if (count($filters['contributors']) > 0) {
+    $filters['issues']['issueIds'] = [];
+  }
+
+  // Issue filters
   if ($_REQUEST['format']) {
     $filters['issues']['format'] = $_REQUEST['format'];
   }
