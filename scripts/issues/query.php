@@ -106,10 +106,14 @@ function getWhereContributors($filters = []) {
   $whereContributors  = '';
   $contributorFilters = [];
 
-  //programmatically set filters by iterating over properties of contributors?
-
   if (!is_null($filters['contributors']['creator']) && !is_null($filters['any'])) {
     $contributorFilters[] = "(creators.name LIKE '%" . $filters['contributors']['creator'] . "%' OR creators.name LIKE '%" . $filters['any'] . "%')";
+  } elseif (!is_null($filters['contributors']['cover'])) {
+    $contributorFilters[] = "creator_types.name = 'cover' AND creators.name LIKE '%" . $filters['contributors']['cover'] . "%'";
+  } elseif (!is_null($filters['contributors']['writer'])) {
+    $contributorFilters[] = "creator_types.name = 'writer' AND creators.name LIKE '%" . $filters['contributors']['writer'] . "%'";
+  } elseif (!is_null($filters['contributors']['interior'])) {
+    $contributorFilters[] = "creator_types.name = 'interior' AND creators.name LIKE '%" . $filters['contributors']['interior'] . "%'";
   } elseif (!is_null($filters['contributors']['creator'])) {
     $contributorFilters[] = "creators.name LIKE '%" . $filters['contributors']['creator'] . "%'";
   } elseif (!is_null($filters['any'])) {
@@ -139,8 +143,6 @@ function getWhereIssues($filters = []) {
   $delimiter    = is_null($filters['delimiter']) ? 'AND' : " {$filters['delimiter']} ";
   $whereIssues  = '';
   $issueFilters = [];
-
-  //programmatically set filters by iterating over properties of issues?
 
   if (!is_null($filters['issues']['format'])) {
     $issueFilters[] = "formats.name = '" . $filters['issues']['format'] . "'";
@@ -212,7 +214,6 @@ function parseFilters() {
     'issues'       => []
   ];
 
-  // Generic filters
   if ($_REQUEST['any']) {
     $filters['any']       = $_REQUEST['any'];
     $filters['delimiter'] = 'OR';
@@ -221,10 +222,13 @@ function parseFilters() {
   }
 
   $contributorKeys = [
+    'cover',
     'creator',
     'creator_id',
     'creator_type',
-    'creator_type_id'
+    'creator_type_id',
+    'interior',
+    'writer'
   ];
 
   $issueKeys = [
