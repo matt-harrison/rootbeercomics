@@ -33,7 +33,7 @@ function getData() {
   $contributorsFiltered = getContributors($filters);
 
   // Limit issues based on filtered contributors
-  if (count($filters['contributors']) > 0 || !is_null($filters['any'])) {
+  if (count($filters['contributors']) > 0) {
     foreach ($contributorsFiltered['results'] as $contributor) {
       if (!in_array($contributor['issue_id'], $filters['issues']['issueIds'])) {
         $filters['issues']['issueIds'][] = $contributor['issue_id'];
@@ -106,30 +106,67 @@ function getWhereContributors($filters = []) {
   $whereContributors  = '';
   $contributorFilters = [];
 
-  if (!is_null($filters['contributors']['creator']) && !is_null($filters['any'])) {
-    $contributorFilters[] = "(creators.name LIKE '%" . $filters['contributors']['creator'] . "%' OR creators.name LIKE '%" . $filters['any'] . "%')";
-  } elseif (!is_null($filters['contributors']['cover'])) {
-    $contributorFilters[] = "creator_types.name = 'cover' AND creators.name LIKE '%" . $filters['contributors']['cover'] . "%'";
-  } elseif (!is_null($filters['contributors']['writer'])) {
-    $contributorFilters[] = "creator_types.name = 'writer' AND creators.name LIKE '%" . $filters['contributors']['writer'] . "%'";
-  } elseif (!is_null($filters['contributors']['interior'])) {
-    $contributorFilters[] = "creator_types.name = 'interior' AND creators.name LIKE '%" . $filters['contributors']['interior'] . "%'";
-  } elseif (!is_null($filters['contributors']['creator'])) {
-    $contributorFilters[] = "creators.name LIKE '%" . $filters['contributors']['creator'] . "%'";
-  } elseif (!is_null($filters['any'])) {
-    $contributorFilters[] = "creators.name LIKE '%" . $filters['any'] . "%'";
+  if (!is_null($filters['contributors']['creator'])) {
+    if (strpos($filters['contributors']['creator'], ',') > -1) {
+      $creators             = explode(',', $filters['contributors']['creator']);
+      $contributorFilters[] = "(creators.name LIKE '%" . implode("%' OR creators.name LIKE '%", $creators) . "%')";
+    } else {
+      $contributorFilters[] = "creators.name LIKE '%" . $filters['contributors']['creator'] . "%'";
+    }
+  }
+
+  if (!is_null($filters['contributors']['cover'])) {
+    if (strpos($filters['contributors']['cover'], ',') > -1) {
+      $creators             = explode(',', $filters['contributors']['cover']);
+      $contributorFilters[] = "creator_types.name = 'cover' AND (creators.name LIKE '%" . implode("' OR creators.name LIKE '%", $creators) . "%')";
+    } else {
+      $contributorFilters[] = "creator_types.name = 'cover' AND creators.name LIKE '%" . $filters['contributors']['cover'] . "%'";
+    }
+  }
+
+  if (!is_null($filters['contributors']['writer'])) {
+    if (strpos($filters['contributors']['writer'], ',') > -1) {
+      $creatorTypeIds       = explode(',', $filters['contributors']['writer']);
+      $contributorFilters[] = "creator_types.name = 'writer' AND (creators.name LIKE '%" . implode("' OR creators.name LIKE '%", $creatorTypeIds) . "%')";
+    } else {
+      $contributorFilters[] = "creator_types.name = 'writer' AND creators.name LIKE '%" . $filters['contributors']['writer'] . "%'";
+    }
+  }
+
+  if (!is_null($filters['contributors']['interior'])) {
+    if (strpos($filters['contributors']['interior'], ',') > -1) {
+      $creators             = explode(',', $filters['contributors']['interior']);
+      $contributorFilters[] = "creator_types.name = 'interior' AND (creators.name LIKE '%" . implode("' OR creators.name LIKE '%", $creators) . "%')";
+    } else {
+      $contributorFilters[] = "creator_types.name = 'interior' AND creators.name LIKE '%" . $filters['contributors']['interior'] . "%'";
+    }
   }
 
   if (!is_null($filters['contributors']['creator_id'])) {
-    $contributorFilters[] = "creators.id = '" . $filters['contributors']['creator_id'] . "'";
+    if (strpos($filters['contributors']['creator_id'], ',') > -1) {
+      $creatorIds           = explode(',', $filters['contributors']['creator_id']);
+      $contributorFilters[] = "(creators.id = '" . implode("' OR creators.id = '", $creatorIds) . "')";
+    } else {
+      $contributorFilters[] = "creators.id = '" . $filters['contributors']['creator_id'] . "'";
+    }
   }
 
   if (!is_null($filters['contributors']['creator_type'])) {
-    $contributorFilters[] = "creator_types.name = '" . $filters['contributors']['creator_type'] . "'";
+    if (strpos($filters['contributors']['creator_type'], ',') > -1) {
+      $creatorTypes       = explode(',', $filters['contributors']['creator_type']);
+      $contributorFilters[] = "(creator_types.name = '" . implode("' OR creator_types.name = '", $creatorTypes) . "')";
+    } else {
+      $contributorFilters[] = "creator_types.name = '" . $filters['contributors']['creator_type'] . "'";
+    }
   }
 
   if (!is_null($filters['contributors']['creator_type_id'])) {
-    $contributorFilters[] = "creator_types.id = '" . $filters['contributors']['creator_type_id'] . "'";
+    if (strpos($filters['contributors']['creator_type_id'], ',') > -1) {
+      $creatorTypeIds       = explode(',', $filters['contributors']['creator_type_id']);
+      $contributorFilters[] = "(creator_types.id = '" . implode("' OR creator_types.id = '", $creatorTypeIds) . "')";
+    } else {
+      $contributorFilters[] = "creator_types.id = '" . $filters['contributors']['creator_type_id'] . "'";
+    }
   }
 
   if (count($contributorFilters) > 0) {
@@ -140,16 +177,26 @@ function getWhereContributors($filters = []) {
 }
 
 function getWhereIssues($filters = []) {
-  $delimiter    = is_null($filters['delimiter']) ? 'AND' : " {$filters['delimiter']} ";
+  $delimiter    = is_null($filters['delimiter']) ? 'AND' : $filters['delimiter'];
   $whereIssues  = '';
   $issueFilters = [];
 
   if (!is_null($filters['issues']['format'])) {
-    $issueFilters[] = "formats.name = '" . $filters['issues']['format'] . "'";
+    if (strpos($filters['issues']['format'], ',') > -1) {
+      $formats        = explode(',', $filters['issues']['format']);
+      $issueFilters[] = "(formats.name = '" . implode("' OR formats.name = '", $formats) . "')";
+    } else {
+      $issueFilters[] = "formats.name = '" . $filters['issues']['format'] . "'";
+    }
   }
 
   if (!is_null($filters['issues']['format_id'])) {
-    $issueFilters[] = "formats.id = '" . $filters['issues']['format_id'] . "'";
+    if (strpos($filters['issues']['format_id'], ',') > -1) {
+      $formatIds      = explode(',', $filters['issues']['format_id']);
+      $issueFilters[] = "(formats.id = '" . implode("' OR formats.id = '", $formatIds) . "')";
+    } else {
+      $issueFilters[] = "formats.id = '" . $filters['issues']['format_id'] . "'";
+    }
   }
 
   if (!is_null($filters['issues']['is_color'])) {
@@ -165,43 +212,66 @@ function getWhereIssues($filters = []) {
   }
 
   if (!is_null($filters['issues']['number'])) {
-    $issueFilters[] = "number = '" . $filters['issues']['number'] . "'";
+    if (strpos($filters['issues']['number'], ',') > -1) {
+      $numbers        = explode(',', $filters['issues']['number']);
+      $issueFilters[] = "(number = " . implode(' OR number = ', $numbers) . ")";
+    } else {
+      $issueFilters[] = "number = '" . $filters['issues']['number'] . "'";
+    }
   }
 
-  if (!is_null($filters['issues']['notes']) && !is_null($filters['any'])) {
-    $issueFilters[] = "(notes LIKE '%" . $filters['issues']['notes'] . "%' OR notes LIKE '%" . $filters['any'] . "%')";
-  } elseif (!is_null($filters['issues']['notes'])) {
-    $issueFilters[] = "notes LIKE '%" . $filters['issues']['notes'] . "%'";
-  } elseif (!is_null($filters['any'])) {
-    $issueFilters[] = "notes LIKE '%" . $filters['any'] . "%'";
+  if (!is_null($filters['issues']['notes'])) {
+    if (strpos($filters['issues']['notes'], ',') > -1) {
+      $notes          = explode(',', $filters['issues']['notes']);
+      $issueFilters[] = "(notes LIKE '%" . implode("%' OR notes LIKE '", $notes) . "%')";
+    } else {
+      $issueFilters[] = "notes LIKE '%" . $filters['issues']['notes'] . "%'";
+    }
   }
 
-  if (!is_null($filters['issues']['publisher']) && !is_null($filters['any'])) {
-    $issueFilters[] = "(publishers.name LIKE '%" . $filters['issues']['publisher'] . "%' OR publishers.name LIKE '%" . $filters['any'] . "%')";
-  } elseif (!is_null($filters['issues']['publisher'])) {
-    $issueFilters[] = "publishers.name LIKE '%" . $filters['issues']['publisher'] . "%'";
-  } elseif (!is_null($filters['any'])) {
-    $issueFilters[] = "publishers.name LIKE '%" . $filters['any'] . "%'";
+  if (!is_null($filters['issues']['publisher'])) {
+    if (strpos($filters['issues']['publisher'], ',') > -1) {
+      $publisher      = explode(',', $filters['issues']['publisher']);
+      $issueFilters[] = "(publishers.name LIKE '%" . implode("%' OR publishers.name LIKE '%", $publisher) . "%')";
+    } else {
+      $issueFilters[] = "publishers.name LIKE '%" . $filters['issues']['publisher'] . "%'";
+    }
   }
 
   if (!is_null($filters['issues']['publisher_id'])) {
-    $issueFilters[] = "publishers.id LIKE '%" . $filters['issues']['publisher_id'] . "%'";
+    if (strpos($filters['issues']['publisher_id'], ',') > -1) {
+      $publisherIds   = explode(',', $filters['issues']['publisher_id']);
+      $issueFilters[] = "(publishers.id = '" . implode("' OR publishers.id = '", $publisherIds) . "')";
+    } else {
+      $issueFilters[] = "publishers.id = '" . $filters['issues']['publisher_id'] . "'";
+    }
   }
 
-  if (!is_null($filters['issues']['title']) && !is_null($filters['any'])) {
-    $issueFilters[] = "(titles.name LIKE '%" . $filters['issues']['title'] . "%' OR titles.name LIKE '%" . $filters['any'] . "%')";
-  } elseif (!is_null($filters['issues']['title'])) {
-    $issueFilters[] = "titles.name LIKE '%" . $filters['issues']['title'] . "%'";
-  } elseif (!is_null($filters['any'])) {
-    $issueFilters[] = "titles.name LIKE '%" . $filters['any'] . "%'";
+  if (!is_null($filters['issues']['title'])) {
+    if (strpos($filters['issues']['title'], ',') > -1) {
+      $title          = explode(',', $filters['issues']['title']);
+      $issueFilters[] = "(titles.name LIKE '%" . implode("%' OR titles.name LIKE '%", $title) . "%')";
+    } else {
+      $issueFilters[] = "titles.name LIKE '%" . $filters['issues']['title'] . "%'";
+    }
   }
 
   if (!is_null($filters['issues']['title_id'])) {
-    $issueFilters[] = "titles.id LIKE '%" . $filters['issues']['title_id'] . "%'";
+    if (strpos($filters['issues']['title_id'], ',') > -1) {
+      $titleIds = explode(',', $filters['issues']['title_id']);
+      $issueFilters[] = "(titles.id = '" . implode("' OR titles.id = '", $titleIds) . "')";
+    } else {
+      $issueFilters[] = "titles.id = '" . $filters['issues']['title_id'] . "'";
+    }
   }
 
   if (!is_null($filters['issues']['year'])) {
-    $issueFilters[] = "year LIKE '%" . $filters['issues']['year'] . "'";
+    if (strpos($filters['issues']['year'], ',') > -1) {
+      $year           = explode(',', $filters['issues']['year']);
+      $issueFilters[] = "(year LIKE '%" . implode("' OR year LIKE '%", $year) . "')";
+    } else {
+      $issueFilters[] = "year LIKE '%" . $filters['issues']['year'] . "'";
+    }
   }
 
   if (!is_null($filters['issues']['issueIds'])) {
@@ -221,13 +291,6 @@ function parseFilters() {
     'contributors' => [],
     'issues'       => []
   ];
-
-  if ($_REQUEST['any']) {
-    $filters['any']       = $_REQUEST['any'];
-    $filters['delimiter'] = 'OR';
-  } elseif ($_REQUEST['delimiter']) {
-    $filters['delimiter'] = $_REQUEST['delimiter'];
-  }
 
   $contributorKeys = [
     'cover',
@@ -268,7 +331,17 @@ function parseFilters() {
     }
   }
 
-  if (count($filters['contributors']) > 0 || !is_null($filters['any'])) {
+  if ($_REQUEST['any']) {
+    $filters['contributors']['creator'] .= count($filters['contributors']['creator']) > 0 ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+    $filters['issues']['notes']         .= count($filters['issues']['notes']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+    $filters['issues']['publisher']     .= count($filters['issues']['publisher']) > 0     ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+    $filters['issues']['title']         .= count($filters['issues']['title']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+    $filters['delimiter'] = 'OR';
+  } elseif ($_REQUEST['delimiter']) {
+    $filters['delimiter'] = $_REQUEST['delimiter'];
+  }
+
+  if (count($filters['contributors']) > 0) {
     $filters['issues']['issueIds'] = [];
   }
 
