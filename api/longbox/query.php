@@ -102,7 +102,7 @@ function getIssues($filters = []) {
 }
 
 function getWhereContributors($filters = []) {
-  $delimiter       = is_null($filters['delimiter']) ? 'AND' : " {$filters['delimiter']} ";
+  $delimiter       = is_null($filters['delimiter']) ? 'AND' : $filters['delimiter'];
   $whereClause     = '';
   $whereConditions = [];
 
@@ -150,7 +150,7 @@ function getWhereContributors($filters = []) {
       $creators          = explode(',', $filters['contributors']['cover']);
       $whereConditions[] = "creator_types.name = 'cover' AND (creators.name LIKE '%" . implode("' OR creators.name LIKE '%", $creators) . "%')";
     } else {
-      $whereConditions[] = "creator_types.name = 'cover' AND creators.name LIKE '%" . $filters['contributors']['cover'] . "%'";
+      $whereConditions[] = "(creator_types.name = 'cover' AND creators.name LIKE '%" . $filters['contributors']['cover'] . "%')";
     }
   }
 
@@ -159,7 +159,7 @@ function getWhereContributors($filters = []) {
       $creatorTypeIds    = explode(',', $filters['contributors']['writer']);
       $whereConditions[] = "creator_types.name = 'writer' AND (creators.name LIKE '%" . implode("' OR creators.name LIKE '%", $creatorTypeIds) . "%')";
     } else {
-      $whereConditions[] = "creator_types.name = 'writer' AND creators.name LIKE '%" . $filters['contributors']['writer'] . "%'";
+      $whereConditions[] = "(creator_types.name = 'writer' AND creators.name LIKE '%" . $filters['contributors']['writer'] . "%')";
     }
   }
 
@@ -168,7 +168,7 @@ function getWhereContributors($filters = []) {
       $creators          = explode(',', $filters['contributors']['interior']);
       $whereConditions[] = "creator_types.name = 'interior' AND (creators.name LIKE '%" . implode("' OR creators.name LIKE '%", $creators) . "%')";
     } else {
-      $whereConditions[] = "creator_types.name = 'interior' AND creators.name LIKE '%" . $filters['contributors']['interior'] . "%'";
+      $whereConditions[] = "(creator_types.name = 'interior' AND creators.name LIKE '%" . $filters['contributors']['interior'] . "%')";
     }
   }
 
