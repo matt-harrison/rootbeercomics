@@ -168,6 +168,14 @@ function getWhereIssues($filters = []) {
     $issueFilters[] = "number = '" . $filters['issues']['number'] . "'";
   }
 
+  if (!is_null($filters['issues']['notes']) && !is_null($filters['any'])) {
+    $issueFilters[] = "(notes LIKE '%" . $filters['issues']['notes'] . "%' OR notes LIKE '%" . $filters['any'] . "%')";
+  } elseif (!is_null($filters['issues']['notes'])) {
+    $issueFilters[] = "notes LIKE '%" . $filters['issues']['notes'] . "%'";
+  } elseif (!is_null($filters['any'])) {
+    $issueFilters[] = "notes LIKE '%" . $filters['any'] . "%'";
+  }
+
   if (!is_null($filters['issues']['publisher']) && !is_null($filters['any'])) {
     $issueFilters[] = "(publishers.name LIKE '%" . $filters['issues']['publisher'] . "%' OR publishers.name LIKE '%" . $filters['any'] . "%')";
   } elseif (!is_null($filters['issues']['publisher'])) {
@@ -238,6 +246,7 @@ function parseFilters() {
     'is_desc',
     'is_owned',
     'is_read',
+    'notes',
     'number',
     'order_by',
     'publisher',
@@ -259,7 +268,7 @@ function parseFilters() {
     }
   }
 
-  if (count($filters['contributors']) > 0) {
+  if (count($filters['contributors']) > 0 || !is_null($filters['any'])) {
     $filters['issues']['issueIds'] = [];
   }
 
