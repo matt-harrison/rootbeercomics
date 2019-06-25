@@ -153,7 +153,7 @@ function getWhereContributors($filters = []) {
 
   if (!is_null($filters['contributors']['creator_type'])) {
     if (strpos($filters['contributors']['creator_type'], ',') > -1) {
-      $creatorTypes       = explode(',', $filters['contributors']['creator_type']);
+      $creatorTypes         = explode(',', $filters['contributors']['creator_type']);
       $contributorFilters[] = "(creator_types.name = '" . implode("' OR creator_types.name = '", $creatorTypes) . "')";
     } else {
       $contributorFilters[] = "creator_types.name = '" . $filters['contributors']['creator_type'] . "'";
@@ -196,6 +196,15 @@ function getWhereIssues($filters = []) {
       $issueFilters[] = "(formats.id = '" . implode("' OR formats.id = '", $formatIds) . "')";
     } else {
       $issueFilters[] = "formats.id = '" . $filters['issues']['format_id'] . "'";
+    }
+  }
+
+  if (!is_null($filters['issues']['issue_id'])) {
+    if (strpos($filters['issues']['issue_id'], ',') > -1) {
+      $issueIds       = explode(',', $filters['issues']['issue_id']);
+      $issueFilters[] = "(issues.id = '" . implode("' OR issues.id = '", $issueIds) . "')";
+    } else {
+      $issueFilters[] = "issues.id = '" . $filters['issues']['issue_id'] . "'";
     }
   }
 
@@ -309,6 +318,7 @@ function parseFilters() {
     'is_desc',
     'is_owned',
     'is_read',
+    'issue_id',
     'notes',
     'number',
     'order_by',
@@ -324,7 +334,7 @@ function parseFilters() {
       $filters['contributors'][$key] = $value;
     } elseif (in_array($key, $issueKeys)) {
       if (strpos($key, 'is_') > -1) {
-        $filters['issues'][$key] = ($value === 'true');
+        $filters['issues'][$key] = ($value === 'true' || $value == '1');
       } else {
         $filters['issues'][$key] = $value;
       }
