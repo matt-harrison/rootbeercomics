@@ -29,19 +29,22 @@ function getContributors($filters = []) {
 }
 
 function getData() {
-  $filters      = parseFilters();
-  $contributors = getContributors($filters);
+  $filters              = parseFilters();
+  $contributorsFiltered = getContributors($filters);
 
+  // Limit issues based on filtered contributors
   if (count($filters['contributors']) > 0 || !is_null($filters['any'])) {
-    foreach ($contributors['results'] as $contributor) {
+    foreach ($contributorsFiltered['results'] as $contributor) {
       if (!in_array($contributor['issue_id'], $filters['issues']['issueIds'])) {
         $filters['issues']['issueIds'][] = $contributor['issue_id'];
       }
     }
   }
 
-  $issues = getIssues($filters);
+  $issues       = getIssues($filters);
+  $contributors = getContributors();
 
+  // Add all contributors to any matching issues
   foreach ($issues['results'] as $index => $issue) {
     foreach ($contributors['results'] as $contributor) {
       if ($contributor['issue_id'] === $issue['id']) {
@@ -52,8 +55,7 @@ function getData() {
 
   $response = [
     'success'      => !($issues['results'] === 'FALSE') && !($contributors['results'] === 'FALSE'),
-    'allContributors' => $contributorsAll,
-    'contributors' => $contributors,
+    'contributors' => $contributorsFiltered,
     'issues'       => $issues,
   ];
 
@@ -115,15 +117,15 @@ function getWhereContributors($filters = []) {
   }
 
   if (!is_null($filters['contributors']['creator_id'])) {
-    $contributorFilters[] = "creators.id LIKE '%" . $filters['contributors']['creator_id'] . "%'";
+    $contributorFilters[] = "creators.id = '" . $filters['contributors']['creator_id'] . "'";
   }
 
   if (!is_null($filters['contributors']['creator_type'])) {
-    $contributorFilters[] = "creator_types.name LIKE '%" . $filters['contributors']['creator_type'] . "%'";
+    $contributorFilters[] = "creator_types.name = '" . $filters['contributors']['creator_type'] . "'";
   }
 
   if (!is_null($filters['contributors']['creator_type_id'])) {
-    $contributorFilters[] = "creator_types.id LIKE '%" . $filters['contributors']['creator_type_id'] . "%'";
+    $contributorFilters[] = "creator_types.id = '" . $filters['contributors']['creator_type_id'] . "'";
   }
 
   if (count($contributorFilters) > 0) {
@@ -210,7 +212,7 @@ function parseFilters() {
     'issues'       => []
   ];
 
-  // Contributor filters
+  // Generic filters
   if ($_REQUEST['any']) {
     $filters['any']       = $_REQUEST['any'];
     $filters['delimiter'] = 'OR';
@@ -218,24 +220,17 @@ function parseFilters() {
     $filters['delimiter'] = $_REQUEST['delimiter'];
   }
 
-  if ($_REQUEST['creator']) {
-    $filters['contributors']['creator'] = $_REQUEST['creator'];
-  }
+  $contributorKeys = [
+    'creator',
+    'creator_id',
+    'creator_type',
+    'creator_type_id'
+  ];
 
-  if ($_REQUEST['creator_id']) {
-    $filters['contributors']['creator_id'] = $_REQUEST['creator_id'];
-  }
-
-  if ($_REQUEST['creator_type']) {
-    $filters['contributors']['creator_type'] = $_REQUEST['creator_type'];
-  }
-
-  if ($_REQUEST['creator_type_id']) {
-    $filters['contributors']['creator_type_id'] = $_REQUEST['creator_type_id'];
-  }
-
-  if (count($filters['contributors']) > 0) {
-    $filters['issues']['issueIds'] = [];
+  foreach ($_REQUEST as $key => $value) {
+    if (in_array($key, $contributorKeys)) {
+      $filters['contributors'][$key] = $value;
+    }
   }
 
   // Issue filters
@@ -289,6 +284,10 @@ function parseFilters() {
 
   if ($_REQUEST['year']) {
     $filters['issues']['year'] = $_REQUEST['year'];
+  }
+
+  if (count($filters['contributors']) > 0) {
+    $filters['issues']['issueIds'] = [];
   }
 
   return $filters;
