@@ -19,36 +19,36 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
     if ($format === 'NULL') {
       $formatId = 'NULL';
     } else {
-      $response = select("SELECT * from formats WHERE name = '{$format}' LIMIT 1", 'kittenb1_issues');
+      $response = select("SELECT * from formats WHERE name = '{$format}' LIMIT 1", 'kittenb1_longbox');
       $formatId = $response[0]['id'];
 
       if (is_null($formatId)) {
-        execute("INSERT INTO formats (name) VALUES ('{$format}')", 'kittenb1_issues');
-        $formatId = select("SELECT id FROM formats ORDER BY id DESC LIMIT 1", 'kittenb1_issues')[0]['id'];
+        execute("INSERT INTO formats (name) VALUES ('{$format}')", 'kittenb1_longbox');
+        $formatId = select("SELECT id FROM formats ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
       }
     }
 
     if ($title === 'NULL') {
       $titleId = 'NULL';
     } else {
-      $response = select("SELECT * from titles WHERE name = '{$title}' LIMIT 1", 'kittenb1_issues');
+      $response = select("SELECT * from titles WHERE name = '{$title}' LIMIT 1", 'kittenb1_longbox');
       $titleId = $response[0]['id'];
 
       if (is_null($titleId)) {
-        execute("INSERT INTO titles (name) VALUES ('{$title}')", 'kittenb1_issues');
-        $titleId = select("SELECT id FROM titles ORDER BY id DESC LIMIT 1", 'kittenb1_issues')[0]['id'];
+        execute("INSERT INTO titles (name) VALUES ('{$title}')", 'kittenb1_longbox');
+        $titleId = select("SELECT id FROM titles ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
       }
     }
 
     if ($publisher === 'NULL') {
       $publisherId = 'NULL';
     } else {
-      $response = select("SELECT * from publishers WHERE name = '{$publisher}' LIMIT 1", 'kittenb1_issues');
+      $response = select("SELECT * from publishers WHERE name = '{$publisher}' LIMIT 1", 'kittenb1_longbox');
       $publisherId = $response[0]['id'];
 
       if (is_null($publisherId)) {
-        execute("INSERT INTO publishers (name) VALUES ('{$publisher}')", 'kittenb1_issues');
-        $publisherId = select("SELECT id FROM publishers ORDER BY id DESC LIMIT 1", 'kittenb1_issues')[0]['id'];
+        execute("INSERT INTO publishers (name) VALUES ('{$publisher}')", 'kittenb1_longbox');
+        $publisherId = select("SELECT id FROM publishers ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
       }
     }
 
@@ -61,7 +61,7 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
       AND notes = '{$notes}'
       AND {$numberFilter}
       LIMIT 1";
-    $response = select($query, 'kittenb1_issues');
+    $response = select($query, 'kittenb1_longbox');
     $issue = $response[0];
 
     if (is_null($issue)) {
@@ -88,8 +88,8 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
         {$isColor}
       )";
 
-      $response = execute($query, 'kittenb1_issues');
-      $issueId = select("SELECT id FROM issues ORDER BY id DESC LIMIT 1", 'kittenb1_issues')[0]['id'];
+      $response = execute($query, 'kittenb1_longbox');
+      $issueId = select("SELECT id FROM issues ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
 
       echo $issueId . '. ' . $title . '<br/>';
     }
@@ -99,12 +99,12 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
       $writerIds = [];
 
       foreach ($writers as $writer) {
-        $response = select("SELECT * from creators WHERE name = '{$writer}' LIMIT 1", 'kittenb1_issues');
+        $response = select("SELECT * from creators WHERE name = '{$writer}' LIMIT 1", 'kittenb1_longbox');
         $writerId = $response[0]['id'];
 
         if (is_null($writerId)) {
-          execute("INSERT INTO creators (name) VALUES ('{$writer}')", 'kittenb1_issues');
-          $writerId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_issues')[0]['id'];
+          execute("INSERT INTO creators (name) VALUES ('{$writer}')", 'kittenb1_longbox');
+          $writerId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
         }
 
         $writerIds[] = $writerId;
@@ -117,7 +117,7 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
         AND creator_id = '{$writerId}'
         AND creator_type_id = 3
         LIMIT 1";
-        $response = select($query, 'kittenb1_issues');
+        $response = select($query, 'kittenb1_longbox');
         $hasWriter = $response[0];
 
         if (!$hasWriter) {
@@ -132,7 +132,7 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
             3
           )";
 
-          execute($query, 'kittenb1_issues');
+          execute($query, 'kittenb1_longbox');
         }
       }
     }
@@ -142,12 +142,12 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
       $coverArtistIds = [];
 
       foreach ($coverArtists as $coverArtist) {
-        $response = select("SELECT * from creators WHERE name = '{$coverArtist}' LIMIT 1", 'kittenb1_issues');
+        $response = select("SELECT * from creators WHERE name = '{$coverArtist}' LIMIT 1", 'kittenb1_longbox');
         $coverArtistId = $response[0]['id'];
 
         if (is_null($coverArtistId)) {
-          execute("INSERT INTO creators (name) VALUES ('{$coverArtist}')", 'kittenb1_issues');
-          $coverArtistId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_issues')[0]['id'];
+          execute("INSERT INTO creators (name) VALUES ('{$coverArtist}')", 'kittenb1_longbox');
+          $coverArtistId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
         }
 
         $coverArtistIds[] = $coverArtistId;
@@ -160,7 +160,7 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
         AND creator_id = '{$coverArtistId}'
         AND creator_type_id = 1
         LIMIT 1";
-        $response = select($query, 'kittenb1_issues');
+        $response = select($query, 'kittenb1_longbox');
         $hasCoverArtist = $response[0];
 
         if (!$hasCoverArtist) {
@@ -175,7 +175,7 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
             1
           )";
 
-          execute($query, 'kittenb1_issues');
+          execute($query, 'kittenb1_longbox');
         }
       }
     }
@@ -185,12 +185,12 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
       $interiorArtistIds = [];
 
       foreach ($interiorArtists as $interiorArtist) {
-        $response = select("SELECT * from creators WHERE name = '{$interiorArtist}' LIMIT 1", 'kittenb1_issues');
+        $response = select("SELECT * from creators WHERE name = '{$interiorArtist}' LIMIT 1", 'kittenb1_longbox');
         $interiorArtistId = $response[0]['id'];
 
         if (is_null($interiorArtistId)) {
-          execute("INSERT INTO creators (name) VALUES ('{$interiorArtist}')", 'kittenb1_issues');
-          $interiorArtistId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_issues')[0]['id'];
+          execute("INSERT INTO creators (name) VALUES ('{$interiorArtist}')", 'kittenb1_longbox');
+          $interiorArtistId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
         }
 
         $interiorArtistIds[] = $interiorArtistId;
@@ -203,7 +203,7 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
         AND creator_id = '{$interiorArtistId}'
         AND creator_type_id = 2
         LIMIT 1";
-        $response = select($query, 'kittenb1_issues');
+        $response = select($query, 'kittenb1_longbox');
         $hasInteriorArtist = $response[0];
 
         if (!$hasInteriorArtist) {
@@ -218,7 +218,7 @@ if (($handle = fopen('master.csv', 'r')) !== FALSE) {
             2
           )";
 
-          execute($query, 'kittenb1_issues');
+          execute($query, 'kittenb1_longbox');
         }
       }
     }

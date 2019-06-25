@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/scripts/issues/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/query.php');
 
 $data = getData();
 $contributors = $data['contributors']['results'];

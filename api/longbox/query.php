@@ -18,7 +18,7 @@ function getContributors($filters = []) {
     LEFT JOIN creator_types ON contributors.creator_type_id = creator_types.id
     {$where}";
 
-  $contributors = select($query, 'kittenb1_issues');
+  $contributors = select($query, 'kittenb1_longbox');
 
   return [
     'count'   => count($contributors),
@@ -64,7 +64,7 @@ function getData() {
 
 function getIssues($filters = []) {
   $where   = getWhereIssues($filters);
-  $isDesc   = is_null($filters['is_desc']) ? 'ASC' : 'DESC';
+  $isDesc  = is_null($filters['is_desc']) ? 'ASC' : 'DESC';
   $orderBy = is_null($filters['order_by']) ? '' : 'ORDER BY ' . $filters['order_by'] . ' ' . $isDesc;
   $query   =
     "SELECT
@@ -91,7 +91,7 @@ function getIssues($filters = []) {
     {$where}
     {$orderBy}";
 
-  $issues = select($query, 'kittenb1_issues');
+  $issues = select($query, 'kittenb1_longbox');
 
   return [
     'count'   => count($issues),
