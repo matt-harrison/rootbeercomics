@@ -80,6 +80,7 @@ function getIssues($filters = []) {
       issues.is_color,
       titles.id AS title_id,
       titles.name AS title,
+      titles.sort_name AS sort_title,
       publishers.id AS publisher_id,
       publishers.name AS publisher,
       formats.id AS format_id,
