@@ -28,6 +28,30 @@ function getContributors($filters = []) {
   ];
 }
 
+function getCreators() {
+  $query   = "SELECT * FROM creators";
+  $results = select($query, 'kittenb1_longbox');
+
+  return [
+    'count'   => count($results),
+    'filters' => $filters['results'],
+    'query'   => $query,
+    'results' => $results
+  ];
+}
+
+function getCreatorTypes() {
+  $query   = "SELECT * FROM creator_types";
+  $results = select($query, 'kittenb1_longbox');
+
+  return [
+    'count'   => count($results),
+    'filters' => $filters['results'],
+    'query'   => $query,
+    'results' => $results
+  ];
+}
+
 function getData() {
   $filters              = parseFilters();
   $contributorsFiltered = getContributors($filters);
@@ -60,6 +84,18 @@ function getData() {
   ];
 
   return $response;
+}
+
+function getFormats() {
+  $query   = "SELECT * FROM formats";
+  $results = select($query, 'kittenb1_longbox');
+
+  return [
+    'count'   => count($results),
+    'filters' => $filters['results'],
+    'query'   => $query,
+    'results' => $results
+  ];
 }
 
 function getIssues($filters = []) {
@@ -99,6 +135,30 @@ function getIssues($filters = []) {
     'filters' => $filters['issues'],
     'query'   => $query,
     'results' => $issues
+  ];
+}
+
+function getPublishers() {
+  $query   = "SELECT * FROM publishers";
+  $results = select($query, 'kittenb1_longbox');
+
+  return [
+    'count'   => count($results),
+    'filters' => $filters['results'],
+    'query'   => $query,
+    'results' => $results
+  ];
+}
+
+function getTitles() {
+  $query   = "SELECT * FROM titles";
+  $results = select($query, 'kittenb1_longbox');
+
+  return [
+    'count'   => count($results),
+    'filters' => $filters['results'],
+    'query'   => $query,
+    'results' => $results
   ];
 }
 

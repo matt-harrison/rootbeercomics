@@ -26,7 +26,7 @@ debug($data['issues']['count']);
         <th>issue id</th>
         <th>creator id</th>
         <th>creator</th>
-        <th>creator id type</th>
+        <th>creator type id</th>
         <th>creator type</th>
       </tr>
       <?php foreach ($contributors as $index => $contributor) { ?>
