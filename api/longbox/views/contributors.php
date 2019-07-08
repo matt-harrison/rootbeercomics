@@ -1,29 +1,30 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$data = getData();
+$data         = getData();
 $contributors = $data['contributors']['results'];
+$issues       = $data['issues']['results'];
 
-debug($data['contributors']['query']);
-debug($data['contributors']['count']);
-
-debug($data['issues']['query']);
-debug($data['issues']['count']);
+foreach ($contributors as $index => $contributor) {
+  foreach ($issues as $issue) {
+    if ($contributor['issue_id'] === $issue['id']) {
+      $contributors[$index]['issue'] = $issue['number'] ? $issue['title'] . ' #' . $issue['number'] : $issue['title'];
+    }
+  }
+}
 ?>
 <!doctype html>
 <html>
   <head profile="http://www.w3.org/2005/10/profile">
     <title>contributors view</title>
-    <style>
-      table, th, td {border: 1px solid black;}
-      th, td {padding: 5px;}
-    </style>
+    <link href="/assets/css/table.css" rel="stylesheet" type="text/css">
   </head>
   <body class="m5">
     <table>
       <tr>
         <th>index</th>
         <th>issue id</th>
+        <th>issue</th>
         <th>creator id</th>
         <th>creator</th>
         <th>creator type id</th>
@@ -33,6 +34,7 @@ debug($data['issues']['count']);
         <tr>
           <td><?= $index + 1; ?></td>
           <td><?= $contributor['issue_id']; ?></td>
+          <td><?= $contributor['issue']; ?></td>
           <td><?= $contributor['creator_id']; ?></td>
           <td><?= $contributor['creator']; ?></td>
           <td><?= $contributor['creator_type_id']; ?></td>

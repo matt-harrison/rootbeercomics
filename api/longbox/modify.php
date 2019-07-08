@@ -1,20 +1,18 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$data = getData();
+$rows = getContributors()['results'];
 
-foreach ($data['issues']['results'] as $issue) {
-  $id       = $issue['id'];
-  $name     = $issue['name'];
-  $year     = $issue['year'];
-  $position = strpos($name, ', Vol. ');
+foreach ($rows as $row) {
+  $id        = $row['id'];
+  $creatorId = $row['creator_id'];
 
-  if ($year === '0') {
-    echo $id . '. ' . $issue['title'] . ' ' . $issue['year'] . '<br/>';
+  if ($creatorId === '10') {
+    echo $id . '. ' . $row['name'] . '<br/>';
 
     $query = "
-      UPDATE issues
-      SET year = NULL
+      UPDATE creators
+      SET creator_id = NULL
       WHERE id = '$id'";
     // echo $query . '<br/>';
     // $response = execute($query, 'kittenb1_longbox');

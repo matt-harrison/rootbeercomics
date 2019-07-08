@@ -80,6 +80,8 @@ label, input {display: block;}
 
     .bdrRound {border-radius: 8px;}
 
+    .bdrCollapse {border-collapse: collapse;}
+
 /* cursor */
     .csrPointer, .fakeLink {cursor: pointer;}
 
