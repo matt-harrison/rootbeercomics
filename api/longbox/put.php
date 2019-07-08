@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 if (($handle = fopen('master.csv', 'r')) !== FALSE) {
   while (($data = fgetcsv($handle, 5000, ',')) !== FALSE) {

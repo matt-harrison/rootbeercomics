@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
 $data = getData();
 $issues = $data['issues']['results'];
@@ -15,6 +15,7 @@ debug($data['issues']['count']);
   <head profile="http://www.w3.org/2005/10/profile">
     <title>issues view</title>
     <style>
+      table {border-collapse: collapse;}
       table, th, td {border: 1px solid black;}
       th, td {padding: 5px;}
       p {margin: 0;}

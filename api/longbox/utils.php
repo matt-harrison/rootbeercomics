@@ -1,6 +1,81 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
+function addCreator($creatorName) {
+  if (!empty($creatorName)) {
+    $query  = "INSERT INTO creators (name) VALUES ('{$creatorName}')";
+    $result = execute($query, 'kittenb1_longbox');
+    $rows   = select("SELECT id from creators ORDER BY id desc LIMIT 1", 'kittenb1_longbox');
+    $id     = $rows[0]['id'];
+  }
+
+  return $id;
+}
+
+function addCreatorType($creatorTypeName) {
+  if (!empty($creatorTypeName)) {
+    $query  = "INSERT INTO creator_types (name) VALUES ('{$creatorTypeName}')";
+    $result = execute($query, 'kittenb1_longbox');
+    $rows   = select("SELECT id from creator_types ORDER BY id desc LIMIT 1", 'kittenb1_longbox');
+    $id     = $rows[0]['id'];
+  }
+
+  return $id;
+}
+
+function addContributor($issueId, $creatorId, $creatorTypeId) {
+  if (!empty($issueId) && !empty($creatorId) && !empty($creatorTypeId)) {
+    $query  = "
+    INSERT INTO contributors (
+      issue_id,
+      creator_id,
+      creator_type_id
+    ) VALUES (
+      '{$issueId}',
+      '{$creatorId}',
+      '{$creatorTypeId}'
+    )";
+    $result = execute($query, 'kittenb1_longbox');
+    $rows   = select("SELECT id from contributors ORDER BY id desc LIMIT 1", 'kittenb1_longbox');
+    $id     = $rows[0]['id'];
+  }
+
+  return $id;
+}
+
+function addFormat($formatName) {
+  if (!empty($formatName)) {
+    $query  = "INSERT INTO formats (name) VALUES ('{$formatName}')";
+    $result = execute($query, 'kittenb1_longbox');
+    $rows   = select("SELECT id from formats ORDER BY id desc LIMIT 1", 'kittenb1_longbox');
+    $id     = $rows[0]['id'];
+  }
+
+  return $id;
+}
+
+function addPublisher($publisherName) {
+  if (!empty($publisherName)) {
+    $query  = "INSERT INTO publishers (name) VALUES ('{$publisherName}')";
+    $result = execute($query, 'kittenb1_longbox');
+    $rows   = select("SELECT id from publishers ORDER BY id desc LIMIT 1", 'kittenb1_longbox');
+    $id     = $rows[0]['id'];
+  }
+
+  return $id;
+}
+
+function addTitle($titleName) {
+  if (!empty($titleName)) {
+    $query  = "INSERT INTO titles (name) VALUES ('{$titleName}')";
+    $result = execute($query, 'kittenb1_longbox');
+    $rows   = select("SELECT id from titles ORDER BY id desc LIMIT 1", 'kittenb1_longbox');
+    $id     = $rows[0]['id'];
+  }
+
+  return $id;
+}
+
 function getContributors($filters = []) {
   $where = getWhereContributors($filters);
   $query =
@@ -28,6 +103,38 @@ function getContributors($filters = []) {
   ];
 }
 
+function getContributorId($issueId, $creatorId, $creatorTypeId) {
+  $contributors = getContributors();
+
+  foreach ($contributors['results'] as $contributor) {
+    if ($contributor['issue_id'] === $issueId && $contributor['creator_id'] === $creatorId && $contributor['creator_type_id'] === $creatorTypeId) {
+      $contributorId = $contributor['id'];
+    }
+  }
+
+  if (is_null($contributorId)) {
+    $contributorId = addContributor($issueId, $creatorId, $creatorTypeId);
+  }
+
+  return $contributorId;
+}
+
+function getCreatorId($creatorName) {
+  $creators = getCreators();
+
+  foreach ($creators['results'] as $creator) {
+    if ($creator['name'] === $creatorName) {
+      $creatorId = $creator['id'];
+    }
+  }
+
+  if (is_null($creatorId)) {
+    $creatorId = addCreator($creatorName);
+  }
+
+  return $creatorId;
+}
+
 function getCreators() {
   $query   = "SELECT * FROM creators";
   $results = select($query, 'kittenb1_longbox');
@@ -38,6 +145,22 @@ function getCreators() {
     'query'   => $query,
     'results' => $results
   ];
+}
+
+function getCreatorTypeId($creatorTypeName) {
+  $creatorTypes = getCreatorTypes();
+
+  foreach ($creatorTypes['results'] as $creatorType) {
+    if ($creatorType['name'] === $creatorTypeName) {
+      $creatorTypeId = $creatorType['id'];
+    }
+  }
+
+  if (is_null($creatorTypeId)) {
+    $creatorTypeId = addCreatorType($creatorTypeName);
+  }
+
+  return $creatorTypeId;
 }
 
 function getCreatorTypes() {
@@ -84,6 +207,22 @@ function getData() {
   ];
 
   return $response;
+}
+
+function getFormatId($formatName) {
+  $formats = getFormats();
+
+  foreach ($formats['results'] as $format) {
+    if ($format['name'] === $formatName) {
+      $formatId = $format['id'];
+    }
+  }
+
+  if (is_null($formatId)) {
+    $formatId = addFormat($formatName);
+  }
+
+  return $formatId;
 }
 
 function getFormats() {
@@ -138,6 +277,22 @@ function getIssues($filters = []) {
   ];
 }
 
+function getPublisherId($publisherName) {
+  $publishers = getPublishers();
+
+  foreach ($publishers['results'] as $publisher) {
+    if ($publisher['name'] === $publisherName) {
+      $publisherId = $publisher['id'];
+    }
+  }
+
+  if (is_null($publisherId)) {
+    $publisherId = addPublisher($publisherName);
+  }
+
+  return $publisherId;
+}
+
 function getPublishers() {
   $query   = "SELECT * FROM publishers";
   $results = select($query, 'kittenb1_longbox');
@@ -148,6 +303,22 @@ function getPublishers() {
     'query'   => $query,
     'results' => $results
   ];
+}
+
+function getTitleId($titleName) {
+  $titles = getTitles();
+
+  foreach ($titles['results'] as $title) {
+    if ($title['name'] === $titleName) {
+      $titleId = $title['id'];
+    }
+  }
+
+  if (is_null($titleId)) {
+    $titleId = addTitle($titleName);
+  }
+
+  return $titleId;
 }
 
 function getTitles() {

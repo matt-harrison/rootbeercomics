@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
 $username = $_REQUEST['username'];
 $md5      = $_REQUEST['md5'];
@@ -59,35 +59,11 @@ if (count($errors) < 1) {
 
         $queries[] = $query;
       } else {
-        foreach ($contributor as $key => $value) {
-          // Find existing Creator record
-          foreach ($creators['results'] as $creator) {
-            if ($contributor->creator === $creator['name']) {
-              $creatorId = $creator['id'];
-            }
-          }
+        $contributor->creator_id      = getCreatorId($contributor->creator);
+        $contributor->creator_type_id = getCreatorTypeId($contributor->creator_type);
+        $contributor->contributor_id  = getContributorId($issueId, $contributor->creator_id, $contributor->creator_type_id);
+        $contributorId                = $contributor->id;
 
-          // Find existing Creator Type record
-          foreach ($creatorTypes['results'] as $creatorType) {
-            if ($contributor->creator_type === $creatorType['name']) {
-              $creatorTypeId = $creatorType['id'];
-            }
-          }
-        }
-
-        if ($creatorId !== $contributor->creator_id) {
-          $contributor->creator_id = $creatorId;
-        } else {
-          //TO DO: add Creator
-        }
-
-        if ($creatorTypeId !== $contributor->creator_type_id) {
-          $contributor->creator_type_id = $creatorTypeId;
-        } else {
-          // TO DO: add Creator Type
-        }
-
-        // Build SET clause
         foreach ($contributor as $key => $value) {
           if (in_array($key, $contributorColumns)) {
             $contributorField    = "{$key} = '{$value}'";
@@ -99,7 +75,7 @@ if (count($errors) < 1) {
         $query = "
         UPDATE contributors
         SET {$contributorFields}
-        WHERE id = '$contributorId'";
+        WHERE id = '{$contributorId}'";
         $result = execute($query, 'kittenb1_longbox');
 
         $queries[] = $query;
@@ -111,13 +87,13 @@ if (count($errors) < 1) {
     }
   }
 
+  $issue->format_id    = getFormatId($issue->format);
+  $issue->publisher_id = getPublisherId($issue->publisher);
+  $issue->title_id     = getTitleId($issue->title);
+
   foreach ($issue as $key => $value) {
     if (in_array($key, $issueColumns)) {
-      if (in_array($key, ['number', 'year']) && $value === '') {
-        $value = 'NULL';
-      }
-
-      $issueField    = $value === 'NULL' ? "{$key} = {$value}" : "{$key} = '{$value}'";
+      $issueField    = is_null($value) ? "{$key} = NULL" : "{$key} = '{$value}'";
       $issueFields[] = $issueField;
     }
   }
