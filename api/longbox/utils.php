@@ -237,6 +237,44 @@ function getFormats() {
   ];
 }
 
+function getIssueById($id) {
+  $query =
+    "SELECT
+      issues.id,
+      issues.title_id,
+      issues.publisher_id,
+      issues.format_id,
+      issues.number,
+      issues.notes,
+      issues.year,
+      issues.is_read,
+      issues.is_owned,
+      issues.is_color,
+      titles.id AS title_id,
+      titles.name AS title,
+      titles.sort_name AS sort_title,
+      publishers.id AS publisher_id,
+      publishers.name AS publisher,
+      formats.id AS format_id,
+      formats.name as format
+    FROM issues
+    LEFT JOIN titles ON title_id = titles.id
+    LEFT JOIN publishers ON publisher_id = publishers.id
+    LEFT JOIN formats ON format_id = formats.id
+    WHERE id = {$id}";
+
+  $issue        = select($query, 'kittenb1_longbox')[0];
+  $contributors = getContributors();
+
+  foreach ($contributors['results'] as $contributor) {
+    if ($contributor['issue_id'] === $issue['id']) {
+      $issue['contributors'][] = $contributor;
+    }
+  }
+
+  return $issue;
+}
+
 function getIssues($filters = []) {
   $where   = getWhereIssues($filters);
   $isDesc  = is_null($filters['issues']['is_desc']) ? 'ASC' : 'DESC';

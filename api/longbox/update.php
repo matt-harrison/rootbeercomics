@@ -37,12 +37,6 @@ if (count($errors) < 1) {
   ];
 
   if (count($contributors) > 0) {
-    $creators     = getCreators();
-    $creatorTypes = getCreatorTypes();
-    $formats      = getFormats();
-    $publishers   = getPublishers();
-    $titles       = getTitles();
-
     foreach ($contributors as &$contributor) {
       $contributorId     = $contributor->id;
       $contributorFields = [
@@ -59,6 +53,7 @@ if (count($errors) < 1) {
 
         $queries[] = $query;
       } else {
+        $contributor->title_id        = getTitleId($contributor->title);
         $contributor->creator_id      = getCreatorId($contributor->creator);
         $contributor->creator_type_id = getCreatorTypeId($contributor->creator_type);
         $contributor->contributor_id  = getContributorId($issueId, $contributor->creator_id, $contributor->creator_type_id);
@@ -93,7 +88,7 @@ if (count($errors) < 1) {
 
   foreach ($issue as $key => $value) {
     if (in_array($key, $issueColumns)) {
-      $issueField    = is_null($value) ? "{$key} = NULL" : "{$key} = '{$value}'";
+      $issueField    = $value === '' ? "{$key} = NULL" : "{$key} = '{$value}'";
       $issueFields[] = $issueField;
     }
   }
@@ -115,7 +110,7 @@ if (count($errors) < 1) {
 $response = array(
   'success' => (count($errors) < 1),
   'errors'  => $errors,
-  'issue'   => $issue,
+  'params'  => $_REQUEST,
   'queries' => $queries
 );
 
