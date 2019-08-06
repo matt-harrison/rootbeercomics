@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/projects/longbox/static/js/main.b0e6ed66.chunk.js",
-    "main.js.map": "/projects/longbox/static/js/main.b0e6ed66.chunk.js.map",
-    "runtime~main.js": "/projects/longbox/static/js/runtime~main.bb1f82f8.js",
-    "runtime~main.js.map": "/projects/longbox/static/js/runtime~main.bb1f82f8.js.map",
-    "static/js/2.38c4fd7c.chunk.js": "/projects/longbox/static/js/2.38c4fd7c.chunk.js",
-    "static/js/2.38c4fd7c.chunk.js.map": "/projects/longbox/static/js/2.38c4fd7c.chunk.js.map",
-    "static/css/3.3ff2e0eb.chunk.css": "/projects/longbox/static/css/3.3ff2e0eb.chunk.css",
-    "static/js/3.317e975a.chunk.js": "/projects/longbox/static/js/3.317e975a.chunk.js",
-    "static/js/3.317e975a.chunk.js.map": "/projects/longbox/static/js/3.317e975a.chunk.js.map",
+    "main.js": "/projects/longbox/static/js/main.2aabc8d7.chunk.js",
+    "main.js.map": "/projects/longbox/static/js/main.2aabc8d7.chunk.js.map",
+    "runtime~main.js": "/projects/longbox/static/js/runtime~main.ff0bc19b.js",
+    "runtime~main.js.map": "/projects/longbox/static/js/runtime~main.ff0bc19b.js.map",
+    "static/js/2.dac04647.chunk.js": "/projects/longbox/static/js/2.dac04647.chunk.js",
+    "static/js/2.dac04647.chunk.js.map": "/projects/longbox/static/js/2.dac04647.chunk.js.map",
+    "static/css/3.5696001e.chunk.css": "/projects/longbox/static/css/3.5696001e.chunk.css",
+    "static/js/3.ad3bd27c.chunk.js": "/projects/longbox/static/js/3.ad3bd27c.chunk.js",
+    "static/js/3.ad3bd27c.chunk.js.map": "/projects/longbox/static/js/3.ad3bd27c.chunk.js.map",
     "index.html": "/projects/longbox/index.html",
-    "precache-manifest.ec5b357a607f32167d18152a96d87f1e.js": "/projects/longbox/precache-manifest.ec5b357a607f32167d18152a96d87f1e.js",
+    "precache-manifest.f11e6e7e484144cb1c2d9ac282f5dc21.js": "/projects/longbox/precache-manifest.f11e6e7e484144cb1c2d9ac282f5dc21.js",
     "service-worker.js": "/projects/longbox/service-worker.js",
-    "static/css/3.3ff2e0eb.chunk.css.map": "/projects/longbox/static/css/3.3ff2e0eb.chunk.css.map"
+    "static/css/3.5696001e.chunk.css.map": "/projects/longbox/static/css/3.5696001e.chunk.css.map"
   }
 }

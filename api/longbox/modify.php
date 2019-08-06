@@ -1,18 +1,20 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$rows = getContributors()['results'];
+$rows = getTitles()['results'];
 
 foreach ($rows as $row) {
-  $id        = $row['id'];
-  $creatorId = $row['creator_id'];
+  $id       = $row['id'];
+  $name     = $row['name'];
+  $sortName = preg_replace('/^The /', '', $name);
+  $sortName = str_replace("'", "\'", $sortName);
 
-  if ($creatorId === '10') {
-    echo $id . '. ' . $row['name'] . '<br/>';
+  if (empty($row['sort_name'])) {
+    echo $id . '. ' . $name . ' >>> ' . $sortName . '<br/>';
 
     $query = "
-      UPDATE creators
-      SET creator_id = NULL
+      UPDATE titles
+      SET sort_name = '$sortName'
       WHERE id = '$id'";
     // echo $query . '<br/>';
     // $response = execute($query, 'kittenb1_longbox');
