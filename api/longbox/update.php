@@ -88,7 +88,7 @@ if (count($errors) < 1) {
 
   foreach ($issue as $key => $value) {
     if (in_array($key, $issueColumns)) {
-      $issueField    = $value === '' ? "{$key} = NULL" : "{$key} = '{$value}'";
+      $issueField    = $value === '' || $value === null ? "{$key} = NULL" : "{$key} = '{$value}'";
       $issueFields[] = $issueField;
     }
   }
