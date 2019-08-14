@@ -48,16 +48,13 @@ if (count($errors) < 1) {
 
       // Clear records for emptied contributors
       if ($contributor->creator === '' || $contributor->creator_type === '') {
-        $query  = "DELETE FROM contributors WHERE id = {$contributorId}";
-        $result = execute($query, 'kittenb1_longbox');
-
+        $query     = "DELETE FROM contributors WHERE id = {$contributorId}";
+        $result    = execute($query, 'kittenb1_longbox');
         $queries[] = $query;
       } else {
         $contributor->title_id        = getTitleId($contributor->title);
         $contributor->creator_id      = getCreatorId($contributor->creator);
         $contributor->creator_type_id = getCreatorTypeId($contributor->creator_type);
-        $contributor->contributor_id  = getContributorId($issueId, $contributor->creator_id, $contributor->creator_type_id);
-        $contributorId                = $contributor->id;
 
         foreach ($contributor as $key => $value) {
           if (in_array($key, $contributorColumns)) {
@@ -71,8 +68,7 @@ if (count($errors) < 1) {
         UPDATE contributors
         SET {$contributorFields}
         WHERE id = '{$contributorId}'";
-        $result = execute($query, 'kittenb1_longbox');
-
+        $result    = execute($query, 'kittenb1_longbox');
         $queries[] = $query;
       }
 
@@ -98,8 +94,7 @@ if (count($errors) < 1) {
   UPDATE issues
   SET {$issueFields}
   WHERE id = '$issueId'";
-  $result = execute($query, 'kittenb1_longbox');
-
+  $result    = execute($query, 'kittenb1_longbox');
   $queries[] = $query;
 
   if (!$result) {
