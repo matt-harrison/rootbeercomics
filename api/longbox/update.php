@@ -50,6 +50,10 @@ if (count($errors) < 1) {
       $query     = "DELETE FROM contributors WHERE id = {$contributorId}";
       $result    = execute($query, 'kittenb1_longbox');
       $queries[] = $query;
+
+      if (!$result) {
+        $errors[] = 'An error occured while attempting to delete contributor data. Please try again.';
+      }
     } else {
       $contributor->title_id        = getTitleId($contributor->title);
       $contributor->creator_id      = getCreatorId($contributor->creator);

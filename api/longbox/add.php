@@ -4,16 +4,18 @@ include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 $username  = $_REQUEST['username'];
 $md5       = $_REQUEST['md5'];
 $issue     = json_decode($_REQUEST['issue']);
-$format    = $issue->format;
-$isColor   = $issue->is_color ? 'true' : 'false';
-$isOwned   = $issue->is_owned ? 'true' : 'false';
-$isRead    = $issue->is_read  ? 'true' : 'false';
-$notes     = $issue->notes;
-$numbers   = getNumbers($issue->number);
-$publisher = $issue->publisher;
-$sortTitle = $issue->sort_title;
-$title     = $issue->title;
-$year      = $issue->year;
+
+$contributors = $issue->contributors;
+$format       = $issue->format;
+$isColor      = $issue->is_color ? 'true' : 'false';
+$isOwned      = $issue->is_owned ? 'true' : 'false';
+$isRead       = $issue->is_read  ? 'true' : 'false';
+$notes        = $issue->notes;
+$numbers      = getNumbers($issue->number);
+$publisher    = $issue->publisher;
+$sortTitle    = $issue->sort_title;
+$title        = $issue->title;
+$year         = $issue->year === null ? 'null' : $issue->year;
 
 $errors   = [];
 $queries  = [];
@@ -70,14 +72,12 @@ if (empty($publisher)) {
   }
 }
 
-//INSERT INTO ISSUE
 foreach ($numbers as $number) {
   $numberFilter = $number === 'NULL' ? "number IS NULL" : "number = '{$number}'";
   $notesFilter  = "number = '{$number}'";
   $query =
   "SELECT * from issues
     WHERE title_id = '{$titleId}'
-    AND notes = '{$notes}'
     AND {$numberFilter}
     LIMIT 1";
   $result    = select($query, 'kittenb1_longbox');
@@ -111,142 +111,34 @@ foreach ($numbers as $number) {
     $result    = execute($query, 'kittenb1_longbox');
     $issueId   = select("SELECT id FROM issues ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
     $queries[] = $query;
-  }
-}
 
-/*
-if (!empty($writers)) {
-  $writers = explode("\r\n", $writers);
-  $writerIds = [];
-
-  foreach ($writers as $writer) {
-    $result   = select("SELECT * from creators WHERE name = '{$writer}' LIMIT 1", 'kittenb1_longbox');
-    $writerId = $result[0]['id'];
-
-    if (is_null($writerId)) {
-      execute("INSERT INTO creators (name) VALUES ('{$writer}')", 'kittenb1_longbox');
-      $writerId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
+    if (!$result) {
+      $errors[] = 'An error occured while attempting to insert issue data. Please try again.';
     }
 
-    $writerIds[] = $writerId;
-  }
+    if (!empty($issueId) && !empty($contributors)) {
+      foreach ($contributors as $contributor) {
+        $creatorId      = getCreatorId($contributor->creator);
+        $creatorTypeId  = getCreatorTypeId($contributor->creator_type);
+        $query =
+        "INSERT INTO contributors (
+          creator_id,
+          creator_type_id,
+          issue_id
+        ) VALUES (
+          {$creatorId},
+          {$creatorTypeId},
+          {$issueId}
+        )";
+        $result    = execute($query, 'kittenb1_longbox');
+        $queries[] = $query;
 
-  foreach ($writerIds as $writerId) {
-    $query =
-    "SELECT * from contributors
-    WHERE issue_id = '{$issueId}'
-    AND creator_id = '{$writerId}'
-    AND creator_type_id = 3
-    LIMIT 1";
-    $result    = select($query, 'kittenb1_longbox');
-    $hasWriter = $result[0];
-
-    if (!$hasWriter) {
-      $query =
-      "INSERT INTO contributors (
-        issue_id,
-        creator_id,
-        creator_type_id
-      ) VALUES (
-        $issueId,
-        {$writerId},
-        3
-      )";
-
-      execute($query, 'kittenb1_longbox');
+        if (!$result) {
+          $errors[] = 'An error occured while attempting to insert contributor data. Please try again.';
+        }
+      }
     }
   }
-}
-
-if (!empty($coverArtists)) {
-  $coverArtists = explode("\r\n", $coverArtists);
-  $coverArtistIds = [];
-
-  foreach ($coverArtists as $coverArtist) {
-    $result        = select("SELECT * from creators WHERE name = '{$coverArtist}' LIMIT 1", 'kittenb1_longbox');
-    $coverArtistId = $result[0]['id'];
-
-    if (is_null($coverArtistId)) {
-      execute("INSERT INTO creators (name) VALUES ('{$coverArtist}')", 'kittenb1_longbox');
-      $coverArtistId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
-    }
-
-    $coverArtistIds[] = $coverArtistId;
-  }
-
-  foreach ($coverArtistIds as $coverArtistId) {
-    $query =
-    "SELECT * from contributors
-    WHERE issue_id = '{$issueId}'
-    AND creator_id = '{$coverArtistId}'
-    AND creator_type_id = 1
-    LIMIT 1";
-    $result         = select($query, 'kittenb1_longbox');
-    $hasCoverArtist = $result[0];
-
-    if (!$hasCoverArtist) {
-      $query =
-      "INSERT INTO contributors (
-        issue_id,
-        creator_id,
-        creator_type_id
-      ) VALUES (
-        $issueId,
-        {$coverArtistId},
-        1
-      )";
-
-      execute($query, 'kittenb1_longbox');
-    }
-  }
-}
-
-if (!empty($interiorArtists)) {
-  $interiorArtists = explode("\r\n", $interiorArtists);
-  $interiorArtistIds = [];
-
-  foreach ($interiorArtists as $interiorArtist) {
-    $result           = select("SELECT * from creators WHERE name = '{$interiorArtist}' LIMIT 1", 'kittenb1_longbox');
-    $interiorArtistId = $result[0]['id'];
-
-    if (is_null($interiorArtistId)) {
-      execute("INSERT INTO creators (name) VALUES ('{$interiorArtist}')", 'kittenb1_longbox');
-      $interiorArtistId = select("SELECT id FROM creators ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
-    }
-
-    $interiorArtistIds[] = $interiorArtistId;
-  }
-
-  foreach ($interiorArtistIds as $interiorArtistId) {
-    $query =
-    "SELECT * from contributors
-    WHERE issue_id = '{$issueId}'
-    AND creator_id = '{$interiorArtistId}'
-    AND creator_type_id = 2
-    LIMIT 1";
-    $result            = select($query, 'kittenb1_longbox');
-    $hasInteriorArtist = $result[0];
-
-    if (!$hasInteriorArtist) {
-      $query =
-      "INSERT INTO contributors (
-        issue_id,
-        creator_id,
-        creator_type_id
-      ) VALUES (
-        $issueId,
-        {$interiorArtistId},
-        2
-      )";
-
-      execute($query, 'kittenb1_longbox');
-    }
-  }
-}
-*/
-
-if (!$result) {
-  $errors[] = 'An error occured while attempting to add issue data. Please try again.';
 }
 
 $response = array(
