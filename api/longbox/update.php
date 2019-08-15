@@ -36,45 +36,58 @@ if (count($errors) < 1) {
     'year',
   ];
 
-  if (count($contributors) > 0) {
-    foreach ($contributors as &$contributor) {
-      $contributorId     = $contributor->id;
-      $contributorFields = [
-        "issue_id = '{$issueId}'"
-      ];
+  foreach ($contributors as &$contributor) {
+    $contributorId     = $contributor->id;
+    $contributorFields = [
+      "issue_id = '{$issueId}'"
+    ];
 
-      unset($contributor->id);
-      unset($contributor->issue_id);
+    unset($contributor->id);
+    unset($contributor->issue_id);
 
-      // Clear records for emptied contributors
-      if ($contributor->creator === '' || $contributor->creator_type === '') {
-        $query     = "DELETE FROM contributors WHERE id = {$contributorId}";
-        $result    = execute($query, 'kittenb1_longbox');
-        $queries[] = $query;
-      } else {
-        $contributor->title_id        = getTitleId($contributor->title);
-        $contributor->creator_id      = getCreatorId($contributor->creator);
-        $contributor->creator_type_id = getCreatorTypeId($contributor->creator_type);
+    // Clear records for emptied contributors
+    if ($contributor->creator === '' || $contributor->creator_type === '') {
+      $query     = "DELETE FROM contributors WHERE id = {$contributorId}";
+      $result    = execute($query, 'kittenb1_longbox');
+      $queries[] = $query;
+    } else {
+      $contributor->title_id        = getTitleId($contributor->title);
+      $contributor->creator_id      = getCreatorId($contributor->creator);
+      $contributor->creator_type_id = getCreatorTypeId($contributor->creator_type);
 
-        foreach ($contributor as $key => $value) {
-          if (in_array($key, $contributorColumns)) {
-            $contributorField    = "{$key} = '{$value}'";
-            $contributorFields[] = $contributorField;
-          }
+      foreach ($contributor as $key => $value) {
+        if (in_array($key, $contributorColumns)) {
+          $contributorField    = "{$key} = '{$value}'";
+          $contributorFields[] = $contributorField;
         }
+      }
 
-        $contributorFields = implode(', ', $contributorFields);
+      $contributorFields = implode(', ', $contributorFields);
+
+      if (empty($contributorId)) {
+        $query = "
+        INSERT INTO contributors (
+          creator_id,
+          creator_type_id,
+          issue_id
+        ) VALUES (
+          '{$contributor->creator_id}',
+          '{$contributor->creator_type_id}',
+          '{$issueId}'
+        )";
+      } else {
         $query = "
         UPDATE contributors
         SET {$contributorFields}
         WHERE id = '{$contributorId}'";
-        $result    = execute($query, 'kittenb1_longbox');
-        $queries[] = $query;
       }
 
-      if (!$result) {
-        $errors[] = 'An error occured while attempting to update contributor data. Please try again.';
-      }
+      $result    = execute($query, 'kittenb1_longbox');
+      $queries[] = $query;
+    }
+
+    if (!$result) {
+      $errors[] = 'An error occured while attempting to update contributor data. Please try again.';
     }
   }
 
