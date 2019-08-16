@@ -647,10 +647,10 @@ function parseFilters() {
     } elseif (in_array($key, $issueKeys)) {
       $filters['issues'][$key] = $value;
     } elseif ($key === 'any') {
-      $filters['contributors']['creator'] .= count($filters['contributors']['creator']) > 0 ? ',' . $json->any : $json->any;
-      $filters['issues']['notes']         .= count($filters['issues']['notes']) > 0         ? ',' . $json->any : $json->any;
-      $filters['issues']['publisher']     .= count($filters['issues']['publisher']) > 0     ? ',' . $json->any : $json->any;
-      $filters['issues']['title']         .= count($filters['issues']['title']) > 0         ? ',' . $json->any : $json->any;
+      $filters['contributors']['creator'] .= count($filters['contributors']['creator']) > 0 ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+      $filters['issues']['notes']         .= count($filters['issues']['notes']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+      $filters['issues']['publisher']     .= count($filters['issues']['publisher']) > 0     ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+      $filters['issues']['title']         .= count($filters['issues']['title']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
       $filters['delimiter'] = 'OR';
     } else {
       $filters[$key] = $value;
