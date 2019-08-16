@@ -1,7 +1,7 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$issues = getData()['issues']['results'];
+$issues = getIssuesWithContributors()['issues']['results'];
 ?>
 <!doctype html>
 <html>

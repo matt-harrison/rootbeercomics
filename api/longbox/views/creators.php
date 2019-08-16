@@ -1,7 +1,8 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$creators = getCreators()['results'];
+$response = getCreators();
+$creators = $response['results'];
 ?>
 <!doctype html>
 <html>

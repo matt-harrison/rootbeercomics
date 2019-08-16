@@ -136,12 +136,14 @@ function getCreatorId($creatorName) {
 }
 
 function getCreators() {
-  $query   = "SELECT * FROM creators";
+  $filters = parseFilters();
+  $where   = getWhere($filters);
+  $query   = "SELECT * FROM creators" . $where;
   $results = select($query, 'kittenb1_longbox');
 
   return [
     'count'   => count($results),
-    'filters' => $filters['results'],
+    'filters' => $filters,
     'query'   => $query,
     'results' => $results
   ];
@@ -164,49 +166,17 @@ function getCreatorTypeId($creatorTypeName) {
 }
 
 function getCreatorTypes() {
-  $query   = "SELECT * FROM creator_types";
+  $filters = parseFilters();
+  $where   = getWhere($filters);
+  $query   = "SELECT * FROM creator_types" . $where;
   $results = select($query, 'kittenb1_longbox');
 
   return [
     'count'   => count($results),
-    'filters' => $filters['results'],
+    'filters' => $filters,
     'query'   => $query,
     'results' => $results
   ];
-}
-
-function getData() {
-  $filters              = parseFilters();
-  $contributorsFiltered = getContributors($filters);
-
-  // Limit issues based on filtered contributors
-  if (count($filters['contributors']) > 0) {
-    foreach ($contributorsFiltered['results'] as $contributor) {
-      if (!in_array($contributor['issue_id'], $filters['issues']['issueIds'])) {
-        $filters['issues']['issueIds'][] = $contributor['issue_id'];
-      }
-    }
-  }
-
-  $issues       = getIssues($filters);
-  $contributors = getContributors();
-
-  // Add all contributors to any matching issues
-  foreach ($issues['results'] as $index => $issue) {
-    foreach ($contributors['results'] as $contributor) {
-      if ($contributor['issue_id'] === $issue['id']) {
-        $issues['results'][$index]['contributors'][] = $contributor;
-      }
-    }
-  }
-
-  $response = [
-    'success'      => !($issues['results'] === 'FALSE') && !($contributors['results'] === 'FALSE'),
-    'contributors' => $contributorsFiltered,
-    'issues'       => $issues,
-  ];
-
-  return $response;
 }
 
 function getFormatId($formatName) {
@@ -226,12 +196,14 @@ function getFormatId($formatName) {
 }
 
 function getFormats() {
-  $query   = "SELECT * FROM formats";
+  $filters = parseFilters();
+  $where   = getWhere($filters);
+  $query   = "SELECT * FROM formats" . $where;
   $results = select($query, 'kittenb1_longbox');
 
   return [
     'count'   => count($results),
-    'filters' => $filters['results'],
+    'filters' => $filters,
     'query'   => $query,
     'results' => $results
   ];
@@ -315,6 +287,40 @@ function getIssues($filters = []) {
   ];
 }
 
+function getIssuesWithContributors() {
+  $filters              = parseFilters();
+  $contributorsFiltered = getContributors($filters);
+
+  // Limit issues based on filtered contributors
+  if (count($filters['contributors']) > 0) {
+    foreach ($contributorsFiltered['results'] as $contributor) {
+      if (!in_array($contributor['issue_id'], $filters['issues']['issueIds'])) {
+        $filters['issues']['issueIds'][] = $contributor['issue_id'];
+      }
+    }
+  }
+
+  $issues       = getIssues($filters);
+  $contributors = getContributors();
+
+  // Add all contributors to any matching issues
+  foreach ($issues['results'] as $index => $issue) {
+    foreach ($contributors['results'] as $contributor) {
+      if ($contributor['issue_id'] === $issue['id']) {
+        $issues['results'][$index]['contributors'][] = $contributor;
+      }
+    }
+  }
+
+  $response = [
+    'success'      => !($issues['results'] === 'FALSE') && !($contributors['results'] === 'FALSE'),
+    'contributors' => $contributorsFiltered,
+    'issues'       => $issues,
+  ];
+
+  return $response;
+}
+
 function getPublisherId($publisherName) {
   $publishers = getPublishers();
 
@@ -332,7 +338,9 @@ function getPublisherId($publisherName) {
 }
 
 function getPublishers() {
-  $query   = "SELECT * FROM publishers";
+  $filters = parseFilters();
+  $where   = getWhere($filters);
+  $query   = "SELECT * FROM publishers" . $where;
   $results = select($query, 'kittenb1_longbox');
 
   return [
@@ -360,7 +368,9 @@ function getTitleId($titleName) {
 }
 
 function getTitles() {
-  $query   = "SELECT * FROM titles";
+  $filters = parseFilters();
+  $where   = getWhere($filters);
+  $query   = "SELECT * FROM titles" . $where;
   $results = select($query, 'kittenb1_longbox');
 
   return [
@@ -573,6 +583,26 @@ function getWhereIssues($filters = []) {
   return $whereClause;
 }
 
+function getWhere($filters = []) {
+  $delimiter       = is_null($filters['delimiter']) ? 'AND' : $filters['delimiter'];
+  $whereClause     = '';
+  $whereConditions = [];
+
+  if (!empty($filters['id'])) {
+    $whereConditions[] = 'id = "' . $filters['id'] . '"';
+  }
+
+  if (!empty($filters['name'])) {
+    $whereConditions[] = 'name LIKE "%' . $filters['name'] . '%"';
+  }
+
+  if (count($whereConditions) > 0) {
+    $whereClause = ' WHERE ' . implode(" {$delimiter} ", $whereConditions);
+  }
+
+  return $whereClause;
+}
+
 function parseFilters() {
   $filters = [
     'contributors' => [],
@@ -617,10 +647,10 @@ function parseFilters() {
     } elseif (in_array($key, $issueKeys)) {
       $filters['issues'][$key] = $value;
     } elseif ($key === 'any') {
-      $filters['contributors']['creator'] .= count($filters['contributors']['creator']) > 0 ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
-      $filters['issues']['notes']         .= count($filters['issues']['notes']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
-      $filters['issues']['publisher']     .= count($filters['issues']['publisher']) > 0     ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
-      $filters['issues']['title']         .= count($filters['issues']['title']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+      $filters['contributors']['creator'] .= count($filters['contributors']['creator']) > 0 ? ',' . $json->any : $json->any;
+      $filters['issues']['notes']         .= count($filters['issues']['notes']) > 0         ? ',' . $json->any : $json->any;
+      $filters['issues']['publisher']     .= count($filters['issues']['publisher']) > 0     ? ',' . $json->any : $json->any;
+      $filters['issues']['title']         .= count($filters['issues']['title']) > 0         ? ',' . $json->any : $json->any;
       $filters['delimiter'] = 'OR';
     } else {
       $filters[$key] = $value;

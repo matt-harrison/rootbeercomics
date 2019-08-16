@@ -1,7 +1,8 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$formats = getFormats()['results'];
+$response = getFormats();
+$formats  = $response['results'];
 ?>
 <!doctype html>
 <html>

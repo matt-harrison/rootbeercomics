@@ -1,7 +1,8 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$publishers = getPublishers()['results'];
+$response   = getPublishers();
+$publishers = $response['results'];
 ?>
 <!doctype html>
 <html>

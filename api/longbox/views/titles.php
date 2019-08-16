@@ -1,7 +1,8 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$titles = getTitles()['results'];
+$response = getTitles();
+$titles   = $response['results'];
 ?>
 <!doctype html>
 <html>
