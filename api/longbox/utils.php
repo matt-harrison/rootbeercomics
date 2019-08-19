@@ -381,6 +381,30 @@ function getTitles() {
   ];
 }
 
+function getWhere($filters = []) {
+  $delimiter       = is_null($filters['delimiter']) ? 'AND' : $filters['delimiter'];
+  $sortOrder       = empty($filters['issues']['is_desc']) ? ' ASC' : ' DESC';
+  $orderBy         = empty($filters['issues']['order_by']) ? '' : ' ORDER BY ' . $filters['issues']['order_by'] . $sortOrder;
+  $whereClause     = '';
+  $whereConditions = [];
+
+  if (!empty($filters['id'])) {
+    $whereConditions[] = 'id = "' . $filters['id'] . '"';
+  }
+
+  if (!empty($filters['name'])) {
+    $whereConditions[] = 'name LIKE "%' . $filters['name'] . '%"';
+  }
+
+  if (count($whereConditions) > 0) {
+    $whereClause = ' WHERE ' . implode(" {$delimiter} ", $whereConditions) . $orderBy;
+  }
+
+  $whereClause .= $orderBy;
+
+  return $whereClause;
+}
+
 function getWhereContributors($filters = []) {
   $delimiter       = is_null($filters['delimiter']) ? 'AND' : $filters['delimiter'];
   $whereClause     = '';
@@ -578,26 +602,6 @@ function getWhereIssues($filters = []) {
 
   if (count($whereConditions) > 0) {
     $whereClause = 'WHERE ' . implode(" {$delimiter} ", $whereConditions);
-  }
-
-  return $whereClause;
-}
-
-function getWhere($filters = []) {
-  $delimiter       = is_null($filters['delimiter']) ? 'AND' : $filters['delimiter'];
-  $whereClause     = '';
-  $whereConditions = [];
-
-  if (!empty($filters['id'])) {
-    $whereConditions[] = 'id = "' . $filters['id'] . '"';
-  }
-
-  if (!empty($filters['name'])) {
-    $whereConditions[] = 'name LIKE "%' . $filters['name'] . '%"';
-  }
-
-  if (count($whereConditions) > 0) {
-    $whereClause = ' WHERE ' . implode(" {$delimiter} ", $whereConditions);
   }
 
   return $whereClause;
