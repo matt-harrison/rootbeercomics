@@ -397,7 +397,7 @@ function getWhere($filters = []) {
   }
 
   if (count($whereConditions) > 0) {
-    $whereClause = ' WHERE ' . implode(" {$delimiter} ", $whereConditions) . $orderBy;
+    $whereClause = ' WHERE ' . implode(" {$delimiter} ", $whereConditions);
   }
 
   $whereClause .= $orderBy;
