@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/projects/longbox/static/js/main.61e404d1.chunk.js",
-    "main.js.map": "/projects/longbox/static/js/main.61e404d1.chunk.js.map",
+    "main.js": "/projects/longbox/static/js/main.1d7da880.chunk.js",
+    "main.js.map": "/projects/longbox/static/js/main.1d7da880.chunk.js.map",
     "runtime~main.js": "/projects/longbox/static/js/runtime~main.0cb7817a.js",
     "runtime~main.js.map": "/projects/longbox/static/js/runtime~main.0cb7817a.js.map",
     "static/js/2.eebc4743.chunk.js": "/projects/longbox/static/js/2.eebc4743.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.9c03d96d.chunk.js": "/projects/longbox/static/js/3.9c03d96d.chunk.js",
     "static/js/3.9c03d96d.chunk.js.map": "/projects/longbox/static/js/3.9c03d96d.chunk.js.map",
     "index.html": "/projects/longbox/index.html",
-    "precache-manifest.17ecc087077bf45435332c07f96e32b3.js": "/projects/longbox/precache-manifest.17ecc087077bf45435332c07f96e32b3.js",
+    "precache-manifest.f3c479ba08861a1e351169aa55f4ce51.js": "/projects/longbox/precache-manifest.f3c479ba08861a1e351169aa55f4ce51.js",
     "service-worker.js": "/projects/longbox/service-worker.js",
     "static/css/3.9e5c7d6e.chunk.css.map": "/projects/longbox/static/css/3.9e5c7d6e.chunk.css.map"
   }
