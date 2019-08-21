@@ -19,6 +19,7 @@ $year         = $issue->year === null ? 'null' : $issue->year;
 
 $errors   = [];
 $queries  = [];
+$issueIds = [];
 
 if (empty($format)) {
   $formatId = 'NULL';
@@ -29,15 +30,12 @@ if (empty($format)) {
   $formatId    = $result[0]['id'];
   $queries[]   = $query;
 
-  // for now, do not allow inserting formats from the add form
-  /*
   if (is_null($formatId)) {
     $query     = "INSERT INTO formats (name) VALUES ('{$format}')";
     $result    = execute($query, 'kittenb1_longbox');
     $formatId  = select("SELECT id FROM formats ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
     $queries[] = $query;
   }
-  */
 }
 
 if (empty($title)) {
@@ -50,7 +48,7 @@ if (empty($title)) {
   $queries[]  = $query;
 
   if (is_null($titleId)) {
-    $query     = "INSERT INTO titles (name, sort_name) VALUES ('{$title}, {$sortTitle}')";
+    $query     = "INSERT INTO titles (name, sort_name) VALUES ('{$title}', '{$sortTitle}')";
     $result    = execute($query, 'kittenb1_longbox');
     $titleId   = select("SELECT id FROM titles ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
     $queries[] = $query;
@@ -108,9 +106,10 @@ foreach ($numbers as $number) {
       {$isColor}
     )";
 
-    $result    = execute($query, 'kittenb1_longbox');
-    $issueId   = select("SELECT id FROM issues ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
-    $queries[] = $query;
+    $result     = execute($query, 'kittenb1_longbox');
+    $issueId    = select("SELECT id FROM issues ORDER BY id DESC LIMIT 1", 'kittenb1_longbox')[0]['id'];
+    $issueIds[] = $issueId;
+    $queries[]  = $query;
 
     if (!$result) {
       $errors[] = 'An error occured while attempting to insert issue data. Please try again.';
@@ -145,6 +144,7 @@ $response = array(
   'success' => (count($errors) < 1),
   'errors'  => $errors,
   'params'  => $_REQUEST,
+  'issues'  => $issueIds,
   'queries' => $queries
 );
 
@@ -168,7 +168,7 @@ function getNumbers($input) {
         $output[] = $i;
       }
     } else {
-      $output[] = $range;
+      $output[] = $range === '' ? 'NULL' : $range;
     }
   }
 
