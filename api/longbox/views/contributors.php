@@ -23,6 +23,7 @@ foreach ($contributors as $index => $contributor) {
     <table>
       <tr>
         <th>index</th>
+        <th>id</th>
         <th>issue id</th>
         <th>issue</th>
         <th>creator id</th>
@@ -33,6 +34,7 @@ foreach ($contributors as $index => $contributor) {
       <?php foreach ($contributors as $index => $contributor) { ?>
         <tr>
           <td><?= $index + 1; ?></td>
+          <td><?= $contributor['id']; ?></td>
           <td><?= $contributor['issue_id']; ?></td>
           <td><?= $contributor['issue']; ?></td>
           <td><?= $contributor['creator_id']; ?></td>
