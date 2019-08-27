@@ -20,17 +20,12 @@ $showGreg        = is_null($showGreg)        ? false : $showGreg;
     <a href="/illustration/posters/img/greg/shining.jpg" target="_blank" class="bsBorder mr5 mb5">
         <img src="/illustration/posters/thumbs/greg/shining.jpg" alt="shining"/>
     </a>
-<?php } ?>
-<?php if ($showGreg) { ?>
     <a href="/illustration/posters/img/greg/fifth-element.jpg" target="_blank" class="bsBorder mr5 mb5">
         <img src="/illustration/posters/thumbs/greg/fifth-element.jpg" alt="fifth element"/>
     </a>
-<?php } ?>
-<?php if ($showGreg) { ?>
     <a href="/illustration/posters/img/greg/return-of-the-living-dead.jpg" target="_blank" class="bsBorder mr5 mb5">
         <img src="/illustration/posters/thumbs/greg/return-of-the-living-dead.jpg" alt="return of the living dead"/>
-    </a><?php } ?>
-<?php if ($showGreg) { ?>
+    </a>
     <a href="/illustration/posters/img/greg/halloween.jpg" target="_blank" class="bsBorder mr5 mb5">
         <img src="/illustration/posters/thumbs/greg/halloween.jpg" alt="halloween"/>
     </a>
@@ -150,4 +145,7 @@ $showGreg        = is_null($showGreg)        ? false : $showGreg;
 </a>
 <a href="/illustration/posters/img/flickit-fridays.jpg" target="_blank" class="bsBorder mr5 mb5">
     <img src="/illustration/posters/thumbs/flickit-fridays.jpg" alt="flickit! fridays"/>
+</a>
+<a href="/illustration/posters/img/buckaroo-banzai.jpg" target="_blank" class="bsBorder mr5 mb5">
+    <img src="/illustration/posters/thumbs/buckaroo-banzai.jpg" alt="buckaroo banzai"/>
 </a>

@@ -28,3 +28,9 @@
 <a href="/illustration/img/noice.jpg" target="_blank" class="bsBorder mr5 mb5">
     <img src="/illustration/thumbs/noice.jpg" alt="noice"/>
 </a>
+<a href="/illustration/img/lava-presents.jpg" target="_blank" class="bsBorder mr5 mb5">
+    <img src="/illustration/thumbs/lava-presents.jpg" alt="lava presents"/>
+</a>
+<a href="/illustration/img/arbor-day.jpg" target="_blank" class="bsBorder mr5 mb5">
+    <img src="/illustration/thumbs/arbor-day.jpg" alt="arbor day"/>
+</a>
