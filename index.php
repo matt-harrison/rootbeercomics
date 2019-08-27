@@ -25,6 +25,12 @@
 	</div>
 </div>
 <div class="mb50">
+	<img src="/images/nav/scribble/commissions.png" class="mb10"/>
+	<div class="flex wrap">
+		<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/commissions.php'); ?>
+	</div>
+</div>
+<div class="mb50">
 	<img src="/images/nav/scribble/published.png" class="mb10"/>
 	<div class="flex wrap">
 		<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/whurk.php'); ?>
