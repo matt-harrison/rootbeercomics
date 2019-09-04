@@ -1,70 +1,70 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>spriteboard JS</title>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript" src="js/vars.js"></script>
-		<script type="text/javascript" src="js/spriteboard.js"></script>
-		<link type="text/css" href="css/spriteboard.css" rel="stylesheet"/>
-		<meta name="viewport" content="width=380, scale=1, user-scalable=0"/>
-	</head>
-	<body class="m10">
-		<div id="game" class="mAuto mb10 bdrBlack rel">
-			<div id="stage" class="abs hide">
-				<div id="bg" class="abs">
-					<div id="bg1" class="pavement abs"></div>
-					<div id="bg2" class="pavement abs"></div>
-				</div>
-				<div id="obstacles" class="abs"></div>
-				<div id="hud" class="abs bdrBox p5 w360"></div>
-				<div id="board" class="red abs"></div>
-				<div id="player" class="matt abs"></div>
-			</div>
-			<div id="loading" class="abs bdrBox p5 w360 txtC">
-				<h1>LOADING...</h1>
-				<h2 id="percentage">0%</h2>
-			</div>
-			<div id="title" class="abs bdrBox p5 w360 txtC hide">
-				<h1 class="mt10">SPRITEBOARD</h1>
-				<h2 class="mb10">by matt!</h2>
-				<div class="mAuto buttons">
-					<div type="button" id="btnPlay" class="mAuto mb10 txtC button">Play</div>
-					<div type="button" id="btnOptions" class="mAuto mb10 txtC button">Options</div>
-					<div type="button" id="btnTutorial" class="mAuto mb10 txtC button">Tutorial</div>
-				</div>
-			</div>
-			<div id="options" class="abs bdrBox p5 w360 txtC hide">
-				<h1 class="mt10">OPTIONS</h1>
-				<div class="mAuto buttons">
-					<div type="button" id="btnCharacterSelect" class="mAuto mb10 txtC button">Character Select</div>
-					<div type="button" id="btnLevelSelect" class="mAuto mb10 txtC button">Level Select</div>
-					<div type="button" id="btnStance" class="mAuto mb10 txtC button">Change Stance</div>
-					<div type="button" id="btnMainMenu" class="mAuto mb10 txtC button">Main Menu</div>
-				</div>
-			</div>
-			<div id="characterSelect" class="abs bdrBox p5 w360 txtC hide">
-				<h1 class="mt10">CHARACTER SELECT</h1>
-				<div class="mAuto buttons">
-					<div type="button" id="btnCharacterMatt" 	data-buttonset="character" class="mAuto mb10 txtC button selected">Matt</div>
-					<div type="button" id="btnCharacterLaura" 	data-buttonset="character" class="mAuto mb10 txtC button">Laura</div>
-					<!--
-					-->
-					<div type="button" id="btnCharacterMarty" data-buttonset="character" class="mAuto mb10 txtC button">Marty</div>
-					<div type="button" id="btnCharacterBart" data-buttonset="character" class="mAuto mb10 txtC button">Bart</div>
-					<div type="button" id="btnBackToOptions" class="mAuto mb10 txtC button">Back to Options</div>
-				</div>
-			</div>
-			<div id="levelSelect" class="abs bdrBox p5 w360 txtC hide">
-				<h1 class="mt10">LEVEL SELECT</h1>
-				<div class="mAuto buttons">
-					<div type="button" id="btnParkingLot" 	data-buttonset="level" 	data-level="parkingLot" class="mAuto mb10 txtC button selected">Parking Lot</div>
-					<div type="button" id="btnGaps" 		data-buttonset="level" 	data-level="gaps" 		class="mAuto mb10 txtC button">Gaps</div>
-					<div type="button" id="btnInterstate" 	data-buttonset="level" 	data-level="interstate" class="mAuto mb10 txtC button">Interstate</div>
-					<div type="button" id="btnBackToOptions" class="mAuto mb10 txtC button">Back to Options</div>
-				</div>
-			</div>
-		</div>
-		<div id="debug" class="mAuto bdrBox bdrBlack p5 hide"></div>
-	</body>
+<html lang="en">
+  <head>
+    <link type="text/css" href="css/spriteboard.css" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=380, scale=1, user-scalable=0"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/vars.js"></script>
+    <script src="js/spriteboard.js"></script>
+    <title>spriteboard JS</title>
+  </head>
+  <body class="m10">
+    <div id="game" class="mAuto mb10 bdrBlack rel">
+      <div id="stage" class="abs hide">
+        <div id="bg" class="abs">
+          <div id="bg1" class="pavement abs"></div>
+          <div id="bg2" class="pavement abs"></div>
+        </div>
+        <div id="obstacles" class="abs"></div>
+        <div id="hud" class="abs bdrBox p5 w360"></div>
+        <div id="board" class="red abs"></div>
+        <div id="player" class="matt abs"></div>
+      </div>
+      <div id="loading" class="abs bdrBox p5 w360 txtC">
+        <h1>LOADING...</h1>
+        <h2 id="percentage">0%</h2>
+      </div>
+      <div id="title" class="abs bdrBox p5 w360 txtC hide">
+        <h1 class="mt10">SPRITEBOARD</h1>
+        <h2 class="mb10">by matt!</h2>
+        <div class="mAuto buttons">
+          <div id="btnPlay" class="mAuto mb10 txtC button">Play</div>
+          <div id="btnOptions" class="mAuto mb10 txtC button">Options</div>
+          <div id="btnTutorial" class="mAuto mb10 txtC button">Tutorial</div>
+        </div>
+      </div>
+      <div id="options" class="abs bdrBox p5 w360 txtC hide">
+        <h1 class="mt10">OPTIONS</h1>
+        <div class="mAuto buttons">
+          <div id="btnCharacterSelect" class="mAuto mb10 txtC button">Character Select</div>
+          <div id="btnLevelSelect" class="mAuto mb10 txtC button">Level Select</div>
+          <div id="btnStance" class="mAuto mb10 txtC button">Change Stance</div>
+          <div id="btnMainMenu" class="mAuto mb10 txtC button">Main Menu</div>
+        </div>
+      </div>
+      <div id="characterSelect" class="abs bdrBox p5 w360 txtC hide">
+        <h1 class="mt10">CHARACTER SELECT</h1>
+        <div class="mAuto buttons">
+          <div id="btnCharacterMatt"  data-buttonset="character" class="mAuto mb10 txtC button selected">Matt</div>
+          <div id="btnCharacterLaura"   data-buttonset="character" class="mAuto mb10 txtC button">Laura</div>
+          <!--
+          -->
+          <div id="btnCharacterMarty" data-buttonset="character" class="mAuto mb10 txtC button">Marty</div>
+          <div id="btnCharacterBart" data-buttonset="character" class="mAuto mb10 txtC button">Bart</div>
+          <div id="btnBackToOptions" class="mAuto mb10 txtC button">Back to Options</div>
+        </div>
+      </div>
+      <div id="levelSelect" class="abs bdrBox p5 w360 txtC hide">
+        <h1 class="mt10">LEVEL SELECT</h1>
+        <div class="mAuto buttons">
+          <div id="btnParkingLot"   data-buttonset="level"  data-level="parkingLot" class="mAuto mb10 txtC button selected">Parking Lot</div>
+          <div id="btnGaps"     data-buttonset="level"  data-level="gaps"     class="mAuto mb10 txtC button">Gaps</div>
+          <div id="btnInterstate"   data-buttonset="level"  data-level="interstate" class="mAuto mb10 txtC button">Interstate</div>
+          <div id="btnBackToOptions" class="mAuto mb10 txtC button">Back to Options</div>
+        </div>
+      </div>
+    </div>
+    <div id="debug" class="mAuto bdrBox bdrBlack p5 hide"></div>
+  </body>
 </html>

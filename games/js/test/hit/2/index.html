@@ -1,152 +1,153 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>D-pad mouseclick</title>
-        <script>
-			window.onload = function(){
-				if(document.getElementById("canvas").getContext){
-					context = document.getElementById("canvas").getContext("2d");
-					
-					controls = {
-						x:25,
-						y:25,
-						width:200,
-						height:200,
-						draw:function(){
-							btnLeft.draw();
-							btnRight.draw();
-						}
-					}
-					
-					btnLeft = {
-						x:controls.x,
-						y:controls.y,
-						width:controls.width/2,
-						height:controls.height,
-						fill:"#ddd",
-						clicked:false,
-						draw:function(){
-							context.beginPath();
-							if(this.clicked){
-								context.fillStyle = "#aaa";
-							}else{
-								context.fillStyle = this.fill;
-							}
-							context.moveTo(this.x,this.y);
-							context.lineTo(this.x+this.width,this.y+this.height/2);
-							context.lineTo(this.x,this.y+this.height);
-							context.fill();
-						}
-					}
-					
-					btnRight = {
-						x:controls.x+controls.width/2,
-						y:controls.y,
-						width:controls.width/2,
-						height:controls.height,
-						fill:"#eee",
-						clicked:false,
-						draw:function(){
-							context.beginPath();
-							if(this.clicked){
-								context.fillStyle = "#aaa";
-							}else{
-								context.fillStyle = this.fill;
-							}
-							context.moveTo(this.x+this.width,this.y);
-							context.lineTo(this.x,this.y+this.height/2);
-							context.lineTo(this.x+this.width,this.y+this.height);
-							context.fill();
-						}
-					}
-					
-					dot = {
-						x:0,
-						y:0,
-						radius:2,
-						color:"#000",
-						draw:function(){
-							context.beginPath();
-							context.fillStyle = this.color;
-							context.arc(this.x, this.y, this.radius, 0, (Math.PI/180)*360, false); 
-							context.fill();
-						}
-					}
-					
-					diagram = {
-						x:0,
-						y:0,
-						width:0,
-						height:0,
-						draw:function(){
-							context.beginPath();
-							context.strokeStyle = "#0f0";
-							context.moveTo(this.x,this.y);
-							context.lineTo(this.x,this.y+this.height);
-							context.lineTo(this.x+this.width,this.y+this.height);
-							context.closePath();
-							context.stroke();
-						}
-					}
-					
-					canvas.addEventListener("mousedown", function(e){
-						context.clearRect(0,0,400,400);
-						controls.draw();
-						var hit = false;
-						for(var i=0;i<btnArr.length;i++){
-							var triangle = btnArr[i];
-							dot.x = e.clientX;
-							dot.y = e.clientY;
-							if(triangle.width > triangle.height){
-								//up or down button
-							}else{
-								//left or right button
-							}
-							if(dot.y<=controls.y+controls.height/2){
-								diagram.x = triangle.x;
-								diagram.y = triangle.y;
-								diagram.height = dot.y-triangle.y;
-								diagram.width = diagram.height;
-							}else{
-								diagram.x = triangle.x;
-								diagram.y = triangle.y+triangle.height;
-								diagram.height = dot.y-triangle.y-triangle.height;
-								diagram.width = Math.abs(diagram.height);
-							}
-							if(triangle.x == controls.x+controls.width/2){
-								diagram.x = triangle.x+triangle.width;
-								diagram.dot_depth = controls.y+controls.width-dot.x;
-								diagram.depth = triangle.x+triangle.width-diagram.width;
-							}else{
-								diagram.dot_depth = dot.x-controls.x;
-								diagram.depth = diagram.width;
-							}
-							if(dot.x<triangle.x || dot.x>triangle.x+triangle.width || dot.y<triangle.y || dot.y>triangle.y+triangle.height || diagram.dot_depth>diagram.width){
-								triangle.clicked = false;
-								triangle.draw();
-							}else{
-								triangle.clicked = true;
-								triangle.draw();
-								hit = true;
-							}
-							diagram.draw();
-						}
-						if(hit == true){
-							dot.color = "#00f";
-						}else{
-							dot.color = "#f00";
-						}
-						dot.draw();
-					});
-					
-					//init
-					btnArr = new Array(btnLeft,btnRight);
-					controls.draw();
-				}
-			}
-		</script>
-    </head>
-    <body style="margin:0;">
-    	<canvas id="canvas" width="400" height="400"></canvas>
-    </body>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script>
+      window.onload = function(){
+        if(document.getElementById("canvas").getContext){
+          context = document.getElementById("canvas").getContext("2d");
+
+          controls = {
+          x:25,
+          y:25,
+          width:200,
+          height:200,
+          draw:function(){
+            btnLeft.draw();
+            btnRight.draw();
+          }
+          }
+
+          btnLeft = {
+          x:controls.x,
+          y:controls.y,
+          width:controls.width/2,
+          height:controls.height,
+          fill:"#ddd",
+          clicked:false,
+          draw:function(){
+            context.beginPath();
+            if(this.clicked){
+            context.fillStyle = "#aaa";
+            }else{
+            context.fillStyle = this.fill;
+            }
+            context.moveTo(this.x,this.y);
+            context.lineTo(this.x+this.width,this.y+this.height/2);
+            context.lineTo(this.x,this.y+this.height);
+            context.fill();
+          }
+          }
+
+          btnRight = {
+          x:controls.x+controls.width/2,
+          y:controls.y,
+          width:controls.width/2,
+          height:controls.height,
+          fill:"#eee",
+          clicked:false,
+          draw:function(){
+            context.beginPath();
+            if(this.clicked){
+            context.fillStyle = "#aaa";
+            }else{
+            context.fillStyle = this.fill;
+            }
+            context.moveTo(this.x+this.width,this.y);
+            context.lineTo(this.x,this.y+this.height/2);
+            context.lineTo(this.x+this.width,this.y+this.height);
+            context.fill();
+          }
+          }
+
+          dot = {
+          x:0,
+          y:0,
+          radius:2,
+          color:"#000",
+          draw:function(){
+            context.beginPath();
+            context.fillStyle = this.color;
+            context.arc(this.x, this.y, this.radius, 0, (Math.PI/180)*360, false);
+            context.fill();
+          }
+          }
+
+          diagram = {
+          x:0,
+          y:0,
+          width:0,
+          height:0,
+          draw:function(){
+            context.beginPath();
+            context.strokeStyle = "#0f0";
+            context.moveTo(this.x,this.y);
+            context.lineTo(this.x,this.y+this.height);
+            context.lineTo(this.x+this.width,this.y+this.height);
+            context.closePath();
+            context.stroke();
+          }
+          }
+
+          canvas.addEventListener("mousedown", function(e){
+          context.clearRect(0,0,400,400);
+          controls.draw();
+          var hit = false;
+          for(var i=0;i<btnArr.length;i++){
+            var triangle = btnArr[i];
+            dot.x = e.clientX;
+            dot.y = e.clientY;
+            if(triangle.width > triangle.height){
+            //up or down button
+            }else{
+            //left or right button
+            }
+            if(dot.y<=controls.y+controls.height/2){
+            diagram.x = triangle.x;
+            diagram.y = triangle.y;
+            diagram.height = dot.y-triangle.y;
+            diagram.width = diagram.height;
+            }else{
+            diagram.x = triangle.x;
+            diagram.y = triangle.y+triangle.height;
+            diagram.height = dot.y-triangle.y-triangle.height;
+            diagram.width = Math.abs(diagram.height);
+            }
+            if(triangle.x == controls.x+controls.width/2){
+            diagram.x = triangle.x+triangle.width;
+            diagram.dot_depth = controls.y+controls.width-dot.x;
+            diagram.depth = triangle.x+triangle.width-diagram.width;
+            }else{
+            diagram.dot_depth = dot.x-controls.x;
+            diagram.depth = diagram.width;
+            }
+            if(dot.x<triangle.x || dot.x>triangle.x+triangle.width || dot.y<triangle.y || dot.y>triangle.y+triangle.height || diagram.dot_depth>diagram.width){
+            triangle.clicked = false;
+            triangle.draw();
+            }else{
+            triangle.clicked = true;
+            triangle.draw();
+            hit = true;
+            }
+            diagram.draw();
+          }
+          if(hit == true){
+            dot.color = "#00f";
+          }else{
+            dot.color = "#f00";
+          }
+          dot.draw();
+          });
+
+          //init
+          btnArr = new Array(btnLeft,btnRight);
+          controls.draw();
+        }
+      }
+    </script>
+    <title>D-pad mouseclick</title>
+  </head>
+  <body style="margin:0;">
+    <canvas id="canvas" width="400" height="400"></canvas>
+  </body>
 </html>

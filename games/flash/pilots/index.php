@@ -1,16 +1,16 @@
 <?php
 $title = '';
-$desc = 'a flash-based prototype for a game based on the arcade classic "Asteroids," by matt harrison.';
+$desc  = 'a flash-based prototype for a game based on the arcade classic "Asteroids," by matt harrison.';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <?php
-$iPod = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
+$iPod   = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
 $iPhone = stripos($_SERVER['HTTP_USER_AGENT'], 'iPhone');
-$iPad = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
-$webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
+$iPad   = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
+$webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 ?>
 <?php if($iPod || $iPhone || $iPad || $webOS){ ?>
-	<div id="flash" class="mAuto mb5 bdrLtBrown bdrRound p10 w800 txtC">
+	<div id="flash" class="mAuto mb5 p10 w800 txtC">
 		<p class="fs48">flash is not available on this device.</p>
 		<p class="fs48">go sit at a computer.</p>
 		<p class="fs48">it's worth it.</p>
@@ -25,7 +25,7 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<embed src="pilots5.swf" quality="high" width="500" height="450" name="pilots5" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 		</object>
 	</div>
-	<div class="mAuto mb5 bdrLtBrown bdrRound p10 w1000 bdrBox bgWhite">
+	<div class="mAuto mb5 p10 w1000 bdrBox bgWhite">
 		<div class="line mb20">
 			<div class="unit size1of3">
 				<p class="mb5">in ship:</p>
@@ -53,5 +53,5 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 		</div>
 		<p class="mb5">objective: fly around, kill bad guys, goof off.</p>
 	</div>
-<?php } ?> 
+<?php } ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

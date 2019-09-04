@@ -1,6 +1,6 @@
 <?php
 $title = 'slider puzzle';
-$desc = 'a flash-based recreation of the classic sliding puzzle toy, by matt harrison.';
+$desc  = 'a flash-based recreation of the classic sliding puzzle toy, by matt harrison.';
 
 if($_GET['pic'] != NULL){
 	$vars = 'pic=' . $_GET['pic'];
@@ -10,13 +10,13 @@ if($_GET['pic'] != NULL){
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <?php
-$iPod = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
+$iPod   = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
 $iPhone = stripos($_SERVER['HTTP_USER_AGENT'], 'iPhone');
-$iPad = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
-$webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
+$iPad   = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
+$webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 ?>
 <?php if($iPod || $iPhone || $iPad || $webOS){ ?>
-	<div id="flash" class="mAuto mb5 bdrLtBrown bdrRound p10 w800 txtC">
+	<div id="flash" class="mAuto mb5 p10 w800 txtC">
 		<p class="fs48">flash is not available on this device.</p>
 		<p class="fs48">go sit at a computer.</p>
 		<p class="fs48">it's worth it.</p>
@@ -32,7 +32,7 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<embed src="slider.swf" quality="high" width="200" height="200" flashvars="<?= $vars; ?>" name="slider" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
-	<div class="mAuto mb5 bdrLtBrown bdrRound p10 w500 bgWhite controls">
+	<div class="mAuto mb5 p10 w500 bgWhite controls">
 		<p class="mb5">1. click a tile to slide it into the unoccupied space.</p>
 		<p class="mb5">2. click and hold the unoccupied space to preview the solution.</p>
 		<p class="mb5">3. customize the puzzle by posting a photo URL below.</p>
@@ -43,5 +43,5 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<input type="submit" value="Submit" class="unit w100;"/>
 		</form>
 	</div>
-<?php } ?> 
+<?php } ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

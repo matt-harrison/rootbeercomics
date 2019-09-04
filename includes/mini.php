@@ -16,7 +16,7 @@ $title      = (strpos($title, 'by')) ? $title : $title . ', by matt!';
 		<link type="text/css" href="/assets/css/library.css" rel="stylesheet"/>
 		<link type="image/x-icon" href="/images/icons/r.ico" rel="icon"/>
 		<link type="application/rss+xml" href="/scripts/feed.php" rel="alternate"/>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	</head>
 	<body class="m5 bgGrayDark">
 		<?php if (!empty($purchaseUrl)) { ?>

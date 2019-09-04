@@ -5,10 +5,10 @@ $response = getFormats();
 $formats  = $response['results'];
 ?>
 <!doctype html>
-<html>
-  <head profile="http://www.w3.org/2005/10/profile">
-    <title>formats view</title>
+<html lang="en">
+  <head>
     <link href="/assets/css/table.css" rel="stylesheet" type="text/css">
+    <title>formats view</title>
   </head>
   <body class="m5">
     <table>

@@ -1,6 +1,6 @@
 <?php
 $title = 'minesweeper';
-$desc = 'a flash-based rebuild of the classic computer game, "Minesweeper." developed by matt harrison.';
+$desc  = 'a flash-based rebuild of the classic computer game, "Minesweeper." developed by matt harrison.';
 
 if($_GET['b'] != NULL){
 	$b = $_GET['b'];
@@ -10,13 +10,13 @@ if($_GET['b'] != NULL){
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <?php
-$iPod = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
+$iPod   = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
 $iPhone = stripos($_SERVER['HTTP_USER_AGENT'], 'iPhone');
-$iPad = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
-$webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
+$iPad   = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
+$webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 ?>
 <?php if($iPod || $iPhone || $iPad || $webOS){ ?>
-	<div id="flash" class="mAuto mb5 bdrLtBrown bdrRound p10 w800 txtC">
+	<div id="flash" class="mAuto mb5 p10 w800 txtC">
 		<p class="fs48">flash is not available on this device.</p>
 		<p class="fs48">go sit at a computer.</p>
 		<p class="fs48">it's worth it.</p>
@@ -32,11 +32,11 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<embed src="mineplay.swf?bombCount=<?= $b; ?>" quality="high" bgcolor="#ffffff" width="321" height="321" name="mineplay" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
-	<div class="mAuto mb5 bdrLtBrown bdrRound p10 w500 bgWhite controls">
+	<div class="mAuto mb5 p10 w500 bgWhite controls">
 		<p class="mb5">click to reveal box</p>
 		<p class="mb5">SPACE + click to flag</p>
 		<p class="mb20">ENTER to generate new game</p>
 		<p class="mb0">objective: you've never played minesweeper before?</p>
 	</div>
-<?php } ?> 
+<?php } ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

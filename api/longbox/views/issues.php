@@ -4,10 +4,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 $issues = getIssuesWithContributors()['issues']['results'];
 ?>
 <!doctype html>
-<html>
-  <head profile="http://www.w3.org/2005/10/profile">
-    <title>issues view</title>
+<html lang="en">
+  <head>
     <link href="/assets/css/table.css" rel="stylesheet" type="text/css">
+    <title>issues view</title>
   </head>
   <body class="m5">
     <table>

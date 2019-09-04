@@ -75,10 +75,7 @@ label, input {display: block;}
     .bdrGray {border: 1px solid #666;}
     .dotted {border: 1px dashed #CCC;}
     .private {border: 2px dashed #666;}
-    .bdrLtBrown {border: 1px solid #d37b1b;}
     .bdrBlack {border: 1px solid #000;}
-
-    .bdrRound {border-radius: 8px;}
 
     .bdrCollapse {border-collapse: collapse;}
 

@@ -67,7 +67,7 @@
         </form>
     </div>
 </div>
-<script type="text/javascript">
+<script  >
     $('#type').change(function() {
         if ($('#type').val() == 'drawings') {
             $('#drawings').removeClass('hide');

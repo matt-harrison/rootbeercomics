@@ -10,7 +10,7 @@ $iPad = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
 $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 ?>
 <?php if($iPod || $iPhone || $iPad || $webOS){ ?>
-	<div id="flash" class="mAuto mb5 bdrLtBrown bdrRound p10 w800 txtC">
+	<div id="flash" class="mAuto mb5 p10 w800 txtC">
 		<p class="fs48">flash is not available on this device.</p>
 		<p class="fs48">go sit at a computer.</p>
 		<p class="fs48">it's worth it.</p>
@@ -26,7 +26,7 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<embed src="berrics.swf" quality="high" bgcolor="#ffffff" width="580" height="500" name="berrics" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 		</object>
 	</div>
-	<div class="mAuto mb5 bdrLtBrown bdrRound p10 w500 bgWhite">
+	<div class="mAuto mb5 p10 w500 bgWhite">
 		<p class="mb5">use left/right arrows on the ground to change direction or gain speed</p>
 		<p class="mb5">hold spacebar to charge ollie, release to snap</p>
 		<p class="mb5">use up/down arrows in the air to do fliptricks</p>
@@ -34,5 +34,5 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 		<p class="mb5">more fliptricks and grinds described in "controls" menu</p>
 		<p class="mb0">objective: just skate.</p>
 	</div>
-<?php } ?> 
+<?php } ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

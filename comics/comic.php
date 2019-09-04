@@ -74,5 +74,5 @@ $hasMultiple = (count($images) > 1);
 	</div>
 <?php } ?>
 <?php if ($hasMultiple) { ?>
-	<script type="text/javascript" src="/assets/js/multiple.js"></script>
+	<script src="/assets/js/multiple.js"></script>
 <?php } ?>

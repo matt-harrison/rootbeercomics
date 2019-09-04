@@ -1,16 +1,16 @@
 <?php
 $title = 'snake(s)';
-$desc = 'a flash-based rebuild of the classic mobile game "Snake," by matt harrison.';
+$desc  = 'a flash-based rebuild of the classic mobile game "Snake," by matt harrison.';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <?php
-$iPod = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
+$iPod   = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
 $iPhone = stripos($_SERVER['HTTP_USER_AGENT'], 'iPhone');
-$iPad = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
-$webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
+$iPad   = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
+$webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 ?>
 <?php if($iPod || $iPhone || $iPad || $webOS){ ?>
-	<div id="flash" class="mAuto mb5 bdrLtBrown bdrRound p10 w800 txtC">
+	<div id="flash" class="mAuto mb5 p10 w800 txtC">
 		<p class="fs48">flash is not available on this device.</p>
 		<p class="fs48">go sit at a computer.</p>
 		<p class="fs48">it's worth it.</p>
@@ -27,5 +27,5 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<embed src="snakes.swf" quality="high" scale="noscale" salign="lt" width="320" height="260" name="snakes" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
-<?php } ?> 
+<?php } ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

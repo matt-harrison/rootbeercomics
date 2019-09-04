@@ -1,16 +1,16 @@
 <?php
 $title = 'fort fisher';
-$desc = 'a flash game by matt harrison, based on the famous civil war battle in wilmington, NC.';
+$desc  = 'a flash game by matt harrison, based on the famous civil war battle in wilmington, NC.';
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <?php
-$iPod = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
+$iPod   = stripos($_SERVER['HTTP_USER_AGENT'], 'iPod');
 $iPhone = stripos($_SERVER['HTTP_USER_AGENT'], 'iPhone');
-$iPad = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
-$webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
+$iPad   = stripos($_SERVER['HTTP_USER_AGENT'] , 'iPad');
+$webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 ?>
 <?php if($iPod || $iPhone || $iPad || $webOS){ ?>
-	<div id="flash" class="mAuto mb5 bdrLtBrown bdrRound p10 w800 txtC">
+	<div id="flash" class="mAuto mb5 p10 w800 txtC">
 		<p class="fs48">flash is not available on this device.</p>
 		<p class="fs48">go sit at a computer.</p>
 		<p class="fs48">it's worth it.</p>
@@ -26,7 +26,7 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<embed src="fish.swf" quality="high" bgcolor="#0000ff" width="800" height="600" name="fish" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
-	<div class="mAuto mb5 bdrLtBrown bdrRound p10 w500 bgWhite">
+	<div class="mAuto mb5 p10 w500 bgWhite">
 		<p class="mb5">enter: quickstart/pause</p>
 		<p class="mb5">arrow keys: move soldier</p>
 		<p class="mb20">spacebar: shoot</p>
@@ -35,5 +35,5 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 		<p class="mb20">enemy flow increases with each kill.</p>
 		<p class="mb0">objective: defend hill by killing enemies.</p>
 	</div>
-<?php } ?> 
+<?php } ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

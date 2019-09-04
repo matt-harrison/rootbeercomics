@@ -29,6 +29,6 @@
   </div>
 <?php } ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script type="text/javascript" src="/assets/js/error-handling.js"></script>
-<script type="text/javascript" src="/assets/js/login/index.js"></script>
+<script src="/assets/js/error-handling.js"></script>
+<script src="/assets/js/login/index.js"></script>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

@@ -14,10 +14,10 @@ foreach ($contributors as $index => $contributor) {
 }
 ?>
 <!doctype html>
-<html>
-  <head profile="http://www.w3.org/2005/10/profile">
-    <title>contributors view</title>
+<html lang="en">
+  <head>
     <link href="/assets/css/table.css" rel="stylesheet" type="text/css">
+    <title>contributors view</title>
   </head>
   <body class="m5">
     <table>
