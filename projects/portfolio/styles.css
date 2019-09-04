@@ -3,42 +3,42 @@
 .spaceBetween {justify-content: space-between;}
 
 body {
-    background-color: gray;
-    font: 14px courier new;
-    line-height: 1.5;
+  background-color: gray;
+  font: 14px courier new;
+  line-height: 1.5;
 }
 body, div, h1, h2, h3, img, ul, li {
-    margin: 0;
-    border: 0;
-    padding: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 h1 {font-size: 24px;}
 h2 {font-size: 18px;}
 hr {
-    margin: 50px 0;
-    border: 0;
-    height: 1px;
-    background-color: #000000;
+  margin: 50px 0;
+  border: 0;
+  height: 1px;
+  background-color: #000000;
 }
 img {
-    display: block;
+  display: block;
 }
 li {list-style-type: none;}
 p {margin: 0 0 10px 0;}
 a:link, a:visited, a:hover {
-    color: #0000FF;
-    text-decoration: none;
+  color: #0000FF;
+  text-decoration: none;
 }
 
 .dBlock {display: block;}
 
 .auto {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.mt5  {margin-top:     5px;}
-.mt10 {margin-top:    10px;}
+.mt5  {margin-top:   5px;}
+.mt10 {margin-top:  10px;}
 .mr10 {margin-right:  10px;}
 .mb0  {margin-bottom:  0px;}
 .mb5  {margin-bottom:  5px;}
@@ -52,8 +52,8 @@ a:link, a:visited, a:hover {
 
 .bdrBlack {border: 1px solid black;}
 
-.p5   {padding:        5px;}
-.p10  {padding:       10px;}
+.p5   {padding:    5px;}
+.p10  {padding:     10px;}
 .pr50 {padding-right: 50px;}
 .pl50 {padding-left:  50px;}
 
@@ -83,9 +83,9 @@ a:link, a:visited, a:hover {
 .txtR {text-align:  right;}
 
 #page {
-    /* Mimics the 8.5 x 11 typewriter page */
-    padding: 50px 100px 25px;
-    width: 800px;
+  /* Mimics the 8.5 x 11 typewriter page */
+  padding: 50px 100px 25px;
+  width: 800px;
 }
 
 #header {line-height: 50px;}
@@ -93,5 +93,5 @@ a:link, a:visited, a:hover {
 #content {min-height: 500px;}
 
 #story, #about {
-    padding: 0 50px;
+  padding: 0 50px;
 }

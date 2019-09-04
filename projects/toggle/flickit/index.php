@@ -7,5 +7,4 @@ $images = array(
   '/projects/toggle/flickit/img/2.jpg',
 );
 
-
 include($_SERVER['DOCUMENT_ROOT'] . '/projects/toggle/index.php');
