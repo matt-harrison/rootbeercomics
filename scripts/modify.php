@@ -8,13 +8,13 @@ $query = "SELECT * FROM $table ORDER BY date ASC";
 $rows  = select($query);
 
 foreach ($rows as $row) {
-	$id = $row['id'];
+  $id = $row['id'];
 
-	if ($id > 65) {
-		$query    = "UPDATE $table SET id = '$index' WHERE id = '$id'";
-		// $response = execute($query);
+  if ($id > 65) {
+    $query    = "UPDATE $table SET id = '$index' WHERE id = '$id'";
+    // $response = execute($query);
 
-		echo $id . ': ' . $query . '<br/>';
-		$index++;
-	}
+    echo $id . ': ' . $query . '<br/>';
+    $index++;
+  }
 }
