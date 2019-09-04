@@ -19,6 +19,12 @@
 	</div>
 </div>
 <div class="mb50">
+	<img src="/images/nav/scribble/zines.png" class="mb10"/>
+	<div class="flex wrap">
+		<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/zines.php'); ?>
+	</div>
+</div>
+<div class="mb50">
 	<img src="/images/nav/scribble/posters.png" class="mb10"/>
 	<div class="flex wrap">
 		<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/posters.php'); ?>
