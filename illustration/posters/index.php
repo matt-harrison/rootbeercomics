@@ -1,6 +1,7 @@
 <?php
-$showCommissions = false;
-$showGreg        = true;
+$showCommissions = true;
+$showGreg        = false;
+$showMatt        = true;
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div>
