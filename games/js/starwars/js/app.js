@@ -1279,7 +1279,7 @@ rock = {
 
 gunganBall = {
 	'name': 'gunganBall',
-	'width': 36 * magnification,
+	'width': 30 * magnification,
 	'height': 6 * magnification,
 	'frameWidth': 6 * magnification,
 	'frameHeight': 6 * magnification,
@@ -4006,8 +4006,6 @@ function loop(){
 					}
 					friendlies[friendly].kill();
 				}
-				friendlies[friendly].update();
-				friendlies[friendly].draw();
 			}
 			friendlies[friendly].update();
 			friendlies[friendly].draw();
