@@ -1,3 +1,6 @@
+<a href="/minicomics/drama" class="bsBorder mr5 mb5">
+    <img src="/minicomics/thumbs/drama.jpg" alt="drama"/>
+</a>
 <a href="/minicomics/mortal-combat" class="bsBorder mr5 mb5">
     <img src="/minicomics/thumbs/mortal-combat.jpg" alt="mortal combat"/>
 </a>

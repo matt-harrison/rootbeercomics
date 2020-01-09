@@ -4,6 +4,9 @@ $showGreg        = is_null($showGreg)        ? false : $showGreg;
 $showMatt        = is_null($showMatt)        ? true  : $showMatt;
 ?>
 <?php if ($showMatt) { ?>
+  <a href="/illustration/posters/img/love-actually.jpg" target="_blank" class="bsBorder mr5 mb5">
+    <img src="/illustration/posters/thumbs/love-actually.jpg" alt="love actually"/>
+  </a>
   <a href="/illustration/posters/img/american-werewolf.jpg" target="_blank" class="bsBorder mr5 mb5">
     <img src="/illustration/posters/thumbs/american-werewolf.jpg" alt="an american werewolf in london"/>
   </a>
