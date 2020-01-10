@@ -11,7 +11,7 @@ if (!empty($row['original'])) {
 
 $hasMultiple = (count($images) > 1);
 ?>
-<div class="mAuto <?= ($records == 1) ? 'mb10' : 'mb100'; ?>">
+<div class="mAuto mb10">
 	<?php foreach ($images as $key => $image) { ?>
 		<img
 		src="<?= $image; ?>"
@@ -21,7 +21,7 @@ $hasMultiple = (count($images) > 1);
 		class="mAuto<?= ($hasMultiple) ? ' multiple csrPointer' : ''; ?><?= ($key > 0) ? ' hide' : ''; ?>"/>
 	<?php } ?>
 </div>
-<?php if ($user->isAdmin & $records == 1) { ?>
+<?php if ($user->isAdmin) { ?>
 	<div class="bsBorder mAuto mb5 p20 bgGray private">
 		<div class="flex">
 			<div class="mr10">

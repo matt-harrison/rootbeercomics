@@ -1,21 +1,13 @@
 <?php
-$images      = explode(',', $row['images']);
-$hasMultiple = (count($images > 1));
+$images = explode(',', $row['images']);
 ?>
-<div class="mAuto<?= ($records == 1) ? '' : ' mb100'; ?>">
+<div class="mAuto">
   <?php foreach ($images as $key => $image) { ?>
     <img
     alt="<?= $row['title']; ?>"
-    class="mAuto mb10<?= ($hasMultiple) ? ' multiple csrPointer' : ''; ?><?= ($key > 0) ? ' hide' : ''; ?>"
-    data-id="<?= $row['id']; ?>"
-    data-version="<?= $key; ?>"
+    class="mAuto mb10"
     src="<?= $image; ?>"
     />
-  <?php } ?>
-  <?php if ($records != 1) { ?>
-    <a href="/drawings/index.php?id=<?= $row['id']; ?>">
-      <img src="/images/nav/buttons/permalink.png" alt="permalink" class="opac50"/>
-    </a>
   <?php } ?>
 </div>
 <?php if ($user->isAdmin & $records == 1) { ?>
@@ -61,7 +53,4 @@ $hasMultiple = (count($images > 1));
       </form>
     </div>
   </div>
-<?php } ?>
-<?php if ($hasMultiple) { ?>
-  <script src="/assets/js/multiple.js"></script>
 <?php } ?>

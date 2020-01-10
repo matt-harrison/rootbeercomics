@@ -1,22 +1,25 @@
 <?php
-$table = 'jamcomics';
-$sort  = 'DESC';
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php');
+$meta = array(
+  'description' => 'view all comic posts.',
+  'image'       => null,
+  'title'       => 'jam comics archive'
+);
 
-$title   = 'jam comics archive';
-$desc    = 'view all jam comics.';
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+
+$rows = select("SELECT * FROM jamcomics ORDER BY id DESC");
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="flex wrap mb5">
-    <?php foreach ($archive as $record) { ?>
-        <?php
-        $title = $record['title'];
-        $title = str_replace("'", '\&apos;', $title);
-        $title = str_replace('"', "\&quot;", $title);
-        ?>
-        <a href="index.php?id=<?= $record['id']; ?>" class="mr1 mb1">
-            <img src="<?= $record['thumb']; ?>" alt="<?= $title; ?>"/>
-        </a>
-    <?php } ?>
+  <?php foreach ($rows as $row) { ?>
+    <?php
+    $title = $row['title'];
+    $title = str_replace("'", '\&apos;', $title);
+    $title = str_replace('"', "\&quot;", $title);
+    ?>
+    <a href="index.php?id=<?= $row['id']; ?>" class="mr1 mb1">
+      <img src="<?= $row['thumb']; ?>" alt="<?= $title; ?>"/>
+    </a>
+  <?php } ?>
 </div>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

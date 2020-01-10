@@ -1,30 +1,31 @@
 <?php
-$title    = 'the anarchynerd pixel art archive';
-$desc     = 'an archive of the defunct website anarchynerd, by matt harrison.';
-
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
-$page    = $_GET['id'] != NULL ? $_GET['id'] : 1;
-$zoom    = isset($_GET['zoom']) ? number_format($_GET['zoom']) : 8;
-$records = 1;
+$id   = $_GET['id'] != NULL ? $_GET['id'] : 1;
+$zoom = isset($_GET['zoom']) ? number_format($_GET['zoom']) : 8;
 
-$query   = "SELECT * FROM turnarounds WHERE id <= $page ORDER BY id DESC LIMIT 1";
-$record  = select($query, 'kittenb1_nerd')[0];
-$archive = select('SELECT * FROM turnarounds', 'kittenb1_nerd');
+$row      = select("SELECT * FROM turnarounds WHERE id = $id", 'kittenb1_nerd')[0];
+$rowCount = select("SELECT COUNT(id) AS rowCount FROM turnarounds", 'kittenb1_nerd')[0]['rowCount'];
+
+$meta = array(
+  'description' => null,
+  'image'       => $row['gif'],
+  'title'       => $row['title']
+);
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="mAuto w1000">
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'); ?>
   <div class="mb10 p20 bgWhite">
-    <div class="mAuto w800 noSelect">
+    <div class="mAuto noSelect">
       <div class="line mb10">
         <h2 class="unit mr5 mb0 bold">
-          <a href="index.php?id=<?= $record['uniqueID']; ?>"><?= $record['title']; ?></a>
+          <a href="index.php?id=<?= $row['uniqueID']; ?>"><?= $row['title']; ?></a>
         </h2>
         <p class="unitR">
-          <a href="index.php?id=<?= $page; ?>&zoom=1" class="mr5">small</a>
-          <a href="index.php?id=<?= $page; ?>&zoom=4" class="mr5">medium</a>
-          <a href="index.php?id=<?= $page; ?>&zoom=8">large</a>
+          <a href="index.php?id=<?= $id; ?>&zoom=1" class="mr5">small</a>
+          <a href="index.php?id=<?= $id; ?>&zoom=4" class="mr5">medium</a>
+          <a href="index.php?id=<?= $id; ?>&zoom=8">large</a>
         </p>
       </div>
       <div id="buttons" class="line mAuto mb5 bdrGray bgWhite txtC resize invisible">
@@ -36,16 +37,16 @@ $archive = select('SELECT * FROM turnarounds', 'kittenb1_nerd');
       </div>
       <div id="anim" data-zoom="<?= $zoom; ?>" class="mAuto mb5 dotted bgWhite resize anim invisible">
         <img
-        alt="<?= $record['title']; ?>"
-        data-framecount="<?= $record['frameCount']; ?>"
+        alt="<?= $row['title']; ?>"
+        data-framecount="<?= $row['frameCount']; ?>"
         id="sprite"
-        src="<?= $record['url']; ?>"
+        src="<?= $row['url']; ?>"
         />
       </div>
     </div>
   </div>
-  <?php if ($user->isAdmin & $records == 1) { ?>
-    <?php $title = $record['title']; ?>
+  <?php if ($user->isAdmin) { ?>
+    <?php $title = $row['title']; ?>
     <div class="mb5 p20 bgGray private">
       <div class="line">
         <div class="unit mr5 w100">
@@ -54,16 +55,16 @@ $archive = select('SELECT * FROM turnarounds', 'kittenb1_nerd');
           <p class="mb5 txtR label">gif:</p>
           <p class="mb5 txtR label">tags:</p>
           <p class="mb5 txtR label">caption:</p>
-          <img src="<?= $record['gif']; ?>" class="unitR"/>
+          <img src="<?= $row['gif']; ?>" class="unitR"/>
         </div>
         <form enctype="multipart/form-data" action="update.php" method="post" target="get.html" class="unitF">
           <input type="hidden" name="table" value="turnarounds"/>
-          <input type="hidden" name="uniqueID" value="<?= $record['uniqueID']; ?>"/>
-          <input type="text" name="title" class="mb5 wFull" value="<?= $record['title']; ?>"/>
-          <input type="text" name="url" class="mb5 wFull" value="<?= $record['url']; ?>"/>
-          <input type="text" name="gif" class="mb5 wFull" value="<?= $record['gif']; ?>"/>
-          <input type="text" name="tags" class="mb5 wFull" value="<?= $record['tags']; ?>"/>
-          <textarea name="caption" class="mb5 wFull" rows="10"><?= $record['caption']; ?></textarea>
+          <input type="hidden" name="uniqueID" value="<?= $row['uniqueID']; ?>"/>
+          <input type="text" name="title" class="mb5 wFull" value="<?= $row['title']; ?>"/>
+          <input type="text" name="url" class="mb5 wFull" value="<?= $row['url']; ?>"/>
+          <input type="text" name="gif" class="mb5 wFull" value="<?= $row['gif']; ?>"/>
+          <input type="text" name="tags" class="mb5 wFull" value="<?= $row['tags']; ?>"/>
+          <textarea name="caption" class="mb5 wFull" rows="10"><?= $row['caption']; ?></textarea>
           <input type="submit" value="update"/>
         </form>
       </div>

@@ -1,27 +1,23 @@
 <?php
-$table     = 'oldcomics';
-$directory = '/comics/old';
-$sort      = 'DESC';
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php');
+$id = $_GET['id'] != NULL ? $_GET['id'] : 1;
 
-if ($records == 1) {
-    $title   = $rows[0]['title'];
-    $caption = $rows[0]['caption'];
-    $body    = $rows[0]['body'];
-    $img     = $rows[0]['thumb'];
-}
+$row      = select("SELECT * FROM oldcomics WHERE id = $id")[0];
+$rowCount = select("SELECT COUNT(id) AS rowCount FROM oldcomics")[0]['rowCount'];
+
+$meta = array(
+  'description' => $row['caption'],
+  'image'       => $row['final'],
+  'title'       => $row['title']
+);
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
-<div id="comics" class="line mAuto w800">
-    <?php
-    include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
-
-    foreach ($rows as $row) {
-        include($_SERVER['DOCUMENT_ROOT'] . '/comics/comic.php');
-    }
-
-    include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
-    ?>
+<div id="comics" class="mAuto w800">
+  <?php
+  include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
+  include($_SERVER['DOCUMENT_ROOT'] . '/comics/comic.php');
+  include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php');
+  ?>
 </div>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

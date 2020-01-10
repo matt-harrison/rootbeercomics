@@ -19,13 +19,6 @@ $title      = (strpos($title, 'by')) ? $title : $title . ', by matt!';
     <title><?= $title; ?></title>
   </head>
   <body class="m5 bgGrayDark">
-    <?php if (!empty($purchaseUrl)) { ?>
-      <div class="bsBorder mAuto mb5 p5 w<?= $width; ?> bgWhite">
-        <a href="<?= $purchaseUrl; ?>" target="_blank">
-          <img src="/images/nav/buttons/purchase.png" alt="purchase" class="mAuto"/>
-        </a>
-      </div>
-    <?php } ?>
     <div id="comic">
       <?php for ($i = $first; $i <= $last; $i++) { ?>
         <img src="img/<?= $book; ?><?= $i; ?>.jpg" alt="page <?= $i; ?>" class="mAuto mb5"/>
@@ -34,12 +27,6 @@ $title      = (strpos($title, 'by')) ? $title : $title . ', by matt!';
     <?php if ($incomplete) { ?>
       <div class="bsBorder mAuto mb5 p5 w<?= $width; ?> bgWhite">
         <img src="/images/nav/buttons/to-be-continued.png" alt="to be continued..." class="mAuto"/>
-      </div>
-    <?php } elseif (!empty($purchaseUrl)) { ?>
-      <div class="bsBorder mAuto p5 w<?= $width; ?> bgWhite">
-        <a href="<?= $purchaseUrl; ?>" target="_blank">
-          <img src="/images/nav/buttons/purchase.png" alt="purchase" class="mAuto"/>
-        </a>
       </div>
     <?php } ?>
   </body>

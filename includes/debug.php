@@ -33,6 +33,3 @@ function debug($subject, $indention = 0) {
     echo '</pre>';
   }
 }
-
-// Include in active dev files:
-// include($_SERVER['DOCUMENT_ROOT'] . '/includes/debug.php');

@@ -1,5 +1,4 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/debug.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/secure.php');
 
 function execute($query, $database = 'kittenb1_main') {
@@ -12,10 +11,8 @@ function execute($query, $database = 'kittenb1_main') {
 }
 
 function select($query, $database = 'kittenb1_main') {
-  // die($query);
   $response = execute($query, $database);
   $rows     = array();
-
 
   while ($row = $response->fetch_assoc()) {
     $rows[] = $row;
