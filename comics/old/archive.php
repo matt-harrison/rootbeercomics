@@ -20,6 +20,6 @@ $rows = select("SELECT * FROM oldcomics ORDER BY id DESC");
     <a href="index.php?id=<?= $row['id']; ?>" class="mr1 mb1">
       <img src="<?= $row['thumb']; ?>" alt="<?= $title; ?>"/>
     </a>
-<?php } ?>
+  <?php } ?>
 </div>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

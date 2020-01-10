@@ -22,7 +22,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
   <meta property="og:image" content="http://<?= $_SERVER[HTTP_HOST] . $image; ?>"/>
   <meta property="og:title" content="<?= $title; ?>"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://<?= $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <title><?= $title; ?></title>
 </head>

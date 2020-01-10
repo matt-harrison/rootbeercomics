@@ -4,7 +4,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
 
 $table   = $_POST['table'];
 $caption = $_POST['caption'];
-$date  = $_POST['date'];
+$date    = $_POST['date'];
 $title   = $_POST['title'];
 $thumb   = $_POST['thumb'];
 $title   = str_replace("'", "\'", $title);

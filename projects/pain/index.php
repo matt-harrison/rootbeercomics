@@ -15,11 +15,8 @@ $meta = array(
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="mAuto w1000">
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'); ?>
-  <div class="bsBorder mAuto mb5 p20 w1000 bgWhite">
-    <h2 class="mb10 fs16">
-      <a href="/projects/pain/index.php?id=<?= $row['uniqueID']; ?>"><?= $row['title']; ?></a>
-      <span class="txtGray">by <?= $row['author']; ?></span>
-    </h2>
+  <div class="bsBorder mAuto mb10 p20 w1000 bgWhite">
+    <h2 class="mb10 fs16"><?= $row['title']; ?> by <?= $row['author']; ?></h2>
     <img
     alt="<?= $row['title']; ?>"
     class="mAuto"

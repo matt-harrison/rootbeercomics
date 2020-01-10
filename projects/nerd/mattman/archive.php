@@ -42,8 +42,4 @@ $rows = select("SELECT * FROM mattman ORDER BY id DESC", 'kittenb1_nerd');
   <div class="unit size1of3 bdrBox">
   </div>
 </div>
-<div id="tooltip" class="absolute hide">
-  <span></span>
-  <img src="" alt=""/>
-</div>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>

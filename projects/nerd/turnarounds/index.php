@@ -19,9 +19,7 @@ $meta = array(
   <div class="mb10 p20 bgWhite">
     <div class="mAuto noSelect">
       <div class="line mb10">
-        <h2 class="unit mr5 mb0 bold">
-          <a href="index.php?id=<?= $row['uniqueID']; ?>"><?= $row['title']; ?></a>
-        </h2>
+        <h2 class="unit mr5 mb0 bold"><?= $row['title']; ?></h2>
         <p class="unitR">
           <a href="index.php?id=<?= $id; ?>&zoom=1" class="mr5">small</a>
           <a href="index.php?id=<?= $id; ?>&zoom=4" class="mr5">medium</a>
@@ -45,31 +43,6 @@ $meta = array(
       </div>
     </div>
   </div>
-  <?php if ($user->isAdmin) { ?>
-    <?php $title = $row['title']; ?>
-    <div class="mb5 p20 bgGray private">
-      <div class="line">
-        <div class="unit mr5 w100">
-          <p class="mb5 txtR label">title:</p>
-          <p class="mb5 txtR label">url:</p>
-          <p class="mb5 txtR label">gif:</p>
-          <p class="mb5 txtR label">tags:</p>
-          <p class="mb5 txtR label">caption:</p>
-          <img src="<?= $row['gif']; ?>" class="unitR"/>
-        </div>
-        <form enctype="multipart/form-data" action="update.php" method="post" target="get.html" class="unitF">
-          <input type="hidden" name="table" value="turnarounds"/>
-          <input type="hidden" name="uniqueID" value="<?= $row['uniqueID']; ?>"/>
-          <input type="text" name="title" class="mb5 wFull" value="<?= $row['title']; ?>"/>
-          <input type="text" name="url" class="mb5 wFull" value="<?= $row['url']; ?>"/>
-          <input type="text" name="gif" class="mb5 wFull" value="<?= $row['gif']; ?>"/>
-          <input type="text" name="tags" class="mb5 wFull" value="<?= $row['tags']; ?>"/>
-          <textarea name="caption" class="mb5 wFull" rows="10"><?= $row['caption']; ?></textarea>
-          <input type="submit" value="update"/>
-        </form>
-      </div>
-    </div>
-  <?php } ?>
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'); ?>
 </div>
 <script src="/assets/js/spin.js"></script>

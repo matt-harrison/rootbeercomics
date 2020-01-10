@@ -48,9 +48,7 @@ if ($_GET['zoom'] != NULL) {
   <div class="mAuto mb1 p20 bdrBox bgWhite">
     <div class="mAuto noSelect">
       <div class="line mb10">
-        <h2 class="unit mr5 mb0 bold">
-          <a href="index.php?id=<?= $row['id']; ?>"><?= $row['title']; ?></a>
-        </h2>
+        <h2 class="unit mr5 mb0 bold"><?= $row['title']; ?></h2>
         <p class="unitR">
           <a href="index.php?id=<?= $id; ?>&zoom=1" class="mr5">small</a>
           <a href="index.php?id=<?= $id; ?>&zoom=4" class="mr5">medium</a>
@@ -75,32 +73,6 @@ if ($_GET['zoom'] != NULL) {
       <div class="mAuto pt5 w500"><?= $row['caption']; ?></div>
     </div>
   </div>
-  <?php if ($_COOKIE['username'] == 'matt!') { ?>
-    <?php $title = $row['title']; ?>
-    <div class="mAuto mb1 p20 bdrBox bgGray private">
-      <div class="line">
-        <div class="unit mr5 w100">
-          <p class="mb5 txtR label">title:</p>
-          <p class="mb5 txtR label">url:</p>
-          <p class="mb5 txtR label">gif:</p>
-          <p class="mb5 txtR label">tags:</p>
-          <p class="mb5 txtR label">caption:</p>
-        </div>
-        <form enctype="multipart/form-data" action="update.php" method="post" target="get.html" class="unitF">
-          <input type="hidden" name="table" value="mattman"/>
-          <input type="hidden" name="id" value="<?= $row['id']; ?>"/>
-          <input type="text" name="title" class="mb5 wFull" value="<?= $row['title']; ?>"/>
-          <input type="text" name="url" class="mb5 wFull" value="<?= $row['url']; ?>"/>
-          <input type="text" name="gif" class="mb5 wFull" value="<?= $row['gif']; ?>"/>
-          <input type="text" name="tags" class="mb5 wFull" value="<?= $row['tags']; ?>"/>
-          <input type="text" name="width" class="mb5 wFull" value="<?= $row['width']; ?>"/>
-          <input type="text" name="height" class="mb5 wFull" value="<?= $row['height']; ?>"/>
-          <textarea name="caption" class="mb5 wFull" rows="10"><?= $row['caption']; ?></textarea>
-          <input type="submit" value="update"/>
-        </form>
-      </div>
-    </div>
-  <?php } ?>
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'); ?>
 </div>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'); ?>
