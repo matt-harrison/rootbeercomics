@@ -9,7 +9,7 @@ $rowCount = select("SELECT COUNT(id) AS rowCount FROM turnarounds", 'kittenb1_ne
 
 $meta = array(
   'description' => null,
-  'image'       => $row['gif'],
+  'image'       => $row['url'],
   'title'       => $row['title']
 );
 ?>

@@ -1,12 +1,12 @@
 <?php
 $description = (isset($meta['description']))
-  ? $meta['description']
+  ? htmlspecialchars($meta['description'])
   : 'comics and drawings by matt harrison.';
 $image = (isset($meta['image']))
   ? $meta['image']
   : '/images/avatar.jpg';
 $title = (isset($meta['title']))
-  ? $meta['title'] . ' / root beer comics, by matt!'
+  ? htmlspecialchars($meta['title']) . ' / root beer comics, by matt!'
   : 'root beer comics, by matt!';
 
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
@@ -19,7 +19,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta property="og:description" content="<?= $description; ?>"/>
-  <meta property="og:image" content="http://<?= $_SERVER[HTTP_HOST] . $image; ?>"/>
+  <meta property="og:image" content="https://<?= $_SERVER[HTTP_HOST] . $image; ?>"/>
   <meta property="og:title" content="<?= $title; ?>"/>
   <meta property="og:type" content="website"/>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

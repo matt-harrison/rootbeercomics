@@ -2,19 +2,19 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
 
-$table = 'comics';
-$index = 66;
-$query = "SELECT * FROM $table ORDER BY date ASC";
-$rows  = select($query);
+$table = 'mattman';
+$rows  = select("SELECT * FROM $table ORDER BY id ASC", 'kittenb1_nerd');
 
 foreach ($rows as $row) {
-  $id = $row['id'];
+  $id  = $row['id'];
+  $url = $row['url'];
 
-  if ($id > 65) {
-    $query    = "UPDATE $table SET id = '$index' WHERE id = '$id'";
-    // $response = execute($query);
+  $url = str_replace('/projects/projects/projects/', '/projects/', $url);
+
+  if ($url != $row['url']) {
+    $query    = "UPDATE $table SET url = '$url' WHERE id = '$id'";
+    // $response = execute($query, 'kittenb1_nerd');
 
     echo $id . ': ' . $query . '<br/>';
-    $index++;
   }
 }
