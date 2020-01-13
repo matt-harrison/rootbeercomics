@@ -1,6 +1,7 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $table = 'drawings';
 $query = "SELECT * FROM $table ORDER BY id ASC";
