@@ -1,6 +1,8 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
+requireSuperuser();
+
 $rows = getIssuesWithContributors()['issues']['results'];
 
 foreach ($rows as $row) {

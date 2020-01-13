@@ -2,7 +2,7 @@
 		<div id="footer" class="wFull">
 			<div class="flex spaceBetween alignCenter wrap">
 				<img src="/images/nav/copyright.png" alt="Copyright © <?= date('Y'); ?> Matt Harrison"/>
-				<?php if ($user->isAdmin) {?>
+				<?php if (isSuperuser()) {?>
 					<p class="flex spaceBetween">
 						<a href="/post/" class="p20">post</a>
 						<a href="/mybooks/" class="p20">books</a>

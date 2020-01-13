@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 $id   = $_GET['id'] != NULL ? $_GET['id'] : 1;
 $zoom = isset($_GET['zoom']) ? number_format($_GET['zoom']) : 8;

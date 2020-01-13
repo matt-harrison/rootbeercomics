@@ -1,6 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 $username = $_REQUEST['username'];
 $oldMd5   = $_REQUEST['oldMd5'];

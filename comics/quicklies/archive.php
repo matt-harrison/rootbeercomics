@@ -1,11 +1,11 @@
 <?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
+
 $meta = array(
   'description' => 'view all comic posts.',
   'image'       => null,
   'title'       => 'quicklies archive'
 );
-
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $rows = select("SELECT * FROM quicklies ORDER BY id DESC");
 ?>

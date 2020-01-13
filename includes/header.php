@@ -8,8 +8,6 @@ $image = (isset($meta['image']))
 $title = (isset($meta['title']))
   ? htmlspecialchars($meta['title']) . ' / root beer comics, by matt!'
   : 'root beer comics, by matt!';
-
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
 ?>
 <!doctype html>
 <html lang="en">

@@ -1,11 +1,11 @@
 <?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
+
 $meta = array(
   'description' => 'an archive of the defunct website anarchynerd, by matt harrison.',
   'image'       => null,
   'title'       => 'the anarchynerd pixel art archive'
 );
-
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $rows = select("SELECT * FROM other ORDER BY id DESC", 'kittenb1_nerd');
 ?>

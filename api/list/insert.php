@@ -1,18 +1,11 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
 
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
-$data     = json_decode($_REQUEST['data']);
-$username = $data->username;
-$md5      = $data->md5;
-
-$select = "SELECT * FROM login WHERE username = '{$username}'";
-$rows   = select($select, 'kittenb1_users');
+$data   = json_decode($_REQUEST['data']);
 $errors = array();
 
-if ($username !== 'matt!' || $md5 !== $rows[0]['md5']) {
+if (!isSuperuser()) {
   $errors[] = 'Permission denied.';
 }
 
@@ -50,4 +43,6 @@ $response = array(
   'insert' => $insert
 );
 
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
 echo json_encode($response);

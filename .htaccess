@@ -38,7 +38,7 @@ Redirect /tecmo       /games/flash/tecmo
 Redirect /tetris      /games/flash/mattris
 Redirect /mattris     /games/flash/mattris
 
-Redirect /list        /projects/react/list
+Redirect /list        /projects/list
 Redirect /calendar    /projects/list/calendar
 
 RedirectMatch /comics/(\d+)          /comics/index.php?id=$1

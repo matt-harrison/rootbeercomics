@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 $response        = [];
 $includeArticles = $_REQUEST['includeArticles'];

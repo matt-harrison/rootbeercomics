@@ -1,13 +1,11 @@
 <?php
-$title = '';
-$desc  = '';
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
+
 $meta = array(
   'description' => 'view all drawings.',
   'image'       => null,
   'title'       => 'drawing archive'
 );
-
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $rows = select("SELECT * FROM drawings ORDER BY id DESC");
 ?>

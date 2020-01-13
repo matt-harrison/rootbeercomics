@@ -1,8 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/cookies.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 $username = $_REQUEST['username'];
 $md5      = $_REQUEST['md5'];

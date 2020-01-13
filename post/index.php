@@ -1,3 +1,11 @@
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
+
+requireSuperuser();
+
+date_default_timezone_set('America/New_York');
+$date = date('Y-m-d H:i:s');
+?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 <div class="mAuto mb20 w1000">
   <div class="line bdrGray p10 bgWhite">
@@ -8,10 +16,6 @@
         <table class="wFull">
           <tr>
             <td class="w75 txtR">date: </td>
-            <?php
-            date_default_timezone_set('America/New_York');
-            $date = date('Y-m-d H:i:s');
-            ?>
             <td><input type="text" name="date" value="<?= $date ?>" class="w400"/></td>
           </tr>
           <tr>

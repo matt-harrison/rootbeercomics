@@ -1,7 +1,7 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/require-superuser.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
+
+requireSuperuser();
 
 $table  = $_POST['table'];
 $title  = $_POST['title'];

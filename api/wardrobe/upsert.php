@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 $id           = $_REQUEST['id'];
 $bottomId     = is_null($_REQUEST['bottomId']) ? 'null' : $_REQUEST['bottomId'];

@@ -5,7 +5,7 @@ $meta = array(
   'title'       => 'the website of pain'
 );
 
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 $rows = select("SELECT * FROM pain ORDER BY id ASC");
 ?>

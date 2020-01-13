@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 
 $where    = ($_REQUEST['type']) ? ' WHERE type = "' . $_REQUEST['type'] . '"' : '';
 $response = select("SELECT * from list $where ORDER BY date ASC, id ASC", 'kittenb1_list');

@@ -1,11 +1,11 @@
 <?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
+
 $meta = array(
   'description' => 'an archive of movie scene drawings from the defunct website "the burgg," preserved by matt harrison.',
   'image'       => null,
   'title'       => 'the burgg'
 );
-
-include($_SERVER['DOCUMENT_ROOT'] . '/includes/query.php');
 
 $rows = select("SELECT * FROM burgg ORDER BY id ASC");
 ?>
