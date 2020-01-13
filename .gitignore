@@ -1,5 +1,5 @@
 # Sensitive
-login/secure.php
+includes/secure.php
 sftp-config.json
 
 # Temporary
