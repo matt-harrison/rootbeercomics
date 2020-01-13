@@ -1,7 +1,3 @@
-# Sensitive
-includes/secure.php
-sftp-config.json
-
 # Temporary
 error_log
 books.*.json
