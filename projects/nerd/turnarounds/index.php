@@ -9,7 +9,7 @@ $rowCount = select("SELECT COUNT(id) AS rowCount FROM turnarounds", 'kittenb1_ne
 
 $meta = array(
   'description' => null,
-  'image'       => $row['url'],
+  'image'       => $row['png'],
   'title'       => $row['title']
 );
 ?>
@@ -38,7 +38,7 @@ $meta = array(
         alt="<?= $row['title']; ?>"
         data-framecount="<?= $row['frameCount']; ?>"
         id="sprite"
-        src="<?= $row['url']; ?>"
+        src="<?= $row['png']; ?>"
         />
       </div>
     </div>

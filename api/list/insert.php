@@ -35,7 +35,7 @@ if (count($errors) < 1) {
     '$isFirst'
   )";
 
-  $result = execute($insert);
+  $result = execute($insert, 'kittenb1_list');
 
   if (!$result) {
     $errors[] = 'An error occured. Please try again.';
