@@ -2,7 +2,6 @@
 $title = 'drama!';
 $img   = '/zines/dogs/img/dogs0.jpg';
 $desc  = 'the three act structure, panel by panel';
-$purchaseUrl = null;
 
 $book  = 'drama';
 $first =   0;

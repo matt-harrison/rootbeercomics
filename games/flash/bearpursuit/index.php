@@ -17,17 +17,17 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 	</div>
 <?php } else { ?>
 	<div id="flash" class="mAuto mb5 txtC">
-	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="500" height="500" id="bearPursuit" align="middle">
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="500" height="500" id="bearPursuit" align="middle">
 		<param name="allowScriptAccess" value="sameDomain"/>
 		<param name="allowFullScreen" value="false"/>
 		<param name="movie" value="bearPursuit.swf"/>
 		<param name="quality" value="high"/>
 		<param name="bgcolor" value="#ffffff"/>
-		<embed src="bearPursuit.swf" quality="high" bgcolor="#ffffff" width="500" height="500" name="bearPursuit" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
+		<embed src="bearPursuit.swf" quality="high" bgcolor="#ffffff" width="500" height="500" name="bearPursuit" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer"/>
 	</object>
 	</div>
 	<div class="mAuto mb5 p10 w500 bgWhite">
-		<p class="mb5">based on pixel art by <a href="http://oktotally.tumblr.com/post/4509053686/o-visceral-combat-o-high-stakes-lumber-jacking-o" target="_blank">andy helms</a>
+		<p class="mb5">based on pixel art by <a href="https://oktotally.tumblr.com/post/4509053686/o-visceral-combat-o-high-stakes-lumber-jacking-o" target="_blank">andy helms</a>
 		<p class="mb5">enter/spacebar: start game</p>
 		<p class="mb5">arrow keys: move lumberjack</p>
 		<p class="mb5">hey, look out for that bear!</p>

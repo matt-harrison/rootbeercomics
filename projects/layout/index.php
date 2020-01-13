@@ -94,8 +94,8 @@ for ($side = 0; $side < $sideCount; $side++) {
     <meta property="og:description" content="customizable guide to formatting minicomics for print"/>
     <meta property="og:image" content="/images/matt.jpg"/>
     <meta property="og:title" content="minicomic layout generator, by matt!"/>
-    <meta property="og:url" content="<?= 'http://' . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <meta property="og:url" content="<?= 'https://' . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script>
       var url, pages, covers, copyright, querystring;
 

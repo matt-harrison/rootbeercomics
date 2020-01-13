@@ -9,7 +9,7 @@ $title   = 'Riverview Village Days';
     <span class="right">08/05/17</span>
   </h2>
   <div class="auto mb20 w700">
-    <p>Read on <a href="http://altdaily.com/our-local-grassroots-indie-community-riverview-village-days" target="_blank">AltDaily.com</a></p>
+    <p>Originally published on AltDaily.com</p>
     <p>-----</p>
     <p>A few days ago, my wife, Laura, and I wandered for the third or fourth time into The Village Mermaid, an interesting little antique shop near our new house in Colonial Place. The owner, a guy named David Oliver, greeted us amiably and eagerly encouraged us to attend an event his shop would be sponsoring the following day. Riverview Village Days is an open air market that takes place on the second and fourth Sundays of every month from April through December in Lafayette Park, free to attendees and exhibitors, where vendors peddle art, jewelry, and other items of interest to bargain hunters, art enthusiasts, and other neighborhood folks who happen by with a few minutes to peruse.</p>
     <p>We'd attended Village Days before, first at the urging of our good friend and now neighbor Dyanna, as an argument against the idea that leaving Ghent meant leaving behind Norfolk's indie culture and sense of community. We'd toured the tents, flipped through the artifacts, and come away satisfied, with a handmade magnet to show for it, one of those reversible Clean/Dirty indicators for the dishwasher. Months later, we'd walked over again to deliver some mittens to Laura's brother, Adam, who'd been braving the December chill to drum up some last minute pre-Christmas sales for the children's book he'd recently self-published with his wife, and we'd lingered to browse for gifts and to sample some of the treats on offer.</p>

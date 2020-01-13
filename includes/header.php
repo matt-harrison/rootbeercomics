@@ -22,7 +22,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
   <meta property="og:image" content="https://<?= $_SERVER[HTTP_HOST] . $image; ?>"/>
   <meta property="og:title" content="<?= $title; ?>"/>
   <meta property="og:type" content="website"/>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <title><?= $title; ?></title>
 </head>
 <body class="m5">
@@ -42,7 +42,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/includes/user.php');
       <a href="/comics/archive.php" class="navLink">
         <img src="/images/nav/buttons/comic-strips.png" alt="comic strips" class="mr5 mb5"/>
       </a>
-      <a href="http://www.instagram.com/rootbeercomics" target="_blank" class="navLink">
+      <a href="https://www.instagram.com/rootbeercomics" target="_blank" class="navLink">
         <img src="/images/nav/buttons/instagram.png" alt="instagram" class="mr5 mb5"/>
       </a>
       <a href="mailto:rootbeercomics@gmail.com" target="_blank" class="navLink">

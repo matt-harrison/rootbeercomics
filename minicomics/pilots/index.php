@@ -2,7 +2,6 @@
 $title = 'Pilots';
 $img   = '/minicomics/pilots/img/pilots0.jpg';
 $desc  = 'A workplace comedy set in the world of Atari\'s 1979 arcade hit &quot;Asteroids.&quot;';
-$purchaseUrl = 'http://rootbeercomics.storenvy.com/products/24312162-pilots';
 
 $book  = 'pilots';
 $first = 0;

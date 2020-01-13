@@ -2,7 +2,6 @@
 $title = 'tricks through film';
 $img   = '/zines/tricks/img/tricks0.jpg';
 $desc  = 'Recreates 15 famous depictions of skateboarding throughout the history of cinema.';
-$purchaseUrl = 'http://rootbeercomics.storenvy.com/products/20604296-tricks-through-film';
 
 $book  = 'tricks';
 $first =   0;

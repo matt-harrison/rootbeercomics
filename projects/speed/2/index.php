@@ -3,7 +3,7 @@
   <head>
     <link href="/images/icons/r.ico" rel="icon" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.6.2.min.js"></script>
+    <script src="https://ajax.microsoft.com/ajax/jquery/jquery-1.6.2.min.js"></script>
     <script src="gyro.js"></script>
     <script>
       $(function(){

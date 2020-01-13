@@ -4,7 +4,7 @@
     <link href="/images/icons/r.ico" rel="icon" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"/>
-    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.6.2.min.js"></script>
+    <script src="https://ajax.microsoft.com/ajax/jquery/jquery-1.6.2.min.js"></script>
     <script src="gyro.js"></script>
     <script>
       var coords = new Array();

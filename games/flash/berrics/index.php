@@ -17,13 +17,13 @@ $webOS = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 	</div>
 <?php } else { ?>
 	<div id="flash" class="mAuto mb5 txtC">
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="580" height="500" id="berrics" align="middle">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="580" height="500" id="berrics" align="middle">
 			<param name="allowScriptAccess" value="sameDomain" />
 			<param name="allowFullScreen" value="false" />
 			<param name="movie" value="berrics.swf" />
 			<param name="quality" value="high" />
 			<param name="bgcolor" value="#ffffff" />
-			<embed src="berrics.swf" quality="high" bgcolor="#ffffff" width="580" height="500" name="berrics" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			<embed src="berrics.swf" quality="high" bgcolor="#ffffff" width="580" height="500" name="berrics" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer" />
 		</object>
 	</div>
 	<div class="mAuto mb5 p10 w500 bgWhite">

@@ -2,7 +2,6 @@
 $title = 'showcase #22 straight-to-ink cover song.';
 $img   = '/minicomics/thumbs/lantern.jpg';
 $desc  = 'a panel-by-panel remake of the first appearance of hal jordan in showcase #22.';
-$purchaseUrl = 'http://rootbeercomics.storenvy.com/products/18887503-green-lantern-straight-to-ink-cover-song';
 
 $book  = 'lantern';
 $first = 0;

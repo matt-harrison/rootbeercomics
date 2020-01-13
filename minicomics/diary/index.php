@@ -2,7 +2,6 @@
 $title = 'non-diary comics';
 $img   = '/minicomics/diary/img/diary.jpg';
 $desc  = 'real life with embellishments';
-//$purchaseUrl = '';
 
 $book  = 'diary';
 $first = 0;

@@ -17,12 +17,12 @@ $webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 	</div>
 <?php } else { ?>
 	<div id="flash" class="mAuto mb5 txtC">
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="250" height="450" id="mattris">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="250" height="450" id="mattris">
 			<param name="allowScriptAccess" value="sameDomain"/>
 			<param name="allowFullScreen" value="false"/>
 			<param name="movie" value="mattris.swf"/>
 			<param name="quality" value="high"/>
-			<embed src="mattris.swf" quality="high" width="250" height="450" name="mattris" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
+			<embed src="mattris.swf" quality="high" width="250" height="450" name="mattris" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
 	<div class="mAuto mb5 p10 w500 bgWhite">

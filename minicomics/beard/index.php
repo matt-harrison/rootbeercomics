@@ -2,7 +2,6 @@
 $title = 'brad pitt&apos;s beard';
 $img   = '/minicomics/beard/img/beard0.jpg';
 $desc  = '';
-// $purchaseUrl = 'http://rootbeercomics.storenvy.com/products/';
 
 $book  = 'beard';
 $first = 0;

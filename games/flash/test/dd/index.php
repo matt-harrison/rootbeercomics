@@ -23,7 +23,7 @@ $webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 			<param name="movie" value="dd.swf"/>
 			<param name="quality" value="high"/>
 			<param name="bgcolor" value="#0000ff"/>
-			<embed src="dd.swf" quality="high" bgcolor="#0000ff" width="400" height="400" name="beach" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
+			<embed src="dd.swf" quality="high" bgcolor="#0000ff" width="400" height="400" name="beach" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
 	<div class="mAuto mb5 p10 w500 bgWhite">

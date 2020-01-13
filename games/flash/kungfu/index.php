@@ -17,13 +17,13 @@ $webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 	</div>
 <?php } else { ?>
 	<div id="flash" class="mAuto mb5 txtC">
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="512" height="448" id="kungfu" align="middle">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="512" height="448" id="kungfu" align="middle">
 			<param name="allowScriptAccess" value="sameDomain"/>
 			<param name="allowFullScreen" value="false"/>
 			<param name="movie" value="kungfu.swf"/>
 			<param name="quality" value="high"/>
 			<param name="bgcolor" value="#6699cc"/>
-			<embed src="kungfu.swf" quality="high" bgcolor="#6699cc" width="512" height="448" name="kungfu" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
+			<embed src="kungfu.swf" quality="high" bgcolor="#6699cc" width="512" height="448" name="kungfu" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
 	<div class="mAuto mb5 p10 w500 bgWhite">

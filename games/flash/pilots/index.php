@@ -17,12 +17,12 @@ $webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 	</div>
 <?php } else { ?>
 	<div id="flash" class="mAuto mb5 txtC">
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="500" height="450" id="pilots5" align="middle">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="500" height="450" id="pilots5" align="middle">
 			<param name="allowScriptAccess" value="sameDomain" />
 			<param name="allowFullScreen" value="false" />
 			<param name="movie" value="pilots5.swf" />
 			<param name="quality" value="high" />
-			<embed src="pilots5.swf" quality="high" width="500" height="450" name="pilots5" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			<embed src="pilots5.swf" quality="high" width="500" height="450" name="pilots5" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer" />
 		</object>
 	</div>
 	<div class="mAuto mb5 p10 w1000 bdrBox bgWhite">

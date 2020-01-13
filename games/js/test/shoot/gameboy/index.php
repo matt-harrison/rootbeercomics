@@ -4,7 +4,7 @@
     <link type="text/css" href="styles.css" rel="stylesheet"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <meta content="width=360, scale=1, user-scalable=0" name="viewport"/>
-    <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.1.js"></script>
     <script src="game.js"></script>
     <title>game demo</title>
   </head>

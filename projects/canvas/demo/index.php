@@ -1,9 +1,9 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <link type="text/css" href="/assets/css/library.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="kinetic.js"></script>
     <script>
       var colorArr = new Array("red","blue","yellow","green","purple","orange");

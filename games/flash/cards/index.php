@@ -17,14 +17,14 @@ $webOS  = stripos($_SERVER['HTTP_USER_AGENT'], 'webOS');
 	</div>
 <?php } else { ?>
 	<div id="flash" class="mAuto mb5 txtC">
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="800" height="500" id="cards" align="middle">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="800" height="500" id="cards" align="middle">
 			<param name="allowScriptAccess" value="sameDomain"/>
 			<param name="allowFullScreen" value="false"/>
 			<param name="movie" value="cards.swf"/>
 			<param name="quality" value="high"/>
 			<param name="salign" value="lt"/>
 			<param name="bgcolor" value="#ffffff"/>
-			<embed src="cards.swf" quality="high" salign="lt" bgcolor="#ffffff" width="800" height="500" name="cards" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>
+			<embed src="cards.swf" quality="high" salign="lt" bgcolor="#ffffff" width="800" height="500" name="cards" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer"/>
 		</object>
 	</div>
 	<div class="mAuto mb5 p10 w500 bgWhite">

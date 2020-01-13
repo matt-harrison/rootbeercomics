@@ -6,7 +6,7 @@ $desc  = 'draw something screenshots by matt harrison.';
 <div class="mAuto w1005">
   <p class="mb10">
     <span>get the</span>
-    <a href="http://itunes.apple.com/us/app/draw-something-free/id488628250?mt=8" target="_blank">Draw Something</a>
+    <a href="https://itunes.apple.com/us/app/draw-something-free/id488628250?mt=8" target="_blank">Draw Something</a>
     <span>app on itunes.</span>
   </p>
   <div class="line">
