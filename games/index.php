@@ -1,4 +1,5 @@
 <?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
 $title = 'games';
 $desc = 'flash and javascript games, developed by matt harrison.';
 ?>
@@ -119,7 +120,7 @@ $desc = 'flash and javascript games, developed by matt harrison.';
     </div>
   </div>
 </div>
-<?php if($user->isAdmin){ ?>
+<?php if (isSuperuser()) { ?>
   <div class="mAuto w1000 mb10 p10 bdrBox bgFoam private">
     <p class="sep bold">experiments</p>
     <p class="mb5"><a href="/games/flash/beach/">beach</a></p>

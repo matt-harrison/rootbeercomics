@@ -16,7 +16,6 @@ if (!$errors) {
   $query    = ("UPDATE login SET md5 = '$newMd5' WHERE username = '$username' AND md5 = '$oldMd5'");
   $response = execute($query, 'kittenb1_users');
   $user     = array(
-    'isAdmin'    => ($_REQUEST['username'] === 'matt!'),
     'isSignedIn' => true,
     'md5'        => $md5,
     'name'       => $_REQUEST['username'],
@@ -28,7 +27,7 @@ if (!$errors) {
 $response = array(
   'success' => (count($errors) === 0),
   'errors'  => $errors,
-  'oldMd5' => $oldMd5,
+  'oldMd5'  => $oldMd5,
   'oldMd5'  => $rows[0]['md5']
 );
 

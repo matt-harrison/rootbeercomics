@@ -17,7 +17,6 @@ if (count($rows) < 1) {
 
 if (count($errors) < 1) {
   $user = array(
-    'isAdmin'    => ($_REQUEST['username'] === 'matt!'),
     'isSignedIn' => true,
     'md5'        => $md5,
     'name'       => $_REQUEST['username'],

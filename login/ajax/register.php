@@ -43,7 +43,6 @@ if (!$errors) {
   $query = "INSERT INTO login (username, firstName, lastName, email, md5) VALUES ('$username', '$firstName', '$lastName', '$email', '$md5')";
   $rows  = execute($query, 'kittenb1_users');
   $user  = array(
-    'isAdmin'    => ($_REQUEST['username'] === 'matt!'),
     'isSignedIn' => true,
     'md5'        => $md5,
     'name'       => $_REQUEST['username'],

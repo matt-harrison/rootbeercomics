@@ -1,3 +1,3 @@
 <?php
 $sqlUsername = 'kittenb1_matt';
-$sqlPassword = '';
+$sqlPassword = 'Martin1140';

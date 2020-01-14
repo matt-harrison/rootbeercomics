@@ -1,4 +1,7 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php');
+?>
 <?php if (!$user->isSignedIn) { ?>
   <div class="mAuto w400">
     <h1 class="mb5 bold">Login</h1>
