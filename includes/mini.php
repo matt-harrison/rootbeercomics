@@ -21,7 +21,7 @@ $title      = (strpos($title, 'by')) ? $title : $title . ', by matt!';
   <body class="m5 bgGrayDark">
     <div id="comic">
       <?php for ($i = $first; $i <= $last; $i++) { ?>
-        <img src="img/<?= $book; ?><?= $i; ?>.jpg" alt="page <?= $i; ?>" class="mAuto mb5"/>
+        <img src="img/<?= $book; ?><?= $i; ?>.jpg" alt="page <?= $i; ?>" class="mAuto mb5 w<?= $width; ?>"/>
       <?php } ?>
     </div>
     <?php if ($incomplete) { ?>

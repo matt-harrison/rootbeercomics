@@ -1,6 +1,6 @@
 <?php
 $title = 'drama!';
-$img   = '/zines/dogs/img/dogs0.jpg';
+$img   = '/minicomics/drama/img/drama0.jpg';
 $desc  = 'the three act structure, panel by panel';
 
 $book  = 'drama';
