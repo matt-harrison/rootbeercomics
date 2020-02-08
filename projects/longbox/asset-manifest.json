@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/projects/longbox/static/js/main.d56a1a27.chunk.js",
-    "main.js.map": "/projects/longbox/static/js/main.d56a1a27.chunk.js.map",
-    "runtime~main.js": "/projects/longbox/static/js/runtime~main.0cb7817a.js",
-    "runtime~main.js.map": "/projects/longbox/static/js/runtime~main.0cb7817a.js.map",
+    "main.js": "/projects/longbox/static/js/main.7235e465.chunk.js",
+    "main.js.map": "/projects/longbox/static/js/main.7235e465.chunk.js.map",
+    "runtime~main.js": "/projects/longbox/static/js/runtime~main.7fd998f2.js",
+    "runtime~main.js.map": "/projects/longbox/static/js/runtime~main.7fd998f2.js.map",
     "static/js/2.eebc4743.chunk.js": "/projects/longbox/static/js/2.eebc4743.chunk.js",
     "static/js/2.eebc4743.chunk.js.map": "/projects/longbox/static/js/2.eebc4743.chunk.js.map",
-    "static/css/3.9e5c7d6e.chunk.css": "/projects/longbox/static/css/3.9e5c7d6e.chunk.css",
+    "static/css/3.a3fdb5e2.chunk.css": "/projects/longbox/static/css/3.a3fdb5e2.chunk.css",
     "static/js/3.9c03d96d.chunk.js": "/projects/longbox/static/js/3.9c03d96d.chunk.js",
     "static/js/3.9c03d96d.chunk.js.map": "/projects/longbox/static/js/3.9c03d96d.chunk.js.map",
     "index.html": "/projects/longbox/index.html",
-    "precache-manifest.e277f4c82eea83c283d1938faf35083f.js": "/projects/longbox/precache-manifest.e277f4c82eea83c283d1938faf35083f.js",
+    "precache-manifest.0b19b9cddc4f58cc5becd972bc10d90e.js": "/projects/longbox/precache-manifest.0b19b9cddc4f58cc5becd972bc10d90e.js",
     "service-worker.js": "/projects/longbox/service-worker.js",
-    "static/css/3.9e5c7d6e.chunk.css.map": "/projects/longbox/static/css/3.9e5c7d6e.chunk.css.map"
+    "static/css/3.a3fdb5e2.chunk.css.map": "/projects/longbox/static/css/3.a3fdb5e2.chunk.css.map"
   }
 }
