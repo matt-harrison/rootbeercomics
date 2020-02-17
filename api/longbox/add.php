@@ -1,6 +1,7 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
+$con = getConnection('kittenb1_longbox');
 $issue = json_decode($_REQUEST['issue']);
 
 $contributors = $issue->contributors;
@@ -8,11 +9,11 @@ $format       = $issue->format;
 $isColor      = $issue->is_color ? 'true' : 'false';
 $isOwned      = $issue->is_owned ? 'true' : 'false';
 $isRead       = $issue->is_read  ? 'true' : 'false';
-$notes        = $issue->notes;
+$notes        = mysqli_real_escape_string($con, $issue->notes);
 $numbers      = getNumbers($issue->number);
-$publisher    = $issue->publisher;
-$sortTitle    = $issue->sort_title;
-$title        = $issue->title;
+$publisher    = mysqli_real_escape_string($con, $issue->publisher);
+$sortTitle    = mysqli_real_escape_string($con, $issue->sort_title);
+$title        = mysqli_real_escape_string($con, $issue->title);
 $year         = $issue->year === null ? 'null' : $issue->year;
 
 $errors   = [];

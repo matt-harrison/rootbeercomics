@@ -46,12 +46,18 @@ function escapeSpecialCharacters($input) {
 }
 
 function execute($query, $database = 'kittenb1_main') {
-  global $sqlUsername, $sqlPassword;
-
-  $con      = new mysqli('localhost', $sqlUsername, $sqlPassword, $database);
+  $con      = getConnection($database);
   $response = $con->query($query);
 
   return $response;
+}
+
+function getConnection($database = 'kittenb1_main') {
+  global $sqlUsername, $sqlPassword;
+
+  $con = new mysqli('localhost', $sqlUsername, $sqlPassword, $database);
+
+  return $con;
 }
 
 function isSuperuser() {

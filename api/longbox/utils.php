@@ -641,9 +641,13 @@ function parseFilters() {
     'year'
   ];
 
+  $con = getConnection('kittenb1_longbox');
+
   foreach ($_REQUEST as $key => $value) {
     if (strpos($key, 'is_') > -1) {
       $value = ($value === 'true' || $value == '1');
+    } else {
+      $value = mysqli_real_escape_string($con, $value);
     }
 
     if (in_array($key, $contributorKeys)) {
@@ -651,10 +655,12 @@ function parseFilters() {
     } elseif (in_array($key, $issueKeys)) {
       $filters['issues'][$key] = $value;
     } elseif ($key === 'any') {
-      $filters['contributors']['creator'] .= count($filters['contributors']['creator']) > 0 ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
-      $filters['issues']['notes']         .= count($filters['issues']['notes']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
-      $filters['issues']['publisher']     .= count($filters['issues']['publisher']) > 0     ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
-      $filters['issues']['title']         .= count($filters['issues']['title']) > 0         ? ',' . $_REQUEST['any'] : $_REQUEST['any'];
+      $value = mysqli_real_escape_string($con, $_REQUEST['any']);
+
+      $filters['contributors']['creator'] .= count($filters['contributors']['creator']) > 0 ? ',' . $value : $value;
+      $filters['issues']['notes']         .= count($filters['issues']['notes']) > 0         ? ',' . $value : $value;
+      $filters['issues']['publisher']     .= count($filters['issues']['publisher']) > 0     ? ',' . $value : $value;
+      $filters['issues']['title']         .= count($filters['issues']['title']) > 0         ? ',' . $value : $value;
       $filters['delimiter'] = 'OR';
     } else {
       $filters[$key] = $value;
