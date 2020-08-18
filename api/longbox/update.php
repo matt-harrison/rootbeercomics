@@ -4,7 +4,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 $errors   = [];
 $queries  = [];
 
-if (!isSuperuser()) {
+$md5          = $_REQUEST['md5'];
+$superuserMd5 = select("SELECT * FROM login WHERE username = 'matt!'", 'kittenb1_users')[0]['md5'];
+
+if ($md5 !== $superuserMd5) {
   $errors[] = 'Permission denied.';
 }
 

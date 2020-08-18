@@ -1,30 +1,32 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/api/longbox/utils.php');
 
-$con = getConnection('kittenb1_longbox');
-$issue = json_decode($_REQUEST['issue']);
-
-$contributors = $issue->contributors;
-$format       = $issue->format;
-$isColor      = $issue->is_color ? 'true' : 'false';
-$isOwned      = $issue->is_owned ? 'true' : 'false';
-$isRead       = $issue->is_read  ? 'true' : 'false';
-$notes        = mysqli_real_escape_string($con, $issue->notes);
-$numbers      = getNumbers($issue->number);
-$publisher    = mysqli_real_escape_string($con, $issue->publisher);
-$sortTitle    = mysqli_real_escape_string($con, $issue->sort_title);
-$title        = mysqli_real_escape_string($con, $issue->title);
-$year         = $issue->year === null ? 'null' : $issue->year;
-
 $errors   = [];
 $queries  = [];
 $issueIds = [];
 
-if (!isSuperuser()) {
+$md5          = $_REQUEST['md5'];
+$superuserMd5 = select("SELECT * FROM login WHERE username = 'matt!'", 'kittenb1_users')[0]['md5'];
+
+if ($md5 !== $superuserMd5) {
   $errors[] = 'Permission denied.';
 }
 
 if (count($errors) < 1) {
+  $con          = getConnection('kittenb1_longbox');
+  $issue        = json_decode($_REQUEST['issue']);
+  $contributors = $issue->contributors;
+  $format       = $issue->format;
+  $isColor      = $issue->is_color ? 'true' : 'false';
+  $isOwned      = $issue->is_owned ? 'true' : 'false';
+  $isRead       = $issue->is_read  ? 'true' : 'false';
+  $notes        = mysqli_real_escape_string($con, $issue->notes);
+  $numbers      = getNumbers($issue->number);
+  $publisher    = mysqli_real_escape_string($con, $issue->publisher);
+  $sortTitle    = mysqli_real_escape_string($con, $issue->sort_title);
+  $title        = mysqli_real_escape_string($con, $issue->title);
+  $year         = $issue->year === null ? 'null' : $issue->year;
+
   if (empty($format)) {
     $formatId = 'NULL';
   } else {
