@@ -1,3 +1,6 @@
+<a href="/minicomics/blm" class="bsBorder mr5 mb5">
+  <img src="/minicomics/thumbs/blm.jpg" alt="black lives matter"/>
+</a>
 <a href="/minicomics/contourtionist" class="bsBorder mr5 mb5">
   <img src="/minicomics/thumbs/contourtionist.jpg" alt="contourtionist"/>
 </a>

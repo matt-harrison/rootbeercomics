@@ -5,7 +5,7 @@ $desc  = 'a remake slash parody of how to make comics the marvel way by stan lee
 
 $book       = 'how';
 $first      =   0;
-$last       =  15;
+$last       =  19;
 $width      = 800;
 $incomplete = true;
 ?>
