@@ -45,24 +45,24 @@ $issues = getIssuesWithContributors()['issues']['results'];
           <td><?= $issue['year']; ?></td>
           <td><?= $issue['notes']; ?></td>
           <td>
-            <table class="wFull">
-              <tr>
-                <th>creator_type_id</th>
-                <th>creator_type</th>
-                <th>creator_id</th>
-                <th>creator</th>
-              </tr>
-              <?php if (!is_null($issue['contributors'])) { ?>
-                <?php foreach ($issue['contributors'] as $contributor) { ?>
+            <?php if (!is_null($issue['contributors'])) { ?>
+                <table class="wFull">
                   <tr>
-                    <td><?= $contributor['creator_type_id']; ?></td>
-                    <td><?= $contributor['creator_type']; ?></td>
-                    <td><?= $contributor['creator_id']; ?></td>
-                    <td><?= $contributor['creator']; ?></td>
+                    <th>creator_type_id</th>
+                    <th>creator_type</th>
+                    <th>creator_id</th>
+                    <th>creator</th>
                   </tr>
-                <?php } ?>
-              <?php } ?>
-            </table>
+                  <?php foreach ($issue['contributors'] as $contributor) { ?>
+                    <tr>
+                      <td><?= $contributor['creator_type_id']; ?></td>
+                      <td><?= $contributor['creator_type']; ?></td>
+                      <td><?= $contributor['creator_id']; ?></td>
+                      <td><?= $contributor['creator']; ?></td>
+                    </tr>
+                  <?php } ?>
+                </table>
+            <?php } ?>
           </td>
         </tr>
       <?php } ?>
