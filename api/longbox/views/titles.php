@@ -16,12 +16,14 @@ $titles   = $response['results'];
         <th>index</th>
         <th>id</th>
         <th>name</th>
+        <th>sort name</th>
       </tr>
       <?php foreach ($titles as $index => $title) { ?>
         <tr>
           <td><?= $index + 1; ?></td>
           <td><?= $title['id']; ?></td>
           <td><?= $title['name']; ?></td>
+          <td><?= $title['sort_name']; ?></td>
         </tr>
       <?php } ?>
     </table>
