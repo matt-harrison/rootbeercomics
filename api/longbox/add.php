@@ -21,7 +21,7 @@ if (count($errors) < 1) {
   $isOwned      = $issue->is_owned ? 'true' : 'false';
   $isRead       = $issue->is_read  ? 'true' : 'false';
   $notes        = mysqli_real_escape_string($con, $issue->notes);
-  $numbers      = getNumbers($issue->number);
+  $numbers      = $issue->numbers;
   $publisher    = mysqli_real_escape_string($con, $issue->publisher);
   $sortTitle    = mysqli_real_escape_string($con, $issue->sort_title);
   $title        = mysqli_real_escape_string($con, $issue->title);
@@ -158,26 +158,3 @@ $response = array(
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 echo json_encode($response);
-
-// convert comma-separated list of issue numbers including ranges into an explicit array of issue numbers
-// input:  '1-3,5,10-12'
-// output: [1,2,3,5,10,11,12]
-function getNumbers($input) {
-  $output = [];
-  $input  = str_replace(' ', '', $input);
-  $ranges = strpos($input, ',') > -1 ? explode(',', $input) : [$input];
-
-  foreach ($ranges as $range) {
-    if (strpos($range, '-') > -1) {
-      $numbers = explode('-', $range);
-
-      for ($i = $numbers[0]; $i <= $numbers[1]; $i++) {
-        $output[] = $i;
-      }
-    } else {
-      $output[] = $range === '' ? 'NULL' : $range;
-    }
-  }
-
-  return $output;
-}
