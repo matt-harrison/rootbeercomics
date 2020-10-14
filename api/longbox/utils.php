@@ -499,8 +499,8 @@ function getWhereIssues($filters = []) {
   }
 
   if (!is_null($filters['issues']['publisher'])) {
-    if (strpos($filters['issues']['publisher'], ',') > -1) {
-      $publisher         = explode(',', $filters['issues']['publisher']);
+    if (strpos($filters['issues']['publisher'], '|') > -1) {
+      $publisher         = explode('|', $filters['issues']['publisher']);
       $whereConditions[] = "(publishers.name LIKE '%" . implode("%' OR publishers.name LIKE '%", $publisher) . "%')";
     } else {
       $whereConditions[] = "publishers.name LIKE '%" . $filters['issues']['publisher'] . "%'";
@@ -508,8 +508,8 @@ function getWhereIssues($filters = []) {
   }
 
   if (!is_null($filters['issues']['title'])) {
-    if (strpos($filters['issues']['title'], ',') > -1) {
-      $title             = explode(',', $filters['issues']['title']);
+    if (strpos($filters['issues']['title'], '|') > -1) {
+      $title             = explode('|', $filters['issues']['title']);
       $whereConditions[] = "(titles.name LIKE '%" . implode("%' OR titles.name LIKE '%", $title) . "%')";
     } else {
       $whereConditions[] = "titles.name LIKE '%" . $filters['issues']['title'] . "%'";
@@ -518,8 +518,8 @@ function getWhereIssues($filters = []) {
 
   // ID filters
   if (!is_null($filters['issues']['format_id'])) {
-    if (strpos($filters['issues']['format_id'], ',') > -1) {
-      $formatIds         = explode(',', $filters['issues']['format_id']);
+    if (strpos($filters['issues']['format_id'], '|') > -1) {
+      $formatIds         = explode('|', $filters['issues']['format_id']);
       $whereConditions[] = "(formats.id = '" . implode("' OR formats.id = '", $formatIds) . "')";
     } else {
       $whereConditions[] = "formats.id = '" . $filters['issues']['format_id'] . "'";
