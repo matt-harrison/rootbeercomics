@@ -21,7 +21,7 @@ if (count($errors) < 1) {
   $isOwned      = $issue->is_owned ? 'true' : 'false';
   $isRead       = $issue->is_read  ? 'true' : 'false';
   $notes        = mysqli_real_escape_string($con, $issue->notes);
-  $numbers      = $issue->numbers;
+  $numbers      = explode(',', $issue->numbers);
   $publisher    = mysqli_real_escape_string($con, $issue->publisher);
   $sortTitle    = mysqli_real_escape_string($con, $issue->sort_title);
   $title        = mysqli_real_escape_string($con, $issue->title);
