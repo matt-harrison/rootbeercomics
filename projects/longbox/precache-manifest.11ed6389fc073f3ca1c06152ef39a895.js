@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ca70a49e97b6e88b0a64926415e86baf",
+    "revision": "7e9b652933be3ac1447160e7826409c4",
     "url": "/projects/longbox/index.html"
   },
   {
-    "revision": "25fcc258cf640f8e83c0",
+    "revision": "a8b8f506c9e6ff3622f2",
     "url": "/projects/longbox/static/css/main.049a3f54.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/projects/longbox/static/js/2.2d89c269.chunk.js"
   },
   {
-    "revision": "25fcc258cf640f8e83c0",
-    "url": "/projects/longbox/static/js/main.aecc0ff7.chunk.js"
+    "revision": "a8b8f506c9e6ff3622f2",
+    "url": "/projects/longbox/static/js/main.d7890587.chunk.js"
   },
   {
     "revision": "06fd51aff98e2bc7e99e",
