@@ -12,9 +12,9 @@ $title      = (strpos($title, 'by')) ? $title : $title . ', by matt!';
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta property="og:description" content="<?= $desc; ?>"/>
-    <meta property="og:image" content="https://<?= $_SERVER[HTTP_HOST] . $img; ?>"/>
+    <meta property="og:image" content="https://<?= $_SERVER['HTTP_HOST'] . $img; ?>"/>
     <meta property="og:title" content="<?= $title; ?>"/>
-    <meta property="og:url" content="https://<?= $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
+    <meta property="og:url" content="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <title><?= $title; ?></title>
   </head>

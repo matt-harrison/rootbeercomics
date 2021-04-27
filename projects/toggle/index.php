@@ -9,7 +9,7 @@
     <meta property="og:description" content="<?= $desc; ?>"/>
     <meta property="og:image" content="<?= $images[0]; ?>"/>
     <meta property="og:title" content="click to toggle, by matt!"/>
-    <meta property="og:url" content="<?= 'https://' . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]; ?>"/>
+    <meta property="og:url" content="<?= 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <style>
       .customWidth {width: <?= $width; ?>px;}

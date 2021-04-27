@@ -17,7 +17,7 @@ $title = (isset($meta['title']))
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta property="og:description" content="<?= $description; ?>"/>
-  <meta property="og:image" content="https://<?= $_SERVER[HTTP_HOST] . $image; ?>"/>
+  <meta property="og:image" content="https://<?= $_SERVER['HTTP_HOST'] . $image; ?>"/>
   <meta property="og:title" content="<?= $title; ?>"/>
   <meta property="og:type" content="website"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
