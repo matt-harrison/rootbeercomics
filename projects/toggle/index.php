@@ -12,25 +12,35 @@
     <meta property="og:url" content="<?= 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <style>
+      .mb40 {margin-bottom: 40px;}
       .customWidth {width: <?= $width; ?>px;}
     </style>
     <title>click to toggle</title>
   </head>
   <body class="m5">
-    <div class="mAuto customWidth">
-      <?php foreach ($images as $key => $image) { ?>
-        <img data-id="<?= $key; ?>" src="<?= $image; ?>" alt="<?= $title; ?>" class="flex100 btnToggle csrPointer<?= ($key > 0) ? ' hide' : ''; ?>"/>
-      <?php } ?>
-    </div>
+    <?php foreach ($pages as $pageIndex => $page) { ?>
+      <div class="mAuto mb40 btnToggle customWidth csrPointer">
+        <?php foreach ($page as $imageIndex => $image) { ?>
+          <img
+          alt="<?= $title; ?>"
+          class="flex100 btnToggle customWidth csrPointer<?= ($imageIndex > 0) ? ' hide' : ''; ?>"
+          data-index="<?= $imageIndex; ?>"
+          data-page="<?= $pageIndex; ?>"
+          src="<?= $image; ?>"
+          />
+        <?php } ?>
+      </div>
+    <?php } ?>
     <script>
       $('.btnToggle').click(function() {
-        var previousId   = $(this).attr('data-id');
-        var nextId     = 1 + Number(previousId);
-        var nextImage  = $('[data-id="' + nextId + '"]');
-        var firstImage   = $('[data-id="0"]');
-        var displayImage = (nextImage.length > 0) ? nextImage : firstImage;
+        var previousIndex = $(this).attr('data-index');
+        var page          = $(this).attr('data-page');
+        var nextIndex     = 1 + Number(previousIndex);
+        var nextImage     = $('[data-page="' + page + '"][data-index="' + nextIndex + '"]');
+        var firstImage    = $('[data-page="' + page + '"][data-index="0"]');
+        var displayImage  = (nextImage.length > 0) ? nextImage : firstImage;
 
-        $('.btnToggle').addClass('hide');
+        $('.btnToggle[data-page="' + page + '"]').addClass('hide');
         displayImage.removeClass('hide');
       });
     </script>
