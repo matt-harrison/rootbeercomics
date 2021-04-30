@@ -16,12 +16,17 @@ $title      = (strpos($title, 'by')) ? $title : $title . ', by matt!';
     <meta property="og:title" content="<?= $title; ?>"/>
     <meta property="og:url" content="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <style>
+      .page {
+        max-width: calc(100vw - 10px);
+      }
+    </style>
     <title><?= $title; ?></title>
   </head>
   <body class="m5 bgGrayDark">
     <div id="comic">
       <?php for ($i = $first; $i <= $last; $i++) { ?>
-        <img src="img/<?= $book; ?><?= $i; ?>.jpg" alt="page <?= $i; ?>" class="mAuto mb5 w<?= $width; ?>"/>
+        <img src="img/<?= $book; ?><?= $i; ?>.jpg" alt="page <?= $i; ?>" class="page mAuto mb5"/>
       <?php } ?>
     </div>
     <?php if ($incomplete) { ?>
