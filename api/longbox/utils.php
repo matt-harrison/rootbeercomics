@@ -554,15 +554,21 @@ function getWhereIssues($filters = []) {
   }
 
   // Boolean filters
-  if (!is_null($filters['issues']['is_color'])) {
+  if ($filters['issues']['is_color'] === 'null') {
+    $whereConditions[] = "is_color IS NULL";
+  } elseif (!is_null($filters['issues']['is_color'])) {
     $whereConditions[] = "is_color = '" . $filters['issues']['is_color'] . "'";
   }
 
-  if (!is_null($filters['issues']['is_owned'])) {
+  if ($filters['issues']['is_owned'] === 'null') {
+    $whereConditions[] = "is_owned IS NULL";
+  } elseif (!is_null($filters['issues']['is_owned'])) {
     $whereConditions[] = "is_owned = '" . $filters['issues']['is_owned'] . "'";
   }
 
-  if (!is_null($filters['issues']['is_read'])) {
+  if ($filters['issues']['is_read'] === 'null') {
+    $whereConditions[] = "is_read IS NULL";
+  } elseif (!is_null($filters['issues']['is_read'])) {
     $whereConditions[] = "is_read = '" . $filters['issues']['is_read'] . "'";
   }
 
@@ -645,7 +651,11 @@ function parseFilters() {
 
   foreach ($_REQUEST as $key => $value) {
     if (strpos($key, 'is_') > -1) {
-      $value = ($value === 'true' || $value == '1');
+      if ($value === 'null') {
+        $value = 'null';
+      } else {
+        $value = ($value === 'true' || $value == '1');
+      }
     } else {
       $value = mysqli_real_escape_string($con, $value);
     }

@@ -39,8 +39,8 @@ function debug($subject, $indention = 0) {
 
 function escapeSpecialCharacters($input) {
   $output = $input;
-  $output = str_replace("'", '\&apos;', $output);
-  $output = str_replace('"', "\&quot;", $output);
+  $output = str_replace("'", "\'", $output);
+  $output = str_replace('"', '\"', $output);
 
   return $output;
 }

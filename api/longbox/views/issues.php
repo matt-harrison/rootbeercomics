@@ -39,9 +39,9 @@ $issues = getIssuesWithContributors()['issues']['results'];
           <td><?= $issue['title_id']; ?></td>
           <td><?= $issue['title']; ?></td>
           <td><?= $issue['number']; ?></td>
-          <td><?= $issue['is_read']; ?></td>
-          <td><?= $issue['is_owned']; ?></td>
-          <td><?= $issue['is_color']; ?></td>
+          <td><?= is_null($issue['is_read'])  ? 'null' : $issue['is_read']; ?></td>
+          <td><?= is_null($issue['is_owned']) ? 'null' : $issue['is_owned']; ?></td>
+          <td><?= is_null($issue['is_color']) ? 'null' : $issue['is_color']; ?></td>
           <td><?= $issue['year']; ?></td>
           <td><?= $issue['notes']; ?></td>
           <td>
