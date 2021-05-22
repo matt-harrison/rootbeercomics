@@ -38,8 +38,10 @@ Redirect /tecmo       /games/flash/tecmo
 Redirect /tetris      /games/flash/mattris
 Redirect /mattris     /games/flash/mattris
 
-Redirect /list        /projects/list
+Redirect /bingo       /projects/bingo
 Redirect /calendar    /projects/list/calendar
+Redirect /list        /projects/list
+Redirect /longbox     /projects/longbox
 
 RedirectMatch /comics/(\d+)          /comics/index.php?id=$1
 RedirectMatch /comics/old/(\d+)      /comics/old/index.php?id=$1
